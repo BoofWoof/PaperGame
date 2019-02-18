@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1e1c7c93e33e2834bbfd068b7b0f9f05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93,3 +93,5 @@ MonoBehaviour:
   textfile: {fileID: 4900000, guid: 151a2f86b0aa7764db91657ecc84f4fd, type: 3}
   myText: {fileID: 0}
   TextDisplaySpeed: 0.1
+  fontChoice: {fileID: 12800000, guid: 5af99db7a9ee68142bfa968c164f76a8, type: 3}
+  fontMaterialChoice: {fileID: 2100000, guid: 419caab36092ee748b99d0ac41ef4ba8, type: 2}

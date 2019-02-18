@@ -51,12 +51,17 @@ public class CharacterMovementOverworld : MonoBehaviour
         {
             jump = 0;
             jumped = false;
+            spriteAnimate.SetTrigger("Land");
         }
         else
         {
             jump = jump + (gravity * Time.deltaTime);
         }
         //Stop Movement
+        if ((jump > 5)||(jump < -5))
+        {
+            spriteAnimate.SetTrigger("Jump");
+        }
         if (GameController.gameMode == "Mobile")
         {
             if (Input.GetButton("Fire1") && (jumped == false))
@@ -156,5 +161,10 @@ public class CharacterMovementOverworld : MonoBehaviour
         prev_rotated = rotated;
         //SPRITE ROTATION END------------------------------------------------------------------
         
+    }
+
+    public void jumpCall()
+    {
+        jump = jumpForce;
     }
 }

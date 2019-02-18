@@ -26,7 +26,10 @@ public class TextBoxController : MonoBehaviour
     private int stringLen = 0;
     private int stringDisp = 0;
 
-    private float edge = 0.9f;
+    //Test Display
+    private float edge = 0f;
+    public Font fontChoice;
+    public Material fontMaterialChoice;
 
     // Start is called before the first frame update
     void Start()
@@ -38,12 +41,14 @@ public class TextBoxController : MonoBehaviour
         dialogue.transform.SetParent(this.transform);
 
         myText = dialogue.AddComponent<TextMesh>();
-        myText.fontSize = 40;
+        myText.font = fontChoice;
+        dialogue.GetComponent<MeshRenderer>().material = fontMaterialChoice;
+        myText.fontSize = 30;
         myText.characterSize = 0.04f;
-        myText.anchor = TextAnchor.UpperLeft;
-        myText.alignment = TextAlignment.Left;
+        myText.anchor = TextAnchor.MiddleCenter;
+        myText.alignment = TextAlignment.Center;
         myText.transform.position = new Vector3(this.transform.position.x-edge, this.transform.position.y+edge*0.5f, this.transform.position.z);
-        myText.color = new Color(0, 0, 0);
+        //myText.color = new Color(255, 255, 255);
 
         displayedTextFull = textLines[currentLine];
         stringDisp = displayedTextFull.Length;
@@ -112,12 +117,6 @@ public class TextBoxController : MonoBehaviour
     {
         int placement = inputString.LastIndexOf(" ");
         inputString = inputString.Remove(placement,1).Insert(placement, "\n");
-        print("NewPrint");
-        print(placement);
-        print(lastPlacement);
-        lineLength = lineLength - (placement - lastPlacement) - 1;
-        print(lineLength);
-        lastPlacement = placement;
         return (inputString);
     }
 

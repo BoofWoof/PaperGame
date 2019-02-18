@@ -31,7 +31,7 @@ public class CameraFollow : MonoBehaviour
         //CAMERA GOAL DIALOGUE START-----------------------------------------------
         if (GameController.gameMode == "Dialogue")
         {
-            cameraGoal = new Vector3(objectPosition.x + dialogueOffsetMultiplier*xoffset, objectPosition.y + 0.5f + dialogueOffsetMultiplier * yoffset, objectPosition.z + dialogueOffsetMultiplier * zoffset);
+            cameraGoal = new Vector3(objectPosition.x + dialogueOffsetMultiplier*xoffset, objectPosition.y + 1.5f + dialogueOffsetMultiplier * yoffset, objectPosition.z + dialogueOffsetMultiplier * zoffset);
         }
         //CAMERA GOAL DIALOGUE END-----------------------------------------------
 
