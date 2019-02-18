@@ -51,12 +51,21 @@ public class CharacterMovementOverworld : MonoBehaviour
         {
             jump = 0;
             jumped = false;
+            lastground = cc.transform.position;
             spriteAnimate.SetTrigger("Land");
         }
         else
         {
             jump = jump + (gravity * Time.deltaTime);
         }
+        //POSITION RESET IF FALLEN START---------------------------
+        if (cc.transform.position.y < -5)
+        {
+            print(lastground);
+            jump = 0;
+            cc.Move(new Vector3(lastground.x - cc.transform.position.x, lastground.y - cc.transform.position.y, lastground.z - cc.transform.position.z));
+        }
+        //POSITION RESET IF FALLEN END---------------------------
         //Stop Movement
         if ((jump > 5)||(jump < -5))
         {
@@ -76,21 +85,7 @@ public class CharacterMovementOverworld : MonoBehaviour
         }
         cc.Move(new Vector3(0, jump * Time.deltaTime, 0));
         //JUMP END-----------------------------------------
-
-        //SPRITE FRAME UPDATES START----------------------------
-        //sprite.transform.position = cc.transform.position;
-        //SPRITE FRAME UPDATES END----------------------------
-
-        //POSITION RESET IF FALLEN START---------------------------
-        if (cc.isGrounded == true)
-        {
-            lastground = cc.transform.position;
-        }
-        if (cc.transform.position.y < -5)
-        {
-            cc.transform.position = lastground;
-        }
-        //POSITION RESET IF FALLEN END---------------------------
+        
 
         //ARE THEY MOVING
         float moveHorizontal = Input.GetAxis("Horizontal");
@@ -114,7 +109,8 @@ public class CharacterMovementOverworld : MonoBehaviour
             //MOVEMENT START---------------------------------------------------------------------------------
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
-            Vector3 movement = new Vector3(moveHorizontal * speed, 0, moveVertical * speed);
+            Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
+        movement = speed * movement / movement.magnitude;
             cc.Move(movement);
         //MOVEMENT END---------------------------------------------------------------------------------
 

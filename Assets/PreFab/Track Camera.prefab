@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6844698882489473076}
   - component: {fileID: 6844698882489473065}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Track Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,3 +102,5 @@ MonoBehaviour:
   xoffset: 0
   yoffset: 4
   zoffset: -6
+  dialogueOffsetMultiplier: 0.5
+  speed: 12.23

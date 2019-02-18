@@ -2718,27 +2718,32 @@ PrefabInstance:
     - target: {fileID: 6844698882489473065, guid: 3b37c697e051fa2448470695f77f7ff3,
         type: 3}
       propertyPath: ztolerance
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6844698882489473065, guid: 3b37c697e051fa2448470695f77f7ff3,
         type: 3}
       propertyPath: xtolerance
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6844698882489473065, guid: 3b37c697e051fa2448470695f77f7ff3,
         type: 3}
       propertyPath: zoffset
-      value: -4
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 6844698882489473065, guid: 3b37c697e051fa2448470695f77f7ff3,
         type: 3}
       propertyPath: yoffset
-      value: 0.9
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6844698882489473065, guid: 3b37c697e051fa2448470695f77f7ff3,
         type: 3}
       propertyPath: dialogueOffsetMultiplier
-      value: 0.8
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844698882489473065, guid: 3b37c697e051fa2448470695f77f7ff3,
+        type: 3}
+      propertyPath: speed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b37c697e051fa2448470695f77f7ff3, type: 3}
@@ -2799,7 +2804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 104110597, guid: 05535381b9cbe1541a68f8b43ef2741f, type: 3}
       propertyPath: speed
-      value: 0.08
+      value: 0.06
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05535381b9cbe1541a68f8b43ef2741f, type: 3}

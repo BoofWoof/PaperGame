@@ -32,6 +32,10 @@ public class CameraFollow : MonoBehaviour
         if (GameController.gameMode == "Dialogue")
         {
             cameraGoal = new Vector3(objectPosition.x + dialogueOffsetMultiplier*xoffset, objectPosition.y + 1.5f + dialogueOffsetMultiplier * yoffset, objectPosition.z + dialogueOffsetMultiplier * zoffset);
+            //CAMERA MOVE START--------------------------------------
+            //Vector3 xdif = new Vector3(cameraGoal.x - cameraPosition.x, cameraGoal.y - cameraPosition.y, cameraGoal.z - cameraPosition.z);
+            //cameraTransform.transform.position = cameraPosition + (xdif * speed) * Time.deltaTime;
+            //CAMERA MOVE END--------------------------------------
         }
         //CAMERA GOAL DIALOGUE END-----------------------------------------------
 
@@ -65,12 +69,18 @@ public class CameraFollow : MonoBehaviour
             {
                 cameraGoal = new Vector3(cameraGoal.x, objectPosition.y - ytolerance + yoffset, cameraGoal.z);
             }
+            //CAMERA MOVE START--------------------------------------
+            //cameraTransform.transform.position = cameraGoal;
+            //CAMERA MOVE END--------------------------------------
         }
         //CAMERA GOAL MOBILE END-----------------------------------------------
-
-        //CAMERA MOVE START--------------------------------------
         Vector3 xdif = new Vector3(cameraGoal.x - cameraPosition.x, cameraGoal.y - cameraPosition.y, cameraGoal.z - cameraPosition.z);
-        cameraTransform.transform.position = cameraPosition + (xdif * speed);
-        //CAMERA MOVE END--------------------------------------
+        if (xdif.magnitude > 0.1)
+        {
+            cameraTransform.transform.position = cameraPosition + (xdif * speed * Time.deltaTime);
+        } else
+        {
+            cameraTransform.transform.position = cameraGoal;
+        }
     }
 }
