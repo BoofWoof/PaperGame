@@ -75,10 +75,9 @@ public class CameraFollow : MonoBehaviour
         }
         //CAMERA GOAL MOBILE END-----------------------------------------------
         Vector3 xdif = new Vector3(cameraGoal.x - cameraPosition.x, cameraGoal.y - cameraPosition.y, cameraGoal.z - cameraPosition.z);
-        if (xdif.magnitude > 0.1)
-        {
-            cameraTransform.transform.position = cameraPosition + (xdif * speed * Time.deltaTime);
-        } else
+        cameraTransform.transform.position = cameraPosition + (xdif * speed * Time.deltaTime)/xdif.magnitude;
+
+        if (xdif.magnitude < 0.1)
         {
             cameraTransform.transform.position = cameraGoal;
         }
