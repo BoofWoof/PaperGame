@@ -9,7 +9,7 @@ public class CharacterMovementOverworld : MonoBehaviour
     public float speed = 0.1f;
     public float gravity = -20.0f;
     private float jump = 0.0f;
-    private float jumpForce = 8.0f;
+    private float jumpForce = 10.0f;
 
     //Objects and Components
     private SpriteRenderer sprite;
@@ -66,11 +66,6 @@ public class CharacterMovementOverworld : MonoBehaviour
             cc.Move(new Vector3(lastground.x - cc.transform.position.x, lastground.y - cc.transform.position.y, lastground.z - cc.transform.position.z));
         }
         //POSITION RESET IF FALLEN END---------------------------
-        //Stop Movement
-        if ((jump > 5)||(jump < -5))
-        {
-            spriteAnimate.SetTrigger("Jump");
-        }
         if (GameController.gameMode == "Mobile")
         {
             if (Input.GetButton("Fire1") && (jumped == false))
@@ -78,6 +73,11 @@ public class CharacterMovementOverworld : MonoBehaviour
                 jump = jumpForce;
                 jumped = true;
             }
+        }
+        //Stop Movement
+        if ((jump > jumpForce*.9) || (jump < -jumpForce*.9))
+        {
+            spriteAnimate.SetTrigger("Jump");
         }
         if ((GameController.gameMode == "Dialogue")&&(jump>0))
         {
@@ -110,7 +110,7 @@ public class CharacterMovementOverworld : MonoBehaviour
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
             Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
-        movement = speed * movement / movement.magnitude;
+            movement = speed * movement / movement.magnitude;
             cc.Move(movement);
         //MOVEMENT END---------------------------------------------------------------------------------
 
