@@ -118,9 +118,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fedca820bfb5834cafe67f67c5ae6c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  power: 2
   cursorInput: {fileID: 6276102471281981325, guid: babba3d123f424d4eae88e73b64da907,
     type: 3}
-  friendly: 1
+  friendlySource: 0
   targetID: 0
   cursor: {fileID: 0}
   released: 1

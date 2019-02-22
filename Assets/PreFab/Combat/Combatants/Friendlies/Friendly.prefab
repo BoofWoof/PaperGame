@@ -126,14 +126,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c29dea6a3027a8448e93338661f7e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HPMax: 20
-  HP: 20
-  moveContainer: {fileID: 5083241241202991096}
-  myID: 0
   friendlyList: []
   enemyList: []
-  myTurn: 0
+  myID: 0
   friendly: 0
+  HPMax: 25
+  HP: 20
+  Defense: 0
+  moveContainer: {fileID: 5083241241202991096}
+  myTurn: 0
   MenuObject: {fileID: 1937189058644951532, guid: 2695247b2b322dd479f7af900316b197,
     type: 3}
 --- !u!1001 &5612702558300401628
@@ -213,20 +214,19 @@ PrefabInstance:
         type: 3}
       propertyPath: move2
       value: 
-      objectReference: {fileID: 2990265708923708490, guid: 6ab7fb6454cc1334dafdf7eecb04a5f2,
+      objectReference: {fileID: 3839709415561092306, guid: 7b11ff685d0eba94abfa024e2ba06f10,
         type: 3}
     - target: {fileID: 6783865450976351647, guid: b27dfe58d957c7748a09f3db1fa11efd,
         type: 3}
       propertyPath: move3
       value: 
-      objectReference: {fileID: 3839709415561092306, guid: 7b11ff685d0eba94abfa024e2ba06f10,
+      objectReference: {fileID: 4864721573351564011, guid: 5ad7c6e9cdc793744b9e2ae990122dcd,
         type: 3}
     - target: {fileID: 6783865450976351647, guid: b27dfe58d957c7748a09f3db1fa11efd,
         type: 3}
       propertyPath: move4
       value: 
-      objectReference: {fileID: 3839709415561092306, guid: 7b11ff685d0eba94abfa024e2ba06f10,
-        type: 3}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b27dfe58d957c7748a09f3db1fa11efd, type: 3}
 --- !u!1 &5083241241202991096 stripped

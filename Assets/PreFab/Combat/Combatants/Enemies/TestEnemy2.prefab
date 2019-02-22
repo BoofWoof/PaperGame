@@ -104,3 +104,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6951a741c343f6c4a82e2d83e9f14c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  friendlyList: []
+  enemyList: []
+  myID: 0
+  friendly: 0
+  HPMax: 2
+  HP: 2
+  Defense: 1
+  moveContainer: {fileID: 0}
+  myTurn: 0
+  actionsAvailable: []

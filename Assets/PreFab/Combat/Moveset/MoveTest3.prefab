@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2990265708923708490
+--- !u!1 &4864721573351564011
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5783273914537275370}
-  - component: {fileID: 2853873025719079272}
-  - component: {fileID: 4506224827278119454}
-  - component: {fileID: 859328619244500887}
-  - component: {fileID: 2078932024433610673}
-  - component: {fileID: 380362147830196226}
+  - component: {fileID: 4233146521772075339}
+  - component: {fileID: 5577574873559947209}
+  - component: {fileID: 6085536500187141311}
+  - component: {fileID: 6994523966526484790}
+  - component: {fileID: 8513106251204118800}
+  - component: {fileID: 4864721573351564010}
   m_Layer: 0
-  m_Name: MoveTest1
+  m_Name: MoveTest3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5783273914537275370
+--- !u!4 &4233146521772075339
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2990265708923708490}
+  m_GameObject: {fileID: 4864721573351564011}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.18036, y: -4.1911936, z: 1.9661808}
+  m_LocalPosition: {x: 10.64, y: 7.816838, z: -9.39213}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2853873025719079272
+--- !u!33 &5577574873559947209
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2990265708923708490}
+  m_GameObject: {fileID: 4864721573351564011}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &4506224827278119454
+--- !u!23 &6085536500187141311
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2990265708923708490}
+  m_GameObject: {fileID: 4864721573351564011}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 1
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1e1c7c93e33e2834bbfd068b7b0f9f05, type: 2}
+  - {fileID: 2100000, guid: 1619ce5c9f66bde43a198ca41f896add, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -80,13 +80,13 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &859328619244500887
+--- !u!64 &6994523966526484790
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2990265708923708490}
+  m_GameObject: {fileID: 4864721573351564011}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -94,39 +94,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &2078932024433610673
+--- !u!114 &8513106251204118800
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2990265708923708490}
+  m_GameObject: {fileID: 4864721573351564011}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a433699b09a44c04395e67b85cbdfc5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &380362147830196226
+--- !u!114 &4864721573351564010
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2990265708923708490}
+  m_GameObject: {fileID: 4864721573351564011}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24687f9ae9036994bb6c23326e3ef5d3, type: 3}
+  m_Script: {fileID: 11500000, guid: cbec7e05362a425489f67e32427362d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetID: 0
-  power: 2
-  sourceID: 0
-  friendlySource: 0
+  power: 1
   cursorInput: {fileID: 6276102471281981325, guid: babba3d123f424d4eae88e73b64da907,
     type: 3}
+  friendlySource: 0
+  targetID: 0
   cursor: {fileID: 0}
   released: 1
+  myID: 0
   friendlyList: []
   enemyList: []
-  dialogueCutscene: {fileID: 6338814272384217417, guid: 40b1750c77484024990b46977ebeb5d9,
-    type: 3}

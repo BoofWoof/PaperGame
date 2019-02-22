@@ -5,34 +5,60 @@ using UnityEngine;
 
 public class MoveClass : MonoBehaviour
 {
-    public int power = 1;
-
-    public enum selectModeTypes { off, select_setup, selecting}
-    public enum targetModeTypes { Self, Friends, Enemies, Others, NoTarget, Random}
-
-    public GameObject cursorInput;
-    public bool friendly;
+    //SELECTION MODE FOR MOVE AND TARGETING MODE FOR MOVE-------------------------------
+    public enum selectModeTypes { off, select_setup, selecting }
+    public selectModeTypes selectMode { get; set; } = selectModeTypes.off;
+    public enum targetModeTypes { Self, Friends, Enemies, Others, NoTarget, Random }
     public targetModeTypes targetMode { get; set; } = targetModeTypes.Enemies;
     public int targetID = 0;
+    //----------------------------------------------------------------------------------
+
+    //HOW POWERFUL IS THIS MOVE--
+    public int power = 1;
+    //---------------------------
+
+    //ID OF THE SOURCE-------------------------
+    [HideInInspector] public int sourceID;
+    public bool friendlySource;
+    //-----------------------------------------
+
+    //SELECTION CURSOR-----------------
+    public GameObject cursorInput;
     public GameObject cursor = null;
+    //---------------------------------
+
+    //USER INPUT CONTROL-------------
     public bool released = true;
-    public selectModeTypes selectMode { get; set; } = selectModeTypes.off;
-    [HideInInspector] public int myID;
+    private bool canPress = false;
+    //------------------------------
+
+    //LIST OF CHARACTERS------------------------------------
     [HideInInspector] public List<GameObject> friendlyList;
     [HideInInspector] public List<GameObject> enemyList;
-    private bool canPress = false;
-
-
+    //------------------------------------------------------
+    
+    void Awake()
+    {
+        //LOAD CHARACTER LIST------------------
+        friendlyList = sceneLists.friendList;
+        enemyList = sceneLists.enemyList;
+        //-------------------------------------
+    }
 
     public void Update()
     {
+        //SETS UP SELECTION AND SPAWNS A CURSOR------------------------------------------------------
         if (selectMode == selectModeTypes.select_setup)
         {
             cursor = Instantiate<GameObject>(cursorInput, transform.position, Quaternion.identity);
             selectMode = selectModeTypes.selecting;
         }
+        //-------------------------------------------------------------------------------------------
+
+        //SELECT THE TARGET-----------------------------------------------------------------------------------------------------------------------------------------------
         if (selectMode == selectModeTypes.selecting)
         {
+            //CHECK IF THE TARGET SHOULD CHANGE---------------------
             float verticalInput = Input.GetAxis("Vertical");
             if (released) {
                 if (verticalInput > 0)
@@ -50,7 +76,9 @@ public class MoveClass : MonoBehaviour
             {
                 released = true;
             }
-            //ONLY INCLUDING ATTACK ENEMY TYPE FOR NOW
+            //-----------------------------------------------------
+            
+            //DETERMINES WHO THE NEW TARGET WILL BE BASED ON TARGETING TYPE---------------------------------------------------------------------------------------------------------
             if (targetMode == targetModeTypes.Enemies)
             {
                 if((targetID >= enemyList.Count))
@@ -75,6 +103,9 @@ public class MoveClass : MonoBehaviour
                 }
                 cursor.GetComponent<CharacterSelectHover>().startPosition = new Vector3(friendlyList[targetID].transform.position.x, friendlyList[targetID].transform.position.y + 1.0f, friendlyList[targetID].transform.position.z);
             }
+            //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+            //INITIATES MOVE ON SELECTED TARGET------------------
             if ((Input.GetButtonDown("Fire1")) && (canPress))
             {
                 selectMode = selectModeTypes.off;
@@ -82,37 +113,47 @@ public class MoveClass : MonoBehaviour
                 effect();
                 actionDone();
             }
+            //---------------------------------------------------
+
+            //GOES BACK TO MENU---------------------------------------------
             if ((Input.GetButtonDown("Fire2")) && (canPress))
             {
                 selectMode = selectModeTypes.off;
                 Destroy(cursor);
                 transform.parent.GetComponent<BattleMenu>().enableMenu();
             }
-            canPress = true;
+            //--------------------------------------------------------------
+            canPress = true; //this just makes sure that the click to select the menu item doesn't also select the target
         }
+        //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
     }
 
+    //WHAT HAS THE MOVE TAKE ITS ACTION------------------------------
     public void select()
     {
         transform.parent.GetComponent<BattleMenu>().disableMenu();
         selectMode = selectModeTypes.select_setup;
         canPress = false;
     }
+    //-----------------------------------------------------------------
 
+    //THIS IS FILLED IN WITH THE ACTION TO TAKE--
     public virtual void effect()
     {
-
     }
+    //---------------------------------------------
 
+    //WHAT TO DO WHEN THE ACTIONS ARE DONE-----------------------------------------
     public void actionDone()
     {
-        if (friendly)
+        if (friendlySource)
         {
-            friendlyList[myID].GetComponent<FighterClass>().nextTurn();
+            friendlyList[sourceID].GetComponent<FighterClass>().endTurn = true;
         } else
         {
-            enemyList[myID].GetComponent<FighterClass>().nextTurn();
+            enemyList[sourceID].GetComponent<FighterClass>().endTurn = true;
         }
         Destroy(transform.parent.gameObject);
     }
+    //-----------------------------------------------------------------------------
 }
