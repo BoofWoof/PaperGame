@@ -43,14 +43,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d31474a956bb2a448d8076d2afded9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerInput: {fileID: 1817811413365327768, guid: 99ef4d7ddcf4bcd4bbd9a5997549d123,
+  PlayerInput: {fileID: 3913278314737483516, guid: 5c0b9b1c05f9b984f9f5ff7535675bb6,
     type: 3}
-  PartnerInput: {fileID: 1817811413365327768, guid: 99ef4d7ddcf4bcd4bbd9a5997549d123,
+  PartnerInput: {fileID: 3913278314737483516, guid: 5c0b9b1c05f9b984f9f5ff7535675bb6,
     type: 3}
   Enemy_Select: {fileID: 0}
   Scene_Select: {fileID: 3582917076210945380, guid: 3e98a07d6b9764b498c71d183742ac2a,
     type: 3}
   GUI_Select: {fileID: 7241168012234975228, guid: f60aeda383199ae4d9af2ef6f1a66c22,
     type: 3}
-  MenuObject: {fileID: 1937189058644951532, guid: 2695247b2b322dd479f7af900316b197,
+  GUI_Text: {fileID: 6585583579556811626, guid: 6835a6f7130dce04a9ad1bcc2e7a0d36,
     type: 3}

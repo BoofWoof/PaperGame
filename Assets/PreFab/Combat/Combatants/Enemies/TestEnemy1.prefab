@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 459037080134743617}
   - component: {fileID: 5645205088971736318}
   - component: {fileID: 2077015103946058782}
+  - component: {fileID: 4031696740729045252}
   m_Layer: 0
-  m_Name: TestEnemy
+  m_Name: TestEnemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,3 +78,15 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &4031696740729045252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4270595652153212861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6951a741c343f6c4a82e2d83e9f14c9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

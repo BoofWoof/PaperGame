@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCShader : MonoBehaviour
+public class SpriteFrontShader : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

@@ -44,10 +44,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tile1: {fileID: 2990265708923708490, guid: 6ab7fb6454cc1334dafdf7eecb04a5f2, type: 3}
-  Tile2: {fileID: 2990265708923708490, guid: 6ab7fb6454cc1334dafdf7eecb04a5f2, type: 3}
-  Tile3: {fileID: 2990265708923708490, guid: 6ab7fb6454cc1334dafdf7eecb04a5f2, type: 3}
-  Tile4: {fileID: 2990265708923708490, guid: 6ab7fb6454cc1334dafdf7eecb04a5f2, type: 3}
-  Tile5: {fileID: 2990265708923708490, guid: 6ab7fb6454cc1334dafdf7eecb04a5f2, type: 3}
-  Tile6: {fileID: 2990265708923708490, guid: 6ab7fb6454cc1334dafdf7eecb04a5f2, type: 3}
-  Tile7: {fileID: 2990265708923708490, guid: 6ab7fb6454cc1334dafdf7eecb04a5f2, type: 3}
+  Tile2: {fileID: 0}
+  Tile3: {fileID: 0}
+  Tile4: {fileID: 0}
+  Tile5: {fileID: 0}
+  Tile6: {fileID: 0}
+  Tile7: {fileID: 0}
   rotationSpeed: 180
+  comControl: {fileID: 0}
