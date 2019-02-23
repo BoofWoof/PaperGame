@@ -9,6 +9,8 @@ public class SayDialogue : CutSceneClass
     public TextAsset inputText;
     public float heightOverSpeaker;
 
+    private bool started = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +24,6 @@ public class SayDialogue : CutSceneClass
         if (spawnedTextBox == null)
         {
             cutsceneDone();
-            Destroy(gameObject);
         }
     }
 }

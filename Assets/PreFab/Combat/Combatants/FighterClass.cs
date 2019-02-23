@@ -32,50 +32,36 @@ public class FighterClass : MonoBehaviour
 
     //IS IT MY TURN!!!! :o -----------------------
     [HideInInspector] public bool myTurn = false;
-    //-------------------------------------------------------
-
-    //LIST OF CUSTSCENE TASKS------------
-    [HideInInspector] public List<GameObject> cutsceneTasks = new List<GameObject>();
-    //-----------------------------------
 
     //SHOULD I END MY TURN?--------
     [HideInInspector] public bool endTurn = false;
     //-----------------------------
+
+    //Where Did I Start?------------
+    public Vector3 HomePosition;
+    //------------------------------
 
     public void Awake()
     {
         //GRAB THE IMPORTANT LISTS-----------------
         friendlyList = sceneLists.friendList;
         enemyList = sceneLists.enemyList;
+        HomePosition = transform.position;
         //----------------------------------------
     }
 
-    private void Update()
+    public virtual void makeItTurn()
     {
-        //DO I NEED TO PLAY ANY COOL CUTSCENES-----------------------
-        if ((cutsceneTasks.Count > 0)&&(sceneLists.cutScenePlaying==false))
-        {
-            sceneLists.cutScenePlaying = true;
-            GameObject c = Instantiate<GameObject>(cutsceneTasks[0], Vector3.zero, Quaternion.identity);
-            c.transform.SetParent(transform);
-        }
+        HomePosition = transform.position;
+    }
 
-        //DO I NEED TO END THE TURN--------------------------------------
-        if((cutsceneTasks.Count == 0)&&(sceneLists.cutScenePlaying == false)&&(endTurn == true))
+    public void LateUpdate()
+    {
+        if ((sceneLists.cutScenesPlaying == 0) && (endTurn == true) && (sceneLists.newScene == false) && (sceneLists.cutsceneEventList.Count == 0))
         {
             nextTurn();
             endTurn = false;
         }
-        //-----------------------------------------------------------------
-    }
-
-    public void cutSceneDone()
-    {
-        //Gets rid of the finished cutscene task.----
-        GameObject c = cutsceneTasks[0];
-        cutsceneTasks.Remove(c);
-        sceneLists.cutScenePlaying = false;
-        //------------------------------------------
     }
 
     public void nextTurn()

@@ -8,11 +8,40 @@ public static class sceneLists
     //The important list of all enemies and friendly units.  Will eventually add interactable objects to it.
     public static List<GameObject> enemyList = new List<GameObject>();
     public static List<GameObject> friendList = new List<GameObject>();
-    public static bool cutScenePlaying = false;
+
+    public static List<GameObject> cutsceneEventList = new List<GameObject>();
+    public static List<GameObject> cutsceneTarget = new List<GameObject>();
+    public static List<bool> waitforNext = new List<bool>();
+    public static int cutScenesPlaying = 0;
+    public static bool newScene = false;
+
+    public static GameObject cameraTrackTarget;
+    public static Vector3 cameraOffset;
+    public static Vector3 defaultOffset = new Vector3(0, 2.8f, -6.5f);
+
+    //ADD CUTSCENE EVENT----------------------------------
+    public static void addCutseenEvent(GameObject cutsceneEvent, GameObject target, bool wait, params Vector3[] offset)
+    {
+        sceneLists.cutsceneEventList.Add(cutsceneEvent);
+        sceneLists.cutsceneTarget.Add(target);
+        sceneLists.waitforNext.Add(wait);
+        sceneLists.newScene = true;
+        if(offset.Length > 0)
+        {
+            cameraOffset = offset[0];
+            cameraTrackTarget = target;
+        }
+    }
+    //----------------------------------------------------
 }
 
 public class CombatController : MonoBehaviour
 {
+    //TrackingCamera----------------
+    public GameObject trackingCameraInput;
+    private GameObject trackingCamera;
+    //-------------------------------
+
     //SceneInputsandLoadedObjects--------------------------------
     public GameObject PlayerInput;
     public GameObject PartnerInput;
@@ -50,6 +79,14 @@ public class CombatController : MonoBehaviour
         //Create Scene-----------------------------------------------------------------------------------
         scene = (GameObject)Instantiate(Scene_Select, transform.position, Quaternion.identity);
         //---------------------------------------------------------------------------------------------
+
+        //Create Tracking Camera------------------------------------------------------------------------
+        trackingCamera = Instantiate<GameObject>(trackingCameraInput, scene.transform.position + new Vector3(0, 2.5f, -6.5f), Quaternion.Euler(5,0,0));
+        trackingCamera.GetComponent<Camera>().enabled = true;
+        trackingCamera.GetComponent<CameraFollow>().OverworldCamera = false;
+        sceneLists.cameraTrackTarget = scene;
+        sceneLists.cameraOffset = sceneLists.defaultOffset;
+        //----------------------------------------------------------------------------------------------
 
         //Load Scene Positions------------------------------------------------------------------------
         playerPositions = scene.GetComponent<BattleSceneContainer>().PlayerPositions;
@@ -95,7 +132,6 @@ public class CombatController : MonoBehaviour
             GameObject guiText = new GameObject();
             guiText.transform.SetParent(combatCanvas.transform);
             guiText.AddComponent<Text>();
-            guiText.GetComponent<Text>().text = "Boof";
             guiText.GetComponent<Text>().font = (Font)Resources.GetBuiltinResource(typeof(Font), "Arial.ttf");
             guiText.GetComponent<Text>().color = new Color(0, 0, 0);
             guiText.GetComponent<RectTransform>().localPosition = new Vector3(-300, 150-i*20, 0);
@@ -107,8 +143,12 @@ public class CombatController : MonoBehaviour
 
     void Update()
     {
+        //UpdateCamera Tracking-----------------------------
+        trackingCamera.GetComponent<CameraFollow>().ObjectToTrack = sceneLists.cameraTrackTarget;
+        trackingCamera.GetComponent<CameraFollow>().offset = sceneLists.cameraOffset;
+        //--------------------------------------------------
         //UPDATES THE TEST GUI HEALTH TEXT---------------------------------------------------------------------------------------------------------------------
-        for(int i = 0; i < sceneLists.friendList.Count; i++)
+        for (int i = 0; i < sceneLists.friendList.Count; i++)
         {
             HealthText[i].GetComponent<Text>().text = sceneLists.friendList[i].GetComponent<FighterClass>().HP.ToString();
         }
@@ -117,6 +157,27 @@ public class CombatController : MonoBehaviour
             HealthText[j + sceneLists.friendList.Count].GetComponent<Text>().text = sceneLists.enemyList[j].GetComponent<FighterClass>().HP.ToString();
         }
         //----------------------------------------------------------------------------------------------------------------------------------------------------
+
+        //ADD ANY CUTSCENE EVENTS------------------------------------------------------
+        bool keepLooping = true;
+        if ((sceneLists.cutScenesPlaying==0) && (sceneLists.cutsceneEventList.Count > 0))
+        {
+            sceneLists.newScene = false;
+            while ((keepLooping)&& (sceneLists.cutsceneEventList.Count > 0))
+            {
+                sceneLists.cutScenesPlaying++;
+                sceneLists.cutsceneEventList[0].SetActive(true);
+                sceneLists.cutsceneEventList[0].transform.SetParent(sceneLists.cutsceneTarget[0].transform);
+                sceneLists.cutsceneEventList.Remove(sceneLists.cutsceneEventList[0]);
+                sceneLists.cutsceneTarget.Remove(sceneLists.cutsceneTarget[0]);
+                if (sceneLists.waitforNext[0] == true)
+                {
+                    keepLooping = false;
+                }
+                sceneLists.waitforNext.Remove(sceneLists.waitforNext[0]);
+            }
+        }
+        //-----------------------------------------------------------------------------
     }
 
     public void updateIDs()
@@ -135,6 +196,10 @@ public class CombatController : MonoBehaviour
 
     public void nextTurn()
     {
+        //Return Camera To Its Home-------------------
+        sceneLists.cameraTrackTarget = scene;
+        sceneLists.cameraOffset = sceneLists.defaultOffset;
+        //--------------------------------------------
         //CHANGE IDTURN TO NEXT CHARACTER-----------------------------------------------
         IDTurn++;
         if (friendlyTurn)

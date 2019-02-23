@@ -43,3 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e34bbdc2dd96e047a233cbe6cc1efc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heightOverHighestCharacter: 2
+  endPosition: {x: 0, y: 0, z: 0}
+  speed: 1

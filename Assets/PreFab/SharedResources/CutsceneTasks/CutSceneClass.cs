@@ -11,15 +11,12 @@ public class CutSceneClass : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void cutsceneDone()
     {
         if (transform.parent.GetComponent<FighterClass>() != null) {
-            transform.parent.GetComponent<FighterClass>().cutSceneDone();
+            sceneLists.cutScenesPlaying--;
+            Destroy(gameObject);
         }
     }
 }

@@ -130,3 +130,9 @@ MonoBehaviour:
   enemyList: []
   dialogueCutscene: {fileID: 6338814272384217417, guid: 40b1750c77484024990b46977ebeb5d9,
     type: 3}
+  moveCutscene: {fileID: 4588339871268302490, guid: 737d3fac9cd611947af8de54be973482,
+    type: 3}
+  jumpCutscene: {fileID: 4173958811120692625, guid: a3f89ef451df9d54b93463487bf6729a,
+    type: 3}
+  damageCutscene: {fileID: 3810253041558640629, guid: eb61a95cfc2aff34b9c15559733b5b58,
+    type: 3}

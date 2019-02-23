@@ -5,14 +5,12 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public GameObject ObjectToTrack;
-    public float xtolerance = 0.0f;
-    public float ytolerance = 0.0f;
-    public float ztolerance = 0.0f;
-    public float xoffset = 0.0f;
-    public float yoffset = 0.0f;
-    public float zoffset = 0.0f;
+    public Vector3 tolerance = new Vector3(0, 0, 0);
+    public Vector3 offset = new Vector3(0, 0, 0);
     public float dialogueOffsetMultiplier = 0.5f;
     public float speed = 0.1f;
+
+    public bool OverworldCamera = true;
 
     private Transform cameraTransform;
 
@@ -29,9 +27,9 @@ public class CameraFollow : MonoBehaviour
         Vector3 cameraPosition = cameraTransform.transform.position;
         Vector3 cameraGoal = cameraTransform.transform.position;
         //CAMERA GOAL DIALOGUE START-----------------------------------------------
-        if (GameController.gameMode == "Dialogue")
+        if ((GameController.gameMode == "Dialogue")&&(OverworldCamera))
         {
-            cameraGoal = new Vector3(objectPosition.x + dialogueOffsetMultiplier*xoffset, objectPosition.y + 1.5f + dialogueOffsetMultiplier * yoffset, objectPosition.z + dialogueOffsetMultiplier * zoffset);
+            cameraGoal = new Vector3(objectPosition.x + dialogueOffsetMultiplier*offset.x, objectPosition.y + 1.5f + dialogueOffsetMultiplier * offset.y, objectPosition.z + dialogueOffsetMultiplier * offset.z);
             //CAMERA MOVE START--------------------------------------
             //Vector3 xdif = new Vector3(cameraGoal.x - cameraPosition.x, cameraGoal.y - cameraPosition.y, cameraGoal.z - cameraPosition.z);
             //cameraTransform.transform.position = cameraPosition + (xdif * speed) * Time.deltaTime;
@@ -40,34 +38,34 @@ public class CameraFollow : MonoBehaviour
         //CAMERA GOAL DIALOGUE END-----------------------------------------------
 
         //CAMERA GOAL MOBILE START-----------------------------------------------
-        if (GameController.gameMode == "Mobile")
+        if ((GameController.gameMode == "Mobile")||(OverworldCamera))
         {        
             // X POSITION FIXING
-            if ((cameraPosition.x - xtolerance) > (objectPosition.x + xoffset))
+            if ((cameraPosition.x - tolerance.x) > (objectPosition.x + offset.x))
             {
-                cameraGoal = new Vector3(objectPosition.x + xtolerance + xoffset, cameraGoal.y, cameraGoal.z);
+                cameraGoal = new Vector3(objectPosition.x + tolerance.x + offset.x, cameraGoal.y, cameraGoal.z);
             }
-            if ((cameraPosition.x + xtolerance) < (objectPosition.x + xoffset))
+            if ((cameraPosition.x + tolerance.x) < (objectPosition.x + offset.x))
             {
-                cameraGoal = new Vector3(objectPosition.x - xtolerance + xoffset, cameraGoal.y, cameraGoal.z);
+                cameraGoal = new Vector3(objectPosition.x - tolerance.x + offset.x, cameraGoal.y, cameraGoal.z);
             }
             // Z POSITION FIX
-            if ((cameraPosition.z - ztolerance) > (objectPosition.z + zoffset))
+            if ((cameraPosition.z - tolerance.z) > (objectPosition.z + offset.z))
             {
-                cameraGoal = new Vector3(cameraGoal.x, cameraGoal.y, objectPosition.z + ztolerance + zoffset);
+                cameraGoal = new Vector3(cameraGoal.x, cameraGoal.y, objectPosition.z + tolerance.z + offset.z);
             }
-            if ((cameraPosition.z + ztolerance) < (objectPosition.z + zoffset))
+            if ((cameraPosition.z + tolerance.z) < (objectPosition.z + offset.z))
             {
-                cameraGoal = new Vector3(cameraGoal.x, cameraGoal.y, objectPosition.z - ztolerance + zoffset);
+                cameraGoal = new Vector3(cameraGoal.x, cameraGoal.y, objectPosition.z - tolerance.z + offset.z);
             }
             // Y POSITION FIX
-            if ((cameraPosition.y - ytolerance) > (objectPosition.y + yoffset))
+            if ((cameraPosition.y - tolerance.y) > (objectPosition.y + offset.y))
             {
-                cameraGoal = new Vector3(cameraGoal.x, objectPosition.y + ytolerance + yoffset, cameraGoal.z);
+                cameraGoal = new Vector3(cameraGoal.x, objectPosition.y + tolerance.y + offset.y, cameraGoal.z);
             }
-            if ((cameraPosition.y + ytolerance) < (objectPosition.y + yoffset))
+            if ((cameraPosition.y + tolerance.y) < (objectPosition.y + offset.y))
             {
-                cameraGoal = new Vector3(cameraGoal.x, objectPosition.y - ytolerance + yoffset, cameraGoal.z);
+                cameraGoal = new Vector3(cameraGoal.x, objectPosition.y - tolerance.y + offset.y, cameraGoal.z);
             }
             //CAMERA MOVE START--------------------------------------
             //cameraTransform.transform.position = cameraGoal;
