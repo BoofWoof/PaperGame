@@ -65,7 +65,7 @@ public class BattleMenu : MonoBehaviour
                 {
                     selectTile();
                 }
-                float horizontalInput = Input.GetAxis("Vertical");
+                float horizontalInput = -Input.GetAxis("Horizontal");
                 if (horizontalInput > 0)
                 {
                     rotationGoal = rotation;

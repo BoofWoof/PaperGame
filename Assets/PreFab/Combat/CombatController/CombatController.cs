@@ -3,43 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public static class sceneLists
-{
-    //The important list of all enemies and friendly units.  Will eventually add interactable objects to it.
-    public static List<GameObject> enemyList = new List<GameObject>();
-    public static List<GameObject> friendList = new List<GameObject>();
-
-    public static List<GameObject> cutsceneEventList = new List<GameObject>();
-    public static List<GameObject> cutsceneTarget = new List<GameObject>();
-    public static List<bool> waitforNext = new List<bool>();
-    public static int cutScenesPlaying = 0;
-    public static bool newScene = false;
-
-    public static GameObject cameraTrackTarget;
-    public static Vector3 cameraOffset;
-    public static Vector3 defaultOffset = new Vector3(0, 2.8f, -6.5f);
-
-    //ADD CUTSCENE EVENT----------------------------------
-    public static void addCutseenEvent(GameObject cutsceneEvent, GameObject target, bool wait, params Vector3[] offset)
-    {
-        sceneLists.cutsceneEventList.Add(cutsceneEvent);
-        sceneLists.cutsceneTarget.Add(target);
-        sceneLists.waitforNext.Add(wait);
-        sceneLists.newScene = true;
-        if(offset.Length > 0)
-        {
-            cameraOffset = offset[0];
-            cameraTrackTarget = target;
-        }
-    }
-    //----------------------------------------------------
-}
-
 public class CombatController : MonoBehaviour
 {
     //TrackingCamera----------------
     public GameObject trackingCameraInput;
-    private GameObject trackingCamera;
+    public GameObject trackingCamera;
     //-------------------------------
 
     //SceneInputsandLoadedObjects--------------------------------
@@ -71,6 +39,10 @@ public class CombatController : MonoBehaviour
     
     void Start()
     {
+        //RECORD THIS AS A PUBLIC VARIABLE FOR EASY ACCESS-----------
+        sceneLists.gameControllerAccess = gameObject;
+        //-----------------------------------------------------------
+
         //Empty Global Variable--------------------------
         sceneLists.enemyList = new List<GameObject>();
         sceneLists.friendList = new List<GameObject>();
@@ -86,6 +58,7 @@ public class CombatController : MonoBehaviour
         trackingCamera.GetComponent<CameraFollow>().OverworldCamera = false;
         sceneLists.cameraTrackTarget = scene;
         sceneLists.cameraOffset = sceneLists.defaultOffset;
+        sceneLists.defaultFocus = scene;
         //----------------------------------------------------------------------------------------------
 
         //Load Scene Positions------------------------------------------------------------------------
@@ -102,7 +75,7 @@ public class CombatController : MonoBehaviour
         {
             GameObject newEnemy = Instantiate<GameObject>(enemyObjectList[i], enemyPositions[i].transform.position, Quaternion.identity);
             sceneLists.enemyList.Add(newEnemy);
-            newEnemy.GetComponent<FighterClass>().myID = sceneLists.enemyList.Count;
+            newEnemy.GetComponent<FighterClass>().myID = sceneLists.enemyList.Count - 1;
             sceneLists.enemyList[i].transform.parent = transform;
         }
         //------------------------------------------------------------------------------------------------------------------------------------
@@ -175,6 +148,15 @@ public class CombatController : MonoBehaviour
                     keepLooping = false;
                 }
                 sceneLists.waitforNext.Remove(sceneLists.waitforNext[0]);
+                //CAMERA ADJUSTMENT------------------------------------------------
+                if (sceneLists.offsetList[0] != Vector3.zero)
+                {
+                    sceneLists.cameraOffset = sceneLists.offsetList[0];
+                    sceneLists.cameraTrackTarget = sceneLists.cameraFocusList[0];
+                }
+                sceneLists.offsetList.Remove(sceneLists.offsetList[0]);
+                sceneLists.cameraFocusList.Remove(sceneLists.cameraFocusList[0]);
+                //-----------------------------------------------------------------
             }
         }
         //-----------------------------------------------------------------------------
@@ -207,18 +189,15 @@ public class CombatController : MonoBehaviour
             if(IDTurn >= sceneLists.friendList.Count)
             {
                 IDTurn = 0;
-                //friendlyTurn = false;
+                friendlyTurn = false;
             }
         } else
         {
-            /*
-            IDTurn++;
-            if (IDTurn >= enemyList.Count)
+            if (IDTurn >= sceneLists.enemyList.Count)
             {
                 IDTurn = 0;
                 friendlyTurn = true;
             }
-            */
         }
         //---------------------------------------------------------------------------------
 
@@ -228,7 +207,7 @@ public class CombatController : MonoBehaviour
             sceneLists.friendList[IDTurn].GetComponent<FriendlyScript>().makeItTurn();
         } else
         {
-            //enemyList[IDTurn].GetComponent<EnemyScript>().makeItTurn();
+            sceneLists.enemyList[IDTurn].GetComponent<EnemyScript>().makeItTurn();
         }
         //------------------------------------------------------------------------------------
     }

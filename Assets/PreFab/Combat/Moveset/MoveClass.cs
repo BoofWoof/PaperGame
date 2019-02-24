@@ -89,7 +89,7 @@ public class MoveClass : MonoBehaviour
                 {
                     targetID = enemyList.Count - 1;
                 }
-                cursor.GetComponent<CharacterSelectHover>().startPosition = new Vector3(enemyList[targetID].transform.position.x, enemyList[targetID].transform.position.y+1.0f, enemyList[targetID].transform.position.z);
+                cursor.GetComponent<CharacterSelectHover>().startPosition = new Vector3(enemyList[targetID].transform.position.x, enemyList[targetID].transform.position.y+2.0f, enemyList[targetID].transform.position.z);
             }
             if (targetMode == targetModeTypes.Friends)
             {
@@ -101,7 +101,7 @@ public class MoveClass : MonoBehaviour
                 {
                     targetID = friendlyList.Count - 1;
                 }
-                cursor.GetComponent<CharacterSelectHover>().startPosition = new Vector3(friendlyList[targetID].transform.position.x, friendlyList[targetID].transform.position.y + 1.0f, friendlyList[targetID].transform.position.z);
+                cursor.GetComponent<CharacterSelectHover>().startPosition = new Vector3(friendlyList[targetID].transform.position.x, friendlyList[targetID].transform.position.y + 2.0f, friendlyList[targetID].transform.position.z);
             }
             //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -146,14 +146,16 @@ public class MoveClass : MonoBehaviour
     //WHAT TO DO WHEN THE ACTIONS ARE DONE-----------------------------------------
     public void actionDone()
     {
+        GameObject TurnEnder = new GameObject();
+        TurnEnder.AddComponent<NextTurn>();
+        sceneLists.addCutseenEvent(TurnEnder, sceneLists.gameControllerAccess, true);
         if (friendlySource)
         {
-            friendlyList[sourceID].GetComponent<FighterClass>().endTurn = true;
+            Destroy(transform.parent.gameObject);
         } else
         {
-            enemyList[sourceID].GetComponent<FighterClass>().endTurn = true;
+            Destroy(gameObject);
         }
-        Destroy(transform.parent.gameObject);
     }
     //-----------------------------------------------------------------------------
 }

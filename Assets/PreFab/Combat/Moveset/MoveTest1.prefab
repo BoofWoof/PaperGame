@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetID: 0
-  power: 2
+  power: 1
   sourceID: 0
   friendlySource: 0
   cursorInput: {fileID: 6276102471281981325, guid: babba3d123f424d4eae88e73b64da907,

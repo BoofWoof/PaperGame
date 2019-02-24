@@ -44,9 +44,7 @@ public class JumpToLocation : CutSceneClass
         d = (-b - Mathf.Sqrt(b * b - 4 * a * c)) / (2 * a);
 
         amp = -(y1 - height) / (d * d);
-
-        print(amp);
-        print(d);
+        
 
         //THIS IS JUST SOME HELPFUL TEST CODE TO MAKE SURE THE EQUATION WORKS
         /*

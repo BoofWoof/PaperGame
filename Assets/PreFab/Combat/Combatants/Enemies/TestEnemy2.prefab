@@ -113,4 +113,10 @@ MonoBehaviour:
   Defense: 1
   moveContainer: {fileID: 0}
   myTurn: 0
+  endTurn: 0
+  HomePosition: {x: 0, y: 0, z: 0}
+  damageGraphicInput: {fileID: 8375197370763351060, guid: 4e9b24da71bfd3b4ebadac087a13c2f4,
+    type: 3}
+  dialogueEventInput: {fileID: 6338814272384217417, guid: 40b1750c77484024990b46977ebeb5d9,
+    type: 3}
   actionsAvailable: []

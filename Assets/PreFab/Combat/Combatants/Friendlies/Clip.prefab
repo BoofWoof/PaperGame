@@ -135,6 +135,10 @@ MonoBehaviour:
   Defense: 0
   moveContainer: {fileID: 5083241241202991096}
   myTurn: 0
+  endTurn: 0
+  HomePosition: {x: 0, y: 0, z: 0}
+  damageGraphicInput: {fileID: 8375197370763351060, guid: 4e9b24da71bfd3b4ebadac087a13c2f4,
+    type: 3}
   MenuObject: {fileID: 1937189058644951532, guid: 2695247b2b322dd479f7af900316b197,
     type: 3}
 --- !u!1001 &5612702558300401628

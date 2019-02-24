@@ -17,13 +17,8 @@ public class FriendlyScript : FighterClass
 
     public override void makeItTurn()
     {
-        base.makeItTurn();
-        //IT IS MY TURN YAY--------
-        myTurn = true;
-        //----------------------------
-
         //CREATE A MENU OF YOUR MOVES---------------------------------------------------------------------------------------------------------------------------------
-        CombatMenu = Instantiate<GameObject>(MenuObject, new Vector3(transform.position.x+0.25f, transform.position.y + 2, transform.position.z), Quaternion.identity);
+        CombatMenu = Instantiate<GameObject>(MenuObject, new Vector3(transform.position.x+0.25f, transform.position.y + 2.5f, transform.position.z), Quaternion.identity);
         CombatMenu.GetComponent<BattleMenu>().MenuTiles = moveContainer.GetComponent<movesetContainer>().moveList;
         CombatMenu.GetComponent<BattleMenu>().friendlySource = friendly;
         CombatMenu.GetComponent<BattleMenu>().sourceID = myID;

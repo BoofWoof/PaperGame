@@ -23,6 +23,7 @@ public class FighterClass : MonoBehaviour
     //HEALTH VARIABLES AND DEFENSE----------------
     public int HPMax = 25;
     public int HP = 20;
+    public int Power = 0;
     public int Defense = 0;
     //---------------------------------
 
@@ -30,16 +31,12 @@ public class FighterClass : MonoBehaviour
     public GameObject moveContainer = null;
     //---------------------------------------------------
 
-    //IS IT MY TURN!!!! :o -----------------------
-    [HideInInspector] public bool myTurn = false;
-
-    //SHOULD I END MY TURN?--------
-    [HideInInspector] public bool endTurn = false;
-    //-----------------------------
-
     //Where Did I Start?------------
     public Vector3 HomePosition;
     //------------------------------
+
+    public GameObject damageGraphicInput;
+    //-------------------------------------------------------------AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-------------------------------------------bOOF
 
     public void Awake()
     {
@@ -54,24 +51,6 @@ public class FighterClass : MonoBehaviour
     {
         HomePosition = transform.position;
     }
-
-    public void LateUpdate()
-    {
-        if ((sceneLists.cutScenesPlaying == 0) && (endTurn == true) && (sceneLists.newScene == false) && (sceneLists.cutsceneEventList.Count == 0))
-        {
-            nextTurn();
-            endTurn = false;
-        }
-    }
-
-    public void nextTurn()
-    {
-        //GIVE UP YOUR TURN TO SOMEONE ELSE YA CHUMP-----------------------
-        myTurn = false;
-        transform.parent.GetComponent<CombatController>().nextTurn();
-        //-----------------------------------------------------------------
-    }
-
     
     public void attackEffect(int amount, attackType type, statusEffects effects, GameObject source)
     {
@@ -99,19 +78,6 @@ public class FighterClass : MonoBehaviour
         //----------------------------------------
     }
 
-    public virtual void death()
-    {
-        if (friendly)
-        {
-            friendlyList.Remove(gameObject);
-        } else
-        {
-            enemyList.Remove(gameObject);
-        }
-        transform.parent.GetComponent<CombatController>().updateIDs();
-        Destroy(gameObject);
-    }
-
     //This will be replaced with more specific damage types.  --------------
     public virtual void NormalDamage(int amount, GameObject source)
     {
@@ -121,6 +87,8 @@ public class FighterClass : MonoBehaviour
             damage = 0;
         }
         HP -= damage;
+        GameObject damageGraphic = Instantiate(damageGraphicInput, transform.position + new Vector3(0.25f, 1.25f, 0), Quaternion.identity);
+        damageGraphic.GetComponent<DamageIndicator>().damageAmount = damage;
     }
     //-----------------------------------------------------------------------
 
@@ -158,4 +126,12 @@ public class FighterClass : MonoBehaviour
         HP -= amount;
     }
     //---------------------------------------------------------------------------------------------
+
+    public virtual void death()
+    {
+        GameObject deathEvent = new GameObject();
+        deathEvent.SetActive(false);
+        deathEvent.AddComponent<DeathEvent>();
+        sceneLists.addCutseenEventFRONT(deathEvent, gameObject, true);
+    }
 }

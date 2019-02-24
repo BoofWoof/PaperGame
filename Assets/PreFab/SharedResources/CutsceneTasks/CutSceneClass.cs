@@ -14,9 +14,7 @@ public class CutSceneClass : MonoBehaviour
 
     public void cutsceneDone()
     {
-        if (transform.parent.GetComponent<FighterClass>() != null) {
-            sceneLists.cutScenesPlaying--;
-            Destroy(gameObject);
-        }
+        sceneLists.cutScenesPlaying--;
+        Destroy(gameObject);
     }
 }
