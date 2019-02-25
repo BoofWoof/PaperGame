@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3913278314737483504}
   - component: {fileID: 3913278314737483511}
   m_Layer: 0
-  m_Name: Friendly
+  m_Name: Clip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,12 +130,11 @@ MonoBehaviour:
   enemyList: []
   myID: 0
   friendly: 0
-  HPMax: 25
-  HP: 20
+  HPMax: 2
+  HP: 2
+  Power: 0
   Defense: 0
   moveContainer: {fileID: 5083241241202991096}
-  myTurn: 0
-  endTurn: 0
   HomePosition: {x: 0, y: 0, z: 0}
   damageGraphicInput: {fileID: 8375197370763351060, guid: 4e9b24da71bfd3b4ebadac087a13c2f4,
     type: 3}

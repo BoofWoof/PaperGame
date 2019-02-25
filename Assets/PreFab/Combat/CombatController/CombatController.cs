@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CombatController : MonoBehaviour
 {
@@ -182,33 +183,50 @@ public class CombatController : MonoBehaviour
         sceneLists.cameraTrackTarget = scene;
         sceneLists.cameraOffset = sceneLists.defaultOffset;
         //--------------------------------------------
-        //CHANGE IDTURN TO NEXT CHARACTER-----------------------------------------------
-        IDTurn++;
-        if (friendlyTurn)
-        {
-            if(IDTurn >= sceneLists.friendList.Count)
-            {
-                IDTurn = 0;
-                friendlyTurn = false;
-            }
-        } else
-        {
-            if (IDTurn >= sceneLists.enemyList.Count)
-            {
-                IDTurn = 0;
-                friendlyTurn = true;
-            }
-        }
-        //---------------------------------------------------------------------------------
 
-        //Tell The Character It Is Their Turn------------------------------------------------
-        if (friendlyTurn)
+        //END COMBAT------------------------------- this needs a lot more functionality, but it serves its purpose for now.
+        if (sceneLists.friendList.Count == 0)
         {
-            sceneLists.friendList[IDTurn].GetComponent<FriendlyScript>().makeItTurn();
-        } else
-        {
-            sceneLists.enemyList[IDTurn].GetComponent<EnemyScript>().makeItTurn();
+            Application.Quit(0);
         }
-        //------------------------------------------------------------------------------------
+        else if (sceneLists.enemyList.Count == 0)
+        {
+            SceneManager.LoadScene("TestScene1", LoadSceneMode.Single);
+        }
+        else
+        {
+            //--------------------------------------------------
+
+            //CHANGE IDTURN TO NEXT CHARACTER-----------------------------------------------
+            IDTurn++;
+            if (friendlyTurn)
+            {
+                if (IDTurn >= sceneLists.friendList.Count)
+                {
+                    IDTurn = 0;
+                    friendlyTurn = false;
+                }
+            }
+            else
+            {
+                if (IDTurn >= sceneLists.enemyList.Count)
+                {
+                    IDTurn = 0;
+                    friendlyTurn = true;
+                }
+            }
+            //---------------------------------------------------------------------------------
+
+            //Tell The Character It Is Their Turn------------------------------------------------
+            if (friendlyTurn)
+            {
+                sceneLists.friendList[IDTurn].GetComponent<FriendlyScript>().makeItTurn();
+            }
+            else
+            {
+                sceneLists.enemyList[IDTurn].GetComponent<EnemyScript>().makeItTurn();
+            }
+            //------------------------------------------------------------------------------------
+        }
     }
 }

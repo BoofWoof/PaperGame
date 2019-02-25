@@ -34,7 +34,7 @@ public class CharacterMovementOverworld : MonoBehaviour
     {
         cc = GetComponent<CharacterController>();
         lastground = cc.transform.position;
-        sprite = ((GameObject)Instantiate(spriteObject, cc.transform.position, Quaternion.identity)).GetComponent<SpriteRenderer>();
+        sprite = ((GameObject)Instantiate(spriteObject, cc.transform.position - new Vector3(0,cc.height/2,0), Quaternion.identity)).GetComponent<SpriteRenderer>();
         sprite.receiveShadows = true;
         sprite.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.TwoSided;
         rotSpeed = rotSpeedMagnitude;
