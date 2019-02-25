@@ -17,6 +17,7 @@ public class CameraFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ObjectToTrack = GameController.Player;
         cameraTransform = GetComponent<Transform>();
     }
 
@@ -27,9 +28,9 @@ public class CameraFollow : MonoBehaviour
         Vector3 cameraPosition = cameraTransform.transform.position;
         Vector3 cameraGoal = cameraTransform.transform.position;
         //CAMERA GOAL DIALOGUE START-----------------------------------------------
-        if ((GameController.gameMode == "Dialogue")&&(OverworldCamera))
+        if ((GameController.gameMode != GameController.gameModeOptions.Mobile)&&(OverworldCamera))
         {
-            cameraGoal = new Vector3(objectPosition.x + dialogueOffsetMultiplier*offset.x, objectPosition.y + 1.5f + dialogueOffsetMultiplier * offset.y, objectPosition.z + dialogueOffsetMultiplier * offset.z);
+            cameraGoal = new Vector3(objectPosition.x + dialogueOffsetMultiplier*offset.x, objectPosition.y + 0.5f + dialogueOffsetMultiplier * offset.y, objectPosition.z + dialogueOffsetMultiplier * offset.z);
             //CAMERA MOVE START--------------------------------------
             //Vector3 xdif = new Vector3(cameraGoal.x - cameraPosition.x, cameraGoal.y - cameraPosition.y, cameraGoal.z - cameraPosition.z);
             //cameraTransform.transform.position = cameraPosition + (xdif * speed) * Time.deltaTime;
@@ -38,7 +39,7 @@ public class CameraFollow : MonoBehaviour
         //CAMERA GOAL DIALOGUE END-----------------------------------------------
 
         //CAMERA GOAL MOBILE START-----------------------------------------------
-        if ((GameController.gameMode == "Mobile")||(OverworldCamera))
+        if ((GameController.gameMode == GameController.gameModeOptions.Mobile) ||(OverworldCamera==false))
         {        
             // X POSITION FIXING
             if ((cameraPosition.x - tolerance.x) > (objectPosition.x + offset.x))
@@ -75,6 +76,7 @@ public class CameraFollow : MonoBehaviour
         Vector3 xdif = new Vector3(cameraGoal.x - cameraPosition.x, cameraGoal.y - cameraPosition.y, cameraGoal.z - cameraPosition.z);
         if (xdif.magnitude != 0)
         {
+            //cameraTransform.transform.position = 
             cameraTransform.transform.position = cameraPosition + (xdif * speed * Time.deltaTime) / xdif.magnitude;
         }
 

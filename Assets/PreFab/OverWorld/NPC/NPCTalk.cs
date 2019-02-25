@@ -9,6 +9,7 @@ public class NPCTalk : MonoBehaviour
     public GameObject TextObject;
     private GameObject textbox = null;
     public float textspeed = 0.03f;
+    public GameController.gameModeOptions dialogueMode = GameController.gameModeOptions.MobileCutscene;
     private bool textBoxExist = false;
 
     // Start is called before the first frame update
@@ -20,8 +21,9 @@ public class NPCTalk : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1")&&(Vector3.Distance(Character.transform.position, transform.position)<1)&&(GameController.gameMode=="Mobile"))
+        if (Input.GetButtonDown("Fire1")&&(Vector3.Distance(Character.transform.position, transform.position)<1)&&(GameController.gameMode==GameController.gameModeOptions.Mobile))
         {
+            GameController.gameMode = dialogueMode;
             textbox = (GameObject)Instantiate(TextObject, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.identity);
             textbox.transform.SetParent(this.transform);
             textbox.GetComponent<TextBoxController>().textfile = textfile;
@@ -31,7 +33,7 @@ public class NPCTalk : MonoBehaviour
         if ((Vector3.Distance(Character.transform.position, transform.position) > 3) && (textbox != null))
         {
             print("Test");
-            GameController.gameMode = "Mobile";
+            GameController.gameMode = GameController.gameModeOptions.Mobile;
             Destroy(textbox);
             textBoxExist = false;
         }

@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public static string gameMode = "Mobile";
-    public GameObject Playerinit = null;
+    public enum gameModeOptions {Mobile, Cutscene, MobileCutscene};
+    public static gameModeOptions gameMode = gameModeOptions.Mobile;
     public static GameObject Player;
 
     public void Start()
     {
-        Player = Playerinit;
     }
 }
 

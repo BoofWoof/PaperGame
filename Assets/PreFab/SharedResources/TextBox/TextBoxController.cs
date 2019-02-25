@@ -32,7 +32,6 @@ public class TextBoxController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameController.gameMode = "Dialogue";
         textLines = textfile.text.Split('\n');
 
         dialogue = new GameObject("TextboxDialogue");
@@ -104,7 +103,7 @@ public class TextBoxController : MonoBehaviour
         }
         if ((Input.GetButtonDown("Fire1")) && (stringDisp == stringLen) && (currentLine + 1 == textLines.Length))
         {
-            GameController.gameMode = "Mobile";
+            GameController.gameMode = GameController.gameModeOptions.Mobile;
             Destroy(gameObject);
         }
     }

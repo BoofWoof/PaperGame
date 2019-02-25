@@ -32,6 +32,7 @@ public class CharacterMovementOverworld : MonoBehaviour
 
     void Start()
     {
+        GameController.Player = gameObject;
         cc = GetComponent<CharacterController>();
         lastground = cc.transform.position;
         sprite = ((GameObject)Instantiate(spriteObject, cc.transform.position - new Vector3(0,cc.height/2,0), Quaternion.identity)).GetComponent<SpriteRenderer>();
@@ -65,37 +66,25 @@ public class CharacterMovementOverworld : MonoBehaviour
             cc.Move(new Vector3(lastground.x - cc.transform.position.x, lastground.y - cc.transform.position.y, lastground.z - cc.transform.position.z));
         }
         //POSITION RESET IF FALLEN END---------------------------
-        if (GameController.gameMode == "Mobile")
+        if (GameController.gameMode == GameController.gameModeOptions.Mobile)
         {
             if (Input.GetButton("Fire1") && (jumped == false))
             {
                 jump = jumpForce;
                 jumped = true;
             }
+        } 
+        if (GameController.gameMode != GameController.gameModeOptions.Mobile && jump>0)
+        {
+            jump = 0;
         }
         //Stop Movement
         if ((jump > jumpForce*.9) || (jump < -jumpForce*.9))
         {
             spriteAnimate.SetTrigger("Jump");
         }
-        if ((GameController.gameMode == "Dialogue")&&(jump>0))
-        {
-            jump = 0;
-        }
         cc.Move(new Vector3(0, jump * Time.deltaTime, 0));
         //JUMP END-----------------------------------------
-        
-
-        //ARE THEY MOVING
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-        if ((moveVertical != 0) || (moveHorizontal != 0))
-        {
-            spriteAnimate.SetTrigger("Go");
-        } else
-        {
-            spriteAnimate.SetTrigger("Stop");
-        }
     }
 
 
@@ -105,15 +94,31 @@ public class CharacterMovementOverworld : MonoBehaviour
         //Stop Movement
         //if (GameController.gameMode == "Mobile")
         //{
-            //MOVEMENT START---------------------------------------------------------------------------------
-            float moveHorizontal = Input.GetAxis("Horizontal");
-            float moveVertical = Input.GetAxis("Vertical");
+        //MOVEMENT START---------------------------------------------------------------------------------
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
+        if (GameController.gameMode != GameController.gameModeOptions.Cutscene)
+        {
             Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
             movement = speed * movement / movement.magnitude;
             cc.Move(movement);
+            if ((moveVertical != 0) || (moveHorizontal != 0))
+            {
+                spriteAnimate.SetTrigger("Go");
+            }
+            else
+            {
+                spriteAnimate.SetTrigger("Stop");
+            }
+        } else
+        {
+            moveHorizontal = 0;
+            moveVertical = 0;
+            spriteAnimate.SetTrigger("Stop");
+        }
         //MOVEMENT END---------------------------------------------------------------------------------
 
-        
+
         //SetRotationGoals
         if ((moveHorizontal > 0))
         {
