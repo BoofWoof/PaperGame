@@ -9,13 +9,13 @@ public class DeathEvent : CutSceneClass
     {
         if (transform.parent.gameObject.GetComponent<FighterClass>().friendly)
         {
-            sceneLists.friendList.Remove(transform.parent.gameObject);
+            CombatController.friendList.Remove(CombatController.friendList[transform.parent.gameObject.GetComponent<FighterClass>().myID]);
         }
         else
         {
-            sceneLists.enemyList.Remove(transform.parent.gameObject);
+            CombatController.enemyList.Remove(CombatController.enemyList[transform.parent.gameObject.GetComponent<FighterClass>().myID]);
         }
-        sceneLists.gameControllerAccess.GetComponent<CombatController>().updateIDs();
+        CombatController.updateIDs();
         Destroy(transform.parent.gameObject);
         cutsceneDone();
     }

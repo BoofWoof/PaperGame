@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8931255781776980428}
   - component: {fileID: 8931255781776980430}
   - component: {fileID: 8931255781776980401}
-  - component: {fileID: 8931255781776980400}
+  - component: {fileID: 6876467215418859337}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa51e8794b5870a48b6a13eab1969c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8931255781776980400
+--- !u!114 &6876467215418859337
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,11 +116,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8931255781776980429}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eef4157a58122144491fef3d3d8ed599, type: 3}
+  m_Script: {fileID: 11500000, guid: d1d84a75fed2a654ab8881dba8a494ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textfile: {fileID: 4900000, guid: 151a2f86b0aa7764db91657ecc84f4fd, type: 3}
-  Character: {fileID: 0}
-  TextObject: {fileID: 4742022992134416575, guid: a08983d62dbc7a945a45c63ddb49dc9c,
+  CharacterName: NameMeYaDingus
+  dialogueMode: 2
+  InputText: {fileID: 0}
+  dialogueCutscene: {fileID: 6338814272384217417, guid: 40b1750c77484024990b46977ebeb5d9,
     type: 3}
-  textspeed: 0.03

@@ -33,15 +33,15 @@ public class MoveClass : MonoBehaviour
     //------------------------------
 
     //LIST OF CHARACTERS------------------------------------
-    [HideInInspector] public List<GameObject> friendlyList;
-    [HideInInspector] public List<GameObject> enemyList;
+    [HideInInspector] public List<Character> friendlyList;
+    [HideInInspector] public List<Character> enemyList;
     //------------------------------------------------------
     
     void Awake()
     {
         //LOAD CHARACTER LIST------------------
-        friendlyList = sceneLists.friendList;
-        enemyList = sceneLists.enemyList;
+        friendlyList = CombatController.friendList;
+        enemyList = CombatController.enemyList;
         //-------------------------------------
     }
 
@@ -89,7 +89,7 @@ public class MoveClass : MonoBehaviour
                 {
                     targetID = enemyList.Count - 1;
                 }
-                cursor.GetComponent<CharacterSelectHover>().startPosition = new Vector3(enemyList[targetID].transform.position.x, enemyList[targetID].transform.position.y+2.0f, enemyList[targetID].transform.position.z);
+                cursor.GetComponent<CharacterSelectHover>().startPosition = new Vector3(enemyList[targetID].CharacterObject.transform.position.x, enemyList[targetID].CharacterObject.transform.position.y+2.0f, enemyList[targetID].CharacterObject.transform.position.z);
             }
             if (targetMode == targetModeTypes.Friends)
             {
@@ -101,7 +101,7 @@ public class MoveClass : MonoBehaviour
                 {
                     targetID = friendlyList.Count - 1;
                 }
-                cursor.GetComponent<CharacterSelectHover>().startPosition = new Vector3(friendlyList[targetID].transform.position.x, friendlyList[targetID].transform.position.y + 2.0f, friendlyList[targetID].transform.position.z);
+                cursor.GetComponent<CharacterSelectHover>().startPosition = new Vector3(friendlyList[targetID].CharacterObject.transform.position.x, friendlyList[targetID].CharacterObject.transform.position.y + 2.0f, friendlyList[targetID].CharacterObject.transform.position.z);
             }
             //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -148,7 +148,7 @@ public class MoveClass : MonoBehaviour
     {
         GameObject TurnEnder = new GameObject();
         TurnEnder.AddComponent<NextTurn>();
-        sceneLists.addCutseenEvent(TurnEnder, sceneLists.gameControllerAccess, true);
+        CombatController.addCutseenEvent(TurnEnder, CombatController.gameControllerAccess, true);
         if (friendlySource)
         {
             Destroy(transform.parent.gameObject);

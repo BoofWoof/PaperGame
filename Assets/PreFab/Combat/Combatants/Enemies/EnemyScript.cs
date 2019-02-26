@@ -13,18 +13,14 @@ public class EnemyScript : FighterClass
         //SETS BASIC VARIABLE--
         base.Awake();
         friendly = false;
-        Power = 2;
+        myID = CombatController.enemyList.Count;
+        CombatController.addFigherToList(gameObject, name, myID, friendly);
         actionsAvailable = moveContainer.GetComponent<movesetContainer>().moveList;
         //----------------------
     }
 
-    void Update()
-    {
 
-    }
-
-
-    public void makeItTurn()
+    public override void makeItTurn()
     {
         GameObject attackSelect = actionsAvailable[(int)Random.Range(0, actionsAvailable.Count - 1)];
         GameObject attackEntity = Instantiate<GameObject>(attackSelect, Vector3.zero, Quaternion.identity);

@@ -5,15 +5,12 @@ using UnityEngine;
 //THIS IS THE CLASS ANY COMBAT CHARACTER USES
 public class FighterClass : MonoBehaviour
 {
+    public string CharacterName = "NameMeYouDingus";
+
     //DAMAGE AND EFFECT TYPES-----------------------
     public enum attackType { Normal, Heal, LifeSteal, GuaranteedDamage };
     public enum statusEffects { None };
     //----------------------------------------------
-
-    //IMPORTANT LIST OF ALL OTHER CHARACTERS IN SCENE--------
-    [HideInInspector] public List<GameObject> friendlyList;
-    [HideInInspector] public List<GameObject> enemyList;
-    //--------------------------------------------------------
 
     //IDENTIFICATION OF THIS CHARACTER----------------
     [HideInInspector] public int myID;
@@ -23,7 +20,7 @@ public class FighterClass : MonoBehaviour
     //HEALTH VARIABLES AND DEFENSE----------------
     public int HPMax = 25;
     public int HP = 20;
-    public int Power = 0;
+    public int Power = 2;
     public int Defense = 0;
     //---------------------------------
 
@@ -41,8 +38,6 @@ public class FighterClass : MonoBehaviour
     public void Awake()
     {
         //GRAB THE IMPORTANT LISTS-----------------
-        friendlyList = sceneLists.friendList;
-        enemyList = sceneLists.enemyList;
         HomePosition = transform.position;
         //----------------------------------------
     }
@@ -130,8 +125,7 @@ public class FighterClass : MonoBehaviour
     public virtual void death()
     {
         GameObject deathEvent = new GameObject();
-        deathEvent.SetActive(false);
         deathEvent.AddComponent<DeathEvent>();
-        sceneLists.addCutseenEventFRONT(deathEvent, gameObject, true);
+        CombatController.addCutseenEventFRONT(deathEvent, gameObject, true);
     }
 }

@@ -17,7 +17,6 @@ public class CameraFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ObjectToTrack = GameController.Player;
         cameraTransform = GetComponent<Transform>();
     }
 
@@ -28,7 +27,7 @@ public class CameraFollow : MonoBehaviour
         Vector3 cameraPosition = cameraTransform.transform.position;
         Vector3 cameraGoal = cameraTransform.transform.position;
         //CAMERA GOAL DIALOGUE START-----------------------------------------------
-        if ((GameController.gameMode != GameController.gameModeOptions.Mobile)&&(OverworldCamera))
+        if ((OverworldController.gameMode != OverworldController.gameModeOptions.Mobile)&&(OverworldCamera))
         {
             cameraGoal = new Vector3(objectPosition.x + dialogueOffsetMultiplier*offset.x, objectPosition.y + 0.5f + dialogueOffsetMultiplier * offset.y, objectPosition.z + dialogueOffsetMultiplier * offset.z);
             //CAMERA MOVE START--------------------------------------
@@ -39,7 +38,7 @@ public class CameraFollow : MonoBehaviour
         //CAMERA GOAL DIALOGUE END-----------------------------------------------
 
         //CAMERA GOAL MOBILE START-----------------------------------------------
-        if ((GameController.gameMode == GameController.gameModeOptions.Mobile) ||(OverworldCamera==false))
+        if ((OverworldController.gameMode == OverworldController.gameModeOptions.Mobile) ||(OverworldCamera==false))
         {        
             // X POSITION FIXING
             if ((cameraPosition.x - tolerance.x) > (objectPosition.x + offset.x))

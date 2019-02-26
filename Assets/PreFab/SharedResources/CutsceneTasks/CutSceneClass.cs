@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class CutSceneClass : MonoBehaviour
 {
+    private void Awake()
+    {
+        gameObject.SetActive(false);
+        //This currently isn't working because of ordering things.  The new struct setup should fix that.
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +19,8 @@ public class CutSceneClass : MonoBehaviour
 
     public void cutsceneDone()
     {
-        sceneLists.cutScenesPlaying--;
+        OverworldController.CutscenesPlaying--;
+        CombatController.cutScenesPlaying--;
         Destroy(gameObject);
     }
 }

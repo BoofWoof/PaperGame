@@ -12,6 +12,8 @@ public class FriendlyScript : FighterClass
         //SETS BASIC VARIABLE--
         base.Awake();
         friendly = true;
+        myID = CombatController.friendList.Count;
+        CombatController.addFigherToList(gameObject, name, myID, friendly);
         //---------------------
     }
 

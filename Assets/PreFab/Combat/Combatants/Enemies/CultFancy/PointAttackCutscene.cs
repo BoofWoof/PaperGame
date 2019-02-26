@@ -23,7 +23,7 @@ public class PointAttackCutscene : CutSceneClass
 
     void Start()
     {
-        camera = sceneLists.gameControllerAccess.GetComponent<CombatController>().trackingCamera;
+        camera = CombatController.gameControllerAccess.GetComponent<CombatController>().trackingCamera;
         directionRand = Random.Range(0, 3);
         angle = 180*Mathf.Atan((source.transform.position.x - camera.transform.position.x)/(source.transform.position.z - camera.transform.position.z))/Mathf.PI;
     }
@@ -34,7 +34,6 @@ public class PointAttackCutscene : CutSceneClass
         if(attackStep == 0)
         {
             //float angle = Vector3.Angle(camera.transform.position, new Vector3(source.transform.position.x, camera.transform.position.y, source.transform.position.z));
-            print(angle);
             source.transform.rotation = Quaternion.RotateTowards(source.transform.rotation, Quaternion.Euler(0, angle-90, 0), 100 * Time.deltaTime);
             if ((source.transform.rotation.eulerAngles.y >= angle +270 - 0.1) && (source.transform.rotation.eulerAngles.y <= angle +270 + 0.1))
             {
@@ -52,7 +51,6 @@ public class PointAttackCutscene : CutSceneClass
                 }
                 source.transform.rotation = Quaternion.Euler(0, angle - 90 + 180, 0);
                 attackStep++;
-                print("Boof");
             }
         }
         else if(attackStep == 1)

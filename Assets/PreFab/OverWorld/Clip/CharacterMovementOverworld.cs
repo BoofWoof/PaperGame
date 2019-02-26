@@ -32,7 +32,7 @@ public class CharacterMovementOverworld : MonoBehaviour
 
     void Start()
     {
-        GameController.Player = gameObject;
+        OverworldController.Player = gameObject;
         cc = GetComponent<CharacterController>();
         lastground = cc.transform.position;
         sprite = ((GameObject)Instantiate(spriteObject, cc.transform.position - new Vector3(0,cc.height/2,0), Quaternion.identity)).GetComponent<SpriteRenderer>();
@@ -66,7 +66,7 @@ public class CharacterMovementOverworld : MonoBehaviour
             cc.Move(new Vector3(lastground.x - cc.transform.position.x, lastground.y - cc.transform.position.y, lastground.z - cc.transform.position.z));
         }
         //POSITION RESET IF FALLEN END---------------------------
-        if (GameController.gameMode == GameController.gameModeOptions.Mobile)
+        if (OverworldController.gameMode == OverworldController.gameModeOptions.Mobile)
         {
             if (Input.GetButton("Fire1") && (jumped == false))
             {
@@ -74,7 +74,7 @@ public class CharacterMovementOverworld : MonoBehaviour
                 jumped = true;
             }
         } 
-        if (GameController.gameMode != GameController.gameModeOptions.Mobile && jump>0)
+        if (OverworldController.gameMode != OverworldController.gameModeOptions.Mobile && jump>0)
         {
             jump = 0;
         }
@@ -97,7 +97,7 @@ public class CharacterMovementOverworld : MonoBehaviour
         //MOVEMENT START---------------------------------------------------------------------------------
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
-        if (GameController.gameMode != GameController.gameModeOptions.Cutscene)
+        if (OverworldController.gameMode != OverworldController.gameModeOptions.Cutscene)
         {
             Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
             movement = speed * movement / movement.magnitude;

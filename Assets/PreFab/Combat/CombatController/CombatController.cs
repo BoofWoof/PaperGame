@@ -4,8 +4,34 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+[System.Serializable]
+public class CutSceneEventCombat
+{
+    public GameObject CutsceneEvent;
+    public GameObject CutsceneTarget;
+    public bool Wait;
+    public GameObject CameraFocus;
+    public Vector3 CameraOffset;
+}
+
 public class CombatController : MonoBehaviour
 {
+    //CUTSCENE STUFF=============================================================================================
+    //===========================================================================================================
+    public static int cutScenesPlaying = 0;
+
+    public static List<CutSceneEventCombat> cutsceneList = new List<CutSceneEventCombat>();
+
+    public static Vector3 defaultOffset = new Vector3(0, 2.8f, -6.5f);
+    public static GameObject defaultFocus;
+
+    public static GameObject gameControllerAccess;
+    //===========================================================================================================
+
+    //LIST OF ENEMY AND FRIENDS
+    public static List<Character> enemyList = new List<Character>();
+    public static List<Character> friendList = new List<Character>();
+
     //TrackingCamera----------------
     public GameObject trackingCameraInput;
     public GameObject trackingCamera;
@@ -16,7 +42,6 @@ public class CombatController : MonoBehaviour
     public GameObject PartnerInput;
     public GameObject Enemy_Select;
     public GameObject Scene_Select;
-    private List<GameObject> enemyObjectList;
     //--------------------------------------------
 
     //SceneLocations------------------------------
@@ -30,7 +55,7 @@ public class CombatController : MonoBehaviour
     //-----------------------------------------------------------------
 
     //Instantiated Scene-------------------------------------------
-    private GameObject scene;
+    public GameObject scene;
     //-------------------------------------------------------------
 
     //Whose Turn?----------------------------------------------------
@@ -41,12 +66,13 @@ public class CombatController : MonoBehaviour
     void Start()
     {
         //RECORD THIS AS A PUBLIC VARIABLE FOR EASY ACCESS-----------
-        sceneLists.gameControllerAccess = gameObject;
+        gameControllerAccess = gameObject;
         //-----------------------------------------------------------
 
         //Empty Global Variable--------------------------
-        sceneLists.enemyList = new List<GameObject>();
-        sceneLists.friendList = new List<GameObject>();
+        enemyList = new List<Character>();
+        friendList = new List<Character>();
+        cutScenesPlaying = 0;
         //------------------------------------------------
 
         //Create Scene-----------------------------------------------------------------------------------
@@ -57,9 +83,9 @@ public class CombatController : MonoBehaviour
         trackingCamera = Instantiate<GameObject>(trackingCameraInput, scene.transform.position + new Vector3(0, 2.5f, -6.5f), Quaternion.Euler(5,0,0));
         trackingCamera.GetComponent<Camera>().enabled = true;
         trackingCamera.GetComponent<CameraFollow>().OverworldCamera = false;
-        sceneLists.cameraTrackTarget = scene;
-        sceneLists.cameraOffset = sceneLists.defaultOffset;
-        sceneLists.defaultFocus = scene;
+        trackingCamera.GetComponent<CameraFollow>().ObjectToTrack = scene;
+        trackingCamera.GetComponent<CameraFollow>().offset = defaultOffset;
+        defaultFocus = scene;
         //----------------------------------------------------------------------------------------------
 
         //Load Scene Positions------------------------------------------------------------------------
@@ -68,30 +94,24 @@ public class CombatController : MonoBehaviour
         //-------------------------------------------------------------------------------------------
 
         //Load Enemies From Container----------------------------------------------------------------
+        List<GameObject> enemyObjectList;
         enemyObjectList = (List<GameObject>)Enemy_Select.GetComponent<EnemyContainer>().EnemyList;
         //-------------------------------------------------------------------------------------------
 
         //Create Loaded Enemies---------------------------------------------------------------------------------------------------------------
         for (int i = 0; i < enemyObjectList.Count; i++)
         {
-            GameObject newEnemy = Instantiate<GameObject>(enemyObjectList[i], enemyPositions[i].transform.position, Quaternion.identity);
-            sceneLists.enemyList.Add(newEnemy);
-            newEnemy.GetComponent<FighterClass>().myID = sceneLists.enemyList.Count - 1;
-            sceneLists.enemyList[i].transform.parent = transform;
+            Instantiate<GameObject>(enemyObjectList[i], enemyPositions[i].transform.position, Quaternion.identity);
         }
         //------------------------------------------------------------------------------------------------------------------------------------
 
         //Create Loaded Allies----------------------------------------------------------------------------------------------------------------
-        sceneLists.friendList.Add(Instantiate<GameObject>(PlayerInput, playerPositions[0].transform.position, Quaternion.identity));
-        sceneLists.friendList[0].transform.parent = transform;
-        sceneLists.friendList[0].GetComponent<FighterClass>().myID = 0;
-        sceneLists.friendList.Add(Instantiate<GameObject>(PartnerInput, playerPositions[1].transform.position, Quaternion.identity));
-        sceneLists.friendList[1].transform.parent = transform;
-        sceneLists.friendList[1].GetComponent<FighterClass>().myID = 1;
+        Instantiate<GameObject>(PlayerInput, playerPositions[0].transform.position, Quaternion.identity);
+        Instantiate<GameObject>(PartnerInput, playerPositions[1].transform.position, Quaternion.identity);
         //-------------------------------------------------------------------------------------------------------------------------------------
         
         //SET PLAYER ONE AS HAVING THE FIRST TURN-------------------------------------
-        sceneLists.friendList[0].GetComponent<FriendlyScript>().makeItTurn();
+        friendList[0].CharacterObject.GetComponent<FriendlyScript>().makeItTurn();
         //---------------------------------------------------------------------------
 
         //CREATE TEST GUI----------------------------------------------------------------------------------------------
@@ -101,7 +121,7 @@ public class CombatController : MonoBehaviour
         CanvasScaler s = combatCanvas.AddComponent<CanvasScaler>();
         s.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
         combatCanvas.AddComponent<GraphicRaycaster>();
-        for(int i = 0; i < sceneLists.friendList.Count+ sceneLists.enemyList.Count; i++)
+        for(int i = 0; i < friendList.Count+ enemyList.Count; i++)
         {
             GameObject guiText = new GameObject();
             guiText.transform.SetParent(combatCanvas.transform);
@@ -117,62 +137,54 @@ public class CombatController : MonoBehaviour
 
     void Update()
     {
-        //UpdateCamera Tracking-----------------------------
-        trackingCamera.GetComponent<CameraFollow>().ObjectToTrack = sceneLists.cameraTrackTarget;
-        trackingCamera.GetComponent<CameraFollow>().offset = sceneLists.cameraOffset;
-        //--------------------------------------------------
         //UPDATES THE TEST GUI HEALTH TEXT---------------------------------------------------------------------------------------------------------------------
-        for (int i = 0; i < sceneLists.friendList.Count; i++)
+        for (int i = 0; i < friendList.Count; i++)
         {
-            HealthText[i].GetComponent<Text>().text = sceneLists.friendList[i].GetComponent<FighterClass>().HP.ToString();
+            HealthText[i].GetComponent<Text>().text = friendList[i].CharacterObject.GetComponent<FighterClass>().HP.ToString();
         }
-        for (int j = 0; j < sceneLists.enemyList.Count; j++)
+        for (int j = 0; j < enemyList.Count; j++)
         {
-            HealthText[j + sceneLists.friendList.Count].GetComponent<Text>().text = sceneLists.enemyList[j].GetComponent<FighterClass>().HP.ToString();
+            HealthText[j + friendList.Count].GetComponent<Text>().text = enemyList[j].CharacterObject.GetComponent<FighterClass>().HP.ToString();
         }
         //----------------------------------------------------------------------------------------------------------------------------------------------------
 
         //ADD ANY CUTSCENE EVENTS------------------------------------------------------
         bool keepLooping = true;
-        if ((sceneLists.cutScenesPlaying==0) && (sceneLists.cutsceneEventList.Count > 0))
+        if ((cutScenesPlaying==0) && (cutsceneList.Count > 0))
         {
-            sceneLists.newScene = false;
-            while ((keepLooping)&& (sceneLists.cutsceneEventList.Count > 0))
+            while ((keepLooping)&& (cutsceneList.Count > 0))
             {
-                sceneLists.cutScenesPlaying++;
-                sceneLists.cutsceneEventList[0].SetActive(true);
-                sceneLists.cutsceneEventList[0].transform.SetParent(sceneLists.cutsceneTarget[0].transform);
-                sceneLists.cutsceneEventList.Remove(sceneLists.cutsceneEventList[0]);
-                sceneLists.cutsceneTarget.Remove(sceneLists.cutsceneTarget[0]);
-                if (sceneLists.waitforNext[0] == true)
+                cutScenesPlaying++;
+                CutSceneEventCombat initCutScene = cutsceneList[0];
+                initCutScene.CutsceneEvent.SetActive(true);
+                initCutScene.CutsceneEvent.transform.SetParent(initCutScene.CutsceneTarget.transform);
+                if (initCutScene.Wait == true)
                 {
                     keepLooping = false;
                 }
-                sceneLists.waitforNext.Remove(sceneLists.waitforNext[0]);
                 //CAMERA ADJUSTMENT------------------------------------------------
-                if (sceneLists.offsetList[0] != Vector3.zero)
+                if (initCutScene.CameraOffset != Vector3.zero)
                 {
-                    sceneLists.cameraOffset = sceneLists.offsetList[0];
-                    sceneLists.cameraTrackTarget = sceneLists.cameraFocusList[0];
+                    trackingCamera.GetComponent<CameraFollow>().offset = initCutScene.CameraOffset;
+                    trackingCamera.GetComponent<CameraFollow>().ObjectToTrack = initCutScene.CameraFocus;
                 }
-                sceneLists.offsetList.Remove(sceneLists.offsetList[0]);
-                sceneLists.cameraFocusList.Remove(sceneLists.cameraFocusList[0]);
                 //-----------------------------------------------------------------
+                cutsceneList.Remove(initCutScene);
             }
         }
         //-----------------------------------------------------------------------------
     }
 
-    public void updateIDs()
+    public static void updateIDs()
     {
         //UPDATE THE IDS FOR WHEN A CHARACTER IS ADDED OR REMOVED------------------
-        for (int i = 0; i < sceneLists.enemyList.Count; i++)
+        for (int i = 0; i < enemyList.Count; i++)
         {
-            sceneLists.enemyList[i].GetComponent<EnemyScript>().myID = i;
+            enemyList[i].CharacterObject.GetComponent<EnemyScript>().myID = i;
         }
-        for (int j = 0; j < sceneLists.friendList.Count; j++)
+        for (int j = 0; j < friendList.Count; j++)
         {
-            sceneLists.friendList[j].GetComponent<FriendlyScript>().myID = j;
+            friendList[j].CharacterObject.GetComponent<FriendlyScript>().myID = j;
         }
         //--------------------------------------------------------------------------
     }
@@ -180,28 +192,28 @@ public class CombatController : MonoBehaviour
     public void nextTurn()
     {
         //Return Camera To Its Home-------------------
-        sceneLists.cameraTrackTarget = scene;
-        sceneLists.cameraOffset = sceneLists.defaultOffset;
+        trackingCamera.GetComponent<CameraFollow>().ObjectToTrack = scene;
+        trackingCamera.GetComponent<CameraFollow>().offset = defaultOffset;
         //--------------------------------------------
 
         //END COMBAT------------------------------- this needs a lot more functionality, but it serves its purpose for now.
-        if (sceneLists.friendList.Count == 0)
+        if (friendList.Count == 0)
         {
             Application.Quit(0);
         }
-        else if (sceneLists.enemyList.Count == 0)
+        else if (enemyList.Count == 0)
         {
             SceneManager.LoadScene("TestScene1", LoadSceneMode.Single);
         }
+        //--------------------------------------------------
         else
         {
-            //--------------------------------------------------
 
             //CHANGE IDTURN TO NEXT CHARACTER-----------------------------------------------
             IDTurn++;
             if (friendlyTurn)
             {
-                if (IDTurn >= sceneLists.friendList.Count)
+                if (IDTurn >= friendList.Count)
                 {
                     IDTurn = 0;
                     friendlyTurn = false;
@@ -209,7 +221,7 @@ public class CombatController : MonoBehaviour
             }
             else
             {
-                if (IDTurn >= sceneLists.enemyList.Count)
+                if (IDTurn >= enemyList.Count)
                 {
                     IDTurn = 0;
                     friendlyTurn = true;
@@ -220,13 +232,95 @@ public class CombatController : MonoBehaviour
             //Tell The Character It Is Their Turn------------------------------------------------
             if (friendlyTurn)
             {
-                sceneLists.friendList[IDTurn].GetComponent<FriendlyScript>().makeItTurn();
+                friendList[IDTurn].CharacterObject.GetComponent<FriendlyScript>().makeItTurn();
             }
             else
             {
-                sceneLists.enemyList[IDTurn].GetComponent<EnemyScript>().makeItTurn();
+                enemyList[IDTurn].CharacterObject.GetComponent<EnemyScript>().makeItTurn();
             }
             //------------------------------------------------------------------------------------
         }
     }
+
+    //FIGHTERLISTCONTROL==============================================================================================
+    public static void addFigherToList(GameObject fighter, string fighterName, int fighterID, bool friendly)
+    {
+        Character newFighter = new Character();
+        newFighter.CharacterObject = fighter;
+        newFighter.CharacterName = fighterName;
+        if (friendly)
+        {
+            friendList.Add(newFighter);
+        }
+        else
+        {
+            enemyList.Add(newFighter);
+        }
+    }
+    //=================================================================================================================
+
+
+    //CUTSCENE STUFF
+    //ADD CUTSCENE EVENT----------------------------------
+    public static void addCutseenEvent(GameObject cutsceneEvent, GameObject target, bool wait, GameObject cameraFocus, Vector3 cameraOffset)
+    {
+        CutSceneEventCombat newEvent = new CutSceneEventCombat();
+        newEvent.CutsceneEvent = cutsceneEvent;
+        newEvent.CutsceneTarget = target;
+        newEvent.Wait = wait;
+        if (cameraOffset == Vector3.zero)
+        {
+            newEvent.CameraFocus = defaultFocus;
+            newEvent.CameraOffset = defaultOffset;
+        }
+        else
+        {
+            newEvent.CameraFocus = cameraFocus;
+            newEvent.CameraOffset = cameraOffset;
+        }
+        cutsceneList.Add(newEvent);
+    }
+    //----------------------------------------------------
+    //ADD CUTSCENE EVENT IN FRONT----------------------------------
+    public static void addCutseenEventFRONT(GameObject cutsceneEvent, GameObject target, bool wait, GameObject cameraFocus, Vector3 cameraOffset)
+    {
+        CutSceneEventCombat newEvent = new CutSceneEventCombat();
+        newEvent.CutsceneEvent = cutsceneEvent;
+        newEvent.CutsceneTarget = target;
+        newEvent.Wait = wait;
+        if (cameraOffset == Vector3.zero)
+        {
+            newEvent.CameraFocus = defaultFocus;
+            newEvent.CameraOffset = defaultOffset;
+        }
+        else
+        {
+            newEvent.CameraFocus = cameraFocus;
+            newEvent.CameraOffset = cameraOffset;
+        }
+        cutsceneList.Insert(0, newEvent);
+    }
+    public static void addCutseenEvent(GameObject cutsceneEvent, GameObject target, bool wait)
+    {
+        CutSceneEventCombat newEvent = new CutSceneEventCombat();
+        newEvent.CutsceneEvent = cutsceneEvent;
+        newEvent.CutsceneTarget = target;
+        newEvent.Wait = wait;
+        newEvent.CameraFocus = null;
+        newEvent.CameraOffset = Vector3.zero;
+        cutsceneList.Add(newEvent);
+    }
+    //----------------------------------------------------
+    //ADD CUTSCENE EVENT IN FRONT----------------------------------
+    public static void addCutseenEventFRONT(GameObject cutsceneEvent, GameObject target, bool wait)
+    {
+        CutSceneEventCombat newEvent = new CutSceneEventCombat();
+        newEvent.CutsceneEvent = cutsceneEvent;
+        newEvent.CutsceneTarget = target;
+        newEvent.Wait = wait;
+        newEvent.CameraFocus = null;
+        newEvent.CameraOffset = Vector3.zero;
+        cutsceneList.Insert(0, newEvent);
+    }
+    //===========================================================================================================
 }

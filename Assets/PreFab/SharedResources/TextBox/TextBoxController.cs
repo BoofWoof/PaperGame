@@ -103,7 +103,6 @@ public class TextBoxController : MonoBehaviour
         }
         if ((Input.GetButtonDown("Fire1")) && (stringDisp == stringLen) && (currentLine + 1 == textLines.Length))
         {
-            GameController.gameMode = GameController.gameModeOptions.Mobile;
             Destroy(gameObject);
         }
     }

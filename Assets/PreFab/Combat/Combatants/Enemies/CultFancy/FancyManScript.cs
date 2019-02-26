@@ -26,6 +26,6 @@ public class FancyManScript : EnemyScript
         textbox.GetComponent<SayDialogue>().inputText = new TextAsset("Ughh\n" +
             "Why do I have to lose...\n" +
             "To such a big nerd.");
-        sceneLists.addCutseenEventFRONT(textbox, gameObject, true);
+        CombatController.addCutseenEventFRONT(textbox, gameObject, true);
     }
 }
