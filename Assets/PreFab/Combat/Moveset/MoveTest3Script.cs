@@ -13,11 +13,11 @@ public class MoveTest3Script : MoveClass
     {
         if (friendlySource)
         {
-            enemyList[targetID].CharacterObject.GetComponent<FighterClass>().attackEffect(power, FighterClass.attackType.LifeSteal, FighterClass.statusEffects.None, friendlyList[sourceID].CharacterObject);
+            enemyList[targetID].CharacterObject.GetComponent<FighterClass>().attackEffect(power, FighterClass.attackType.LifeSteal, FighterClass.statusEffects.None, FighterClass.attackLocation.All, friendlyList[sourceID].CharacterObject);
         }
         else
         {
-            enemyList[targetID].CharacterObject.GetComponent<FighterClass>().attackEffect(power, FighterClass.attackType.LifeSteal, FighterClass.statusEffects.None, enemyList[sourceID].CharacterObject);
+            enemyList[targetID].CharacterObject.GetComponent<FighterClass>().attackEffect(power, FighterClass.attackType.LifeSteal, FighterClass.statusEffects.None, FighterClass.attackLocation.All, enemyList[sourceID].CharacterObject);
         }
         print("You stole that Health!");
     }

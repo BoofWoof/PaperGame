@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4812837664264868934}
-  - component: {fileID: 4812837664264868985}
+  - component: {fileID: 3202263096145224297}
   m_Layer: 0
-  m_Name: EnemyTypeContainer
+  m_Name: CombatObjectContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4812837664264868985
+--- !u!114 &3202263096145224297
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,10 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e5d6e5de661174ea92f046c265aace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyType1: {fileID: 0}
-  EnemyType2: {fileID: 0}
-  EnemyType3: {fileID: 0}
-  EnemyType4: {fileID: 0}
-  EnemyType5: {fileID: 0}
-  EnemyType6: {fileID: 0}
-  EnemyTypeList: []
+  EnemyList:
+  - {fileID: 6544685982169022342, guid: 4fbfde13e6352d04389bd16c453ed5e6, type: 3}
+  TileList:
+  - {fileID: 859088412120344979, guid: 3d7f7b5601c1bd0418fec59806c7707e, type: 3}
+  - {fileID: 859088412120344979, guid: 3d7f7b5601c1bd0418fec59806c7707e, type: 3}
+  - {fileID: 859088412120344979, guid: 3d7f7b5601c1bd0418fec59806c7707e, type: 3}
+  Player: {fileID: 3913278314737483516, guid: 5c0b9b1c05f9b984f9f5ff7535675bb6, type: 3}
+  Partner: {fileID: 3913278314737483516, guid: 5c0b9b1c05f9b984f9f5ff7535675bb6, type: 3}
+  Scene: {fileID: 3582917076210945380, guid: 3e98a07d6b9764b498c71d183742ac2a, type: 3}

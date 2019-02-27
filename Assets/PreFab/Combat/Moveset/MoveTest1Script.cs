@@ -68,7 +68,7 @@ public class MoveTest1Script : MoveClass
         }
         else
         {
-            enemyList[targetID].CharacterObject.GetComponent<FighterClass>().attackEffect(power, FighterClass.attackType.Normal, FighterClass.statusEffects.None, enemyList[sourceID].CharacterObject);
+            enemyList[targetID].CharacterObject.GetComponent<FighterClass>().attackEffect(power, FighterClass.attackType.Normal, FighterClass.statusEffects.None, FighterClass.attackLocation.All, enemyList[sourceID].CharacterObject);
         }
         print("You hit um!");
     }

@@ -22,6 +22,7 @@ public class EnemyScript : FighterClass
 
     public override void makeItTurn()
     {
+        base.makeItTurn();
         GameObject attackSelect = actionsAvailable[(int)Random.Range(0, actionsAvailable.Count - 1)];
         GameObject attackEntity = Instantiate<GameObject>(attackSelect, Vector3.zero, Quaternion.identity);
         attackEntity.GetComponent<MoveClass>().friendlySource = friendly;

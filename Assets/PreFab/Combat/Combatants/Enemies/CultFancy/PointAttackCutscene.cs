@@ -7,6 +7,7 @@ public class PointAttackCutscene : CutSceneClass
     public int amount;
     public FighterClass.attackType type;
     public FighterClass.statusEffects effects;
+    public FighterClass.attackLocation location;
     public GameObject source;
 
     private bool attemptMade = false;
@@ -88,7 +89,7 @@ public class PointAttackCutscene : CutSceneClass
         }
         else if (attackStep == 4)
         {
-            transform.parent.GetComponent<FighterClass>().attackEffect(amount, type, effects, source);
+            transform.parent.GetComponent<FighterClass>().attackEffect(amount, type, effects, location, source);
             source.GetComponent<Animator>().SetTrigger("Stop");
             cutsceneDone();
         }

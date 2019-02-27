@@ -122,7 +122,7 @@ PrefabInstance:
     - target: {fileID: 4812837664264868984, guid: 56277a564f40f3e42836c3119c5612b5,
         type: 3}
       propertyPath: m_Name
-      value: Enemies
+      value: gameObjectInput
       objectReference: {fileID: 0}
     - target: {fileID: 4812837664264868934, guid: 56277a564f40f3e42836c3119c5612b5,
         type: 3}
@@ -195,6 +195,34 @@ PrefabInstance:
       propertyPath: EnemyType3
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3202263096145224297, guid: 56277a564f40f3e42836c3119c5612b5,
+        type: 3}
+      propertyPath: FriendlyTileList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202263096145224297, guid: 56277a564f40f3e42836c3119c5612b5,
+        type: 3}
+      propertyPath: EnemyTileList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202263096145224297, guid: 56277a564f40f3e42836c3119c5612b5,
+        type: 3}
+      propertyPath: FriendlyTileList.Array.data[0]
+      value: 
+      objectReference: {fileID: 859088412120344979, guid: 3d7f7b5601c1bd0418fec59806c7707e,
+        type: 3}
+    - target: {fileID: 3202263096145224297, guid: 56277a564f40f3e42836c3119c5612b5,
+        type: 3}
+      propertyPath: FriendlyTileList.Array.data[1]
+      value: 
+      objectReference: {fileID: 859088412120344979, guid: 3d7f7b5601c1bd0418fec59806c7707e,
+        type: 3}
+    - target: {fileID: 3202263096145224297, guid: 56277a564f40f3e42836c3119c5612b5,
+        type: 3}
+      propertyPath: EnemyTileList.Array.data[0]
+      value: 
+      objectReference: {fileID: 8950403106168155166, guid: 8e9845e5fe0521f4cbb3843980e57365,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56277a564f40f3e42836c3119c5612b5, type: 3}
 --- !u!1 &1574065454 stripped
@@ -281,5 +309,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6844698882489473077, guid: 3b37c697e051fa2448470695f77f7ff3,
         type: 3}
+    - target: {fileID: 9146497620459014481, guid: 97c7e4f52b243c14286996531fe8be0e,
+        type: 3}
+      propertyPath: gameObjectSelect
+      value: 
+      objectReference: {fileID: 1574065454}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97c7e4f52b243c14286996531fe8be0e, type: 3}

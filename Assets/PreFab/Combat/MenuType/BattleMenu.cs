@@ -39,7 +39,7 @@ public class BattleMenu : MonoBehaviour
         //---------------------------------------------------------
 
         //SPAWNS ALL THE TILES FOR THE MENU-------------------------------------------------------------------------
-        Vector3 spawnLocation = new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z);
+        Vector3 spawnLocation = new Vector3(transform.position.x + 0.75f, transform.position.y, transform.position.z);
         GameObject newTile;
         foreach (GameObject Tile in MenuTiles)
         {

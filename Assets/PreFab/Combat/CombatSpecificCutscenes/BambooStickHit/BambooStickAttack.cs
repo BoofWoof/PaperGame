@@ -7,6 +7,7 @@ public class BambooStickAttack : CutSceneClass
     public int amount;
     public FighterClass.attackType type;
     public FighterClass.statusEffects effects;
+    public FighterClass.attackLocation location;
     public GameObject source;
     public GameObject damageTarget;
 
@@ -63,14 +64,14 @@ public class BambooStickAttack : CutSceneClass
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.parent.transform.position, endPosition) < speed * Time.deltaTime)
+        if (Vector2.Distance(new Vector2(transform.parent.transform.position.x, transform.parent.transform.position.z), new Vector2(endPosition.x, endPosition.z)) <= speed * Time.deltaTime)
         {
             transform.parent.position = endPosition;
             if (transform.parent.GetComponent<Animator>() != null)
             {
                 transform.parent.GetComponent<Animator>().SetTrigger("Stop");
             }
-            damageTarget.GetComponent<FighterClass>().attackEffect(amount, type, effects, source);
+            damageTarget.GetComponent<FighterClass>().attackEffect(amount, type, effects, location, source);
             cutsceneDone();
         }
 

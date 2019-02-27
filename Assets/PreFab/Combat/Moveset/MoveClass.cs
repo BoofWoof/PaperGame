@@ -146,6 +146,14 @@ public class MoveClass : MonoBehaviour
     //WHAT TO DO WHEN THE ACTIONS ARE DONE-----------------------------------------
     public void actionDone()
     {
+        if (friendlySource)
+        {
+            friendlyList[sourceID].CharacterObject.GetComponent<FighterClass>().characterEndTurn();
+        }
+        else
+        {
+            enemyList[sourceID].CharacterObject.GetComponent<FighterClass>().characterEndTurn();
+        }
         GameObject TurnEnder = new GameObject();
         TurnEnder.AddComponent<NextTurn>();
         CombatController.addCutseenEvent(TurnEnder, CombatController.gameControllerAccess, true);

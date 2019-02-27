@@ -78,15 +78,6 @@ public class JumpToLocation : CutSceneClass
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.parent.transform.position, endPosition) < speed * Time.deltaTime)
-        {
-            transform.parent.position = endPosition;
-            if (transform.parent.GetComponent<Animator>() != null)
-            {
-                transform.parent.GetComponent<Animator>().SetTrigger("Stop");
-            }
-            cutsceneDone();
-        }
 
         //Move Horizontally
         transform.parent.position = Vector3.MoveTowards(transform.parent.position, new Vector3(endPosition.x, transform.parent.position.y, endPosition.z), speed * Time.deltaTime);
@@ -95,5 +86,14 @@ public class JumpToLocation : CutSceneClass
         float newHeight = -amp * (distFromStart - d) * (distFromStart - d) + height;
         transform.parent.position = new Vector3(transform.parent.position.x, newHeight, transform.parent.position.z);
 
+        if (Vector2.Distance(new Vector2(transform.parent.transform.position.x, transform.parent.transform.position.z), new Vector2(endPosition.x, endPosition.z)) <= speed * Time.deltaTime)
+        {
+            transform.parent.position = endPosition;
+            if (transform.parent.GetComponent<Animator>() != null)
+            {
+                transform.parent.GetComponent<Animator>().SetTrigger("Stop");
+            }
+            cutsceneDone();
+        }
     }
 }

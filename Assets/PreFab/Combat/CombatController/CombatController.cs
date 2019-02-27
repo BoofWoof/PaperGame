@@ -22,7 +22,7 @@ public class CombatController : MonoBehaviour
 
     public static List<CutSceneEventCombat> cutsceneList = new List<CutSceneEventCombat>();
 
-    public static Vector3 defaultOffset = new Vector3(0, 2.8f, -6.5f);
+    public static Vector3 defaultOffset = new Vector3(0, 2.3f, -6f);
     public static GameObject defaultFocus;
 
     public static GameObject gameControllerAccess;
@@ -34,19 +34,17 @@ public class CombatController : MonoBehaviour
 
     //TrackingCamera----------------
     public GameObject trackingCameraInput;
+    [HideInInspector]
     public GameObject trackingCamera;
     //-------------------------------
 
-    //SceneInputsandLoadedObjects--------------------------------
-    public GameObject PlayerInput;
-    public GameObject PartnerInput;
-    public GameObject Enemy_Select;
-    public GameObject Scene_Select;
+    //SceneInputs--------------------------------
+    public GameObject gameObjectSelect;
     //--------------------------------------------
 
     //SceneLocations------------------------------
-    private List<GameObject> playerPositions;
-    private List<GameObject> enemyPositions;
+    private GameObject[] playerPositions;
+    private GameObject[] enemyPositions;
     //---------------------------------------------
 
     //GUI Elements-----------------------------------------------------
@@ -55,7 +53,7 @@ public class CombatController : MonoBehaviour
     //-----------------------------------------------------------------
 
     //Instantiated Scene-------------------------------------------
-    public GameObject scene;
+    private GameObject scene;
     //-------------------------------------------------------------
 
     //Whose Turn?----------------------------------------------------
@@ -76,7 +74,8 @@ public class CombatController : MonoBehaviour
         //------------------------------------------------
 
         //Create Scene-----------------------------------------------------------------------------------
-        scene = (GameObject)Instantiate(Scene_Select, transform.position, Quaternion.identity);
+        scene = (GameObject)Instantiate(gameObjectSelect.GetComponent<combatObjectContainer>().Scene, transform.position, Quaternion.identity);
+        defaultOffset = scene.GetComponent<BattleSceneContainer>().sceneDefaultOffset;
         //---------------------------------------------------------------------------------------------
 
         //Create Tracking Camera------------------------------------------------------------------------
@@ -92,24 +91,38 @@ public class CombatController : MonoBehaviour
         playerPositions = scene.GetComponent<BattleSceneContainer>().PlayerPositions;
         enemyPositions = scene.GetComponent<BattleSceneContainer>().EnemyPositions;
         //-------------------------------------------------------------------------------------------
-
-        //Load Enemies From Container----------------------------------------------------------------
-        List<GameObject> enemyObjectList;
-        enemyObjectList = (List<GameObject>)Enemy_Select.GetComponent<EnemyContainer>().EnemyList;
+        
+        //Load Enemies and Tiles From Container----------------------------------------------------------------
+        GameObject[] enemyObjectList = (GameObject[])gameObjectSelect.GetComponent<combatObjectContainer>().EnemyList;
+        GameObject[] enemyTileObjecTList = (GameObject[])gameObjectSelect.GetComponent<combatObjectContainer>().EnemyTileList;
+        GameObject[] friendlyTileObjecTList = (GameObject[])gameObjectSelect.GetComponent<combatObjectContainer>().FriendlyTileList;
         //-------------------------------------------------------------------------------------------
 
-        //Create Loaded Enemies---------------------------------------------------------------------------------------------------------------
-        for (int i = 0; i < enemyObjectList.Count; i++)
+        //Create Loaded Enemies And Tiles----------------------------------------------------------------------------------------------------
+        for (int i = 0; i < enemyObjectList.Length; i++)
         {
-            Instantiate<GameObject>(enemyObjectList[i], enemyPositions[i].transform.position, Quaternion.identity);
+            GameObject newTile = Instantiate<GameObject>(enemyTileObjecTList[i], enemyPositions[i].transform.position, Quaternion.identity);
+            CombatTileClass newTileScript = newTile.GetComponent<CombatTileClass>();
+            GameObject newEnemy = Instantiate<GameObject>(enemyObjectList[i], newTile.transform.position + new Vector3(0,newTileScript.halfTileHeight,0), Quaternion.identity);
+            newEnemy.GetComponent<FighterClass>().tileOn = newTile;
+            newTileScript.onTopOfTile = newEnemy;
         }
         //------------------------------------------------------------------------------------------------------------------------------------
 
-        //Create Loaded Allies----------------------------------------------------------------------------------------------------------------
-        Instantiate<GameObject>(PlayerInput, playerPositions[0].transform.position, Quaternion.identity);
-        Instantiate<GameObject>(PartnerInput, playerPositions[1].transform.position, Quaternion.identity);
+        //Create Loaded Allies And Tiles-------------------------------------------------------------------------------------------------
+        GameObject PlayerTile = Instantiate<GameObject>(friendlyTileObjecTList[0], playerPositions[0].transform.position, Quaternion.identity);
+        CombatTileClass PlayerTileScript = PlayerTile.GetComponent<CombatTileClass>();
+        GameObject Player = Instantiate<GameObject>(gameObjectSelect.GetComponent<combatObjectContainer>().Player, PlayerTile.transform.position + new Vector3(0,PlayerTileScript.halfTileHeight,0), Quaternion.identity);
+        Player.GetComponent<FighterClass>().tileOn = PlayerTile;
+        PlayerTileScript.onTopOfTile = Player;
+
+        GameObject PartnerTile = Instantiate<GameObject>(friendlyTileObjecTList[1], playerPositions[1].transform.position, Quaternion.identity);
+        CombatTileClass PartnerTileScript = PartnerTile.GetComponent<CombatTileClass>();
+        GameObject Partner = Instantiate<GameObject>(gameObjectSelect.GetComponent<combatObjectContainer>().Partner, PartnerTile.transform.position + new Vector3(0, PartnerTileScript.halfTileHeight, 0), Quaternion.identity);
+        Partner.GetComponent<FighterClass>().tileOn = PartnerTile;
+        PartnerTileScript.onTopOfTile = Partner;
         //-------------------------------------------------------------------------------------------------------------------------------------
-        
+
         //SET PLAYER ONE AS HAVING THE FIRST TURN-------------------------------------
         friendList[0].CharacterObject.GetComponent<FriendlyScript>().makeItTurn();
         //---------------------------------------------------------------------------

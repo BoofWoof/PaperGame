@@ -12,10 +12,10 @@ public class MoveTest2Script : MoveClass
     public override void effect()
     {
         if (friendlySource) {
-            friendlyList[targetID].CharacterObject.GetComponent<FighterClass>().attackEffect(power, FighterClass.attackType.Heal, FighterClass.statusEffects.None, friendlyList[sourceID].CharacterObject);
+            friendlyList[targetID].CharacterObject.GetComponent<FighterClass>().attackEffect(power, FighterClass.attackType.Heal, FighterClass.statusEffects.None, FighterClass.attackLocation.All, friendlyList[sourceID].CharacterObject);
         } else
         {
-            friendlyList[targetID].CharacterObject.GetComponent<FighterClass>().attackEffect(power, FighterClass.attackType.Heal, FighterClass.statusEffects.None, enemyList[sourceID].CharacterObject);
+            friendlyList[targetID].CharacterObject.GetComponent<FighterClass>().attackEffect(power, FighterClass.attackType.Heal, FighterClass.statusEffects.None, FighterClass.attackLocation.All, enemyList[sourceID].CharacterObject);
         }
         print("You healed um!");
     }
