@@ -96,6 +96,9 @@ public class OverworldController : MonoBehaviour
 
     public void Update()
     {
+        print("NewLine");
+        print(CutscenesPlaying);
+        print(CutsceneQueue.Count);
         if (CutscenesPlaying == 0 && CutsceneQueue.Count > 0)
         {
             bool keepPlaying = true;

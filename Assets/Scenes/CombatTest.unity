@@ -305,12 +305,6 @@ PrefabInstance:
       objectReference: {fileID: 1574065454}
     - target: {fileID: 9146497620459014481, guid: 97c7e4f52b243c14286996531fe8be0e,
         type: 3}
-      propertyPath: trackingCameraInput
-      value: 
-      objectReference: {fileID: 6844698882489473077, guid: 3b37c697e051fa2448470695f77f7ff3,
-        type: 3}
-    - target: {fileID: 9146497620459014481, guid: 97c7e4f52b243c14286996531fe8be0e,
-        type: 3}
       propertyPath: gameObjectSelect
       value: 
       objectReference: {fileID: 1574065454}

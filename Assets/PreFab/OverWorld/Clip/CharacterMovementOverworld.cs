@@ -30,6 +30,11 @@ public class CharacterMovementOverworld : MonoBehaviour
     //AnimationInfo
     private Animator spriteAnimate;
 
+    //MoveDirection
+    public float moveHorizontal = 0;
+    public float moveVertical = 0;
+    public bool stopOnCutscene = true;
+
     void Start()
     {
         OverworldController.Player = gameObject;
@@ -73,13 +78,13 @@ public class CharacterMovementOverworld : MonoBehaviour
                 jump = jumpForce;
                 jumped = true;
             }
-        } 
-        if (OverworldController.gameMode != OverworldController.gameModeOptions.Mobile && jump>0)
+        }
+        if (OverworldController.gameMode != OverworldController.gameModeOptions.Mobile && jump > 0)
         {
             jump = 0;
         }
         //Stop Movement
-        if ((jump > jumpForce*.9) || (jump < -jumpForce*.9))
+        if ((jump > jumpForce * .9) || (jump < -jumpForce * .9))
         {
             spriteAnimate.SetTrigger("Jump");
         }
@@ -95,10 +100,15 @@ public class CharacterMovementOverworld : MonoBehaviour
         //if (GameController.gameMode == "Mobile")
         //{
         //MOVEMENT START---------------------------------------------------------------------------------
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
         if (OverworldController.gameMode != OverworldController.gameModeOptions.Cutscene)
         {
+            moveHorizontal = Input.GetAxis("Horizontal");
+            moveVertical = Input.GetAxis("Vertical");
+        } else if (stopOnCutscene)
+        {
+            moveHorizontal = 0;
+            moveVertical = 0;
+        }
             Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
             movement = speed * movement / movement.magnitude;
             cc.Move(movement);
@@ -110,12 +120,6 @@ public class CharacterMovementOverworld : MonoBehaviour
             {
                 spriteAnimate.SetTrigger("Stop");
             }
-        } else
-        {
-            moveHorizontal = 0;
-            moveVertical = 0;
-            spriteAnimate.SetTrigger("Stop");
-        }
         //MOVEMENT END---------------------------------------------------------------------------------
 
 
