@@ -41,10 +41,10 @@ public class CharacterMovementOverworld : MonoBehaviour
         cc = GetComponent<CharacterController>();
         lastground = cc.transform.position;
         sprite = ((GameObject)Instantiate(spriteObject, cc.transform.position - new Vector3(0,cc.height/2,0), Quaternion.identity)).GetComponent<SpriteRenderer>();
-        sprite.receiveShadows = true;
-        sprite.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.TwoSided;
+        //sprite.receiveShadows = true;
+        //sprite.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
         rotSpeed = rotSpeedMagnitude;
-        sprite.transform.SetParent(this.transform);
+        sprite.transform.SetParent(gameObject.transform);
         spriteAnimate = sprite.GetComponent<Animator>();
     }
 
@@ -54,19 +54,18 @@ public class CharacterMovementOverworld : MonoBehaviour
         //JUMP START------------------------------
         if (cc.isGrounded == true)
         {
-            jump = 0;
             jumped = false;
             lastground = cc.transform.position;
             spriteAnimate.SetTrigger("Land");
         }
         else
         {
+            spriteAnimate.SetTrigger("Jump");
             jump = jump + (gravity * Time.deltaTime);
         }
         //POSITION RESET IF FALLEN START---------------------------
         if (cc.transform.position.y < -5)
         {
-            print(lastground);
             jump = 0;
             cc.Move(new Vector3(lastground.x - cc.transform.position.x, lastground.y - cc.transform.position.y, lastground.z - cc.transform.position.z));
         }
@@ -83,47 +82,36 @@ public class CharacterMovementOverworld : MonoBehaviour
         {
             jump = 0;
         }
-        //Stop Movement
-        if ((jump > jumpForce * .9) || (jump < -jumpForce * .9))
-        {
-            spriteAnimate.SetTrigger("Jump");
-        }
-        cc.Move(new Vector3(0, jump * Time.deltaTime, 0));
-        //JUMP END-----------------------------------------
-    }
 
-
-    // Physics Update
-    void FixedUpdate()
-    {
-        //Stop Movement
-        //if (GameController.gameMode == "Mobile")
-        //{
         //MOVEMENT START---------------------------------------------------------------------------------
         if (OverworldController.gameMode != OverworldController.gameModeOptions.Cutscene)
         {
             moveHorizontal = Input.GetAxis("Horizontal");
             moveVertical = Input.GetAxis("Vertical");
-        } else if (stopOnCutscene)
+        }
+        else if (stopOnCutscene)
         {
             moveHorizontal = 0;
             moveVertical = 0;
         }
-            Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
-            movement = speed * movement / movement.magnitude;
-            cc.Move(movement);
-            if ((moveVertical != 0) || (moveHorizontal != 0))
-            {
-                spriteAnimate.SetTrigger("Go");
-            }
-            else
-            {
-                spriteAnimate.SetTrigger("Stop");
-            }
+        Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
+        if (movement != Vector3.zero && movement.magnitude < speed)
+        {
+            movement = movement * Time.deltaTime * speed;
+        }
+        movement = movement + new Vector3(0, jump * Time.deltaTime, 0);
+        cc.Move(movement);
+        if ((moveVertical != 0) || (moveHorizontal != 0))
+        {
+            spriteAnimate.SetTrigger("Go");
+        }
+        else
+        {
+            spriteAnimate.SetTrigger("Stop");
+        }
         //MOVEMENT END---------------------------------------------------------------------------------
 
-
-        //SetRotationGoals
+        //SetRotationGoals=================================================================================
         if ((moveHorizontal > 0))
         {
             goal = 180;
@@ -136,13 +124,13 @@ public class CharacterMovementOverworld : MonoBehaviour
         //SPRITE ROTATION START-------------------------------------------------------------------------
         if ((goal > rotated))
         {
-            rotSpeed = rotSpeedMagnitude;
+            rotSpeed = rotSpeedMagnitude * Time.deltaTime;
             sprite.transform.Rotate(0, rotSpeed, 0);
             rotated = rotated + rotSpeed;
         }
         if ((goal < rotated))
         {
-            rotSpeed = -rotSpeedMagnitude;
+            rotSpeed = -rotSpeedMagnitude * Time.deltaTime;
             sprite.transform.Rotate(0, rotSpeed, 0);
             rotated = rotated + rotSpeed;
         }
@@ -164,11 +152,5 @@ public class CharacterMovementOverworld : MonoBehaviour
         }
         prev_rotated = rotated;
         //SPRITE ROTATION END------------------------------------------------------------------
-        
-    }
-
-    public void jumpCall()
-    {
-        jump = jumpForce;
     }
 }

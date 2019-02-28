@@ -39,7 +39,7 @@ public class FighterClass : MonoBehaviour
     public GameObject damageGraphicInput;
     //-------------------------------------------------------------AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-------------------------------------------bOOF
 
-    public void Awake()
+    public virtual void Awake()
     {
         //GRAB THE IMPORTANT LISTS-----------------
         HomePosition = transform.position;

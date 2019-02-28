@@ -60,7 +60,12 @@ public class CombatController : MonoBehaviour
     private bool friendlyTurn = true;
     private int IDTurn = 0;
     //--------------------------------------------------------------
-    
+
+    //Player/Partner
+    GameObject Player;
+    GameObject Partner;
+    //
+
     void Start()
     {
         //RECORD THIS AS A PUBLIC VARIABLE FOR EASY ACCESS-----------
@@ -112,13 +117,13 @@ public class CombatController : MonoBehaviour
         //Create Loaded Allies And Tiles-------------------------------------------------------------------------------------------------
         GameObject PlayerTile = Instantiate<GameObject>(friendlyTileObjecTList[0], playerPositions[0].transform.position, Quaternion.identity);
         CombatTileClass PlayerTileScript = PlayerTile.GetComponent<CombatTileClass>();
-        GameObject Player = Instantiate<GameObject>(gameObjectSelect.GetComponent<combatObjectContainer>().Player, PlayerTile.transform.position + new Vector3(0,PlayerTileScript.halfTileHeight,0), Quaternion.identity);
+        Player = Instantiate<GameObject>(gameObjectSelect.GetComponent<combatObjectContainer>().Player, PlayerTile.transform.position + new Vector3(0,PlayerTileScript.halfTileHeight,0), Quaternion.identity);
         Player.GetComponent<FighterClass>().tileOn = PlayerTile;
         PlayerTileScript.onTopOfTile = Player;
 
         GameObject PartnerTile = Instantiate<GameObject>(friendlyTileObjecTList[1], playerPositions[1].transform.position, Quaternion.identity);
         CombatTileClass PartnerTileScript = PartnerTile.GetComponent<CombatTileClass>();
-        GameObject Partner = Instantiate<GameObject>(gameObjectSelect.GetComponent<combatObjectContainer>().Partner, PartnerTile.transform.position + new Vector3(0, PartnerTileScript.halfTileHeight, 0), Quaternion.identity);
+        Partner = Instantiate<GameObject>(gameObjectSelect.GetComponent<combatObjectContainer>().Partner, PartnerTile.transform.position + new Vector3(0, PartnerTileScript.halfTileHeight, 0), Quaternion.identity);
         Partner.GetComponent<FighterClass>().tileOn = PartnerTile;
         PartnerTileScript.onTopOfTile = Partner;
         //-------------------------------------------------------------------------------------------------------------------------------------
@@ -216,6 +221,7 @@ public class CombatController : MonoBehaviour
         }
         else if (enemyList.Count == 0)
         {
+            Player.GetComponent<ClipCombat>().updateGameStats();
             SceneManager.LoadScene("TestScene1", LoadSceneMode.Single);
         }
         //--------------------------------------------------

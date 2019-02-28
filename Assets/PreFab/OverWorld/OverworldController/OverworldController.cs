@@ -25,6 +25,13 @@ public class OverworldController : MonoBehaviour
     public static GameObject Player;
     //-----------------------------------------------------
 
+    //Spawned Objects
+    public GameObject playerInput;
+    public GameObject spawnPoint;
+    public GameObject trackingCameraInput;
+    public GameObject trackingCamera;
+    public GameObject[] SceneTransfers;
+
     //CutScene-------------------------------------------------
     private static List<CutSceneEvent> CutsceneQueue = new List<CutSceneEvent>();
     //public CutSceneEvent[] test;
@@ -39,6 +46,26 @@ public class OverworldController : MonoBehaviour
     public void Start()
     {
         CutscenesPlaying = 0;
+        if(GameDataTracker.previousArea != null)
+        {
+            foreach(GameObject sceneTransfer in SceneTransfers)
+            {
+                if(sceneTransfer.GetComponent<SceneMover>().sceneName == GameDataTracker.previousArea)
+                {
+                    Player = Instantiate(playerInput, sceneTransfer.transform.position, Quaternion.identity);
+                    GameObject moveEvent = new GameObject();
+                    PlayerTravelDirection pm = moveEvent.AddComponent<PlayerTravelDirection>();
+                    pm.endPosition = Player.transform.position + new Vector3(0,0,2);
+                    pm.travelDirection = SceneMover.exitDirectionOptions.up;
+                    addCutsceneEvent(moveEvent, Player, true, gameModeOptions.Cutscene);
+                }
+            }
+        } else
+        {
+            Player = Instantiate(playerInput, spawnPoint.transform.position, Quaternion.identity);
+        }
+        trackingCamera = Instantiate<GameObject>(trackingCameraInput, Player.transform.position + new Vector3(0,1,-2), Quaternion.Euler(25,0,0));
+        trackingCamera.GetComponent<CameraFollow>().ObjectToTrack = Player;
     }
 
     //WAYS TO ADD CUTSCENE EVENTS------------------------------------------------------------------------------------------------------------------------------------------------
@@ -96,9 +123,6 @@ public class OverworldController : MonoBehaviour
 
     public void Update()
     {
-        print("NewLine");
-        print(CutscenesPlaying);
-        print(CutsceneQueue.Count);
         if (CutscenesPlaying == 0 && CutsceneQueue.Count > 0)
         {
             bool keepPlaying = true;

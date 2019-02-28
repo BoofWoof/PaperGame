@@ -6,8 +6,8 @@ public class FriendlyScript : FighterClass
 {
     public GameObject MenuObject;
     private GameObject CombatMenu = null;
-    
-    void Awake()
+
+    public override void Awake()
     {
         //SETS BASIC VARIABLE--
         base.Awake();

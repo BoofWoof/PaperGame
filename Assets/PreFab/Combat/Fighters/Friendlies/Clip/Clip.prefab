@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 3913278314737483505}
   - component: {fileID: 3913278314737483506}
   - component: {fileID: 3913278314737483507}
-  - component: {fileID: 3913278314737483504}
-  - component: {fileID: 3913278314737483511}
+  - component: {fileID: 5213600243920271549}
   m_Layer: 0
   m_Name: Clip
   m_TagString: Untagged
@@ -102,7 +101,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3913278314737483504
+--- !u!114 &5213600243920271549
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,29 +110,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 3913278314737483516}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa51e8794b5870a48b6a13eab1969c0e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ef4af833c7e0c84ea6d777f0d9e1ed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3913278314737483511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3913278314737483516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c29dea6a3027a8448e93338661f7e25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  friendlyList: []
-  enemyList: []
+  CharacterName: Clip
   myID: 0
   friendly: 0
-  HPMax: 2
-  HP: 2
-  Power: 0
+  tileOn: {fileID: 0}
+  HPMax: 25
+  HP: 20
+  Power: 2
   Defense: 0
+  passTileEffect: 0
   moveContainer: {fileID: 5083241241202991096}
   HomePosition: {x: 0, y: 0, z: 0}
   damageGraphicInput: {fileID: 8375197370763351060, guid: 4e9b24da71bfd3b4ebadac087a13c2f4,

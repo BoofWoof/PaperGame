@@ -11,8 +11,8 @@ public class GameDataTracker : MonoBehaviour
 {
     public static GameDataTracker DataTracker;
     public static PlayerData playerData = new PlayerData();
-    public static SceneInfo currentScene = new SceneInfo();
     public static string saveFileName = "SaveFile1";
+    public static string previousArea;
     
     void Awake()
     {
@@ -21,7 +21,6 @@ public class GameDataTracker : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
             DataTracker = this;
-            LoadAll(); //The game was just loaded and needs this to be loaded.
         }
         else if (DataTracker != this)
         {
@@ -29,41 +28,42 @@ public class GameDataTracker : MonoBehaviour
         }
     }
 
-    //SAVE ALL IMPORTANT PARTS OF A SCENE===========NEEDS WORK===========
-    public static void saveScene()
+    private void Start()
     {
-        currentScene.sceneName = SceneManager.GetActiveScene().name;
-        Save(currentScene.sceneName, currentScene);
     }
-    //==================================================
-    //SAVE ALL IMPORTANT PARTS OF A SCENE===========NEEDS WORK===========
-    public static void loadScene(string nextSceneName)
+
+    //Records that a chest was opened.======================================
+    public bool usedCheck(string ObjectName)
     {
-        currentScene = (SceneInfo)Load(nextSceneName);
+        objectUsage chest = (objectUsage)Load("Used" + ObjectName);
+        if (chest == null)
+        {
+            return (false);
+        } else
+        {
+            return (true);
+        }
     }
-    //==================================================
-
-
-
-
-
-    public void LoadAll()
+    public void useObject(string ObjectName)
     {
-
+        objectUsage newChest = new objectUsage();
+        newChest.objectName = ObjectName;
+        Save("Used" + ObjectName, newChest);
     }
+    //=====================================================================
 
     public static void Save(string Filename, object SaveObject)
     {
-        if(Directory.Exists(Application.persistentDataPath + "/" + saveFileName) == false)
+        if(Directory.Exists(Application.persistentDataPath + "/" + saveFileName + "/" + SceneManager.GetActiveScene().name) == false)
         {
-            Directory.CreateDirectory(Application.persistentDataPath + "/" + saveFileName);
+            Directory.CreateDirectory(Application.persistentDataPath + "/" + saveFileName + "/" + SceneManager.GetActiveScene().name);
         }
-        if(File.Exists(Application.persistentDataPath + "/" + saveFileName + "/" + Filename))
+        if(File.Exists(Application.persistentDataPath + "/" + saveFileName + "/" + SceneManager.GetActiveScene().name + "/" + Filename))
         {
-            File.Delete(Application.persistentDataPath + "/" + saveFileName + "/" + Filename);
+            File.Delete(Application.persistentDataPath + "/" + saveFileName + "/" + SceneManager.GetActiveScene().name + "/" + Filename);
         }
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/" + saveFileName + "/" + Filename);
+        FileStream file = File.Create(Application.persistentDataPath + "/" + saveFileName + "/" + SceneManager.GetActiveScene().name + "/" + Filename);
         bf.Serialize(file, SaveObject);
         file.Close();
     }
@@ -73,14 +73,13 @@ public class GameDataTracker : MonoBehaviour
         BinaryFormatter bf = new BinaryFormatter();
         try
         {
-            FileStream file = File.Open(Application.persistentDataPath + "/" + saveFileName + "/" + Filename, FileMode.Open);
+            FileStream file = File.Open(Application.persistentDataPath + "/" + saveFileName + "/" + SceneManager.GetActiveScene().name + "/" + Filename, FileMode.Open);
             object data = bf.Deserialize(file) as object;
             file.Close();
             return (data);
         }
         catch (System.Exception e)
         {
-            print("NoSceneSavedToLoad");
             return (null);
         }
     }
@@ -90,26 +89,13 @@ public class GameDataTracker : MonoBehaviour
 [Serializable]
 public class PlayerData
 {
-    public int health = 0;
+    public int maxHealth = 10;
+    public int health = 10;
 }
 
 [Serializable]
-public class Playerinventory
+public class objectUsage
 {
+    public string objectName = "ObjectBoi";
+    public bool objectUsed = true;
 }
-
-[Serializable]
-public class SceneInfo
-{
-    public string sceneName = "YouDidn'tNameThisScene";
-    public List<GameObject> FriendlyNPCs;
-    public List<GameObject> enemyList;
-    public List<GameObject> interactableObjects;
-}
-
-[Serializable]
-public class StoryFlags
-{
-    public bool SomethingHappened = false;
-}
-//==============================================================

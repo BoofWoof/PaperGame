@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6065652336505517039}
   - component: {fileID: 6065652336505517038}
   m_Layer: 0
-  m_Name: GameController
+  m_Name: OverworldController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,4 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b8d6871db2e73e4e8a9cb8457627f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Playerinit: {fileID: 0}
+  playerInput: {fileID: 104110595, guid: 05535381b9cbe1541a68f8b43ef2741f, type: 3}
+  spawnPoint: {fileID: 0}
+  trackingCameraInput: {fileID: 6844698882489473077, guid: 3b37c697e051fa2448470695f77f7ff3,
+    type: 3}
+  trackingCamera: {fileID: 0}
+  SceneTransfers: []

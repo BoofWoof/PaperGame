@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 104110596}
   - component: {fileID: 104110597}
   m_Layer: 0
-  m_Name: Character
+  m_Name: Clip
   m_TagString: Player
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -62,8 +62,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3312c86b2eaf3c445a5e20bda393d3ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.06
+  speed: 3
   gravity: -25
   spriteObject: {fileID: 1817811413365327768, guid: 99ef4d7ddcf4bcd4bbd9a5997549d123,
     type: 3}
-  rotSpeedMagnitude: 12
+  rotSpeedMagnitude: 360
+  moveHorizontal: 0
+  moveVertical: 0
+  stopOnCutscene: 1

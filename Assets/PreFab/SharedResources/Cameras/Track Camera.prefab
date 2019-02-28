@@ -96,8 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectToTrack: {fileID: 0}
-  tolerance: {x: 0, y: 0, z: 0}
-  offset: {x: 0, y: 2, z: -5}
-  dialogueOffsetMultiplier: 0.5
-  speed: 8
+  offset: {x: 0, y: 2.5, z: -4}
+  dialogueOffsetMultiplier: 0.7
+  speed: 6
   OverworldCamera: 1

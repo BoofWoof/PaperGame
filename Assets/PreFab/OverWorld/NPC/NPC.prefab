@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8931255781776980431}
   - component: {fileID: 8931255781776980428}
   - component: {fileID: 8931255781776980430}
-  - component: {fileID: 8931255781776980401}
   - component: {fileID: 6876467215418859337}
   m_Layer: 0
   m_Name: NPC
@@ -95,18 +94,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 1.08, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8931255781776980401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8931255781776980429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa51e8794b5870a48b6a13eab1969c0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6876467215418859337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,5 +109,6 @@ MonoBehaviour:
   CharacterName: NameMeYaDingus
   dialogueMode: 2
   InputText: {fileID: 0}
+  InputString: You didn't give me any text ya dingus.
   dialogueCutscene: {fileID: 6338814272384217417, guid: 40b1750c77484024990b46977ebeb5d9,
     type: 3}
