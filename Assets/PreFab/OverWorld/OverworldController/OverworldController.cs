@@ -53,10 +53,30 @@ public class OverworldController : MonoBehaviour
                 if(sceneTransfer.GetComponent<SceneMover>().sceneName == GameDataTracker.previousArea)
                 {
                     Player = Instantiate(playerInput, sceneTransfer.transform.position, Quaternion.identity);
+
                     GameObject moveEvent = new GameObject();
                     PlayerTravelDirection pm = moveEvent.AddComponent<PlayerTravelDirection>();
-                    pm.endPosition = Player.transform.position + new Vector3(0,0,2);
-                    pm.travelDirection = SceneMover.exitDirectionOptions.up;
+                    SceneMover.exitDirectionOptions entranceDirection = sceneTransfer.GetComponent<SceneMover>().exitDirection;
+                    if(entranceDirection == SceneMover.exitDirectionOptions.up)
+                    {
+                        pm.endPosition = Player.transform.position + new Vector3(0, 0, -2);
+                        pm.travelDirection = SceneMover.exitDirectionOptions.down;
+                    }
+                    else if (entranceDirection == SceneMover.exitDirectionOptions.left)
+                    {
+                        pm.endPosition = Player.transform.position + new Vector3(-2, 0, 0);
+                        pm.travelDirection = SceneMover.exitDirectionOptions.right;
+                    }
+                    else if (entranceDirection == SceneMover.exitDirectionOptions.right)
+                    {
+                        pm.endPosition = Player.transform.position + new Vector3(2, 0, 0);
+                        pm.travelDirection = SceneMover.exitDirectionOptions.left;
+                    }
+                    else if (entranceDirection == SceneMover.exitDirectionOptions.down)
+                    {
+                        pm.endPosition = Player.transform.position + new Vector3(0, 0, 2);
+                        pm.travelDirection = SceneMover.exitDirectionOptions.up;
+                    }
                     addCutsceneEvent(moveEvent, Player, true, gameModeOptions.Cutscene);
                 }
             }
