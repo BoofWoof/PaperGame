@@ -7,6 +7,7 @@ public class FriendlyNPCClass : MonoBehaviour
     //CharactersName
     private GameObject Player;
     public string CharacterName = "NameMeYaDingus";
+    public int UniqueSceneID = -1;
     public OverworldController.gameModeOptions dialogueMode = OverworldController.gameModeOptions.MobileCutscene;
     public TextAsset InputText;
     public string InputString = "You didn't give me any text ya dingus.";
@@ -16,9 +17,14 @@ public class FriendlyNPCClass : MonoBehaviour
 
     void Start()
     {
+        if(UniqueSceneID == -1)
+        {
+            print("Give " + CharacterName + " an ID ya nerd.");
+        }
         Character thisNPCCharacter = new Character();
         thisNPCCharacter.CharacterObject = gameObject;
         thisNPCCharacter.CharacterName = CharacterName;
+        thisNPCCharacter.uniqueSceneID = UniqueSceneID;
         OverworldController.CharacterList.Add(thisNPCCharacter);
     }
 

@@ -12,7 +12,13 @@ public class GameDataTracker : MonoBehaviour
     public static GameDataTracker DataTracker;
     public static PlayerData playerData = new PlayerData();
     public static string saveFileName = "SaveFile1";
+
+    //Super Important Data
     public static string previousArea;
+    //CombatInfo
+    public static Vector3 combatStartPosition;
+    public static List<int> deadEnemyIDs = new List<int>();
+    public static bool lastAreaWasCombat = false;
     
     void Awake()
     {

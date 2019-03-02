@@ -18,6 +18,8 @@ public class SceneMover : MonoBehaviour
     {
         if (trig.CompareTag("Player") && OverworldController.gameMode == OverworldController.gameModeOptions.Mobile)
         {
+            GameDataTracker.deadEnemyIDs.Clear();
+
             GameObject move = new GameObject("MOVE CUTSCENE");
             PlayerTravelDirection m = move.AddComponent<PlayerTravelDirection>();
             m.endPosition = transform.position;

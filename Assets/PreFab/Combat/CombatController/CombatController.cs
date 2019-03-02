@@ -222,7 +222,7 @@ public class CombatController : MonoBehaviour
         else if (enemyList.Count == 0)
         {
             Player.GetComponent<ClipCombat>().updateGameStats();
-            SceneManager.LoadScene("TestScene1", LoadSceneMode.Single);
+            SceneManager.LoadScene(GameDataTracker.previousArea, LoadSceneMode.Single);
         }
         //--------------------------------------------------
         else
