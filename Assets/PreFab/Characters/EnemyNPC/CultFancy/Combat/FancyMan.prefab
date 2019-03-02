@@ -117,8 +117,8 @@ MonoBehaviour:
   myID: 0
   friendly: 0
   tileOn: {fileID: 0}
-  HPMax: 2
-  HP: 2
+  HPMax: 10
+  HP: 10
   Power: 2
   Defense: 0
   passTileEffect: 0
