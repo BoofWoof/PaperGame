@@ -9,7 +9,7 @@ public class Item : MonoBehaviour
 {
     public string itemName;
     public int id;
-    []
+    
     public virtual void OverworldUse()
     {
 

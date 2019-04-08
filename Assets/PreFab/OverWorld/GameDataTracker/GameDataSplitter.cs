@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 using System;
 
@@ -24,11 +25,12 @@ public class GameDataSplitter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void startSave()
     {
+        globalGameFlags["currentScene"] = new PythonDict(SceneManager.GetActiveScene().name);
         globalGameFlags["playerPos"] = new PythonDict(OverworldController.Player.transform.position);
         globalGameFlags["playerHP"] = new PythonDict(GameDataTracker.playerData.health);
         globalGameFlags["playerMaxHP"] = new PythonDict(GameDataTracker.playerData.maxHealth);
@@ -38,6 +40,8 @@ public class GameDataSplitter : MonoBehaviour
 
     public void loadSave()
     {
+
+        SceneManager.LoadScene(globalGameFlags["currentScene"].getStr());
         OverworldController.Player.transform.position = globalGameFlags["playerPos"].getPos();
         GameDataTracker.playerData.health = globalGameFlags["playerHP"].getVal();
         GameDataTracker.playerData.maxHealth = globalGameFlags["playerMaxHP"].getVal();
@@ -119,6 +123,11 @@ public class GameDataSplitter : MonoBehaviour
         public int getVal()
         {
             return val_;
+        }
+
+        public bool getFlag()
+        {
+            return flag_;
         }
 
         public bool isString()
