@@ -8,8 +8,7 @@ using System;
 [Serializable]
 public class GameDataSplitter : MonoBehaviour
 {
-    public string[] playerInventory;
-    public int curInvertoryIndex;
+    public PlayerInventory playerInventory;
 
     public PythonDict globalGameFlags;
 
@@ -36,8 +35,7 @@ public class GameDataSplitter : MonoBehaviour
     }
     public void setDefaults()
     {
-        playerInventory = new string[20];
-        curInvertoryIndex = 0;
+        playerInventory = new PlayerInventory();
         globalGameFlags = new PythonDict();
     }
 

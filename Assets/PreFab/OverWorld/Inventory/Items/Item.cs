@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public string badgeName;
+    public string itemName;
     public int id;
 
-    public void overWorldUse()
+    public void OverworldUse()
     {
 
     }
 
-    public void battleUse()
+    public void BattleUse()
     {
 
     }
