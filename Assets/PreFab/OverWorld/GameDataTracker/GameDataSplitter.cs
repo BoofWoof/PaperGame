@@ -32,7 +32,20 @@ public class GameDataSplitter : MonoBehaviour
         globalGameFlags["playerPos"] = new PythonDict(OverworldController.Player.transform.position);
         globalGameFlags["playerHP"] = new PythonDict(GameDataTracker.playerData.health);
         globalGameFlags["playerMaxHP"] = new PythonDict(GameDataTracker.playerData.maxHealth);
+        globalGameFlags["playerInventorySize"] = new PythonDict(playerInventory.maxSize);
+        globalGameFlags["playerInventory"] = new PythonDict(playerInventory.GetSaveString());
     }
+
+    public void loadSave()
+    {
+        OverworldController.Player.transform.position = globalGameFlags["playerPos"].getPos();
+        GameDataTracker.playerData.health = globalGameFlags["playerHP"].getVal();
+        GameDataTracker.playerData.maxHealth = globalGameFlags["playerMaxHP"].getVal();
+        playerInventory = new PlayerInventory();
+        playerInventory.maxSize = globalGameFlags["playerInventorySize"].getVal();
+        playerInventory.LoadSaveString(globalGameFlags["playerInventory"]);
+    }
+
     public void setDefaults()
     {
         playerInventory = new PlayerInventory();

@@ -9,7 +9,46 @@ public class PlayerInventory : MonoBehaviour
     public int size;
     public int maxSize;
     private PlayerinventorySlot head;
+    public string InventoryString = "";
 
+    private void Start()
+    {
+        if(InventoryString != null)
+        {
+            LoadSaveString(InventoryString);
+        }
+    }
+
+    public string GetSaveString()
+    {
+        string saveString = "";
+        List<PlayerinventorySlot> inventoryList = new List<PlayerinventorySlot>();
+        PlayerinventorySlot temp = head;
+        while (temp.next != null)
+        {
+            inventoryList.Add(temp);
+            temp = temp.next;
+        }
+
+        saveString = JsonUtility.ToJson(inventoryList);
+        return saveString;
+    }
+
+    public void LoadSaveString(string inventory)
+    {
+        List<PlayerinventorySlot> inventoryList = new List<PlayerinventorySlot>();
+        JsonUtility.FromJsonOverwrite(inventory, inventoryList);
+        for (int i = 0; i < inventoryList.Count; i++)
+        {
+            AddItem(inventoryList[i].item);
+        }
+    }
+
+
+    public void setMaxSize(int newMaxSize)
+    {
+        maxSize = newMaxSize;
+    }
     //gets the PlayerinvertorySlot ovbject at given index
     public PlayerinventorySlot GetIndex(int index)
     {
@@ -72,6 +111,18 @@ public class PlayerInventory : MonoBehaviour
     //Adds this item to the head of the list
     public void AddItem(Item newItem)
     {
+        if (head == null)
+        {
+            PlayerinventorySlot knewSlot = new PlayerinventorySlot();
+            knewSlot.item = newItem;
+            knewSlot.itemName = newItem.itemName;
+            head = knewSlot;
+            return;
+        }
+        if (size == maxSize)
+        {
+            return;
+        }
         PlayerinventorySlot newSlot = new PlayerinventorySlot();
         newSlot.item = newItem;
         newSlot.itemName = newItem.itemName;
@@ -82,6 +133,18 @@ public class PlayerInventory : MonoBehaviour
     //Adds this item to the head of the list
     public void AddItemTail(Item newItem)
     {
+        if(head == null)
+        {
+            PlayerinventorySlot knewSlot = new PlayerinventorySlot();
+            knewSlot.item = newItem;
+            knewSlot.itemName = newItem.itemName;
+            head = knewSlot;
+            return;
+        }
+        if (size == maxSize)
+        {
+            return;
+        }
         PlayerinventorySlot temp = head;
         while(temp.next != null)
         {

@@ -68,6 +68,7 @@ public class GameDataTracker : MonoBehaviour
         {
             StreamReader streamReader = File.OpenText(Application.persistentDataPath + "/" + saveFileName);
             JsonUtility.FromJsonOverwrite(streamReader.ReadToEnd(), DataTracker.gameObject.GetComponent<GameDataSplitter>());
+            DataTracker.gameObject.GetComponent<GameDataSplitter>().loadSave();
         }
         catch (System.Exception e)
         {
