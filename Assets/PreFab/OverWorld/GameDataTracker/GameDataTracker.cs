@@ -38,55 +38,40 @@ public class GameDataTracker : MonoBehaviour
     {
     }
 
-    //Records that a chest was opened.======================================
-    public bool usedCheck(string ObjectName)
-    {
-        objectUsage chest = (objectUsage)Load("Used" + ObjectName);
-        if (chest == null)
-        {
-            return (false);
-        } else
-        {
-            return (true);
-        }
-    }
-    public void useObject(string ObjectName)
-    {
-        objectUsage newChest = new objectUsage();
-        newChest.objectName = ObjectName;
-        Save("Used" + ObjectName, newChest);
-    }
-    //=====================================================================
+    
 
-    public static void Save(string Filename, object SaveObject)
+    public static void Save()
     {
-        if(Directory.Exists(Application.persistentDataPath + "/" + saveFileName + "/" + SceneManager.GetActiveScene().name) == false)
+        if(Directory.Exists(Application.persistentDataPath + "/" + saveFileName) == false)
         {
-            Directory.CreateDirectory(Application.persistentDataPath + "/" + saveFileName + "/" + SceneManager.GetActiveScene().name);
+            Directory.CreateDirectory(Application.persistentDataPath + "/" + saveFileName);
         }
-        if(File.Exists(Application.persistentDataPath + "/" + saveFileName + "/" + SceneManager.GetActiveScene().name + "/" + Filename))
+        if(File.Exists(Application.persistentDataPath + "/" + saveFileName + "/" + saveFileName))
         {
-            File.Delete(Application.persistentDataPath + "/" + saveFileName + "/" + SceneManager.GetActiveScene().name + "/" + Filename);
+            File.Delete(Application.persistentDataPath + "/" + saveFileName + "/" + saveFileName);
         }
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/" + saveFileName + "/" + SceneManager.GetActiveScene().name + "/" + Filename);
-        bf.Serialize(file, SaveObject);
-        file.Close();
+
+        DataTracker.gameObject.GetComponent<GameDataSplitter>().startSave();
+
+        string jsonString = JsonUtility.ToJson(DataTracker.gameObject.GetComponent<GameDataSplitter>());
+        using (StreamWriter streamWriter = File.CreateText(Application.persistentDataPath + "/" + saveFileName + "/"+ saveFileName))
+        {
+            streamWriter.Write(jsonString);
+        }
+
+        
     }
 
-    public static object Load(string Filename)
+    public static void Load()
     {
-        BinaryFormatter bf = new BinaryFormatter();
         try
         {
-            FileStream file = File.Open(Application.persistentDataPath + "/" + saveFileName + "/" + SceneManager.GetActiveScene().name + "/" + Filename, FileMode.Open);
-            object data = bf.Deserialize(file) as object;
-            file.Close();
-            return (data);
+            StreamReader streamReader = File.OpenText(Application.persistentDataPath + "/" + saveFileName);
+            JsonUtility.FromJsonOverwrite(streamReader.ReadToEnd(), DataTracker.gameObject.GetComponent<GameDataSplitter>());
         }
         catch (System.Exception e)
         {
-            return (null);
+            return;
         }
     }
 }
