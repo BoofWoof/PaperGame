@@ -574,5 +574,15 @@ PrefabInstance:
       propertyPath: SceneTransfers.Array.data[0]
       value: 
       objectReference: {fileID: 1186974829}
+    - target: {fileID: 962728223710326191, guid: 73b6a1165c26b5749b2060b516b9f945,
+        type: 3}
+      propertyPath: SceneTransfers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 962728223710326191, guid: 73b6a1165c26b5749b2060b516b9f945,
+        type: 3}
+      propertyPath: SceneTransfers.Array.data[0]
+      value: 
+      objectReference: {fileID: 1186974829}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73b6a1165c26b5749b2060b516b9f945, type: 3}
