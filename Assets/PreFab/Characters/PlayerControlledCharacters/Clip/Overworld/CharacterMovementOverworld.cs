@@ -61,7 +61,20 @@ public class CharacterMovementOverworld : MonoBehaviour
         else
         {
             spriteAnimate.SetTrigger("Jump");
-            jump = jump + (gravity * Time.deltaTime);
+            print(cc.velocity.y);
+            if ((cc.velocity.y < 0))
+            {
+                jump = jump + (gravity * 1.5f * Time.deltaTime);
+            } else
+            {
+                if (Input.GetButton("Fire1"))
+                {
+                    jump = jump + (gravity * Time.deltaTime);
+                } else
+                {
+                    jump = jump + (gravity * 2.5f * Time.deltaTime);
+                }
+            }
         }
         //POSITION RESET IF FALLEN START---------------------------
         if (cc.transform.position.y < -5)
