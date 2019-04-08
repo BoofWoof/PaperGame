@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8931255781776980431}
   - component: {fileID: 8931255781776980428}
-  - component: {fileID: 8931255781776980430}
   - component: {fileID: 6876467215418859337}
+  - component: {fileID: 7124138347097568641}
   m_Layer: 0
-  m_Name: NPC
+  m_Name: FriendlyNPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,19 +81,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &8931255781776980430
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8931255781776980429}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6, y: 1.08, z: 0.1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6876467215418859337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,8 +94,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterName: NameMeYaDingus
+  UniqueSceneID: -1
   dialogueMode: 2
   InputText: {fileID: 0}
   InputString: You didn't give me any text ya dingus.
   dialogueCutscene: {fileID: 6338814272384217417, guid: 40b1750c77484024990b46977ebeb5d9,
     type: 3}
+--- !u!65 &7124138347097568641
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8931255781776980429}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.90909094, y: 1.0290909, z: 0.2}
+  m_Center: {x: 0, y: 0.51454544, z: 0}
