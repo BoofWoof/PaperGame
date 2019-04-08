@@ -98,5 +98,6 @@ MonoBehaviour:
   ObjectToTrack: {fileID: 0}
   offset: {x: 0, y: 2.5, z: -4}
   dialogueOffsetMultiplier: 0.7
-  speed: 6
+  speed: 10
+  trackingcameraY: 0
   OverworldCamera: 1

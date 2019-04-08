@@ -31,7 +31,7 @@ public class OverworldController : MonoBehaviour
     public GameObject playerInput;
     public GameObject spawnPoint;
     public GameObject trackingCameraInput;
-    public GameObject trackingCamera;
+    public static GameObject trackingCamera;
     public GameObject[] SceneTransfers;
 
     //CutScene-------------------------------------------------
@@ -98,6 +98,8 @@ public class OverworldController : MonoBehaviour
         }
         trackingCamera = Instantiate<GameObject>(trackingCameraInput, Player.transform.position + new Vector3(0,1,-2), Quaternion.Euler(25,0,0));
         trackingCamera.GetComponent<CameraFollow>().ObjectToTrack = Player;
+        trackingCamera.GetComponent<CameraFollow>().combat = false;
+        updateTrackingCameraY(Player.transform.position.y);
     }
 
     //WAYS TO ADD CUTSCENE EVENTS------------------------------------------------------------------------------------------------------------------------------------------------
@@ -205,6 +207,11 @@ public class OverworldController : MonoBehaviour
             }
         }
         return (foundCharacter);
+    }
+
+    public static void updateTrackingCameraY(float newY)
+    {
+        trackingCamera.GetComponent<CameraFollow>().trackingcameraY = newY;
     }
 }
 

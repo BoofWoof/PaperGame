@@ -57,11 +57,11 @@ public class CharacterMovementOverworld : MonoBehaviour
             jumped = false;
             lastground = cc.transform.position;
             spriteAnimate.SetTrigger("Land");
+            OverworldController.updateTrackingCameraY(transform.position.y);
         }
         else
         {
             spriteAnimate.SetTrigger("Jump");
-            print(cc.velocity.y);
             if ((cc.velocity.y < 0))
             {
                 jump = jump + (gravity * 1.5f * Time.deltaTime);

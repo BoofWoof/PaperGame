@@ -89,6 +89,7 @@ public class CombatController : MonoBehaviour
         trackingCamera.GetComponent<CameraFollow>().OverworldCamera = false;
         trackingCamera.GetComponent<CameraFollow>().ObjectToTrack = scene;
         trackingCamera.GetComponent<CameraFollow>().offset = defaultOffset;
+        trackingCamera.GetComponent<CameraFollow>().combat = true;
         defaultFocus = scene;
         //----------------------------------------------------------------------------------------------
 
