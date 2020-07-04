@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8632244467635367520}
   - component: {fileID: 3878563623806984955}
   - component: {fileID: 9030251360726860401}
+  - component: {fileID: 105462982050251918}
   m_Layer: 0
   m_Name: EnemyNPC
   m_TagString: Untagged
@@ -49,6 +50,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -60,6 +62,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -129,6 +132,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6288889, y: 1.3266667, z: 0.2}
   m_Center: {x: 0, y: 0.66333336, z: 0}
+--- !u!114 &105462982050251918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425190303007945823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa51e8794b5870a48b6a13eab1969c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3477345225957318665
 PrefabInstance:
   m_ObjectHideFlags: 0
