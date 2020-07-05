@@ -13,7 +13,8 @@ public class CharacterMovementOverworld : MonoBehaviour
 
     //Objects and Components
     private SpriteRenderer sprite;
-    private CharacterController cc;
+    private BoxCollider bc;
+    private Rigidbody rb;
     public GameObject spriteObject;
 
     //Rotation variables
@@ -38,9 +39,10 @@ public class CharacterMovementOverworld : MonoBehaviour
     void Start()
     {
         OverworldController.Player = gameObject;
-        cc = GetComponent<CharacterController>();
-        lastground = cc.transform.position;
-        sprite = ((GameObject)Instantiate(spriteObject, cc.transform.position - new Vector3(0,cc.height/2,0), Quaternion.identity)).GetComponent<SpriteRenderer>();
+        bc = GetComponent<BoxCollider>();
+        rb = GetComponent<Rigidbody>();
+        lastground = bc.transform.position;
+        sprite = ((GameObject)Instantiate(spriteObject, bc.transform.position - new Vector3(0,bc.bounds.size.y/2,0), Quaternion.identity)).GetComponent<SpriteRenderer>();
         //sprite.receiveShadows = true;
         //sprite.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
         rotSpeed = rotSpeedMagnitude;
@@ -51,18 +53,43 @@ public class CharacterMovementOverworld : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Check if grounded--------------------
+        //Check at two different spots to make sure.
+        bool isGrounded = false;
+        RaycastHit hit;
+        Physics.Raycast(transform.position, -Vector3.up, out hit);
+        if ((hit.distance < bc.size.y / 2 + 0.1f) && (new Vector3(hit.normal.x, 0, hit.normal.z).magnitude<0.1))
+        {
+            isGrounded = true;
+        }
+        Physics.Raycast(transform.position + new Vector3(-0.25f, 0, 0), -Vector3.up, out hit);
+        if ((hit.distance < bc.size.y / 2 + 0.1f) && (new Vector3(hit.normal.x, 0, hit.normal.z).magnitude < 0.1))
+        {
+            isGrounded = true;
+        }
+        Physics.Raycast(transform.position + new Vector3(0.25f, 0, 0), -Vector3.up, out hit);
+        if ((hit.distance < bc.size.y / 2 + 0.1f) && (new Vector3(hit.normal.x, 0, hit.normal.z).magnitude < 0.1))
+        {
+            isGrounded = true;
+        }
+        Physics.Raycast(transform.position + new Vector3(0, 0, 0.15f), -Vector3.up, out hit);
+        if ((hit.distance < bc.size.y / 2 + 0.1f) && (new Vector3(hit.normal.x, 0, hit.normal.z).magnitude < 0.1))
+        {
+            isGrounded = true;
+        }
         //JUMP START------------------------------
-        if (cc.isGrounded == true)
+        if (isGrounded == true)
         {
             jumped = false;
-            lastground = cc.transform.position;
+            jump = 0;
+            lastground = bc.transform.position;
             spriteAnimate.SetTrigger("Land");
             OverworldController.updateTrackingCameraY(transform.position.y);
         }
         else
         {
             spriteAnimate.SetTrigger("Jump");
-            if ((cc.velocity.y < 0))
+            if ((rb.velocity.y < 0))
             {
                 jump = jump + (gravity * 1.5f * Time.deltaTime);
             } else
@@ -77,11 +104,13 @@ public class CharacterMovementOverworld : MonoBehaviour
             }
         }
         //POSITION RESET IF FALLEN START---------------------------
-        if (cc.transform.position.y < -5)
+        /*
+        if (bc.transform.position.y < -5)
         {
             jump = 0;
-            cc.Move(new Vector3(lastground.x - cc.transform.position.x, lastground.y - cc.transform.position.y, lastground.z - cc.transform.position.z));
+            bc.Move(new Vector3(lastground.x - bc.transform.position.x, lastground.y - bc.transform.position.y, lastground.z - bc.transform.position.z));
         }
+        */
         //POSITION RESET IF FALLEN END---------------------------
         if (OverworldController.gameMode == OverworldController.gameModeOptions.Mobile)
         {
@@ -95,7 +124,6 @@ public class CharacterMovementOverworld : MonoBehaviour
         {
             jump = 0;
         }
-
         //MOVEMENT START---------------------------------------------------------------------------------
         if (OverworldController.gameMode != OverworldController.gameModeOptions.Cutscene)
         {
@@ -112,8 +140,20 @@ public class CharacterMovementOverworld : MonoBehaviour
         {
             movement = movement * Time.deltaTime * speed;
         }
-        movement = movement + new Vector3(0, jump * Time.deltaTime, 0);
-        cc.Move(movement);
+        Physics.Raycast(transform.position, movement, out hit);
+        if (hit.collider != null){
+            if (hit.distance < movement.magnitude + 0.3)
+            {
+                movement = Vector3.zero;
+            }
+        }
+
+        movement += new Vector3(0, jump * Time.deltaTime, 0);
+        transform.Translate(movement);
+        rb.angularVelocity = Vector3.zero;
+        rb.velocity = Vector3.zero;
+        transform.rotation = Quaternion.identity;
+
         if ((moveVertical != 0) || (moveHorizontal != 0))
         {
             spriteAnimate.SetTrigger("Go");
