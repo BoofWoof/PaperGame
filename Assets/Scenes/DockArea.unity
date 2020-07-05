@@ -1420,6 +1420,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 1142092305}
   walkRadius: 1
+  secondsTillMove: 2
+  secondsTillMoveRange: 1
 --- !u!195 &1142092305
 NavMeshAgent:
   m_ObjectHideFlags: 0
