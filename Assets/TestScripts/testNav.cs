@@ -8,6 +8,7 @@ public class testNav : MonoBehaviour
     public NavMeshAgent agent;
     public float walkRadius;
     public float secondsTillMove = 2;
+    public float secondsTillMoveRange = 1;
     private float wait_count = 0;
 
     // Update is called once per frame
@@ -20,7 +21,7 @@ public class testNav : MonoBehaviour
                 wait_count += Time.deltaTime;
                 if (wait_count >= secondsTillMove)
                 {
-                    wait_count = 0;
+                    wait_count = Random.value * secondsTillMoveRange - secondsTillMoveRange / 2;
                     Vector3 randomDirection = Random.insideUnitSphere * walkRadius;
                     randomDirection += transform.position;
                     NavMeshHit hit;
