@@ -32,11 +32,12 @@ public class TextBoxController : MonoBehaviour
     //Text Modifiers
     private enum textModifiers
     {
-        Rainbow
+        Rainbow,
+        Shaky
     }
     private struct ModifiedText
     {
-        public ModifiedText(int start, int end, textModifiers modification)
+        public ModifiedText(textModifiers modification, int start, int end = -1)
         {
             START = start;
             END = end;
@@ -44,7 +45,18 @@ public class TextBoxController : MonoBehaviour
         }
 
         public int START { get; }
-        public int END { get; }
+        public int END { get; set; }
+        public bool ENDSET()
+        {
+            if (END == -1)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
         public textModifiers MODIFICATION { get; }
     }
     private List<ModifiedText> modifierList = new List<ModifiedText>();
@@ -66,14 +78,12 @@ public class TextBoxController : MonoBehaviour
 
         RectTransform wrapArea = dialogue.GetComponent<RectTransform>();
         wrapArea.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 1.60f);
-
         myText.ForceMeshUpdate();
 
         displayedTextFull = textLines[currentLine];
-        stringDisp = displayedTextFull.Length;
-
         processLine(displayedTextFull);
         displayedTextFull = processLine(displayedTextFull);
+        stringDisp = displayedTextFull.Length;
     }
 
     // Update is called once per frame
@@ -127,14 +137,20 @@ public class TextBoxController : MonoBehaviour
     {
         Color32[] newVertexColors;
         TMP_TextInfo textinfo = myText.textInfo;
+        int vertexIndex;
+
+        int materialindex = textinfo.characterInfo[0].materialReferenceIndex;
+        newVertexColors = textinfo.meshInfo[materialindex].colors32;
+        Vector3[] vertexList = textinfo.meshInfo[materialindex].vertices;
+
         //Modify Text---------------------------
         foreach (ModifiedText textmodifier in modifierList)
         {
-            for (int i = textmodifier.START; i < textmodifier.END; i++)
+            if (stringLen >= textmodifier.START)
             {
-                if (i <= stringLen)
+                for (int i = stringLen; i <= textmodifier.END; i++)
                 {
-                    if ((stringLen < stringDisp) && (stringLen == i))
+                    if (stringLen < stringDisp)
                     {
                         //Add To String
                         displayedText = displayedText + displayedTextFull[stringLen];
@@ -142,45 +158,93 @@ public class TextBoxController : MonoBehaviour
                         //DISPLAY THE TEXT
                         myText.text = displayedText;
                     }
+                }
+                if (textmodifier.MODIFICATION == textModifiers.Rainbow)
+                {
+                    myText.ForceMeshUpdate();
+                    for (int i = textmodifier.START; i < textmodifier.END; i++)
+                    {
+                        if (displayedTextFull[i] != ' ')
+                        {
+                            vertexIndex = myText.textInfo.characterInfo[i].vertexIndex;
+                            float colorUpdate = (updateCount + i * 30) % 500;
+                            Color32 c = Color.HSVToRGB(colorUpdate / 500, 1f, 0.8f);
+                            newVertexColors[vertexIndex + 0] = c;
+                            newVertexColors[vertexIndex + 1] = c;
+                            newVertexColors[vertexIndex + 2] = c;
+                            newVertexColors[vertexIndex + 3] = c;
+                        }
+                    }
+                }
 
-                    int materialindex = textinfo.characterInfo[i].materialReferenceIndex;
-                    newVertexColors = textinfo.meshInfo[materialindex].colors32;
-                    int vertexIndex = myText.textInfo.characterInfo[i].vertexIndex;
-                    float colorUpdate = (updateCount + i * 100)%500;
-                    Color32 c = Color.HSVToRGB(colorUpdate/500, 1f, 0.8f);
-                    newVertexColors[vertexIndex + 0] = c;
-                    newVertexColors[vertexIndex + 1] = c;
-                    newVertexColors[vertexIndex + 2] = c;
-                    newVertexColors[vertexIndex + 3] = c;
-                    myText.UpdateVertexData();
+                if (textmodifier.MODIFICATION == textModifiers.Shaky)
+                {
+                    for (int i = textmodifier.START; i < textmodifier.END; i++)
+                    {
+                        if (displayedTextFull[i] != ' ')
+                        {
+                            vertexIndex = myText.textInfo.characterInfo[i].vertexIndex;
+                            float shakeUpdate = (updateCount + i * 30) % 500;
+                            vertexList[vertexIndex + 0] += new Vector3(0f, 0f, Mathf.Sin(shakeUpdate * 6.283f / 500) * 0.05f);
+                            vertexList[vertexIndex + 1] += new Vector3(0f, 0f, Mathf.Sin(shakeUpdate * 6.283f / 500) * 0.05f);
+                            vertexList[vertexIndex + 2] += new Vector3(0f, 0f, Mathf.Sin(shakeUpdate * 6.283f / 500) * 0.05f);
+                            vertexList[vertexIndex + 3] += new Vector3(0f, 0f, Mathf.Sin(shakeUpdate * 6.283f / 500) * 0.05f);
+                        }
+                    }
                 }
             }
         }
+        myText.UpdateVertexData();
         //Modify Text End-----------------------
     }
 
     string processLine(string FullText)
     {
         modifierList = new List<ModifiedText>();
-        bool changes = true;
-        while (changes == true)
+        textModifiers modifier = textModifiers.Rainbow;
+        char[] charsToTrim = { '/', '[', ']' };
+        string modifierName = "";
+        for (int i = 0; i < FullText.Length; i++)
         {
-            changes = false;
-            int startindex = FullText.IndexOf("[rainbow]");
-            if (startindex != -1)
+            if (FullText[i] == '[')
             {
-                FullText = FullText.Replace("[rainbow]", "");
-                changes = true;
-                int endindex = FullText.IndexOf("[/rainbow]");
-                if (endindex == -1)
+                int endIndex = FullText.IndexOf(']');
+                modifierName = FullText.Substring(i, endIndex - i + 1);
+                FullText = FullText.Replace(modifierName, "");
+                //Identify Modifier Type
+                switch (modifierName.Trim(charsToTrim).ToLower())
                 {
-                    endindex = FullText.Length-1;
+                    case "rainbow":
+                        modifier = textModifiers.Rainbow;
+                        break;
+                    case "shaky":
+                        modifier = textModifiers.Shaky;
+                        break;
+                    default:
+                        print("Improper textbox syntax.");
+                        break;
+                }
+                if (modifierName[1] != '/')
+                {
+                    modifierList.Add(new ModifiedText(modifier, i));
                 }
                 else
                 {
-                    FullText = FullText.Replace("[/rainbow]", "");
+                    //Identify Modifier Type
+                    for (int j=0; j<modifierList.Count; j++)
+                    {
+                        ModifiedText modifierItem = modifierList[j];
+                        if (modifierItem.MODIFICATION == modifier)
+                        {
+                            if (modifierItem.ENDSET() == false)
+                            {
+                                modifierItem.END = i;
+                                modifierList[j] = modifierItem;
+                            }
+                        }
+                    }
                 }
-                modifierList.Add(new ModifiedText(startindex, endindex, textModifiers.Rainbow));
+                i--;
             }
         }
         return (FullText);
