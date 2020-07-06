@@ -135,6 +135,8 @@ public class TextBoxController : MonoBehaviour
 
     void AnimateString()
     {
+        myText.ForceMeshUpdate();
+
         Color32[] newVertexColors;
         TMP_TextInfo textinfo = myText.textInfo;
         int vertexIndex;
