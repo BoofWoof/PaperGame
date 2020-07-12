@@ -41,6 +41,21 @@ TextureImporter:
   - first:
       213: -3288545053600089463
     second: SpriteSheet 1 Main Character_12
+  - first:
+      213: 7380598727707905980
+    second: ChipOuchFace
+  - first:
+      213: -4406900695354214624
+    second: ChipMhmmmFace
+  - first:
+      213: -2778645126439462064
+    second: ChipHappyFace
+  - first:
+      213: -2096225919005782005
+    second: ChipAngryFace
+  - first:
+      213: 7857918660212196041
+    second: ChipMehFace
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -323,7 +338,7 @@ TextureImporter:
         width: 194
         height: 253
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -394,6 +409,111 @@ TextureImporter:
       bones: []
       spriteID: 98a7c4c72bdbc52d0800000000000000
       internalID: -3288545053600089463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChipOuchFace
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 527
+        width: 126
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbfcab250772d6660800000000000000
+      internalID: 7380598727707905980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChipMhmmmFace
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 290
+        width: 129
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0277df49a2b87d2c0800000000000000
+      internalID: -4406900695354214624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChipHappyFace
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 85
+        width: 123
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05b94b9baf44079d0800000000000000
+      internalID: -2778645126439462064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChipAngryFace
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 59
+        width: 128
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0091b802a5b8e2e0800000000000000
+      internalID: -2096225919005782005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChipMehFace
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 54
+        width: 137
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c28cdf636fec0d60800000000000000
+      internalID: 7857918660212196041
       vertices: []
       indices: 
       edges: []
