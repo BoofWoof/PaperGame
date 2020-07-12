@@ -142,7 +142,7 @@ public class CharacterMovementOverworld : MonoBehaviour
         }
         Physics.Raycast(transform.position, movement, out hit);
         if (hit.collider != null){
-            if (hit.distance < movement.magnitude + 0.3)
+            if ((hit.distance < movement.magnitude + 0.3) && (hit.transform.tag == "Environment"))
             {
                 movement = Vector3.zero;
             }
