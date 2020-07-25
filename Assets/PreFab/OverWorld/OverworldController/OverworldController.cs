@@ -28,11 +28,11 @@ public class OverworldController : MonoBehaviour
     //-----------------------------------------------------
 
     //Spawned Objects
-    public GameObject playerInput;
-    public GameObject spawnPoint;
-    public GameObject trackingCameraInput;
-    public static GameObject trackingCamera;
-    public GameObject[] SceneTransfers;
+    public GameObject playerInput;  //Player Object
+    public GameObject spawnPoint;  //Where to spawn if not transitioning between areas.
+    public GameObject trackingCameraInput;  //What track camera to use.
+    public static GameObject trackingCamera;  //Publically accessible camera.
+    public GameObject[] SceneTransfers;  //Triggers that will cause a scene transfer.
 
     //CutScene-------------------------------------------------
     private static List<CutSceneEvent> CutsceneQueue = new List<CutSceneEvent>();
@@ -40,7 +40,7 @@ public class OverworldController : MonoBehaviour
     //-----------------------------------------------------------
 
     //GameplayMode---------------------------------------------------
-    public enum gameModeOptions {Mobile, Cutscene, MobileCutscene};
+    public enum gameModeOptions {Mobile, Cutscene, MobileCutscene, DialogueReady};
     public static gameModeOptions gameMode = gameModeOptions.Mobile;
     //-----------------------------------------------------------------
 
@@ -55,6 +55,7 @@ public class OverworldController : MonoBehaviour
             {
                 foreach (GameObject sceneTransfer in SceneTransfers)
                 {
+                    //SPAWNS PLAYER AT THE DESIGNATED AREA ENTRANCE
                     if (sceneTransfer.GetComponent<SceneMover>().sceneName == GameDataTracker.previousArea)
                     {
                         Player = Instantiate(playerInput, sceneTransfer.transform.position, Quaternion.identity);
@@ -88,11 +89,14 @@ public class OverworldController : MonoBehaviour
             }
             else
             {
+                //SPAWNS PLAYERS AT A SPAWNPOINT
                 Player = Instantiate(playerInput, spawnPoint.transform.position, Quaternion.identity);
             }
         }
         else
         {
+            //SPAWNS PLAYER WHERE THEY STARTED COMBAT
+            GameDataTracker.Save();
             Player = Instantiate(playerInput, GameDataTracker.combatStartPosition, Quaternion.identity);
             GameDataTracker.lastAreaWasCombat = false;
         }
@@ -189,6 +193,7 @@ public class OverworldController : MonoBehaviour
             if(charItem.CharacterName == Name)
             {
                 foundCharacter = charItem;
+                return (foundCharacter);
             }
         }
         return (foundCharacter);
@@ -204,6 +209,7 @@ public class OverworldController : MonoBehaviour
             if (charItem.uniqueSceneID == ID)
             {
                 foundCharacter = charItem;
+                return (foundCharacter);
             }
         }
         return (foundCharacter);
