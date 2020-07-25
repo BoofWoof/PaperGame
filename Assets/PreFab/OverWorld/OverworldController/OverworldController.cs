@@ -40,7 +40,7 @@ public class OverworldController : MonoBehaviour
     //-----------------------------------------------------------
 
     //GameplayMode---------------------------------------------------
-    public enum gameModeOptions {Mobile, Cutscene, MobileCutscene, DialogueReady};
+    public enum gameModeOptions {Mobile, Cutscene, MobileCutscene, DialogueReady, Paused};
     public static gameModeOptions gameMode = gameModeOptions.Mobile;
     //-----------------------------------------------------------------
 
