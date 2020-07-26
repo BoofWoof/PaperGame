@@ -161,6 +161,32 @@ public class OverworldController : MonoBehaviour
 
     public void Update()
     {
+        //Check if any dialogue is available.
+        if ((gameMode == gameModeOptions.Mobile)|| (gameMode == gameModeOptions.DialogueReady))
+        {
+            gameMode = gameModeOptions.Mobile;
+            float closestCharacterDistance = 100;
+            GameObject closestCharacter = null;
+            foreach (Character CharacterItem in CharacterList)
+            {
+                float distanceToPlayer = CharacterItem.CharacterObject.GetComponent<FriendlyNPCClass>().distanceToPlayer;
+                if (distanceToPlayer < closestCharacterDistance)
+                {
+                    closestCharacterDistance = distanceToPlayer;
+                    closestCharacter = CharacterItem.CharacterObject;
+                }
+            }
+            foreach (Character CharacterItem in CharacterList)
+            {
+                CharacterItem.CharacterObject.GetComponent<FriendlyNPCClass>().readyForDialogue = false;
+            }
+            if (closestCharacterDistance < 1)
+            {
+                closestCharacter.GetComponent<FriendlyNPCClass>().readyForDialogue = true;
+                gameMode = gameModeOptions.DialogueReady;
+            }
+        }
+
         if (CutscenesPlaying == 0 && CutsceneQueue.Count > 0)
         {
             bool keepPlaying = true;

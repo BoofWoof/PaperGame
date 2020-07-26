@@ -12,10 +12,9 @@ public class CharacterMovementOverworld : MonoBehaviour
     private float jumpForce = 10.0f;
 
     //Objects and Components
-    private SpriteRenderer sprite;
     private BoxCollider bc;
     private Rigidbody rb;
-    public GameObject spriteObject;
+    public GameObject sprite;
 
     //Rotation variables
     private float rotated = 0.0f;
@@ -42,12 +41,9 @@ public class CharacterMovementOverworld : MonoBehaviour
         bc = GetComponent<BoxCollider>();
         rb = GetComponent<Rigidbody>();
         lastground = bc.transform.position;
-        sprite = ((GameObject)Instantiate(spriteObject, bc.transform.position - new Vector3(0,bc.bounds.size.y/2,0), Quaternion.identity)).GetComponent<SpriteRenderer>();
-        //sprite.receiveShadows = true;
-        //sprite.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
         rotSpeed = rotSpeedMagnitude;
-        sprite.transform.SetParent(gameObject.transform);
         spriteAnimate = sprite.GetComponent<Animator>();
+        groundPlayer();
     }
 
     // Update is called once per frame
@@ -61,6 +57,7 @@ public class CharacterMovementOverworld : MonoBehaviour
         if ((hit.distance < bc.size.y / 2 + 0.1f) && (new Vector3(hit.normal.x, 0, hit.normal.z).magnitude<0.1))
         {
             isGrounded = true;
+            groundPlayer();
         }
         Physics.Raycast(transform.position + new Vector3(-0.25f, 0, 0), -Vector3.up, out hit);
         if ((hit.distance < bc.size.y / 2 + 0.1f) && (new Vector3(hit.normal.x, 0, hit.normal.z).magnitude < 0.1))
@@ -114,7 +111,7 @@ public class CharacterMovementOverworld : MonoBehaviour
         //POSITION RESET IF FALLEN END---------------------------
         if (OverworldController.gameMode == OverworldController.gameModeOptions.Mobile)
         {
-            if (Input.GetButton("Fire1") && (jumped == false))
+            if (Input.GetButtonDown("Fire1") && (jumped == false))
             {
                 jump = jumpForce;
                 jumped = true;
@@ -122,6 +119,8 @@ public class CharacterMovementOverworld : MonoBehaviour
         }
         if (OverworldController.gameMode != OverworldController.gameModeOptions.Mobile && jump > 0)
         {
+            groundPlayer();
+            isGrounded = true;
             jump = 0;
         }
         //MOVEMENT START---------------------------------------------------------------------------------
@@ -195,15 +194,24 @@ public class CharacterMovementOverworld : MonoBehaviour
         {
             sprite.transform.Rotate(0, 180, 0);
         }
+        Vector3 currentScale = sprite.transform.localScale;
         if (rotated < 90)
         {
-            spriteAnimate.SetTrigger("Left");
+            sprite.transform.localScale = new Vector3(Mathf.Abs(currentScale.x), currentScale.y, currentScale.z);
         }
         if (rotated > 90)
         {
-            spriteAnimate.SetTrigger("Right");
+            sprite.transform.localScale = new Vector3(-Mathf.Abs(currentScale.x), currentScale.y, currentScale.z);
         }
         prev_rotated = rotated;
         //SPRITE ROTATION END------------------------------------------------------------------
+    }
+    public void groundPlayer()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, -Vector3.up, out hit))
+        {
+            transform.position = hit.point + new Vector3(0, bc.size.y / 2.0f + 0.1f, 0);
+        }
     }
 }

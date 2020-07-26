@@ -6,6 +6,9 @@ public class FriendlyNPCClass : MonoBehaviour
 {
     //CharactersName
     private GameObject Player;
+    private GameObject Bubble;
+    private float height;
+
     public string CharacterName = "NameMeYaDingus";
     public int UniqueSceneID = -1;
     public OverworldController.gameModeOptions dialogueMode = OverworldController.gameModeOptions.MobileCutscene;
@@ -13,7 +16,10 @@ public class FriendlyNPCClass : MonoBehaviour
     public string InputString = "You didn't give me any text ya dingus.";
 
     public GameObject dialogueCutscene;
+    public GameObject dialogueBubble;
     //Cutscene Events
+    public float distanceToPlayer;
+    public bool readyForDialogue;
 
     void Start()
     {
@@ -26,6 +32,7 @@ public class FriendlyNPCClass : MonoBehaviour
         thisNPCCharacter.CharacterName = CharacterName;
         thisNPCCharacter.uniqueSceneID = UniqueSceneID;
         OverworldController.CharacterList.Add(thisNPCCharacter);
+        height = transform.GetComponent<BoxCollider>().size.y;
     }
 
     // Update is called once per frame
@@ -35,9 +42,25 @@ public class FriendlyNPCClass : MonoBehaviour
         {
             Player = OverworldController.Player;
         }
-        if (Input.GetButtonDown("Fire1") && (Vector3.Distance(Player.transform.position, transform.position) < 1) && (OverworldController.gameMode == OverworldController.gameModeOptions.Mobile))
+        distanceToPlayer = Vector3.Distance(Player.transform.position, transform.position);
+        if (readyForDialogue && ((OverworldController.gameMode == OverworldController.gameModeOptions.Mobile) || (OverworldController.gameMode == OverworldController.gameModeOptions.DialogueReady)))
         {
-            Activated();
+            if (Bubble == null)
+            {
+                Bubble = Instantiate(dialogueBubble, transform.position + new Vector3(0, 0.5f + height/2, 0), Quaternion.identity);
+                Bubble.transform.SetParent(transform);
+            }
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Activated();
+            }
+        } else
+        {
+            if (Bubble != null)
+            {
+                Destroy(Bubble);
+                Bubble = null;
+            }
         }
     }
 

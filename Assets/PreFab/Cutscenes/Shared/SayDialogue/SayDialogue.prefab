@@ -45,4 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 4742022992134416575, guid: a08983d62dbc7a945a45c63ddb49dc9c, type: 3}
   inputText: {fileID: 4900000, guid: a740a21c0e60c8a4abffb8171d3c2a29, type: 3}
-  heightOverSpeaker: 1.5
+  heightOverSpeaker: 1.3
