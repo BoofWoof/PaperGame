@@ -58,29 +58,29 @@ public class CharacterMovementOverworld : MonoBehaviour
         //Check at two different spots to make sure.
         bool isGrounded = false;
         RaycastHit hit;
-        if (jump <= 0)
+        Physics.Raycast(transform.position + new Vector3(0, -height / 2 + 0.15f, 0), -Vector3.up, out hit);
+        if ((hit.distance < 0.2f) && (new Vector3(hit.normal.x, 0, hit.normal.z).magnitude < 0.1))
         {
-            Physics.Raycast(transform.position + new Vector3(0, -height / 2 + 0.1f, 0), -Vector3.up, out hit);
-            if ((hit.distance < 0.15f) && (new Vector3(hit.normal.x, 0, hit.normal.z).magnitude < 0.1))
+            isGrounded = true;
+            if ((jump <= 0))
             {
-                isGrounded = true;
                 groundPlayer();
             }
-            Physics.Raycast(transform.position + new Vector3(-0.25f, -height / 2 + 0.1f, 0), -Vector3.up, out hit);
-            if ((hit.distance < 0.15f) && (new Vector3(hit.normal.x, 0, hit.normal.z).magnitude < 0.1))
-            {
-                isGrounded = true;
-            }
-            Physics.Raycast(transform.position + new Vector3(0.25f, -height / 2 + 0.1f, 0), -Vector3.up, out hit);
-            if ((hit.distance < 0.15f) && (new Vector3(hit.normal.x, 0, hit.normal.z).magnitude < 0.1))
-            {
-                isGrounded = true;
-            }
-            Physics.Raycast(transform.position + new Vector3(0, -height / 2 + 0.1f, 0.15f), -Vector3.up, out hit);
-            if ((hit.distance < 0.15f) && (new Vector3(hit.normal.x, 0, hit.normal.z).magnitude < 0.1))
-            {
-                isGrounded = true;
-            }
+        }
+        Physics.Raycast(transform.position + new Vector3(-0.25f, -height / 2 + 0.1f, 0), -Vector3.up, out hit);
+        if ((hit.distance < 0.2f) && (new Vector3(hit.normal.x, 0, hit.normal.z).magnitude < 0.1))
+        {
+            isGrounded = true;
+        }
+        Physics.Raycast(transform.position + new Vector3(0.25f, -height / 2 + 0.1f, 0), -Vector3.up, out hit);
+        if ((hit.distance < 0.2f) && (new Vector3(hit.normal.x, 0, hit.normal.z).magnitude < 0.1))
+        {
+            isGrounded = true;
+        }
+        Physics.Raycast(transform.position + new Vector3(0, -height / 2 + 0.1f, 0.15f), -Vector3.up, out hit);
+        if ((hit.distance < 0.2f) && (new Vector3(hit.normal.x, 0, hit.normal.z).magnitude < 0.1))
+        {
+            isGrounded = true;
         }
         //JUMP START------------------------------
         if (isGrounded == true)
@@ -157,11 +157,8 @@ public class CharacterMovementOverworld : MonoBehaviour
 
         movement += new Vector3(0, jump * Time.deltaTime, 0);
         transform.Translate(movement);
-        print("AAAAAAAAAAAAAAAAAA");
-        print(lastground.y);
         if(transform.position.y > (lastground.y + maxJumpHeight))
         {
-            print("AAAAAAAAAAAAAA");
             transform.position = new Vector3(transform.position.x, lastground.y + maxJumpHeight, transform.position.z);
         }
         rb.angularVelocity = Vector3.zero;

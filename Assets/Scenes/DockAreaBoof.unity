@@ -1473,6 +1473,7 @@ MonoBehaviour:
   dialogueBubble: {fileID: 218867043}
   distanceToPlayer: 0
   readyForDialogue: 0
+  rotSpeedMagnitude: 360
 --- !u!65 &1142092303
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1675,6 +1676,7 @@ MonoBehaviour:
   dialogueBubble: {fileID: 218867043}
   distanceToPlayer: 0
   readyForDialogue: 0
+  rotSpeedMagnitude: 360
 --- !u!212 &1392707453
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2401,9 +2403,9 @@ GameObject:
   - component: {fileID: 1748292329}
   - component: {fileID: 1748292328}
   - component: {fileID: 1748292327}
-  - component: {fileID: 1748292326}
   - component: {fileID: 1748292330}
   - component: {fileID: 1748292331}
+  - component: {fileID: 1748292326}
   m_Layer: 0
   m_Name: ChipIdle
   m_TagString: Untagged
@@ -2433,6 +2435,7 @@ MonoBehaviour:
   dialogueBubble: {fileID: 218867043}
   distanceToPlayer: 0
   readyForDialogue: 0
+  rotSpeedMagnitude: 360
 --- !u!65 &1748292327
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2899,7 +2902,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873852999}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.28, y: 0.559, z: -4.25}
+  m_LocalPosition: {x: 1.56, y: 1.81, z: -4.515}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
