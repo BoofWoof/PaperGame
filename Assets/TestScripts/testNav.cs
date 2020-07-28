@@ -34,6 +34,6 @@ public class testNav : MonoBehaviour
         {
             agent.SetDestination(transform.position);
         }
-        transform.rotation = Quaternion.identity;
+        //transform.rotation = Quaternion.identity;
     }
 }

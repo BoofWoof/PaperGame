@@ -5,11 +5,15 @@ using UnityEditor;
 
 public class CharacterMovementOverworld : MonoBehaviour
 {
+    //Character info
+    public float height;
+
     //Character rates.
-    public float speed = 0.1f;
-    public float gravity = -20.0f;
+    public float speed = 3f;
+    public float gravity = -30.0f;
     private float jump = 0.0f;
-    private float jumpForce = 10.0f;
+    public float jumpForce = 9.7f;
+    public float maxJumpHeight = 1.4f;
 
     //Objects and Components
     private BoxCollider bc;
@@ -21,7 +25,7 @@ public class CharacterMovementOverworld : MonoBehaviour
     private float prev_rotated = 0.0f;
     public float rotSpeedMagnitude = 20;
     private float rotSpeed;
-    private float goal = 0.0f;
+    public float goal = 0.0f;
 
     //Stage Fall and Jump Variables
     private Vector3 lastground;
@@ -40,10 +44,11 @@ public class CharacterMovementOverworld : MonoBehaviour
         OverworldController.Player = gameObject;
         bc = GetComponent<BoxCollider>();
         rb = GetComponent<Rigidbody>();
-        lastground = bc.transform.position;
         rotSpeed = rotSpeedMagnitude;
         spriteAnimate = sprite.GetComponent<Animator>();
+        height = bc.size.y;
         groundPlayer();
+        lastground = transform.position;
     }
 
     // Update is called once per frame
@@ -53,33 +58,36 @@ public class CharacterMovementOverworld : MonoBehaviour
         //Check at two different spots to make sure.
         bool isGrounded = false;
         RaycastHit hit;
-        Physics.Raycast(transform.position, -Vector3.up, out hit);
-        if ((hit.distance < bc.size.y / 2 + 0.1f) && (new Vector3(hit.normal.x, 0, hit.normal.z).magnitude<0.1))
+        if (jump <= 0)
         {
-            isGrounded = true;
-            groundPlayer();
-        }
-        Physics.Raycast(transform.position + new Vector3(-0.25f, 0, 0), -Vector3.up, out hit);
-        if ((hit.distance < bc.size.y / 2 + 0.1f) && (new Vector3(hit.normal.x, 0, hit.normal.z).magnitude < 0.1))
-        {
-            isGrounded = true;
-        }
-        Physics.Raycast(transform.position + new Vector3(0.25f, 0, 0), -Vector3.up, out hit);
-        if ((hit.distance < bc.size.y / 2 + 0.1f) && (new Vector3(hit.normal.x, 0, hit.normal.z).magnitude < 0.1))
-        {
-            isGrounded = true;
-        }
-        Physics.Raycast(transform.position + new Vector3(0, 0, 0.15f), -Vector3.up, out hit);
-        if ((hit.distance < bc.size.y / 2 + 0.1f) && (new Vector3(hit.normal.x, 0, hit.normal.z).magnitude < 0.1))
-        {
-            isGrounded = true;
+            Physics.Raycast(transform.position + new Vector3(0, -height / 2 + 0.1f, 0), -Vector3.up, out hit);
+            if ((hit.distance < 0.15f) && (new Vector3(hit.normal.x, 0, hit.normal.z).magnitude < 0.1))
+            {
+                isGrounded = true;
+                groundPlayer();
+            }
+            Physics.Raycast(transform.position + new Vector3(-0.25f, -height / 2 + 0.1f, 0), -Vector3.up, out hit);
+            if ((hit.distance < 0.15f) && (new Vector3(hit.normal.x, 0, hit.normal.z).magnitude < 0.1))
+            {
+                isGrounded = true;
+            }
+            Physics.Raycast(transform.position + new Vector3(0.25f, -height / 2 + 0.1f, 0), -Vector3.up, out hit);
+            if ((hit.distance < 0.15f) && (new Vector3(hit.normal.x, 0, hit.normal.z).magnitude < 0.1))
+            {
+                isGrounded = true;
+            }
+            Physics.Raycast(transform.position + new Vector3(0, -height / 2 + 0.1f, 0.15f), -Vector3.up, out hit);
+            if ((hit.distance < 0.15f) && (new Vector3(hit.normal.x, 0, hit.normal.z).magnitude < 0.1))
+            {
+                isGrounded = true;
+            }
         }
         //JUMP START------------------------------
         if (isGrounded == true)
         {
             jumped = false;
             jump = 0;
-            lastground = bc.transform.position;
+            lastground = transform.position;
             spriteAnimate.SetTrigger("Land");
             OverworldController.updateTrackingCameraY(transform.position.y);
         }
@@ -149,6 +157,13 @@ public class CharacterMovementOverworld : MonoBehaviour
 
         movement += new Vector3(0, jump * Time.deltaTime, 0);
         transform.Translate(movement);
+        print("AAAAAAAAAAAAAAAAAA");
+        print(lastground.y);
+        if(transform.position.y > (lastground.y + maxJumpHeight))
+        {
+            print("AAAAAAAAAAAAAA");
+            transform.position = new Vector3(transform.position.x, lastground.y + maxJumpHeight, transform.position.z);
+        }
         rb.angularVelocity = Vector3.zero;
         rb.velocity = Vector3.zero;
         transform.rotation = Quaternion.identity;
@@ -211,7 +226,7 @@ public class CharacterMovementOverworld : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, -Vector3.up, out hit))
         {
-            transform.position = hit.point + new Vector3(0, bc.size.y / 2.0f + 0.1f, 0);
+            transform.position = hit.point + new Vector3(0, height/2 + 0.05f, 0);
         }
     }
 }
