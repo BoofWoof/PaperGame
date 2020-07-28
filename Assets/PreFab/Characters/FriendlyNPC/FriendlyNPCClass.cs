@@ -21,6 +21,14 @@ public class FriendlyNPCClass : MonoBehaviour
     public float distanceToPlayer;
     public bool readyForDialogue;
 
+    //Rotation Info
+    private float goal = 0;
+    private float rotated = 0;
+    private float rotateDisplay = 0;
+    private float rotSpeed;
+    public float rotSpeedMagnitude = 360;
+
+
     void Start()
     {
         if(UniqueSceneID == -1)
@@ -42,6 +50,7 @@ public class FriendlyNPCClass : MonoBehaviour
         {
             Player = OverworldController.Player;
         }
+        //Handle Dialogue
         distanceToPlayer = Vector3.Distance(Player.transform.position, transform.position);
         if (readyForDialogue && ((OverworldController.gameMode == OverworldController.gameModeOptions.Mobile) || (OverworldController.gameMode == OverworldController.gameModeOptions.DialogueReady)))
         {
@@ -49,10 +58,22 @@ public class FriendlyNPCClass : MonoBehaviour
             {
                 Bubble = Instantiate(dialogueBubble, transform.position + new Vector3(0, 0.5f + height/2, 0), Quaternion.identity);
                 Bubble.transform.SetParent(transform);
+                Bubble.transform.rotation = Quaternion.identity;
+            } else
+            {
+                Bubble.transform.rotation = Quaternion.identity;
             }
             if (Input.GetButtonDown("Fire1"))
             {
                 Activated();
+                if ((Player.transform.position.x > this.transform.position.x + 0.2f))
+                    {
+                        Player.GetComponent<CharacterMovementOverworld>().goal = 0;
+                    }
+                    if ((Player.transform.position.x < this.transform.position.x - 0.2f))
+                    {
+                        Player.GetComponent<CharacterMovementOverworld>().goal = 180;
+                    }
             }
         } else
         {
@@ -62,6 +83,50 @@ public class FriendlyNPCClass : MonoBehaviour
                 Bubble = null;
             }
         }
+
+        //Face Player If Near
+        if ((distanceToPlayer < 1) && ((OverworldController.gameMode == OverworldController.gameModeOptions.Mobile) || (OverworldController.gameMode == OverworldController.gameModeOptions.DialogueReady)))
+        {
+            //SetRotationGoals=================================================================================
+            if ((Player.transform.position.x > this.transform.position.x + 0.2f))
+            {
+                goal = 180;
+            }
+            if ((Player.transform.position.x < this.transform.position.x - 0.2f))
+            {
+                goal = 0;
+            }
+        }
+
+        //SPRITE ROTATION START-------------------------------------------------------------------------
+        if ((goal > rotated))
+        {
+            rotSpeed = rotSpeedMagnitude * Time.deltaTime;
+            rotated = rotated + rotSpeed;
+        }
+        if ((goal < rotated))
+        {
+            rotSpeed = -rotSpeedMagnitude * Time.deltaTime;
+            rotated = rotated + rotSpeed;
+        }
+        rotateDisplay = rotated;
+        if ((rotated > 90))
+        {
+            rotateDisplay += 180;
+        }
+        transform.rotation = Quaternion.Euler(0, rotateDisplay, 0);
+        Vector3 currentScale = transform.localScale;
+        if (rotated < 90)
+        {
+            this.transform.localScale = new Vector3(Mathf.Abs(currentScale.x), currentScale.y, currentScale.z);
+        }
+        if (rotated > 90)
+        {
+            this.transform.localScale = new Vector3(-Mathf.Abs(currentScale.x), currentScale.y, currentScale.z);
+        }
+        //SPRITE ROTATION END------------------------------------------------------------------
+
+        //transform.rotation = Quaternion.identity;
     }
 
     protected virtual void Activated()

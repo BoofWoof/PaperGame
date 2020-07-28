@@ -46,8 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3312c86b2eaf3c445a5e20bda393d3ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  height: 0
   speed: 3
-  gravity: -25
+  gravity: -30
+  jumpForce: 9.7
+  maxJumpHeight: 1.4
   sprite: {fileID: 8967315692417093172}
   rotSpeedMagnitude: 360
   moveHorizontal: 0
