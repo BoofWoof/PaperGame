@@ -42,6 +42,7 @@ public class OverworldController : MonoBehaviour
     //GameplayMode---------------------------------------------------
     public enum gameModeOptions {Mobile, Cutscene, MobileCutscene, DialogueReady, Paused};
     public static gameModeOptions gameMode = gameModeOptions.Mobile;
+    private gameModeOptions gameModePre = gameModeOptions.Mobile;
     //-----------------------------------------------------------------
 
     public void Awake()
@@ -161,6 +162,28 @@ public class OverworldController : MonoBehaviour
 
     public void Update()
     {
+        //Pause and unpause game. ================
+        if (Input.GetKeyDown(KeyCode.I) && (gameMode == gameModeOptions.Mobile || gameMode == gameModeOptions.Paused))
+        {
+            if (gameMode == gameModeOptions.Paused)
+            {
+                gameMode = gameModePre;
+            }
+            else
+            {
+                gameModePre = gameMode;
+                gameMode = gameModeOptions.Paused;
+            }
+        }
+        if (gameMode == gameModeOptions.Paused)
+        {
+            Time.timeScale = 0.0f;
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
+        }
+        //=========================================
         //Check if any dialogue is available.
         if ((gameMode == gameModeOptions.Mobile)|| (gameMode == gameModeOptions.DialogueReady))
         {
@@ -204,7 +227,7 @@ public class OverworldController : MonoBehaviour
                 CutsceneQueue.Remove(eventInitiation);
             }
         }
-        if (CutscenesPlaying == 0 && CutsceneQueue.Count == 0)
+        if (CutscenesPlaying == 0 && CutsceneQueue.Count == 0 && (gameMode == gameModeOptions.MobileCutscene || gameMode == gameModeOptions.Cutscene))
         {
             gameMode = gameModeOptions.Mobile;
         }
@@ -244,6 +267,11 @@ public class OverworldController : MonoBehaviour
     public static void updateTrackingCameraY(float newY)
     {
         trackingCamera.GetComponent<CameraFollow>().trackingcameraY = newY;
+    }
+
+    public static void setTrackingMultiplyer(float multiple)
+    {
+        trackingCamera.GetComponent<CameraFollow>().dialogueOffsetMultiplier = multiple;
     }
 }
 

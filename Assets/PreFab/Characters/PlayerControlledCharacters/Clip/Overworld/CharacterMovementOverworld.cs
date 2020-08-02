@@ -7,6 +7,8 @@ public class CharacterMovementOverworld : MonoBehaviour
 {
     //Character info
     public float height;
+    public float width;
+    public float length;
 
     //Character rates.
     public float speed = 3f;
@@ -39,6 +41,14 @@ public class CharacterMovementOverworld : MonoBehaviour
     public float moveVertical = 0;
     public bool stopOnCutscene = true;
 
+    //HitscanVariables
+    private int scanWidthCount = 3;
+    private int scanLengthCount = 3;
+    private int scanHeightCount = 3;
+    private float scanWidthSize;
+    private float scanLengthSize;
+    private float scanHeightSize;
+
     void Start()
     {
         OverworldController.Player = gameObject;
@@ -46,8 +56,15 @@ public class CharacterMovementOverworld : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rotSpeed = rotSpeedMagnitude;
         spriteAnimate = sprite.GetComponent<Animator>();
+
+        width = bc.size.x - 0.05f;
         height = bc.size.y;
-        groundPlayer();
+        length = bc.size.z - 0.05f;
+        scanWidthSize = width/(scanWidthCount-1);
+        scanLengthSize = length/(scanLengthCount-1);
+        scanHeightSize = height/(scanHeightCount-1);
+
+    groundPlayer();
         lastground = transform.position;
     }
 
@@ -58,33 +75,32 @@ public class CharacterMovementOverworld : MonoBehaviour
         //Check at two different spots to make sure.
         bool isGrounded = false;
         RaycastHit hit;
-        Physics.Raycast(transform.position + new Vector3(0, -height / 2 + 0.15f, 0), -Vector3.up, out hit);
-        if ((hit.distance < 0.2f) && (new Vector3(hit.normal.x, 0, hit.normal.z).magnitude < 0.1))
+        RaycastHit besthit;
+        float closestCast = 10000.0f;
+        float normalCast = 360.0f;
+        Physics.Raycast(transform.position + new Vector3(-width / 2, -height / 2 + 0.1f, -length / 2), -Vector3.up, out besthit);
+        for (int i = 0; i < scanWidthCount; i++)
         {
-            isGrounded = true;
-            if ((jump <= 0))
+            for(int j = 0; j < scanLengthCount; j++)
             {
-                groundPlayer();
+                Physics.Raycast(transform.position + new Vector3(-width/2 + i*scanWidthSize, -height/2 + 0.1f, -length/2 + j*scanLengthSize), -Vector3.up, out hit);
+                normalCast = new Vector3(hit.normal.x, 0, hit.normal.z).magnitude;
+                if ((closestCast > hit.distance) && (hit.distance > 0) && (normalCast < 0.1))
+                {
+                    closestCast = hit.distance;
+                    besthit = hit;
+                }
             }
         }
-        Physics.Raycast(transform.position + new Vector3(-0.25f, -height / 2 + 0.1f, 0), -Vector3.up, out hit);
-        if ((hit.distance < 0.2f) && (new Vector3(hit.normal.x, 0, hit.normal.z).magnitude < 0.1))
+        if (closestCast <= 0.16f)
         {
             isGrounded = true;
         }
-        Physics.Raycast(transform.position + new Vector3(0.25f, -height / 2 + 0.1f, 0), -Vector3.up, out hit);
-        if ((hit.distance < 0.2f) && (new Vector3(hit.normal.x, 0, hit.normal.z).magnitude < 0.1))
-        {
-            isGrounded = true;
-        }
-        Physics.Raycast(transform.position + new Vector3(0, -height / 2 + 0.1f, 0.15f), -Vector3.up, out hit);
-        if ((hit.distance < 0.2f) && (new Vector3(hit.normal.x, 0, hit.normal.z).magnitude < 0.1))
-        {
-            isGrounded = true;
-        }
+
         //JUMP START------------------------------
         if (isGrounded == true)
         {
+            groundPlayerRaycast(besthit);
             jumped = false;
             jump = 0;
             lastground = transform.position;
@@ -125,7 +141,7 @@ public class CharacterMovementOverworld : MonoBehaviour
                 jumped = true;
             }
         }
-        if (OverworldController.gameMode != OverworldController.gameModeOptions.Mobile && jump > 0)
+        if ((OverworldController.gameMode == OverworldController.gameModeOptions.Cutscene || OverworldController.gameMode == OverworldController.gameModeOptions.MobileCutscene) && jump > 0)
         {
             groundPlayer();
             isGrounded = true;
@@ -147,12 +163,41 @@ public class CharacterMovementOverworld : MonoBehaviour
         {
             movement = movement * Time.deltaTime * speed;
         }
-        Physics.Raycast(transform.position, movement, out hit);
-        if (hit.collider != null){
-            if ((hit.distance < movement.magnitude + 0.3) && (hit.transform.tag == "Environment"))
+
+        closestCast = 10000.0f;
+        for (int i = 0; i < scanWidthCount; i++)
+        {
+            for (int j = 0; j < scanHeightCount; j++)
             {
-                movement = Vector3.zero;
+                Physics.Raycast(transform.position + new Vector3(-width / 2 + i * scanWidthSize, -(height - 0.05f) / 2 + j * scanHeightSize, 0), new Vector3(0, 0, movement.z), out hit);
+                normalCast = new Vector3(hit.normal.x, 0, hit.normal.z).magnitude;
+                if ((closestCast > hit.distance) && (hit.distance > 0) && (hit.transform.tag == "Environment"))
+                {
+                    closestCast = hit.distance;
+                }
             }
+        }
+
+        if (closestCast < 0.3)
+        {
+            movement.z = 0;
+        }
+        closestCast = 10000.0f;
+        for (int j = 0; j < scanHeightCount; j++)
+        {
+            for (int k = 0; k < scanLengthCount; k++)
+            {
+                Physics.Raycast(transform.position + new Vector3(0, -(height - 0.05f) / 2 + j * scanHeightSize, -length/2 + k*scanLengthSize), new Vector3(movement.x, 0, 0), out hit);
+                normalCast = new Vector3(hit.normal.x, 0, hit.normal.z).magnitude;
+                if ((closestCast > hit.distance) && (hit.distance > 0) && (hit.transform.tag == "Environment"))
+                {
+                    closestCast = hit.distance;
+                }
+            }
+        }
+
+        if (closestCast < 0.5){
+            movement.x = 0;
         }
 
         movement += new Vector3(0, jump * Time.deltaTime, 0);
@@ -225,5 +270,9 @@ public class CharacterMovementOverworld : MonoBehaviour
         {
             transform.position = hit.point + new Vector3(0, height/2 + 0.05f, 0);
         }
+    }
+    public void groundPlayerRaycast(RaycastHit hit)
+    {
+        transform.position =  new Vector3(transform.position.x, hit.point.y + height / 2 + 0.05f, transform.position.z);
     }
 }

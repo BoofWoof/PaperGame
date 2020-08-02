@@ -14,6 +14,7 @@ public class SayDialogue : CutSceneClass
     {
         spawnedTextBox = Instantiate<GameObject>(textBox, new Vector3(transform.parent.position.x, transform.parent.position.y + heightOverSpeaker, transform.parent.position.z), Quaternion.identity);
         spawnedTextBox.GetComponent<TextBoxController>().textfile = inputText;
+        OverworldController.setTrackingMultiplyer(0.7f);
     }
 
     // Update is called once per frame
@@ -21,6 +22,7 @@ public class SayDialogue : CutSceneClass
     {
         if (spawnedTextBox == null)
         {
+            OverworldController.setTrackingMultiplyer(1.0f);
             cutsceneDone();
         }
     }
