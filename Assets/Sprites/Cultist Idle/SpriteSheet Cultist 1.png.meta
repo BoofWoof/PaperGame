@@ -26,6 +26,9 @@ TextureImporter:
   - first:
       213: -6603793749908442060
     second: SpriteSheet Cultist 1_7
+  - first:
+      213: -1541638316811534937
+    second: SpriteSheet Cultist 1_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -274,6 +277,27 @@ TextureImporter:
       bones: []
       spriteID: 43433c6a29c9a54a0800000000000000
       internalID: -6603793749908442060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet Cultist 1_8
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 508
+        width: 61
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ad315a6e100b9ae0800000000000000
+      internalID: -1541638316811534937
       vertices: []
       indices: 
       edges: []
