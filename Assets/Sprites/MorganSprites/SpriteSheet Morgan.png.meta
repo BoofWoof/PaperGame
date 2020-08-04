@@ -1,0 +1,1076 @@
+fileFormatVersion: 2
+guid: d7e5e4114e1137f498bf0cda2d9f55a3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3374827970140768718
+    second: MorganStaff
+  - first:
+      213: -5657131248742641783
+    second: MorganBell
+  - first:
+      213: -5798506229283314872
+    second: MorganHead1
+  - first:
+      213: 3921995487488028850
+    second: SpriteSheet Morgan_3
+  - first:
+      213: -9169074706381032267
+    second: MorganHead2
+  - first:
+      213: -3995687393150693363
+    second: SpriteSheet Morgan_5
+  - first:
+      213: -823404365241209568
+    second: MorganHead3
+  - first:
+      213: -4983386437561696627
+    second: SpriteSheet Morgan_7
+  - first:
+      213: 8818545810722798680
+    second: MorganBlankFace
+  - first:
+      213: -2843211249993174856
+    second: MorganRightArm
+  - first:
+      213: -2145514384634583837
+    second: MorganBody1
+  - first:
+      213: -875139690242980707
+    second: MorganBody2
+  - first:
+      213: -7910829305881516876
+    second: MorganBody3
+  - first:
+      213: -1906425362394697807
+    second: MorganLeftArm
+  - first:
+      213: -8754063722141687752
+    second: SpriteSheet Morgan_14
+  - first:
+      213: 4880150924934829813
+    second: SpriteSheet Morgan_15
+  - first:
+      213: 1469866452853075181
+    second: MorganHappyFace
+  - first:
+      213: -5059545267865291802
+    second: MorganAngryFace
+  - first:
+      213: -3170325983501240065
+    second: MorganSadFace
+  - first:
+      213: -8675298208054477996
+    second: MorganCrazyFace
+  - first:
+      213: -9203419437103375140
+    second: MorganStaff
+  - first:
+      213: -2282066225405441738
+    second: MorganBell
+  - first:
+      213: -1959487341067912833
+    second: MorganHead1
+  - first:
+      213: -3372854713592364081
+    second: SpriteSheet Morgan_3
+  - first:
+      213: -1974460234780917568
+    second: MorganHead2
+  - first:
+      213: 5432562769259622506
+    second: SpriteSheet Morgan_5
+  - first:
+      213: 4754566312319502906
+    second: MorganHead3
+  - first:
+      213: -3655896177121303187
+    second: SpriteSheet Morgan_7
+  - first:
+      213: -5182125850281102159
+    second: MorganBlankFace
+  - first:
+      213: -5750356683375679902
+    second: MorganRightArm
+  - first:
+      213: -1416865666808347837
+    second: MorganBody1
+  - first:
+      213: -3908665680317494147
+    second: MorganBody2
+  - first:
+      213: 7452465601638936722
+    second: MorganBody3
+  - first:
+      213: 7321181921937864293
+    second: MorganLeftArm
+  - first:
+      213: -8952350845738576
+    second: SpriteSheet Morgan_14
+  - first:
+      213: 4145263960862204778
+    second: SpriteSheet Morgan_15
+  - first:
+      213: 1843042794970122585
+    second: MorganHappyFace
+  - first:
+      213: -3481212710436434151
+    second: MorganAngryFace
+  - first:
+      213: 3143538094244562975
+    second: MorganSadFace
+  - first:
+      213: -8585532968357503502
+    second: MorganCrazyFace
+  - first:
+      213: -8313803674608780827
+    second: SpriteSheet Morgan_20
+  - first:
+      213: -210871509015235843
+    second: SpriteSheet Morgan_21
+  - first:
+      213: -829088178063222057
+    second: SpriteSheet Morgan_22
+  - first:
+      213: 1130186739951930299
+    second: SpriteSheet Morgan_23
+  - first:
+      213: 1891880559343303671
+    second: SpriteSheet Morgan_24
+  - first:
+      213: -5351693123230361930
+    second: SpriteSheet Morgan_25
+  - first:
+      213: 3001169584111808707
+    second: SpriteSheet Morgan_26
+  - first:
+      213: -8981018866304297411
+    second: SpriteSheet Morgan_27
+  - first:
+      213: -6737633627143049519
+    second: SpriteSheet Morgan_28
+  - first:
+      213: 8976572463977707000
+    second: SpriteSheet Morgan_29
+  - first:
+      213: -8175487474862306048
+    second: SpriteSheet Morgan_30
+  - first:
+      213: -5996751926028603319
+    second: SpriteSheet Morgan_31
+  - first:
+      213: -5968325155527384482
+    second: SpriteSheet Morgan_32
+  - first:
+      213: 653035878999993511
+    second: SpriteSheet Morgan_33
+  - first:
+      213: -6262923139234926864
+    second: SpriteSheet Morgan_34
+  - first:
+      213: 1645947189476523904
+    second: SpriteSheet Morgan_35
+  - first:
+      213: -3640836971922491720
+    second: SpriteSheet Morgan_36
+  - first:
+      213: 1221625459994013028
+    second: SpriteSheet Morgan_37
+  - first:
+      213: 4534786717646823489
+    second: SpriteSheet Morgan_38
+  - first:
+      213: -4975392438655328551
+    second: SpriteSheet Morgan_39
+  - first:
+      213: -8411577106130140815
+    second: SpriteSheet Morgan_40
+  - first:
+      213: 6152782520500121154
+    second: SpriteSheet Morgan_41
+  - first:
+      213: 5564156997930059254
+    second: SpriteSheet Morgan_42
+  - first:
+      213: -6716634256090026860
+    second: SpriteSheet Morgan_43
+  - first:
+      213: -8252292083303522528
+    second: SpriteSheet Morgan_44
+  - first:
+      213: -55471155634759496
+    second: SpriteSheet Morgan_45
+  - first:
+      213: 7205348471594145045
+    second: SpriteSheet Morgan_46
+  - first:
+      213: 1720014952889758955
+    second: SpriteSheet Morgan_47
+  - first:
+      213: -3323135923672255485
+    second: SpriteSheet Morgan_48
+  - first:
+      213: 7365002792549516301
+    second: SpriteSheet Morgan_49
+  - first:
+      213: 4107457235587870249
+    second: SpriteSheet Morgan_50
+  - first:
+      213: -8838646215489546643
+    second: SpriteSheet Morgan_51
+  - first:
+      213: 6253130983743576511
+    second: SpriteSheet Morgan_52
+  - first:
+      213: -4927068084632621240
+    second: SpriteSheet Morgan_53
+  - first:
+      213: 2851799292385407343
+    second: SpriteSheet Morgan_54
+  - first:
+      213: -2295212101906445395
+    second: SpriteSheet Morgan_55
+  - first:
+      213: -3708205586786777161
+    second: SpriteSheet Morgan_56
+  - first:
+      213: -7229055013460910337
+    second: SpriteSheet Morgan_57
+  - first:
+      213: 7099224624712032810
+    second: SpriteSheet Morgan_58
+  - first:
+      213: -6938261281031570319
+    second: SpriteSheet Morgan_59
+  - first:
+      213: -5301803106584488585
+    second: SpriteSheet Morgan_60
+  - first:
+      213: -4989918503863260082
+    second: SpriteSheet Morgan_61
+  - first:
+      213: -7206603586450527537
+    second: SpriteSheet Morgan_62
+  - first:
+      213: -4620309596941364700
+    second: SpriteSheet Morgan_63
+  - first:
+      213: -3158687622312428863
+    second: SpriteSheet Morgan_64
+  - first:
+      213: -268804917790172781
+    second: SpriteSheet Morgan_65
+  - first:
+      213: 5019803492960467857
+    second: SpriteSheet Morgan_66
+  - first:
+      213: -835743619468599228
+    second: SpriteSheet Morgan_67
+  - first:
+      213: 2312074823860128328
+    second: SpriteSheet Morgan_68
+  - first:
+      213: 1063484778927707261
+    second: SpriteSheet Morgan_69
+  - first:
+      213: -306328601919418047
+    second: SpriteSheet Morgan_70
+  - first:
+      213: 736632478797507392
+    second: SpriteSheet Morgan_71
+  - first:
+      213: -1588215644006342318
+    second: SpriteSheet Morgan_72
+  - first:
+      213: 4002042906028764824
+    second: SpriteSheet Morgan_73
+  - first:
+      213: 4497614975311977299
+    second: SpriteSheet Morgan_74
+  - first:
+      213: 2125624546572779305
+    second: SpriteSheet Morgan_75
+  - first:
+      213: 2088415234124348946
+    second: SpriteSheet Morgan_76
+  - first:
+      213: 7291973627141761132
+    second: SpriteSheet Morgan_77
+  - first:
+      213: -9144610890902448660
+    second: SpriteSheet Morgan_78
+  - first:
+      213: 1642762169095203124
+    second: SpriteSheet Morgan_79
+  - first:
+      213: 7507013186048263414
+    second: SpriteSheet Morgan_80
+  - first:
+      213: -2040030772925090075
+    second: SpriteSheet Morgan_81
+  - first:
+      213: 7447801905668335425
+    second: SpriteSheet Morgan_82
+  - first:
+      213: 793168968535736520
+    second: SpriteSheet Morgan_83
+  - first:
+      213: 3867065208081623888
+    second: SpriteSheet Morgan_84
+  - first:
+      213: 8307840683085906995
+    second: SpriteSheet Morgan_85
+  - first:
+      213: 5047450658762623088
+    second: SpriteSheet Morgan_86
+  - first:
+      213: 986046338731244580
+    second: SpriteSheet Morgan_87
+  - first:
+      213: -3365599671350250654
+    second: SpriteSheet Morgan_88
+  - first:
+      213: -3315799975099082727
+    second: SpriteSheet Morgan_89
+  - first:
+      213: -55280850041863924
+    second: SpriteSheet Morgan_90
+  - first:
+      213: -447289857494283387
+    second: SpriteSheet Morgan_91
+  - first:
+      213: -2701819927380642040
+    second: SpriteSheet Morgan_92
+  - first:
+      213: 2045512512946328540
+    second: SpriteSheet Morgan_93
+  - first:
+      213: 4204922972795335426
+    second: SpriteSheet Morgan_94
+  - first:
+      213: 81530630141510375
+    second: SpriteSheet Morgan_95
+  - first:
+      213: -540303622350324525
+    second: SpriteSheet Morgan_96
+  - first:
+      213: -474435280253916719
+    second: SpriteSheet Morgan_97
+  - first:
+      213: 2408449582962563941
+    second: SpriteSheet Morgan_98
+  - first:
+      213: 8052924084403435215
+    second: SpriteSheet Morgan_99
+  - first:
+      213: 912302236152881432
+    second: SpriteSheet Morgan_100
+  - first:
+      213: -387626145030888981
+    second: SpriteSheet Morgan_101
+  - first:
+      213: -6105798334146046694
+    second: SpriteSheet Morgan_102
+  - first:
+      213: -3365138819978548203
+    second: SpriteSheet Morgan_103
+  - first:
+      213: -413596695622500495
+    second: SpriteSheet Morgan_104
+  - first:
+      213: -4750815855636642561
+    second: SpriteSheet Morgan_105
+  - first:
+      213: 4672241515251186221
+    second: SpriteSheet Morgan_106
+  - first:
+      213: 2609588078950244222
+    second: SpriteSheet Morgan_107
+  - first:
+      213: 5476401483157573532
+    second: SpriteSheet Morgan_108
+  - first:
+      213: 5034328050607122385
+    second: SpriteSheet Morgan_109
+  - first:
+      213: -8494723439796276677
+    second: SpriteSheet Morgan_110
+  - first:
+      213: 3203772112893509361
+    second: SpriteSheet Morgan_111
+  - first:
+      213: 312553004796032039
+    second: SpriteSheet Morgan_112
+  - first:
+      213: -6764699795506083035
+    second: SpriteSheet Morgan_113
+  - first:
+      213: -6181354830539949333
+    second: SpriteSheet Morgan_114
+  - first:
+      213: 6850255749244218707
+    second: SpriteSheet Morgan_115
+  - first:
+      213: -3124275757008562561
+    second: SpriteSheet Morgan_116
+  - first:
+      213: -1370853984161910582
+    second: SpriteSheet Morgan_117
+  - first:
+      213: 8920502597719901033
+    second: SpriteSheet Morgan_118
+  - first:
+      213: 297791559300609353
+    second: SpriteSheet Morgan_119
+  - first:
+      213: 1272805932829551278
+    second: SpriteSheet Morgan_120
+  - first:
+      213: 7243328592610966275
+    second: SpriteSheet Morgan_121
+  - first:
+      213: 5600969384295561093
+    second: SpriteSheet Morgan_122
+  - first:
+      213: -5189868765338521456
+    second: SpriteSheet Morgan_123
+  - first:
+      213: -1985018532555071507
+    second: SpriteSheet Morgan_124
+  - first:
+      213: 3491837068850723960
+    second: SpriteSheet Morgan_125
+  - first:
+      213: 4348491343821597826
+    second: SpriteSheet Morgan_126
+  - first:
+      213: -863566779180161307
+    second: SpriteSheet Morgan_127
+  - first:
+      213: -6915483947503696128
+    second: SpriteSheet Morgan_128
+  - first:
+      213: -5805784496676001091
+    second: SpriteSheet Morgan_129
+  - first:
+      213: 1764015395150251419
+    second: SpriteSheet Morgan_130
+  - first:
+      213: 7186577608074143424
+    second: SpriteSheet Morgan_131
+  - first:
+      213: 3764332351119068896
+    second: SpriteSheet Morgan_132
+  - first:
+      213: -6990723573050020001
+    second: SpriteSheet Morgan_133
+  - first:
+      213: 7572331954710636323
+    second: SpriteSheet Morgan_134
+  - first:
+      213: -3202815068179303137
+    second: SpriteSheet Morgan_135
+  - first:
+      213: 8334130672286627612
+    second: SpriteSheet Morgan_136
+  - first:
+      213: -7597154798465284413
+    second: SpriteSheet Morgan_137
+  - first:
+      213: -5898995418947894124
+    second: SpriteSheet Morgan_138
+  - first:
+      213: 4202506965739181616
+    second: SpriteSheet Morgan_139
+  - first:
+      213: 9120821525518310353
+    second: SpriteSheet Morgan_140
+  - first:
+      213: -8548443915304665818
+    second: SpriteSheet Morgan_141
+  - first:
+      213: -700611909292582118
+    second: SpriteSheet Morgan_142
+  - first:
+      213: -3828346502939338482
+    second: SpriteSheet Morgan_143
+  - first:
+      213: -2212063646046606141
+    second: SpriteSheet Morgan_144
+  - first:
+      213: 6176777149304868675
+    second: SpriteSheet Morgan_145
+  - first:
+      213: -5850947375628043070
+    second: SpriteSheet Morgan_146
+  - first:
+      213: 8862227028192109526
+    second: SpriteSheet Morgan_147
+  - first:
+      213: 3855479165708989349
+    second: SpriteSheet Morgan_148
+  - first:
+      213: -8237054773975751465
+    second: SpriteSheet Morgan_149
+  - first:
+      213: 3102442940161061202
+    second: SpriteSheet Morgan_150
+  - first:
+      213: -6630408517332564224
+    second: SpriteSheet Morgan_151
+  - first:
+      213: -311716231860226841
+    second: SpriteSheet Morgan_152
+  - first:
+      213: 4160483110312536077
+    second: SpriteSheet Morgan_153
+  - first:
+      213: 807359453737602886
+    second: SpriteSheet Morgan_154
+  - first:
+      213: -1365789324732099712
+    second: SpriteSheet Morgan_155
+  - first:
+      213: -746228646376345516
+    second: SpriteSheet Morgan_156
+  - first:
+      213: -1019840121074341198
+    second: SpriteSheet Morgan_157
+  - first:
+      213: 5732087872762980857
+    second: SpriteSheet Morgan_158
+  - first:
+      213: -79134658877098157
+    second: SpriteSheet Morgan_159
+  - first:
+      213: 7270593654929658132
+    second: SpriteSheet Morgan_160
+  - first:
+      213: -7443477006059078450
+    second: SpriteSheet Morgan_161
+  - first:
+      213: 6358492060126855657
+    second: SpriteSheet Morgan_162
+  - first:
+      213: -8515522525922524010
+    second: SpriteSheet Morgan_163
+  - first:
+      213: 7629014812255774568
+    second: SpriteSheet Morgan_164
+  - first:
+      213: 3776360214278471917
+    second: SpriteSheet Morgan_165
+  - first:
+      213: -7634082578392043735
+    second: SpriteSheet Morgan_166
+  - first:
+      213: 6526650190066109538
+    second: SpriteSheet Morgan_167
+  - first:
+      213: 8067793574690655917
+    second: SpriteSheet Morgan_168
+  - first:
+      213: -2362772525315711237
+    second: SpriteSheet Morgan_169
+  - first:
+      213: 7103913724450123715
+    second: SpriteSheet Morgan_170
+  - first:
+      213: 6278382504339996640
+    second: SpriteSheet Morgan_171
+  - first:
+      213: 7140384282994807851
+    second: SpriteSheet Morgan_172
+  - first:
+      213: 8832179247304939611
+    second: SpriteSheet Morgan_173
+  - first:
+      213: 3778423962427487693
+    second: SpriteSheet Morgan_174
+  - first:
+      213: -2424733387142906760
+    second: SpriteSheet Morgan_175
+  - first:
+      213: 7790268395927118445
+    second: SpriteSheet Morgan_176
+  - first:
+      213: -7286990863814633850
+    second: SpriteSheet Morgan_177
+  - first:
+      213: 3585523542435657315
+    second: SpriteSheet Morgan_178
+  - first:
+      213: 5292114503955026420
+    second: SpriteSheet Morgan_179
+  - first:
+      213: 4133692673291784309
+    second: SpriteSheet Morgan_180
+  - first:
+      213: 8197024567666241239
+    second: SpriteSheet Morgan_181
+  - first:
+      213: 7048988651973234890
+    second: SpriteSheet Morgan_182
+  - first:
+      213: 5983903440741165883
+    second: SpriteSheet Morgan_183
+  - first:
+      213: -2241674283724975701
+    second: SpriteSheet Morgan_184
+  - first:
+      213: -5142185872320644258
+    second: SpriteSheet Morgan_185
+  - first:
+      213: 7548785837812021321
+    second: SpriteSheet Morgan_186
+  - first:
+      213: 1954089736449575828
+    second: SpriteSheet Morgan_187
+  - first:
+      213: -7323496754369885305
+    second: SpriteSheet Morgan_188
+  - first:
+      213: -39905719397578033
+    second: SpriteSheet Morgan_189
+  - first:
+      213: -8929764135505599687
+    second: SpriteSheet Morgan_190
+  - first:
+      213: -4409282101985251617
+    second: SpriteSheet Morgan_191
+  - first:
+      213: 5437700251446012367
+    second: SpriteSheet Morgan_192
+  - first:
+      213: -5003149667308148855
+    second: SpriteSheet Morgan_193
+  - first:
+      213: 1734626649811184259
+    second: SpriteSheet Morgan_194
+  - first:
+      213: 2366082864638528520
+    second: SpriteSheet Morgan_195
+  - first:
+      213: 3143796101995602949
+    second: SpriteSheet Morgan_196
+  - first:
+      213: -913471140527494638
+    second: SpriteSheet Morgan_197
+  - first:
+      213: -3644730957878884528
+    second: SpriteSheet Morgan_198
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 250
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MorganStaff
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 407
+        width: 130
+        height: 421
+      alignment: 9
+      pivot: {x: 0.31935197, y: 0.28999686}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdc1784a8c2e64080800000000000000
+      internalID: -9203419437103375140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MorganBell
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 441
+        width: 56
+        height: 57
+      alignment: 9
+      pivot: {x: 0.5000003, y: 0.8392966}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 639cac0ebd87450e0800000000000000
+      internalID: -2282066225405441738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MorganHead1
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 423
+        width: 297
+        height: 404
+      alignment: 9
+      pivot: {x: 0.5046512, y: 0.19567584}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f79b5c525a08ec4e0800000000000000
+      internalID: -1959487341067912833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MorganHead2
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 426
+        width: 290
+        height: 406
+      alignment: 9
+      pivot: {x: 0.49523652, y: 0.18016233}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c0cfbaa0ee4994e0800000000000000
+      internalID: -1974460234780917568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MorganHead3
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 428
+        width: 301
+        height: 393
+      alignment: 9
+      pivot: {x: 0.5045894, y: 0.19067289}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3ac7dacedc9bf140800000000000000
+      internalID: 4754566312319502906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MorganBlankFace
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 214
+        width: 166
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b430a8cef36518b0800000000000000
+      internalID: -5182125850281102159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MorganRightArm
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 297
+        width: 45
+        height: 111
+      alignment: 9
+      pivot: {x: 0.8376818, y: 0.910694}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 266699b2011a230b0800000000000000
+      internalID: -5750356683375679902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MorganBody1
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 208
+        width: 214
+        height: 212
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3430173de28465ce0800000000000000
+      internalID: -1416865666808347837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MorganBody2
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 208
+        width: 226
+        height: 212
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7c4ae2d541a1c9c0800000000000000
+      internalID: -3908665680317494147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MorganBody3
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 208
+        width: 232
+        height: 212
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 290b186daf97c6760800000000000000
+      internalID: 7452465601638936722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MorganLeftArm
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 219
+        width: 105
+        height: 61
+      alignment: 9
+      pivot: {x: 0.09215059, y: 0.8396947}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5663e113b201a9560800000000000000
+      internalID: 7321181921937864293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MorganHappyFace
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 23
+        width: 166
+        height: 166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 959890c38adc39910800000000000000
+      internalID: 1843042794970122585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MorganAngryFace
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 23
+        width: 167
+        height: 166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91f8cdeeb7f30bfc0800000000000000
+      internalID: -3481212710436434151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MorganSadFace
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 23
+        width: 166
+        height: 166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f180b55dd3710ab20800000000000000
+      internalID: 3143538094244562975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MorganCrazyFace
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 23
+        width: 166
+        height: 166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fd55add04f0ad880800000000000000
+      internalID: -8585532968357503502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: a3c151d47558dce47800ca93e5f26381
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
