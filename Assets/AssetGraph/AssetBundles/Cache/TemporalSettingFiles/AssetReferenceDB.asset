@@ -12,5 +12,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee4bc21567f434b598a3c96ba4946372, type: 3}
   m_Name: AssetReferenceDB
   m_EditorClassIdentifier: 
-  m_assets: []
+  m_assets:
+  - m_assetDatabaseId: 1a5b09630d1cd26488b26e4ead45b7c5
+    m_importFrom: Assets/AssetGraph/AssetBundles
+    m_exportTo: 
+    m_variantName: 
+    m_data: []
+    m_scene:
+      m_Handle: 0
+  - m_assetDatabaseId: fc05f8076db04c141a57f03f24506582
+    m_importFrom: Assets/AssetGraph/AssetBundles/Cache
+    m_exportTo: 
+    m_variantName: 
+    m_data: []
+    m_scene:
+      m_Handle: 0
+  - m_assetDatabaseId: 99372609a951ee3418342b3c0d48c10c
+    m_importFrom: Assets/AssetGraph/AssetBundles/Cache/TemporalSettingFiles
+    m_exportTo: 
+    m_variantName: 
+    m_data: []
+    m_scene:
+      m_Handle: 0
+  - m_assetDatabaseId: 6241c24aa56eb37428ceccafcdb14523
+    m_importFrom: Assets/AssetGraph
+    m_exportTo: 
+    m_variantName: 
+    m_data: []
+    m_scene:
+      m_Handle: 0
+  - m_assetDatabaseId: e2b686b5999f62d4a8bc6d3de22022a8
+    m_importFrom: Assets/AssetGraph/AssetBundles/Cache/TemporalSettingFiles/AssetReferenceDB.asset
+    m_exportTo: 
+    m_variantName: 
+    m_data: []
+    m_scene:
+      m_Handle: 0
+  - m_assetDatabaseId: ffab2391a5ec4954986d291c1b9f46c1
+    m_importFrom: Assets/DialogueGraphEditor/DialogueGraphView.cs
+    m_exportTo: 
+    m_variantName: 
+    m_data: []
+    m_scene:
+      m_Handle: 0
   m_version: 2
