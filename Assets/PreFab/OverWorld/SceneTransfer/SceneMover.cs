@@ -20,16 +20,16 @@ public class SceneMover : MonoBehaviour
         {
             GameDataTracker.deadEnemyIDs.Clear();
 
-            GameObject move = new GameObject("MOVE CUTSCENE");
-            PlayerTravelDirection m = move.AddComponent<PlayerTravelDirection>();
+            PlayerTravelDirection m = ScriptableObject.CreateInstance<PlayerTravelDirection>();
             m.endPosition = transform.position;
             m.travelDirection = exitDirection;
-            OverworldController.addCutsceneEvent(move, OverworldController.Player, true, OverworldController.gameModeOptions.Cutscene);
+            CutsceneController.addCutsceneEvent(m, OverworldController.Player, true, OverworldController.gameModeOptions.Cutscene);
 
-            GameObject sceneChange = new GameObject("LOAD NEW SCENE");
-            ChangeScenesCutscene s = sceneChange.AddComponent<ChangeScenesCutscene>();
+            ChangeScenesCutscene s = ScriptableObject.CreateInstance<ChangeScenesCutscene>();
             s.nextSceneName = sceneName;
-            OverworldController.addCutsceneEvent(sceneChange, OverworldController.Player, true, OverworldController.gameModeOptions.Cutscene);
+            CutsceneController.addCutsceneEvent(s, OverworldController.Player, true, OverworldController.gameModeOptions.Cutscene);
+
+
         }
     }
 

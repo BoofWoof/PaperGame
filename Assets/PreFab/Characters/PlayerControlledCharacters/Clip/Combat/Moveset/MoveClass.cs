@@ -154,9 +154,8 @@ public class MoveClass : MonoBehaviour
         {
             enemyList[sourceID].CharacterObject.GetComponent<FighterClass>().characterEndTurn();
         }
-        GameObject TurnEnder = new GameObject();
-        TurnEnder.AddComponent<NextTurn>();
-        CombatController.addCutseenEvent(TurnEnder, CombatController.gameControllerAccess, true);
+        NextTurn TurnEnder = ScriptableObject.CreateInstance<NextTurn>();
+        CutsceneController.addCutsceneEvent(TurnEnder, CombatController.gameControllerAccess, true, OverworldController.gameModeOptions.Cutscene);
         if (friendlySource)
         {
             Destroy(transform.parent.gameObject);

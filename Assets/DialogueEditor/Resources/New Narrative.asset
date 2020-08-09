@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 804751d7c03844a4d8e72e8bb960ccc0, type: 3}
+  m_Name: New Narrative
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGuid: e5464816-58e7-4fee-963e-6d8ff28c27b3
+    PortName: Next
+    TargetNodeGuid: 069262af-8199-4117-9224-a54e4b32ea4b
+  - BaseNodeGuid: 069262af-8199-4117-9224-a54e4b32ea4b
+    PortName: Choice 1
+    TargetNodeGuid: 772ee565-f6c3-41ad-b8cf-863510f579fd
+  DialogueNodeData:
+  - Guid: 069262af-8199-4117-9224-a54e4b32ea4b
+    DialogueText: Hello look at <rainbow>me</rainbow>.  I am a new dialogue system.
+    Position: {x: 337, y: 196}
+  - Guid: 772ee565-f6c3-41ad-b8cf-863510f579fd
+    DialogueText: There are only linear dialogue routes right now, but I will add
+      choices soon.
+    Position: {x: 987, y: 195}
+  ExposedProperties: []

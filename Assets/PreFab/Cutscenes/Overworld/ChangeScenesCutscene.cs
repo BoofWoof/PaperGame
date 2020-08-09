@@ -8,8 +8,12 @@ public class ChangeScenesCutscene : CutSceneClass
     public string nextSceneName;
     void Start()
     {
+    }
+
+    override public bool Activate()
+    {
         GameDataTracker.previousArea = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
-        cutsceneDone();
+        return false;
     }
 }

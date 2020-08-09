@@ -4,26 +4,33 @@ using UnityEngine;
 
 public class SayDialogue : CutSceneClass
 {
-    public GameObject textBox;
-    private GameObject spawnedTextBox;
     public TextAsset inputText;
     public float heightOverSpeaker;
+    
+    private GameObject spawnedTextBox;
 
     // Start is called before the first frame update
     void Start()
     {
-        spawnedTextBox = Instantiate<GameObject>(textBox, new Vector3(transform.parent.position.x, transform.parent.position.y + heightOverSpeaker, transform.parent.position.z), Quaternion.identity);
+    }
+
+    override public bool Activate()
+    {
+        GameObject textbox = Resources.Load<GameObject>("TextBox");
+        spawnedTextBox = Instantiate<GameObject>(textbox, new Vector3(parent.transform.position.x, parent.transform.position.y + heightOverSpeaker, parent.transform.position.z), Quaternion.identity);
         spawnedTextBox.GetComponent<TextBoxController>().textfile = inputText;
         OverworldController.setTrackingMultiplyer(0.7f);
+        return true;
     }
 
     // Update is called once per frame
-    void Update()
+    override public bool Update()
     {
         if (spawnedTextBox == null)
         {
             OverworldController.setTrackingMultiplyer(1.0f);
-            cutsceneDone();
+            return true;
         }
+        return false;
     }
 }

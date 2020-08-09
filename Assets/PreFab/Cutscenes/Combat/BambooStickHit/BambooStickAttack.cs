@@ -26,7 +26,11 @@ public class BambooStickAttack : CutSceneClass
     // Start is called before the first frame update
     void Start()
     {
-        startPosition = transform.parent.position;
+    }
+
+    override public bool Activate()
+    {
+        startPosition = parent.transform.position;
         //if(startPosition.x > endPosition)
         float dist = Vector2.Distance(new Vector2(startPosition.x, startPosition.z), new Vector2(endPosition.x, endPosition.z));
         speed = dist * speed;
@@ -55,40 +59,46 @@ public class BambooStickAttack : CutSceneClass
         d = (-b - Mathf.Sqrt(b * b - 4 * a * c)) / (2 * a);
 
         amp = -(y1 - height) / (d * d);
-        if (transform.parent.GetComponent<Animator>() != null)
+        if (parent.GetComponent<Animator>() != null)
         {
-            transform.parent.GetComponent<Animator>().SetTrigger("Jump");
+            parent.GetComponent<Animator>().SetTrigger("Jump");
         }
+        active = true;
+        return true;
     }
 
     // Update is called once per frame
-    void Update()
+    override public bool Update()
     {
-        if (Vector2.Distance(new Vector2(transform.parent.transform.position.x, transform.parent.transform.position.z), new Vector2(endPosition.x, endPosition.z)) <= speed * Time.deltaTime)
+        if (active)
         {
-            transform.parent.position = endPosition;
-            if (transform.parent.GetComponent<Animator>() != null)
+            if (Vector2.Distance(new Vector2(parent.transform.position.x, parent.transform.position.z), new Vector2(endPosition.x, endPosition.z)) <= speed * Time.deltaTime)
             {
-                transform.parent.GetComponent<Animator>().SetTrigger("Stop");
+                parent.transform.position = endPosition;
+                if (parent.GetComponent<Animator>() != null)
+                {
+                    parent.GetComponent<Animator>().SetTrigger("Stop");
+                }
+                damageTarget.GetComponent<FighterClass>().attackEffect(amount, type, effects, location, source);
+                return true;
             }
-            damageTarget.GetComponent<FighterClass>().attackEffect(amount, type, effects, location, source);
-            cutsceneDone();
-        }
 
-        //Move Horizontally
-        transform.parent.position = Vector3.MoveTowards(transform.parent.position, new Vector3(endPosition.x, transform.parent.position.y, endPosition.z), speed * Time.deltaTime);
-        //Update Vertical
-        float distFromStart = Vector2.Distance(new Vector2(startPosition.x, startPosition.z), new Vector2(transform.parent.position.x, transform.parent.position.z));
-        float newHeight = -amp * (distFromStart - d) * (distFromStart - d) + height;
-        transform.parent.position = new Vector3(transform.parent.position.x, newHeight, transform.parent.position.z);
+            //Move Horizontally
+            parent.transform.position = Vector3.MoveTowards(parent.transform.position, new Vector3(endPosition.x, parent.transform.position.y, endPosition.z), speed * Time.deltaTime);
+            //Update Vertical
+            float distFromStart = Vector2.Distance(new Vector2(startPosition.x, startPosition.z), new Vector2(parent.transform.position.x, parent.transform.position.z));
+            float newHeight = -amp * (distFromStart - d) * (distFromStart - d) + height;
+            parent.transform.position = new Vector3(parent.transform.position.x, newHeight, parent.transform.position.z);
 
-        if (Input.GetButtonDown("Fire1") && (attemptMade == false))
-        {
-            attemptMade = true;
-            if(Vector2.Distance(new Vector2(transform.parent.position.x, transform.parent.position.z), new Vector2(endPosition.x, endPosition.z))<0.08*speed)
+            if (Input.GetButtonDown("Fire1") && (attemptMade == false))
             {
-                amount = amount * 2;
+                attemptMade = true;
+                if(Vector2.Distance(new Vector2(parent.transform.position.x, parent.transform.position.z), new Vector2(endPosition.x, endPosition.z))<0.08*speed)
+                {
+                    amount = amount * 2;
+                }
             }
         }
+        return false;
     }
 }

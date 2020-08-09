@@ -9,7 +9,12 @@ public class PlayerTravelDirection : CutSceneClass
     // Start is called before the first frame update
     void Start()
     {
-        CharacterMovementOverworld PlayerController = transform.parent.GetComponent<CharacterMovementOverworld>();
+    }
+
+    override public bool Activate()
+    {
+        base.Activate();
+        CharacterMovementOverworld PlayerController = parent.GetComponent<CharacterMovementOverworld>();
         PlayerController.stopOnCutscene = false;
         if (travelDirection == SceneMover.exitDirectionOptions.down)
         {
@@ -31,52 +36,59 @@ public class PlayerTravelDirection : CutSceneClass
             PlayerController.moveHorizontal = 0;
             PlayerController.moveVertical = 1;
         }
+        active = true;
+        return true;
     }
 
     // Update is called once per frame
-    void Update()
+    override public bool Update()
     {
-        Vector3 PlayerPosition = transform.parent.transform.position;
-        CharacterMovementOverworld PlayerController = transform.parent.GetComponent<CharacterMovementOverworld>();
-        if (travelDirection == SceneMover.exitDirectionOptions.down)
+        if (active)
         {
-            if (PlayerPosition.z < endPosition.z)
+            Vector3 PlayerPosition = parent.transform.position;
+            CharacterMovementOverworld PlayerController = parent.GetComponent<CharacterMovementOverworld>();
+            if (travelDirection == SceneMover.exitDirectionOptions.down)
             {
-                PlayerController.moveHorizontal = 0;
-                PlayerController.moveHorizontal = 0;
-                PlayerController.stopOnCutscene = true;
-                cutsceneDone();
+                if (PlayerPosition.z < endPosition.z)
+                {
+                    PlayerController.moveHorizontal = 0;
+                    PlayerController.moveHorizontal = 0;
+                    PlayerController.stopOnCutscene = true;
+                    return true;
+                }
             }
-        }
-        if (travelDirection == SceneMover.exitDirectionOptions.left)
-        {
-            if (PlayerPosition.x < endPosition.x)
+            if (travelDirection == SceneMover.exitDirectionOptions.left)
             {
-                PlayerController.moveHorizontal = 0;
-                PlayerController.moveHorizontal = 0;
-                PlayerController.stopOnCutscene = true;
-                cutsceneDone();
+                if (PlayerPosition.x < endPosition.x)
+                {
+                    PlayerController.moveHorizontal = 0;
+                    PlayerController.moveHorizontal = 0;
+                    PlayerController.stopOnCutscene = true;
+                    return true;
+                }
             }
-        }
-        if (travelDirection == SceneMover.exitDirectionOptions.right)
-        {
-            if (PlayerPosition.x > endPosition.x)
+            if (travelDirection == SceneMover.exitDirectionOptions.right)
             {
-                PlayerController.moveHorizontal = 0;
-                PlayerController.moveHorizontal = 0;
-                PlayerController.stopOnCutscene = true;
-                cutsceneDone();
+                if (PlayerPosition.x > endPosition.x)
+                {
+                    PlayerController.moveHorizontal = 0;
+                    PlayerController.moveHorizontal = 0;
+                    PlayerController.stopOnCutscene = true;
+                    return true;
+                }
             }
-        }
-        if (travelDirection == SceneMover.exitDirectionOptions.up)
-        {
-            if (PlayerPosition.z > endPosition.z)
+            if (travelDirection == SceneMover.exitDirectionOptions.up)
             {
-                PlayerController.moveHorizontal = 0;
-                PlayerController.moveHorizontal = 0;
-                PlayerController.stopOnCutscene = true;
-                cutsceneDone();
+                if (PlayerPosition.z > endPosition.z)
+                {
+                    PlayerController.moveHorizontal = 0;
+                    PlayerController.moveHorizontal = 0;
+                    PlayerController.stopOnCutscene = true;
+                    return true;
+                }
             }
+
         }
+        return false;
     }
 }

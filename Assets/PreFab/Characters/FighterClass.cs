@@ -155,8 +155,7 @@ public class FighterClass : MonoBehaviour
 
     public virtual void death()
     {
-        GameObject deathEvent = new GameObject();
-        deathEvent.AddComponent<DeathEvent>();
-        CombatController.addCutseenEventFRONT(deathEvent, gameObject, true);
+        DeathEvent deathEvent = new DeathEvent();
+        CutsceneController.addCutsceneEventFront(deathEvent, gameObject, true, OverworldController.gameModeOptions.Cutscene);
     }
 }

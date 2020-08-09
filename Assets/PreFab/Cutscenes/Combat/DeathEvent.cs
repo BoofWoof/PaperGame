@@ -7,17 +7,21 @@ public class DeathEvent : CutSceneClass
     // Start is called before the first frame update
     void Start()
     {
-        if (transform.parent.gameObject.GetComponent<FighterClass>().friendly)
+    }
+
+    override public bool Activate()
+    {
+        if (parent.GetComponent<FighterClass>().friendly)
         {
-            CombatController.friendList.Remove(CombatController.friendList[transform.parent.gameObject.GetComponent<FighterClass>().myID]);
+            CombatController.friendList.Remove(CombatController.friendList[parent.GetComponent<FighterClass>().myID]);
         }
         else
         {
-            CombatController.enemyList.Remove(CombatController.enemyList[transform.parent.gameObject.GetComponent<FighterClass>().myID]);
+            CombatController.enemyList.Remove(CombatController.enemyList[parent.GetComponent<FighterClass>().myID]);
         }
         CombatController.updateIDs();
-        Destroy(transform.parent.gameObject);
-        cutsceneDone();
+        Destroy(parent);
+        return false;
     }
 
     // Update is called once per frame

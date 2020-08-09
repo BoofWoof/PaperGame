@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 [System.Serializable]
 public class CutSceneEventCombat
 {
-    public GameObject CutsceneEvent;
+    public CutSceneClass CutsceneEvent;
     public GameObject CutsceneTarget;
     public bool Wait;
     public GameObject CameraFocus;
@@ -18,10 +18,6 @@ public class CombatController : MonoBehaviour
 {
     //CUTSCENE STUFF=============================================================================================
     //===========================================================================================================
-    public static int cutScenesPlaying = 0;
-
-    public static List<CutSceneEventCombat> cutsceneList = new List<CutSceneEventCombat>();
-
     public static Vector3 defaultOffset = new Vector3(0, 2.3f, -6f);
     public static GameObject defaultFocus;
 
@@ -75,7 +71,6 @@ public class CombatController : MonoBehaviour
         //Empty Global Variable--------------------------
         enemyList = new List<Character>();
         friendList = new List<Character>();
-        cutScenesPlaying = 0;
         //------------------------------------------------
 
         //Create Scene-----------------------------------------------------------------------------------
@@ -165,33 +160,12 @@ public class CombatController : MonoBehaviour
         {
             HealthText[j + friendList.Count].GetComponent<Text>().text = enemyList[j].CharacterObject.GetComponent<FighterClass>().HP.ToString();
         }
-        //----------------------------------------------------------------------------------------------------------------------------------------------------
-
-        //ADD ANY CUTSCENE EVENTS------------------------------------------------------
-        bool keepLooping = true;
-        if ((cutScenesPlaying==0) && (cutsceneList.Count > 0))
-        {
-            while ((keepLooping)&& (cutsceneList.Count > 0))
-            {
-                cutScenesPlaying++;
-                CutSceneEventCombat initCutScene = cutsceneList[0];
-                initCutScene.CutsceneEvent.SetActive(true);
-                initCutScene.CutsceneEvent.transform.SetParent(initCutScene.CutsceneTarget.transform);
-                if (initCutScene.Wait == true)
-                {
-                    keepLooping = false;
-                }
-                //CAMERA ADJUSTMENT------------------------------------------------
-                if (initCutScene.CameraOffset != Vector3.zero)
-                {
-                    trackingCamera.GetComponent<CameraFollow>().offset = initCutScene.CameraOffset;
-                    trackingCamera.GetComponent<CameraFollow>().ObjectToTrack = initCutScene.CameraFocus;
-                }
-                //-----------------------------------------------------------------
-                cutsceneList.Remove(initCutScene);
-            }
-        }
         //-----------------------------------------------------------------------------
+    }
+
+    private void LateUpdate()
+    {
+        CutsceneController.Update();
     }
 
     public static void updateIDs()
@@ -277,70 +251,4 @@ public class CombatController : MonoBehaviour
             enemyList.Add(newFighter);
         }
     }
-    //=================================================================================================================
-
-
-    //CUTSCENE STUFF
-    //ADD CUTSCENE EVENT----------------------------------
-    public static void addCutseenEvent(GameObject cutsceneEvent, GameObject target, bool wait, GameObject cameraFocus, Vector3 cameraOffset)
-    {
-        CutSceneEventCombat newEvent = new CutSceneEventCombat();
-        newEvent.CutsceneEvent = cutsceneEvent;
-        newEvent.CutsceneTarget = target;
-        newEvent.Wait = wait;
-        if (cameraOffset == Vector3.zero)
-        {
-            newEvent.CameraFocus = defaultFocus;
-            newEvent.CameraOffset = defaultOffset;
-        }
-        else
-        {
-            newEvent.CameraFocus = cameraFocus;
-            newEvent.CameraOffset = cameraOffset;
-        }
-        cutsceneList.Add(newEvent);
-    }
-    //----------------------------------------------------
-    //ADD CUTSCENE EVENT IN FRONT----------------------------------
-    public static void addCutseenEventFRONT(GameObject cutsceneEvent, GameObject target, bool wait, GameObject cameraFocus, Vector3 cameraOffset)
-    {
-        CutSceneEventCombat newEvent = new CutSceneEventCombat();
-        newEvent.CutsceneEvent = cutsceneEvent;
-        newEvent.CutsceneTarget = target;
-        newEvent.Wait = wait;
-        if (cameraOffset == Vector3.zero)
-        {
-            newEvent.CameraFocus = defaultFocus;
-            newEvent.CameraOffset = defaultOffset;
-        }
-        else
-        {
-            newEvent.CameraFocus = cameraFocus;
-            newEvent.CameraOffset = cameraOffset;
-        }
-        cutsceneList.Insert(0, newEvent);
-    }
-    public static void addCutseenEvent(GameObject cutsceneEvent, GameObject target, bool wait)
-    {
-        CutSceneEventCombat newEvent = new CutSceneEventCombat();
-        newEvent.CutsceneEvent = cutsceneEvent;
-        newEvent.CutsceneTarget = target;
-        newEvent.Wait = wait;
-        newEvent.CameraFocus = null;
-        newEvent.CameraOffset = Vector3.zero;
-        cutsceneList.Add(newEvent);
-    }
-    //----------------------------------------------------
-    //ADD CUTSCENE EVENT IN FRONT----------------------------------
-    public static void addCutseenEventFRONT(GameObject cutsceneEvent, GameObject target, bool wait)
-    {
-        CutSceneEventCombat newEvent = new CutSceneEventCombat();
-        newEvent.CutsceneEvent = cutsceneEvent;
-        newEvent.CutsceneTarget = target;
-        newEvent.Wait = wait;
-        newEvent.CameraFocus = null;
-        newEvent.CameraOffset = Vector3.zero;
-        cutsceneList.Insert(0, newEvent);
-    }
-    //===========================================================================================================
 }

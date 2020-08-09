@@ -1,23 +1,24 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class FriendlyNPCClass : MonoBehaviour
 {
-    //CharactersName
-    private GameObject Player;
-    private GameObject Bubble;
+    //Character Information
+    public string CharacterName = "NameMeYaDingus";
     private float height;
 
-    public string CharacterName = "NameMeYaDingus";
-    public int UniqueSceneID = -1;
-    public OverworldController.gameModeOptions dialogueMode = OverworldController.gameModeOptions.MobileCutscene;
+    //Dialogue Info
+    private GameObject Bubble;
     public TextAsset InputText;
-    public string InputString = "You didn't give me any text ya dingus.";
+    public DialogueContainer dialogue;
+    public float heightOverSpeaker = 1.3f;
 
-    public GameObject dialogueCutscene;
+    public string InputString = "You didn't give me any text ya dingus.";
     public GameObject dialogueBubble;
-    //Cutscene Events
+
+    //Cutscene Events Info
     public float distanceToPlayer;
     public bool readyForDialogue;
 
@@ -31,59 +32,30 @@ public class FriendlyNPCClass : MonoBehaviour
 
     void Start()
     {
-        if(UniqueSceneID == -1)
+        if(CharacterName == "NameMeYaDingus")
         {
-            print("Give " + CharacterName + " an ID ya nerd.");
+            print($"Name me! My ID is {this.GetInstanceID()}");
         }
         Character thisNPCCharacter = new Character();
         thisNPCCharacter.CharacterObject = gameObject;
         thisNPCCharacter.CharacterName = CharacterName;
-        thisNPCCharacter.uniqueSceneID = UniqueSceneID;
+        thisNPCCharacter.uniqueSceneID = GetInstanceID();
         OverworldController.CharacterList.Add(thisNPCCharacter);
+
         height = transform.GetComponent<BoxCollider>().size.y;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Player == null)
-        {
-            Player = OverworldController.Player;
-        }
-        //Handle Dialogue
+        GameObject Player = OverworldController.Player;
         distanceToPlayer = Vector3.Distance(Player.transform.position, transform.position);
-        if (readyForDialogue && ((OverworldController.gameMode == OverworldController.gameModeOptions.Mobile) || (OverworldController.gameMode == OverworldController.gameModeOptions.DialogueReady)))
-        {
-            if (Bubble == null)
-            {
-                Bubble = Instantiate(dialogueBubble, transform.position + new Vector3(0, 0.5f + height/2, 0), Quaternion.identity);
-                Bubble.transform.SetParent(transform);
-                Bubble.transform.rotation = Quaternion.identity;
-            } else
-            {
-                Bubble.transform.rotation = Quaternion.identity;
-            }
-            if (Input.GetButtonDown("Fire1"))
-            {
-                Activated();
-                if ((Player.transform.position.x > this.transform.position.x + 0.2f))
-                    {
-                        Player.GetComponent<CharacterMovementOverworld>().goal = 0;
-                    }
-                    if ((Player.transform.position.x < this.transform.position.x - 0.2f))
-                    {
-                        Player.GetComponent<CharacterMovementOverworld>().goal = 180;
-                    }
-            }
-        } else
-        {
-            if (Bubble != null)
-            {
-                Destroy(Bubble);
-                Bubble = null;
-            }
-        }
+        DialogueCheck(distanceToPlayer, Player);
+        FacePlayer(distanceToPlayer, Player);
+    }
 
+    private void FacePlayer(float distanceToPlayer, GameObject Player)
+    {
         //Face Player If Near
         if ((distanceToPlayer < 1) && ((OverworldController.gameMode == OverworldController.gameModeOptions.Mobile) || (OverworldController.gameMode == OverworldController.gameModeOptions.DialogueReady)))
         {
@@ -124,22 +96,59 @@ public class FriendlyNPCClass : MonoBehaviour
         {
             this.transform.localScale = new Vector3(-Mathf.Abs(currentScale.x), currentScale.y, currentScale.z);
         }
-        //SPRITE ROTATION END------------------------------------------------------------------
+    }
 
-        //transform.rotation = Quaternion.identity;
+    private void DialogueCheck(float distanceToPlayer, GameObject Player)
+    {
+        if (readyForDialogue && ((OverworldController.gameMode == OverworldController.gameModeOptions.Mobile) || (OverworldController.gameMode == OverworldController.gameModeOptions.DialogueReady)))
+        {
+            if (Bubble == null)
+            {
+                Bubble = Instantiate(dialogueBubble, transform.position + new Vector3(0, 0.5f + height / 2, 0), Quaternion.identity);
+                Bubble.transform.SetParent(transform);
+                Bubble.transform.rotation = Quaternion.identity;
+            }
+            else
+            {
+                Bubble.transform.rotation = Quaternion.identity;
+            }
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Activated();
+                if ((Player.transform.position.x > this.transform.position.x + 0.2f))
+                {
+                    Player.GetComponent<CharacterMovementOverworld>().goal = 0;
+                }
+                if ((Player.transform.position.x < this.transform.position.x - 0.2f))
+                {
+                    Player.GetComponent<CharacterMovementOverworld>().goal = 180;
+                }
+            }
+        }
+        else
+        {
+            if (Bubble != null)
+            {
+                Destroy(Bubble);
+                Bubble = null;
+            }
+        }
     }
 
     protected virtual void Activated()
     {
-        GameObject Dialogue = Instantiate<GameObject>(dialogueCutscene, Vector3.zero, Quaternion.identity);
+        SayDialogue dialogueCutscene = ScriptableObject.CreateInstance<SayDialogue>();
+        dialogueCutscene.heightOverSpeaker = heightOverSpeaker;
+        //GameObject Dialogue = Instantiate<GameObject>(dialogueCutscene, Vector3.zero, Quaternion.identity);
         if (InputText != null)
         {
-            Dialogue.GetComponent<SayDialogue>().inputText = InputText;
+
+            dialogueCutscene.inputText = InputText;
         }
         else
         {
-            Dialogue.GetComponent<SayDialogue>().inputText = new TextAsset(InputString);
+            dialogueCutscene.inputText = new TextAsset(InputString);
         }
-        OverworldController.addCutsceneEvent(Dialogue,gameObject,true, dialogueMode);
+        CutsceneController.addCutsceneEvent(dialogueCutscene,gameObject,true, OverworldController.gameModeOptions.Cutscene);
     }
 }

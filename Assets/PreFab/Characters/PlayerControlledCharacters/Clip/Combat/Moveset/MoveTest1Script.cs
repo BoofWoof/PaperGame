@@ -5,11 +5,6 @@ using UnityEngine;
 //THIS ONE DOES A BASIC ATTACK
 public class MoveTest1Script : MoveClass
 {
-    public GameObject dialogueCutscene;
-    public GameObject moveCutscene;
-    public GameObject jumpCutscene;
-    public GameObject damageCutscene;
-
     void Start()
     {
         targetMode = targetModeTypes.Enemies;
@@ -19,22 +14,21 @@ public class MoveTest1Script : MoveClass
         if (friendlySource)
         {
             //ATTACK CUT SCENE--------------------------------------------------------------------
-            GameObject m = Instantiate(moveCutscene, Vector3.zero, Quaternion.identity);
+            MoveToLocation m = ScriptableObject.CreateInstance<MoveToLocation>();
             Vector2 moveDestination = Vector2.MoveTowards(new Vector2(friendlyList[sourceID].CharacterObject.transform.position.x, friendlyList[sourceID].CharacterObject.transform.position.z), new Vector2(enemyList[targetID].CharacterObject.transform.position.x, enemyList[targetID].CharacterObject.transform.position.z), 1f);
-            m.GetComponent<MoveToLocation>().endPosition = new Vector3(moveDestination.x, friendlyList[sourceID].CharacterObject.transform.position.y, moveDestination.y);
-            CombatController.addCutseenEvent(m, friendlyList[sourceID].CharacterObject, true, friendlyList[sourceID].CharacterObject, new Vector3(1f, 1f, -3.0f));
-
-            GameObject bamboo = new GameObject();
-            bamboo.AddComponent<BambooStickAttack>();
-            bamboo.GetComponent<BambooStickAttack>().source = friendlyList[sourceID].CharacterObject;
-            bamboo.GetComponent<BambooStickAttack>().amount = power;
-            bamboo.GetComponent<BambooStickAttack>().type = FighterClass.attackType.Normal;
-            bamboo.GetComponent<BambooStickAttack>().effects = FighterClass.statusEffects.None;
-            bamboo.GetComponent<BambooStickAttack>().damageTarget = enemyList[targetID].CharacterObject;
-            bamboo.GetComponent<BambooStickAttack>().endPosition = enemyList[targetID].CharacterObject.transform.position + new Vector3(-1, 0, 0);
-            bamboo.GetComponent<BambooStickAttack>().heightOverHighestCharacter = 2;
-            bamboo.GetComponent<BambooStickAttack>().speed = 1;
-            CombatController.addCutseenEvent(bamboo, friendlyList[sourceID].CharacterObject, true);
+            m.endPosition = new Vector3(moveDestination.x, friendlyList[sourceID].CharacterObject.transform.position.y, moveDestination.y);
+            CutsceneController.addCutsceneEvent(m, friendlyList[sourceID].CharacterObject, true, OverworldController.gameModeOptions.Cutscene, friendlyList[sourceID].CharacterObject, new Vector3(1f, 1f, -3.0f));
+            
+            BambooStickAttack bamboo = ScriptableObject.CreateInstance<BambooStickAttack>();
+            bamboo.source = friendlyList[sourceID].CharacterObject;
+            bamboo.amount = power;
+            bamboo.type = FighterClass.attackType.Normal;
+            bamboo.effects = FighterClass.statusEffects.None;
+            bamboo.damageTarget = enemyList[targetID].CharacterObject;
+            bamboo.endPosition = enemyList[targetID].CharacterObject.transform.position + new Vector3(-1, 0, 0);
+            bamboo.heightOverHighestCharacter = 2;
+            bamboo.speed = 1;
+            CutsceneController.addCutsceneEvent(bamboo, friendlyList[sourceID].CharacterObject, true, OverworldController.gameModeOptions.Cutscene);
             /*
             GameObject j = Instantiate(jumpCutscene, Vector3.zero, Quaternion.identity);
             j.GetComponent<JumpToLocation>().endPosition = new Vector3(enemyList[targetID].transform.position.x - 1, enemyList[targetID].transform.position.y, enemyList[targetID].transform.position.z);
@@ -55,16 +49,14 @@ public class MoveTest1Script : MoveClass
             sceneLists.addCutseenEvent(a, enemyList[targetID], true, Vector3.zero);
             */
 
-            m = Instantiate(moveCutscene, Vector3.zero, Quaternion.identity);
+            m = ScriptableObject.CreateInstance<MoveToLocation>();
             moveDestination = Vector2.MoveTowards(new Vector2(enemyList[targetID].CharacterObject.transform.position.x, enemyList[targetID].CharacterObject.transform.position.z), new Vector2(friendlyList[sourceID].CharacterObject.GetComponent<FighterClass>().HomePosition.x, friendlyList[sourceID].CharacterObject.GetComponent<FighterClass>().HomePosition.z), 1.5f);
-            m.GetComponent<MoveToLocation>().endPosition = new Vector3(moveDestination.x, enemyList[targetID].CharacterObject.transform.position.y, moveDestination.y);
-            CombatController.addCutseenEvent(m, friendlyList[sourceID].CharacterObject, true, friendlyList[sourceID].CharacterObject, Vector3.zero);
+            m.endPosition = new Vector3(moveDestination.x, enemyList[targetID].CharacterObject.transform.position.y, moveDestination.y);
+            CutsceneController.addCutsceneEvent(m, friendlyList[sourceID].CharacterObject, true, OverworldController.gameModeOptions.Cutscene, friendlyList[sourceID].CharacterObject, Vector3.zero);
 
-            GameObject j = Instantiate(jumpCutscene, Vector3.zero, Quaternion.identity);
-            j.GetComponent<JumpToLocation>().endPosition = friendlyList[sourceID].CharacterObject.GetComponent<FighterClass>().HomePosition;
-            CombatController.addCutseenEvent(j, friendlyList[sourceID].CharacterObject, true);
-            
-            
+            JumpToLocation j = ScriptableObject.CreateInstance<JumpToLocation>();
+            j.endPosition = friendlyList[sourceID].CharacterObject.GetComponent<FighterClass>().HomePosition;
+            CutsceneController.addCutsceneEvent(j, friendlyList[sourceID].CharacterObject, true, OverworldController.gameModeOptions.Cutscene);
         }
         else
         {

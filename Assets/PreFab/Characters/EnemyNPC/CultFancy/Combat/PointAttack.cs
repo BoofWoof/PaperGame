@@ -6,14 +6,13 @@ public class PointAttack : MoveClass
 {
     public override void effect()
     {
-        GameObject attack = new GameObject();
         GameObject attackTarget = CombatController.friendList[(int)Random.Range(0, CombatController.friendList.Count)].CharacterObject;
-        attack.AddComponent<PointAttackCutscene>();
-        attack.GetComponent<PointAttackCutscene>().source = enemyList[sourceID].CharacterObject;
-        attack.GetComponent<PointAttackCutscene>().amount = power;
-        attack.GetComponent<PointAttackCutscene>().type = FighterClass.attackType.Normal;
-        attack.GetComponent<PointAttackCutscene>().effects = FighterClass.statusEffects.None;
-        CombatController.addCutseenEvent(attack, attackTarget, true);
+        PointAttackCutscene attack = new PointAttackCutscene();
+        attack.source = enemyList[sourceID].CharacterObject;
+        attack.amount = power;
+        attack.type = FighterClass.attackType.Normal;
+        attack.effects = FighterClass.statusEffects.None;
+        CutsceneController.addCutsceneEvent(attack, attackTarget, true, OverworldController.gameModeOptions.Cutscene);
         actionDone();
     }
 }

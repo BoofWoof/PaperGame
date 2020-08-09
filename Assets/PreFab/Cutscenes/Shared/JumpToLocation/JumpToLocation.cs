@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class JumpToLocation : CutSceneClass
 {
-    public float heightOverHighestCharacter;
+    public float heightOverHighestCharacter = 2;
     public Vector3 endPosition;
-    public float speed;
+    public float speed = 1f;
     private Vector3 startPosition;
     private float highestCharacterY;
 
@@ -16,17 +16,22 @@ public class JumpToLocation : CutSceneClass
     // Start is called before the first frame update
     void Start()
     {
-        startPosition = transform.parent.position;
+    }
+
+    override public bool Activate()
+    {
+        startPosition = parent.transform.position;
         //if(startPosition.x > endPosition)
         float dist = Vector2.Distance(new Vector2(startPosition.x, startPosition.z), new Vector2(endPosition.x, endPosition.z));
-        speed = dist*speed;
+        speed = dist * speed;
         float y2 = endPosition.y;
         float y1 = startPosition.y;
 
-        if(y2 > y1)
+        if (y2 > y1)
         {
             highestCharacterY = y2;
-        } else
+        }
+        else
         {
             highestCharacterY = y1;
         }
@@ -34,7 +39,7 @@ public class JumpToLocation : CutSceneClass
         height = highestCharacterY + heightOverHighestCharacter;
 
         float a = (y2 - y1);
-        if(a == 0)
+        if (a == 0)
         {
             a = 0.00001f;
         }
@@ -44,7 +49,7 @@ public class JumpToLocation : CutSceneClass
         d = (-b - Mathf.Sqrt(b * b - 4 * a * c)) / (2 * a);
 
         amp = -(y1 - height) / (d * d);
-        
+
 
         //THIS IS JUST SOME HELPFUL TEST CODE TO MAKE SURE THE EQUATION WORKS
         /*
@@ -69,31 +74,36 @@ public class JumpToLocation : CutSceneClass
         float amp = -(y1 - height) / (x1 * x1 - 2 * x1 * d + d * d);
 
         */
-        if (transform.parent.GetComponent<Animator>() != null)
+        if (parent.GetComponent<Animator>() != null)
         {
-            transform.parent.GetComponent<Animator>().SetTrigger("Jump");
+            parent.GetComponent<Animator>().SetTrigger("Jump");
         }
+        active = true;
+        return true;
     }
 
     // Update is called once per frame
-    void Update()
+    override public bool Update()
     {
-
-        //Move Horizontally
-        transform.parent.position = Vector3.MoveTowards(transform.parent.position, new Vector3(endPosition.x, transform.parent.position.y, endPosition.z), speed * Time.deltaTime);
-        //Update Vertical
-        float distFromStart = Vector2.Distance(new Vector2(startPosition.x, startPosition.z), new Vector2(transform.parent.position.x, transform.parent.position.z));
-        float newHeight = -amp * (distFromStart - d) * (distFromStart - d) + height;
-        transform.parent.position = new Vector3(transform.parent.position.x, newHeight, transform.parent.position.z);
-
-        if (Vector2.Distance(new Vector2(transform.parent.transform.position.x, transform.parent.transform.position.z), new Vector2(endPosition.x, endPosition.z)) <= speed * Time.deltaTime)
+        if (active)
         {
-            transform.parent.position = endPosition;
-            if (transform.parent.GetComponent<Animator>() != null)
+            //Move Horizontally
+            parent.transform.position = Vector3.MoveTowards(parent.transform.position, new Vector3(endPosition.x, parent.transform.position.y, endPosition.z), speed * Time.deltaTime);
+            //Update Vertical
+            float distFromStart = Vector2.Distance(new Vector2(startPosition.x, startPosition.z), new Vector2(parent.transform.position.x, parent.transform.position.z));
+            float newHeight = -amp * (distFromStart - d) * (distFromStart - d) + height;
+            parent.transform.position = new Vector3(parent.transform.position.x, newHeight, parent.transform.position.z);
+
+            if (Vector2.Distance(new Vector2(parent.transform.position.x, parent.transform.position.z), new Vector2(endPosition.x, endPosition.z)) <= speed * Time.deltaTime)
             {
-                transform.parent.GetComponent<Animator>().SetTrigger("Stop");
+                parent.transform.position = endPosition;
+                if (parent.GetComponent<Animator>() != null)
+                {
+                    parent.GetComponent<Animator>().SetTrigger("Stop");
+                }
+                return true;
             }
-            cutsceneDone();
         }
+        return false;
     }
 }

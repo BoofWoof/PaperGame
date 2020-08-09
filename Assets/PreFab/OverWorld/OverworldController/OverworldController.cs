@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Character
@@ -11,7 +13,7 @@ public class Character
 [System.Serializable]
 public class CutSceneEvent
 {
-    public GameObject CutsceneEvent;
+    public CutSceneClass CutsceneEvent;
     public GameObject CutsceneTarget;
     public bool Wait;
     public GameObject CameraFocus;
@@ -34,11 +36,6 @@ public class OverworldController : MonoBehaviour
     public static GameObject trackingCamera;  //Publically accessible camera.
     public GameObject[] SceneTransfers;  //Triggers that will cause a scene transfer.
 
-    //CutScene-------------------------------------------------
-    private static List<CutSceneEvent> CutsceneQueue = new List<CutSceneEvent>();
-    public static int CutscenesPlaying = 0;
-    //-----------------------------------------------------------
-
     //GameplayMode---------------------------------------------------
     public enum gameModeOptions {Mobile, Cutscene, MobileCutscene, DialogueReady, Paused};
     public static gameModeOptions gameMode = gameModeOptions.Mobile;
@@ -49,7 +46,6 @@ public class OverworldController : MonoBehaviour
     {
         CharacterList = new List<Character>();
         EnemyList = new List<Character>();
-        CutscenesPlaying = 0;
         if (GameDataTracker.lastAreaWasCombat == false)
         {
             if (GameDataTracker.previousArea != null)
@@ -61,8 +57,8 @@ public class OverworldController : MonoBehaviour
                     {
                         Player = Instantiate(playerInput, sceneTransfer.transform.position, Quaternion.identity);
 
-                        GameObject moveEvent = new GameObject();
-                        PlayerTravelDirection pm = moveEvent.AddComponent<PlayerTravelDirection>();
+                        gameMode = gameModeOptions.Cutscene;
+                        PlayerTravelDirection pm = ScriptableObject.CreateInstance<PlayerTravelDirection>();
                         SceneMover.exitDirectionOptions entranceDirection = sceneTransfer.GetComponent<SceneMover>().exitDirection;
                         if (entranceDirection == SceneMover.exitDirectionOptions.up)
                         {
@@ -84,7 +80,7 @@ public class OverworldController : MonoBehaviour
                             pm.endPosition = Player.transform.position + new Vector3(0, 0, 2);
                             pm.travelDirection = SceneMover.exitDirectionOptions.up;
                         }
-                        addCutsceneEvent(moveEvent, Player, true, gameModeOptions.Cutscene);
+                        CutsceneController.addCutsceneEvent(pm, Player, true, gameModeOptions.Cutscene);
                     }
                 }
             }
@@ -107,59 +103,7 @@ public class OverworldController : MonoBehaviour
         updateTrackingCameraY(Player.transform.position.y);
     }
 
-    //WAYS TO ADD CUTSCENE EVENTS------------------------------------------------------------------------------------------------------------------------------------------------
-    public static void addCutsceneEvent(GameObject CutsceneEventInput, GameObject CutsceneTargetInput, bool WaitInput, gameModeOptions GameModeInput, GameObject CameraFocusInput, Vector3 CameraOffsetInput)
-    {
-        CutsceneEventInput.SetActive(false);
-        CutSceneEvent newEvent = new CutSceneEvent();
-        newEvent.CutsceneEvent = CutsceneEventInput;
-        newEvent.CutsceneTarget = CutsceneTargetInput;
-        newEvent.Wait = WaitInput;
-        newEvent.GameMode = GameModeInput;
-        newEvent.CameraFocus = CameraFocusInput;
-        newEvent.CameraOffset = CameraOffsetInput;
-        CutsceneQueue.Add(newEvent);
-    }
-
-    public static void addCutsceneEvent(GameObject CutsceneEventInput, GameObject CutsceneTargetInput, bool WaitInput, gameModeOptions GameModeInput)
-    {
-        CutsceneEventInput.SetActive(false);
-        CutSceneEvent newEvent = new CutSceneEvent();
-        newEvent.CutsceneEvent = CutsceneEventInput;
-        newEvent.CutsceneTarget = CutsceneTargetInput;
-        newEvent.Wait = WaitInput;
-        newEvent.GameMode = GameModeInput;
-        newEvent.CameraFocus = null;
-        newEvent.CameraOffset = Vector3.zero;
-        CutsceneQueue.Add(newEvent);
-    }
-    public static void addCutsceneEventFRONT(GameObject CutsceneEventInput, GameObject CutsceneTargetInput, bool WaitInput, gameModeOptions GameModeInput, GameObject CameraFocusInput, Vector3 CameraOffsetInput)
-    {
-        CutsceneEventInput.SetActive(false);
-        CutSceneEvent newEvent = new CutSceneEvent();
-        newEvent.CutsceneEvent = CutsceneEventInput;
-        newEvent.CutsceneTarget = CutsceneTargetInput;
-        newEvent.Wait = WaitInput;
-        newEvent.GameMode = GameModeInput;
-        newEvent.CameraFocus = CameraFocusInput;
-        newEvent.CameraOffset = CameraOffsetInput;
-        CutsceneQueue.Insert(0, newEvent);
-    }
-
-    public static void addCutsceneEventFRONT(GameObject CutsceneEventInput, GameObject CutsceneTargetInput, bool WaitInput, gameModeOptions GameModeInput)
-    {
-        CutsceneEventInput.SetActive(false);
-        CutSceneEvent newEvent = new CutSceneEvent();
-        newEvent.CutsceneEvent = CutsceneEventInput;
-        newEvent.CutsceneTarget = CutsceneTargetInput;
-        newEvent.Wait = WaitInput;
-        newEvent.GameMode = GameModeInput;
-        newEvent.CameraFocus = null;
-        newEvent.CameraOffset = Vector3.zero;
-        CutsceneQueue.Insert(0, newEvent);
-    }
     //-------------------------------------------------------------------------------------------------------------------------------------------
-
     public void Update()
     {
         //Pause and unpause game. ================
@@ -185,7 +129,7 @@ public class OverworldController : MonoBehaviour
         }
         //=========================================
         //Check if any dialogue is available.
-        if ((gameMode == gameModeOptions.Mobile)|| (gameMode == gameModeOptions.DialogueReady))
+        if ((gameMode == gameModeOptions.Mobile) || (gameMode == gameModeOptions.DialogueReady))
         {
             gameMode = gameModeOptions.Mobile;
             float closestCharacterDistance = 100;
@@ -209,28 +153,11 @@ public class OverworldController : MonoBehaviour
                 gameMode = gameModeOptions.DialogueReady;
             }
         }
+    }
 
-        if (CutscenesPlaying == 0 && CutsceneQueue.Count > 0)
-        {
-            bool keepPlaying = true;
-            while (keepPlaying)
-            {
-                CutscenesPlaying++;
-                CutSceneEvent eventInitiation = CutsceneQueue[0];
-                eventInitiation.CutsceneEvent.SetActive(true);
-                eventInitiation.CutsceneEvent.transform.SetParent(eventInitiation.CutsceneTarget.transform);
-                if(eventInitiation.Wait == true)
-                {
-                    keepPlaying = false;
-                }
-                gameMode = eventInitiation.GameMode;
-                CutsceneQueue.Remove(eventInitiation);
-            }
-        }
-        if (CutscenesPlaying == 0 && CutsceneQueue.Count == 0 && (gameMode == gameModeOptions.MobileCutscene || gameMode == gameModeOptions.Cutscene))
-        {
-            gameMode = gameModeOptions.Mobile;
-        }
+    public void LateUpdate()
+    {
+        CutsceneController.Update();
     }
 
     public static Character findCharacterByName(string Name, List<Character> charList)
@@ -266,12 +193,18 @@ public class OverworldController : MonoBehaviour
 
     public static void updateTrackingCameraY(float newY)
     {
-        trackingCamera.GetComponent<CameraFollow>().trackingcameraY = newY;
+        if (trackingCamera != null)
+        {
+            trackingCamera.GetComponent<CameraFollow>().trackingcameraY = newY;
+        }
     }
 
     public static void setTrackingMultiplyer(float multiple)
     {
-        trackingCamera.GetComponent<CameraFollow>().dialogueOffsetMultiplier = multiple;
+        if(trackingCamera != null)
+        {
+            trackingCamera.GetComponent<CameraFollow>().dialogueOffsetMultiplier = multiple;
+        }
     }
 }
 

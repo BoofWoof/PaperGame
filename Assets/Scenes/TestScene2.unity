@@ -1119,7 +1119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5396c0bb9749704e9787294652c00f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: DockAreaBoof
+  sceneName: DockAreaRubus
   halfTriggerHeight: 1
   exitDirection: 1
 --- !u!65 &1186974831

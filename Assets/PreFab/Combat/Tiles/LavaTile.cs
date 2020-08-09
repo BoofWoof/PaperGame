@@ -6,13 +6,12 @@ public class LavaTile : CombatTileClass
 {
     public override void endOfTurn()
     {
-        GameObject fireDamage = new GameObject();
-        DealDamage d = fireDamage.AddComponent<DealDamage>();
+        DealDamage d = new DealDamage();
         d.amount = 1;
         d.effects = FighterClass.statusEffects.None;
         d.location = FighterClass.attackLocation.Ground;
         d.source = gameObject;
         d.type = FighterClass.attackType.Fire;
-        CombatController.addCutseenEvent(fireDamage, onTopOfTile, true);
+        CutsceneController.addCutsceneEvent(d, onTopOfTile, true, OverworldController.gameModeOptions.Cutscene);
     }
 }

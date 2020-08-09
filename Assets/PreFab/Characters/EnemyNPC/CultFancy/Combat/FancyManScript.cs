@@ -20,12 +20,11 @@ public class FancyManScript : EnemyScript
     public override void death()
     {
         base.death();
-        GameObject textbox = Instantiate<GameObject>(dialogueEventInput, Vector3.zero, Quaternion.identity);
-        textbox.SetActive(false);
-        textbox.GetComponent<SayDialogue>().heightOverSpeaker = 2;
-        textbox.GetComponent<SayDialogue>().inputText = new TextAsset("Ughh\n" +
+        SayDialogue textbox = new SayDialogue();
+        textbox.heightOverSpeaker = 2;
+        textbox.inputText = new TextAsset("Ughh\n" +
             "Why do I have to lose...\n" +
             "To such a big nerd.");
-        CombatController.addCutseenEventFRONT(textbox, gameObject, true);
+        CutsceneController.addCutsceneEventFront(textbox, gameObject, true, OverworldController.gameModeOptions.Cutscene);
     }
 }

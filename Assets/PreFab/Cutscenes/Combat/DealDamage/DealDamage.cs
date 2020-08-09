@@ -13,8 +13,12 @@ public class DealDamage : CutSceneClass
     // Start is called before the first frame update
     void Start()
     {
-        transform.parent.GetComponent<FighterClass>().attackEffect(amount, type, effects, location, source);
-        cutsceneDone();
+    }
+
+    public override bool Activate()
+    {
+        parent.GetComponent<FighterClass>().attackEffect(amount, type, effects, location, source);
+        return false;
     }
 
     // Update is called once per frame

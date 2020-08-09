@@ -39,10 +39,9 @@ public class EnemyNPCClass : MonoBehaviour
                 GameDataTracker.combatStartPosition = Player.transform.position;
                 GameDataTracker.lastAreaWasCombat = true;
 
-                GameObject sceneChange = new GameObject("LOAD NEW SCENE");
-                ChangeScenesCutscene s = sceneChange.AddComponent<ChangeScenesCutscene>();
+                ChangeScenesCutscene s = ScriptableObject.CreateInstance<ChangeScenesCutscene>();
                 s.nextSceneName = "CombatTest";
-                OverworldController.addCutsceneEvent(sceneChange, OverworldController.Player, true, OverworldController.gameModeOptions.Cutscene);
+                CutsceneController.addCutsceneEvent(s, OverworldController.Player, true, OverworldController.gameModeOptions.Cutscene);
             }
         }
     }
