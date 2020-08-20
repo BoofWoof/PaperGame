@@ -140,10 +140,9 @@ public class FriendlyNPCClass : MonoBehaviour
         SayDialogue dialogueCutscene = ScriptableObject.CreateInstance<SayDialogue>();
         dialogueCutscene.heightOverSpeaker = heightOverSpeaker;
         //GameObject Dialogue = Instantiate<GameObject>(dialogueCutscene, Vector3.zero, Quaternion.identity);
-        if (InputText != null)
+        if (dialogue != null)
         {
-
-            dialogueCutscene.inputText = InputText;
+            dialogueCutscene.inputDialogue = dialogue;
         }
         else
         {

@@ -7,12 +7,19 @@ using UnityEngine.UI;
 public class TextBoxController : MonoBehaviour
 {
     public TextAsset textfile;
-    public TextMeshPro myText;
+    public List<NodeLinkData> choices;
+    private TextMeshPro myText;
+
+    //Choices
+    public SayDialogue scriptSource;
+    private List<GameObject> choiceBoxes = new List<GameObject>();
+    private Vector2 activeChoice = new Vector2(0, 0);
+    private float choiceTime = 0;
 
     //LineToDisplay
     private string[] textLines;
     private int currentLine = 0;
-    GameObject dialogue;
+    private GameObject dialogue;
 
     //SlowDisplay
     public float TextDisplaySpeed = 0.2f;
@@ -86,9 +93,66 @@ public class TextBoxController : MonoBehaviour
         stringDisp = displayedTextFull.Length;
     }
 
+    private void MoveSelector(int x, int y)
+    {
+        choiceBoxes[(int)activeChoice.x + (int)activeChoice.y * 2].GetComponent<ChoiceController>().Deselect();
+        activeChoice += new Vector2(x, y);
+        choiceTime = 0;
+        activeChoice.x = activeChoice.x % 2;
+        activeChoice.y = activeChoice.y % 2;
+        if(activeChoice.x < 0)
+        {
+            activeChoice.x += 2;
+        }
+        if (activeChoice.y < 0)
+        {
+            activeChoice.y += 2;
+        }
+        if (choiceBoxes.Count == 2)
+        {
+            activeChoice.y = 0;
+        }
+        if (choiceBoxes.Count == 3 && activeChoice.y == 1)
+        {
+            activeChoice.x = 0;
+        }
+        print(activeChoice);
+        choiceBoxes[(int)activeChoice.x + (int)activeChoice.y * 2].GetComponent<ChoiceController>().Select();
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (choices.Count >= 1 && stringDisp == stringLen)
+        {
+            if (choiceTime < 0.2)
+            {
+                choiceTime += Time.deltaTime;
+            }
+            else
+            {
+                float moveHorizontal = Input.GetAxis("Horizontal");
+                float moveVertical = Input.GetAxis("Vertical");
+                if (moveHorizontal > 0.1)
+                {
+                    MoveSelector(1, 0);
+                }
+                if (moveHorizontal < -0.1)
+                {
+                    MoveSelector(-1, 0);
+                }
+                if (moveVertical > 0.1)
+                {
+                    MoveSelector(0, 1);
+                }
+                if (moveVertical < -0.1)
+                {
+                    MoveSelector(0, -1);
+                }
+            }
+        }
+
+
         updateCount++;
         updateCount %= 500;
         //Display Text Slowly Start-----------------------------------------------------
@@ -113,6 +177,27 @@ public class TextBoxController : MonoBehaviour
 
         AnimateString();
 
+
+
+        if (choices != null && choiceBoxes.Count == 0 && stringDisp == stringLen)
+        {
+            if (choices.Count >= 2)
+            {
+                GameObject choicebox = Resources.Load<GameObject>("TextChoice");
+                GameObject choiceSpawn = Instantiate<GameObject>(choicebox, new Vector3(transform.position.x - 0.45f, transform.position.y - 0.5f, transform.position.z - 0.05f), Quaternion.identity);
+                choiceSpawn.GetComponent<ChoiceController>().choices = choices[0];
+                choiceSpawn.GetComponent<ChoiceController>().Initiate();
+                choiceSpawn.GetComponent<ChoiceController>().Select();
+                choiceSpawn.transform.SetParent(transform);
+                choiceBoxes.Add(choiceSpawn);
+
+                choiceSpawn = Instantiate<GameObject>(choicebox, new Vector3(transform.position.x + 0.45f, transform.position.y - 0.5f, transform.position.z - 0.05f), Quaternion.identity);
+                choiceSpawn.GetComponent<ChoiceController>().choices = choices[1];
+                choiceSpawn.GetComponent<ChoiceController>().Initiate();
+                choiceSpawn.transform.SetParent(transform);
+                choiceBoxes.Add(choiceSpawn);
+            }
+        }
         if ((Input.GetButtonDown("Fire1"))&&(stringDisp == stringLen)&&(currentLine+1<textLines.Length))
         {
             //Moves To Next Line
@@ -129,8 +214,14 @@ public class TextBoxController : MonoBehaviour
         }
         if ((Input.GetButtonDown("Fire1")) && (stringDisp == stringLen) && (currentLine + 1 == textLines.Length))
         {
+            if (choiceBoxes.Count > 0)
+            {
+                scriptSource.selectedLink = choices[(int)activeChoice.x + (int)activeChoice.y * 2];
+            }
             Destroy(gameObject);
         }
+
+
     }
 
     void AnimateString()

@@ -21,7 +21,7 @@ MonoBehaviour:
     TargetNodeGuid: 772ee565-f6c3-41ad-b8cf-863510f579fd
   DialogueNodeData:
   - Guid: 069262af-8199-4117-9224-a54e4b32ea4b
-    DialogueText: Hello look at <rainbow>me</rainbow>.  I am a new dialogue system.
+    DialogueText: Hello look at [rainbow]me[/rainbow].  I am a new dialogue system.
     Position: {x: 337, y: 196}
   - Guid: 772ee565-f6c3-41ad-b8cf-863510f579fd
     DialogueText: There are only linear dialogue routes right now, but I will add
