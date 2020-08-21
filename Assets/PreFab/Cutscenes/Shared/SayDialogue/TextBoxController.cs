@@ -214,9 +214,15 @@ public class TextBoxController : MonoBehaviour
         }
         if ((Input.GetButtonDown("Fire1")) && (stringDisp == stringLen) && (currentLine + 1 == textLines.Length))
         {
-            if (choiceBoxes.Count > 0)
+            if (choices.Count > 0)
             {
-                scriptSource.selectedLink = choices[(int)activeChoice.x + (int)activeChoice.y * 2];
+                if (choices.Count == 1)
+                {
+                    scriptSource.selectedLink = choices[0];
+                } else
+                {
+                    scriptSource.selectedLink = choices[(int)activeChoice.x + (int)activeChoice.y * 2];
+                }
             }
             Destroy(gameObject);
         }

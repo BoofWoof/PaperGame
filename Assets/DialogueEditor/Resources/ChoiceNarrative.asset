@@ -34,6 +34,9 @@ MonoBehaviour:
   - BaseNodeGuid: 4e42905e-f7ae-48b3-9a24-66cd85f9d2a0
     PortName: Jk choice 0.
     TargetNodeGuid: 22379aff-af7a-4c04-993a-433029e41f27
+  - BaseNodeGuid: 74506be1-7412-464f-9de2-f3cfa017d630
+    PortName: Choice 0
+    TargetNodeGuid: 0051f98c-44ef-471a-a2c6-0548db8cd5ca
   DialogueNodeData:
   - Guid: bd9e56df-6241-4f0d-b843-3a3aa321fbd6
     DialogueText: Test Test
@@ -56,4 +59,7 @@ MonoBehaviour:
   - Guid: 22379aff-af7a-4c04-993a-433029e41f27
     DialogueText: HECK YOU!
     Position: {x: 1160, y: 55}
+  - Guid: 0051f98c-44ef-471a-a2c6-0548db8cd5ca
+    DialogueText: No thank you at all.
+    Position: {x: 1469, y: -74}
   ExposedProperties: []
