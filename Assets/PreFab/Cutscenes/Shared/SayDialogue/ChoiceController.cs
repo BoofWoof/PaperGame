@@ -29,13 +29,13 @@ public class ChoiceController : MonoBehaviour
 
         myChoice = choiceDialogue.AddComponent<TextMeshPro>();
         myChoice.font = fontChoice;
-        myChoice.fontSize = 1;
+        myChoice.fontSize = 0.5f;
         myChoice.enableVertexGradient = true;
         myChoice.alignment = TextAlignmentOptions.Center;
         myChoice.transform.position = new Vector3(this.transform.position.x - edge, this.transform.position.y + edge * 0.5f, this.transform.position.z - 0.02f);
 
         RectTransform wrapAreaChoice = choiceDialogue.GetComponent<RectTransform>();
-        wrapAreaChoice.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 1.60f);
+        wrapAreaChoice.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 0.65f);
         myChoice.ForceMeshUpdate();
 
         myChoice.text = choices.PortName;
