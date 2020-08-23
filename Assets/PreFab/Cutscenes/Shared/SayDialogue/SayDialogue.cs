@@ -8,6 +8,7 @@ public class SayDialogue : CutSceneClass
     public DialogueContainer inputDialogue;
     public TextAsset inputText;
     public float heightOverSpeaker;
+    public string speakerName;
 
     private DialogueNodeData currentNode;
     private List<NodeLinkData> currentLinks;
@@ -30,7 +31,7 @@ public class SayDialogue : CutSceneClass
             OverworldController.setTrackingMultiplyer(0.7f);
         } else
         {
-            currentNode = inputDialogue.DialogueNodeData[0];
+            currentNode = inputDialogue.DialogueNodeData.First(x => x.Guid == inputDialogue.StartingGUID);
             NodeRead();
         }
         return true;
@@ -68,9 +69,34 @@ public class SayDialogue : CutSceneClass
         currentLinks = inputDialogue.NodeLinks.Where(x => x.BaseNodeGuid == currentNode.Guid).ToList();
         inputText = new TextAsset(currentNode.DialogueText);
         GameObject textbox = Resources.Load<GameObject>("TextBox");
-        spawnedTextBox = Instantiate<GameObject>(textbox, new Vector3(parent.transform.position.x, parent.transform.position.y + heightOverSpeaker, parent.transform.position.z), Quaternion.identity);
+        Transform target;
+        float dialogueHeight = heightOverSpeaker;
+        if (currentNode.TargetPlayer == string.Empty) {
+            target = parent.transform;
+        } else
+        {
+            Character findCharacter = OverworldController.findCharacterByName(currentNode.TargetPlayer, OverworldController.CharacterList);
+            if (findCharacter.CharacterObject)
+            {
+                target = findCharacter.CharacterObject.transform;
+                dialogueHeight = findCharacter.dialogueHeight;
+            } else
+            {
+                target = parent.transform;
+                inputText = new TextAsset("Error: " + currentNode.TargetPlayer + " is not found.  Maybe you made a typo?");
+            }
+        }
+        spawnedTextBox = Instantiate<GameObject>(textbox, new Vector3(target.position.x, target.position.y + dialogueHeight, target.position.z), Quaternion.identity);
         spawnedTextBox.GetComponent<TextBoxController>().textfile = inputText;
         spawnedTextBox.GetComponent<TextBoxController>().choices = currentLinks;
+        if (currentNode.TargetPlayer == string.Empty)
+        {
+            spawnedTextBox.GetComponent<TextBoxController>().speakerName = speakerName;
+        }
+        else
+        {
+            spawnedTextBox.GetComponent<TextBoxController>().speakerName = currentNode.TargetPlayer;
+        }
         spawnedTextBox.GetComponent<TextBoxController>().scriptSource = this;
         OverworldController.setTrackingMultiplyer(0.7f);
     }

@@ -9,6 +9,7 @@ public class TextBoxController : MonoBehaviour
     public TextAsset textfile;
     public List<NodeLinkData> choices;
     private TextMeshPro myText;
+    public string speakerName;
 
     //Choices
     public SayDialogue scriptSource;
@@ -30,7 +31,6 @@ public class TextBoxController : MonoBehaviour
     private int stringDisp = 0;
 
     //Test Display
-    private float edge = 0f;
     public TMP_FontAsset fontChoice;
 
     //AnimateCounts
@@ -81,7 +81,7 @@ public class TextBoxController : MonoBehaviour
         myText.fontSize = 1;
         myText.enableVertexGradient = true;
         myText.alignment = TextAlignmentOptions.Center;
-        myText.transform.position = new Vector3(this.transform.position.x-edge, this.transform.position.y+edge*0.5f, this.transform.position.z-0.1f);
+        myText.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z-0.1f);
 
         RectTransform wrapArea = dialogue.GetComponent<RectTransform>();
         wrapArea.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 1.60f);
@@ -91,6 +91,14 @@ public class TextBoxController : MonoBehaviour
         processLine(displayedTextFull);
         displayedTextFull = processLine(displayedTextFull);
         stringDisp = displayedTextFull.Length;
+
+        if (!string.IsNullOrEmpty(speakerName))
+        {
+            GameObject titlebox = Resources.Load<GameObject>("TextName");
+            GameObject titleSpawn = Instantiate<GameObject>(titlebox, new Vector3(transform.position.x - 0.6f, transform.position.y + 0.5f, transform.position.z - 0.05f), Quaternion.identity);
+            titleSpawn.GetComponent<TitleController>().characterName = speakerName;
+            titleSpawn.transform.SetParent(transform);
+        }
     }
 
     private void MoveSelector(int x, int y)

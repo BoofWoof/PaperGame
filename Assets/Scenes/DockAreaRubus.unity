@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4513982, g: 0.50049955, b: 0.5702233, a: 1}
+  m_IndirectSpecularColor: {r: 0.4513985, g: 0.50049996, b: 0.5702245, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -335,7 +335,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 103929487}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.039907455, y: 1.564377, z: -13.523302}
+  m_LocalPosition: {x: 0.039907455, y: 0.064377, z: 0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1735145508}
@@ -509,7 +509,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 153033418}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.08990741, y: 1.5663769, z: -13.523302}
+  m_LocalPosition: {x: 0.08990741, y: 0.066377, z: 0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1735145508}
@@ -2323,7 +2323,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1142092299}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.9, y: 0.59, z: 0.22}
+  m_LocalPosition: {x: 2.14, y: 0.59, z: -0.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1836231752}
@@ -2342,10 +2342,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d84a75fed2a654ab8881dba8a494ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterName: Madrakko
+  CharacterName: Mandrakko
   InputText: {fileID: 4900000, guid: eef8aaf2e5b64de45a4a32e3c49c6e11, type: 3}
   dialogue: {fileID: 11400000, guid: ffa5c3ac1dceebb48823237544e56d08, type: 2}
-  heightOverSpeaker: 1.3
+  heightOverSpeaker: 1.18
   InputString: 
   dialogueBubble: {fileID: 218867043}
   distanceToPlayer: 0
@@ -2953,7 +2953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d84a75fed2a654ab8881dba8a494ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterName: Madrakko
+  CharacterName: Madrakko2
   InputText: {fileID: 4900000, guid: eef8aaf2e5b64de45a4a32e3c49c6e11, type: 3}
   dialogue: {fileID: 0}
   heightOverSpeaker: 1.3
@@ -3320,7 +3320,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520992734}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.063091874, y: 1.618377, z: -13.523302}
+  m_LocalPosition: {x: 0.063091874, y: 0.118377, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2036829849}
@@ -4077,7 +4077,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1735145506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.285, y: -1.4973769, z: 13.712}
+  m_LocalPosition: {x: 3.556, y: 0, z: 1.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 103929488}
@@ -4121,7 +4121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: Chip
   InputText: {fileID: 4900000, guid: 0b323a6e5e00f6342863d19b4b6b53fa, type: 3}
-  dialogue: {fileID: 11400000, guid: 8db8f9e94cdb57341871ed384f855fc3, type: 2}
+  dialogue: {fileID: 11400000, guid: 74c7976a38d2eaf4d8de1c31cf6a9fb0, type: 2}
   heightOverSpeaker: 1.3
   InputString: Test
   dialogueBubble: {fileID: 218867043}
@@ -4168,7 +4168,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748292325}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.19, y: 0.627, z: 0.217}
+  m_LocalPosition: {x: 0.568, y: 0.627, z: -0.692}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1521703121}
@@ -5036,7 +5036,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2091240687}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.05, y: 0.75233734, z: 0.24425781}
+  m_LocalPosition: {x: 8.37, y: 0.75233734, z: 0.24425781}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1395986684}

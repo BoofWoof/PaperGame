@@ -31,6 +31,8 @@ public class GraphSaveUtility
             return;
         }
         SaveExposedProperties(dialogueContainer);
+        var initialNode = Nodes.First(node => node.EntryPoint);
+        dialogueContainer.StartingGUID = dialogueContainer.NodeLinks.First(link => link.BaseNodeGuid == initialNode.GUID).TargetNodeGuid;
 
         AssetDatabase.CreateAsset(dialogueContainer, $"Assets/DialogueEditor/Resources/{filename}.asset");
         AssetDatabase.SaveAssets();
@@ -44,7 +46,6 @@ public class GraphSaveUtility
     public bool SaveNodes(DialogueContainer dialogueContainer)
     {
         if (!Edges.Any()) return false;
-
 
         var connectedPorts = Edges.Where(x => x.input.node != null).ToArray();
         for (var i = 0; i < connectedPorts.Length; i++)
@@ -66,6 +67,7 @@ public class GraphSaveUtility
             {
                 Guid = dialogueNode.GUID,
                 DialogueText = dialogueNode.DialogueText,
+                TargetPlayer = dialogueNode.TargetPlayer,
                 Position = dialogueNode.GetPosition().position
             });
         }
@@ -113,7 +115,7 @@ public class GraphSaveUtility
     {
         foreach (var nodeData in _containerCache.DialogueNodeData)
         {
-            var tempNode = _targetGraphView.CreateDialogueNode(nodeData.DialogueText, Vector2.zero);
+            var tempNode = _targetGraphView.CreateDialogueNode(nodeData.DialogueText, nodeData.TargetPlayer, Vector2.zero);
             tempNode.GUID = nodeData.Guid;
             _targetGraphView.AddElement(tempNode);
 

@@ -9,5 +9,7 @@ public class DialogueNode : Node
 
     public string DialogueText;
 
+    public string TargetPlayer;
+
     public bool EntryPoint = false;
 }

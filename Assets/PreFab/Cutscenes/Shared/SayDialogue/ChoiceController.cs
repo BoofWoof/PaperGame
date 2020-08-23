@@ -13,8 +13,6 @@ public class ChoiceController : MonoBehaviour
 
     private Vector3 startLocation;
 
-    private float edge = 0f;
-
     void Start()
     {
 
@@ -32,7 +30,7 @@ public class ChoiceController : MonoBehaviour
         myChoice.fontSize = 0.5f;
         myChoice.enableVertexGradient = true;
         myChoice.alignment = TextAlignmentOptions.Center;
-        myChoice.transform.position = new Vector3(this.transform.position.x - edge, this.transform.position.y + edge * 0.5f, this.transform.position.z - 0.02f);
+        myChoice.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z - 0.02f);
 
         RectTransform wrapAreaChoice = choiceDialogue.GetComponent<RectTransform>();
         wrapAreaChoice.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 0.65f);

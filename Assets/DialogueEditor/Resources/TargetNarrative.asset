@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 804751d7c03844a4d8e72e8bb960ccc0, type: 3}
+  m_Name: TargetNarrative
+  m_EditorClassIdentifier: 
+  StartingGUID: a1413dd2-a71e-497a-84ff-373632e2b94f
+  NodeLinks:
+  - BaseNodeGuid: 68b23b5d-56c8-4f50-9df6-d61300179920
+    PortName: Next
+    TargetNodeGuid: a1413dd2-a71e-497a-84ff-373632e2b94f
+  - BaseNodeGuid: a1413dd2-a71e-497a-84ff-373632e2b94f
+    PortName: Choice 0
+    TargetNodeGuid: a8a485eb-2756-4ec7-b644-2329bb0d5969
+  DialogueNodeData:
+  - Guid: a1413dd2-a71e-497a-84ff-373632e2b94f
+    DialogueText: So I was...
+    TargetPlayer: 
+    Position: {x: 309, y: 203}
+  - Guid: a8a485eb-2756-4ec7-b644-2329bb0d5969
+    DialogueText: Don't talk to them. I am way cooler!
+    TargetPlayer: Mandrakko
+    Position: {x: 706, y: 210}
+  ExposedProperties: []

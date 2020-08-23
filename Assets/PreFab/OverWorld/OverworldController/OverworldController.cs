@@ -8,6 +8,7 @@ public class Character
 {
     public GameObject CharacterObject;
     public string CharacterName;
+    public float dialogueHeight;
     public int uniqueSceneID;
 }
 [System.Serializable]
@@ -165,7 +166,9 @@ public class OverworldController : MonoBehaviour
         Character foundCharacter = new Character();
         foundCharacter.CharacterName = "NoNamesLikeThat";
         foundCharacter.CharacterObject = null;
-        foreach(Character charItem in charList){
+        foundCharacter.dialogueHeight = -1;
+        foundCharacter.uniqueSceneID = -1;
+        foreach (Character charItem in charList){
             if(charItem.CharacterName == Name)
             {
                 foundCharacter = charItem;
@@ -179,6 +182,7 @@ public class OverworldController : MonoBehaviour
         Character foundCharacter = new Character();
         foundCharacter.CharacterName = "NoNamesLikeThat";
         foundCharacter.CharacterObject = null;
+        foundCharacter.dialogueHeight = -1;
         foundCharacter.uniqueSceneID = -1;
         foreach (Character charItem in charList)
         {

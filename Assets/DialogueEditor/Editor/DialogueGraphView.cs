@@ -71,12 +71,13 @@ public class DialogueGraphView : GraphView
         return node;
     }
 
-    public DialogueNode CreateDialogueNode(string nodeName, Vector2 mousePosition)
+    public DialogueNode CreateDialogueNode(string dialogue, string target, Vector2 mousePosition)
     {
         var dialogueNode = new DialogueNode
         {
-            title = nodeName,
-            DialogueText = nodeName,
+            title = "DialogueNode",
+            DialogueText = dialogue,
+            TargetPlayer = target,
             GUID = Guid.NewGuid().ToString()
         };
 
@@ -93,13 +94,30 @@ public class DialogueGraphView : GraphView
         button.text = "New Choice";
         dialogueNode.titleContainer.Add(button);
 
-        var textField = new TextField(string.Empty);
+        var textFieldTarget = new TextField
+        {
+            name = "Target",
+            value = target,
+            label = "Target"
+        };
+        textFieldTarget.RegisterValueChangedCallback(evt =>
+        {
+            dialogueNode.TargetPlayer = evt.newValue;
+        });
+        dialogueNode.mainContainer.Add(textFieldTarget);
+
+        var textField = new TextField
+        {
+            name = "Dialogue",
+            value = dialogue,
+            label = "Dialogue"
+        };
         textField.RegisterValueChangedCallback(evt =>
         {
             dialogueNode.DialogueText = evt.newValue;
             //dialogueNode.title = evt.newValue;
         });
-        textField.SetValueWithoutNotify(dialogueNode.title);
+        //textField.SetValueWithoutNotify(dialogueNode.title);
         dialogueNode.mainContainer.Add(textField);
 
         dialogueNode.RefreshExpandedState();
@@ -111,7 +129,7 @@ public class DialogueGraphView : GraphView
 
     public void CreateNode(string nodeName, Vector2 mousePosition)
     {
-        AddElement(CreateDialogueNode(nodeName, mousePosition));
+        AddElement(CreateDialogueNode(nodeName, string.Empty, mousePosition));
     }
 
     public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)

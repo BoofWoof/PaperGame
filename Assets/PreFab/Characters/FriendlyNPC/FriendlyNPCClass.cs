@@ -39,6 +39,7 @@ public class FriendlyNPCClass : MonoBehaviour
         Character thisNPCCharacter = new Character();
         thisNPCCharacter.CharacterObject = gameObject;
         thisNPCCharacter.CharacterName = CharacterName;
+        thisNPCCharacter.dialogueHeight = heightOverSpeaker;
         thisNPCCharacter.uniqueSceneID = GetInstanceID();
         OverworldController.CharacterList.Add(thisNPCCharacter);
 
@@ -139,6 +140,7 @@ public class FriendlyNPCClass : MonoBehaviour
     {
         SayDialogue dialogueCutscene = ScriptableObject.CreateInstance<SayDialogue>();
         dialogueCutscene.heightOverSpeaker = heightOverSpeaker;
+        dialogueCutscene.speakerName = CharacterName;
         //GameObject Dialogue = Instantiate<GameObject>(dialogueCutscene, Vector3.zero, Quaternion.identity);
         if (dialogue != null)
         {
