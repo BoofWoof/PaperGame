@@ -1,0 +1,416 @@
+fileFormatVersion: 2
+guid: c301c1c3b0787ea4891f313ffaad4822
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4316085974380299190
+    second: MartianHead
+  - first:
+      213: -5763501409620985267
+    second: MartianGunHeart
+  - first:
+      213: 4840155754138895794
+    second: MartianGunThunder
+  - first:
+      213: -6048920662857172389
+    second: MartianGunFail
+  - first:
+      213: 8749014464221063724
+    second: MartianGun
+  - first:
+      213: 4498991875195697547
+    second: MartianSpriteSheet_5
+  - first:
+      213: -4187270252212671604
+    second: MartianGunRay
+  - first:
+      213: 3853698661580136648
+    second: MartianBody
+  - first:
+      213: -8757689864343280102
+    second: MartianArmRight
+  - first:
+      213: 1518321670683838732
+    second: MartianPropeler
+  - first:
+      213: -3789885645522128181
+    second: MartianArmLeft
+  - first:
+      213: 2961452831108555440
+    second: MartianLegLeft
+  - first:
+      213: -8342942022421732637
+    second: MartianLegRight
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MartianHead
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 193
+        width: 155
+        height: 159
+      alignment: 9
+      pivot: {x: 0.52728117, y: 0.2264529}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b3cbfa7351d5eb30800000000000000
+      internalID: 4316085974380299190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartianGunHeart
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 341
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4af319110ee300b0800000000000000
+      internalID: -5763501409620985267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartianGunThunder
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 340
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b5030f9300bb2340800000000000000
+      internalID: 4840155754138895794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartianGunFail
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 340
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5ab0e7a4baed0ca0800000000000000
+      internalID: -6048920662857172389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartianGun
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 253
+        width: 132
+        height: 84
+      alignment: 9
+      pivot: {x: 0.4312305, y: 0.27033925}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2aa6aa0d4eba6970800000000000000
+      internalID: 8749014464221063724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartianSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 238
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8978681641af6e30800000000000000
+      internalID: 4498991875195697547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartianGunRay
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 213
+        width: 62
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8bad4604e3d3e5c0800000000000000
+      internalID: -4187270252212671604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartianBody
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 47
+        width: 163
+        height: 124
+      alignment: 9
+      pivot: {x: 0.49999994, y: 0.90434587}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c0e1e2d3861b7530800000000000000
+      internalID: 3853698661580136648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartianArmRight
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 156
+        width: 77
+        height: 53
+      alignment: 9
+      pivot: {x: 0.07635736, y: 0.8419336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a16a7c6f77f667680800000000000000
+      internalID: -8757689864343280102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartianPropeler
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 164
+        width: 116
+        height: 20
+      alignment: 9
+      pivot: {x: 0.52083033, y: 0.43959197}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0943ebd389221510800000000000000
+      internalID: 1518321670683838732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartianArmLeft
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 99
+        width: 77
+        height: 52
+      alignment: 9
+      pivot: {x: 0.90795225, y: 0.84850925}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc23d47c51f976bc0800000000000000
+      internalID: -3789885645522128181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartianLegLeft
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 12
+        width: 37
+        height: 58
+      alignment: 9
+      pivot: {x: 0.67959183, y: 0.8541175}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b2ec41d8a1391920800000000000000
+      internalID: 2961452831108555440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MartianLegRight
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 12
+        width: 37
+        height: 58
+      alignment: 9
+      pivot: {x: 0.30408087, y: 0.8645327}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e2afd3fe6ae73c80800000000000000
+      internalID: -8342942022421732637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 18caededda57ab04ca13b98b7d50ba35
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
