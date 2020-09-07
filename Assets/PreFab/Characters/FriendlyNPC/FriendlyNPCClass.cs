@@ -142,7 +142,7 @@ public class FriendlyNPCClass : MonoBehaviour
         if (dialogue != null)
         {
             CutsceneDeconstruct complexCutscene = ScriptableObject.CreateInstance<CutsceneDeconstruct>();
-            complexCutscene.Deconstruct(dialogue, CharacterName);
+            complexCutscene.Deconstruct(dialogue, CharacterName, gameObject);
         }
         else
         {

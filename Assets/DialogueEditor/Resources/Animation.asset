@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 804751d7c03844a4d8e72e8bb960ccc0, type: 3}
+  m_Name: Animation
+  m_EditorClassIdentifier: 
+  StartingGUID: 9181e24a-5926-4646-8ac3-36243575a9d8
+  NodeLinks:
+  - BaseNodeGuid: 9181e24a-5926-4646-8ac3-36243575a9d8
+    PortName: Next
+    TargetNodeGuid: baf7a8d4-f650-49c3-922b-df333fe8090c
+  - BaseNodeGuid: 9181e24a-5926-4646-8ac3-36243575a9d8
+    PortName: Next
+    TargetNodeGuid: baf7a8d4-f650-49c3-922b-df333fe8090c
+  - BaseNodeGuid: baf7a8d4-f650-49c3-922b-df333fe8090c
+    PortName: Next
+    TargetNodeGuid: fb393967-aa0b-411f-8a4b-197e2f14d4c0
+  - BaseNodeGuid: fb393967-aa0b-411f-8a4b-197e2f14d4c0
+    PortName: Choice 0
+    TargetNodeGuid: 7e8d9d23-aae5-42de-b8a0-2249966eb4ce
+  DialogueNodeData:
+  - Guid: fb393967-aa0b-411f-8a4b-197e2f14d4c0
+    DialogueText: Look what I can do.
+    TargetPlayer: 
+    Position: {x: 666, y: 171}
+  AnimationTriggerNodeData:
+  - Guid: baf7a8d4-f650-49c3-922b-df333fe8090c
+    TriggerName: Go
+    TargetPlayer: 
+    Position: {x: 323, y: 181}
+  - Guid: 7e8d9d23-aae5-42de-b8a0-2249966eb4ce
+    TriggerName: Stop
+    TargetPlayer: 
+    Position: {x: 1079, y: 203}
+  GetFlagNodeData: []
+  SetFlagNodeData: []
+  BooleanGetFlagNodeData: []
+  BooleanSetFlagNodeData: []
+  ExposedProperties: []

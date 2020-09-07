@@ -128,6 +128,60 @@ public class DialogueGraphView : GraphView
         return dialogueNode;
     }
 
+    public AnimationTriggerNode CreateAnimationTriggerNode(string trigger, string target, Vector2 mousePosition)
+    {
+        var animationTriggerNode = new AnimationTriggerNode
+        {
+            title = "AnimationTriggerNode",
+            TriggerName = trigger,
+            TargetPlayer = target,
+            GUID = Guid.NewGuid().ToString()
+        };
+
+        var inputPort = GeneratePort(animationTriggerNode, Direction.Input, Port.Capacity.Multi);
+        inputPort.portName = "Input";
+        animationTriggerNode.inputContainer.Add(inputPort);
+
+        var generatedPort = GeneratePort(animationTriggerNode, Direction.Output);
+        generatedPort.portName = "Next";
+        generatedPort.name = "Next";
+        animationTriggerNode.outputContainer.Add(generatedPort);
+
+        animationTriggerNode.styleSheets.Add(Resources.Load<StyleSheet>("FlagNode"));
+
+        var textFieldTarget = new TextField
+        {
+            name = "Target",
+            value = target,
+            label = "Target\n"
+        };
+        textFieldTarget.RegisterValueChangedCallback(evt =>
+        {
+            animationTriggerNode.TargetPlayer = evt.newValue;
+        });
+        animationTriggerNode.mainContainer.Add(textFieldTarget);
+
+        var textField = new TextField
+        {
+            name = "Trigger",
+            value = trigger,
+            label = "Trigger\n"
+        };
+        textField.RegisterValueChangedCallback(evt =>
+        {
+            animationTriggerNode.TriggerName = evt.newValue;
+            //dialogueNode.title = evt.newValue;
+        });
+        //textField.SetValueWithoutNotify(dialogueNode.title);
+        animationTriggerNode.mainContainer.Add(textField);
+
+        animationTriggerNode.RefreshExpandedState();
+        animationTriggerNode.RefreshPorts();
+        animationTriggerNode.SetPosition(new Rect(mousePosition, defaultNodeSize));
+
+        return animationTriggerNode;
+    }
+
     public SetFlagNode CreateSetFlagNode(string flagTag, string flagName, Vector2 mousePosition)
     {
         var setFlagNode = new SetFlagNode
@@ -332,6 +386,11 @@ public class DialogueGraphView : GraphView
     public void AddDialogueNode(string nodeName, Vector2 mousePosition)
     {
         AddElement(CreateDialogueNode(string.Empty, string.Empty, mousePosition));
+    }
+
+    public void AddAnimationTriggerNode(string nodeName, Vector2 mousePosition)
+    {
+        AddElement(CreateAnimationTriggerNode(string.Empty, string.Empty, mousePosition));
     }
 
     public void AddSetFlagNode(string nodeName, Vector2 mousePosition)

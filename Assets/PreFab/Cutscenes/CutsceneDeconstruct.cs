@@ -13,6 +13,7 @@ public class CutsceneDeconstruct: ScriptableObject
     string currentGUID;
     public string nextGUID = string.Empty;
 
+    GameObject cutsceneSource;
     //Needed For Dialogue
     private string speakerName;
     bool textboxWait = false;
@@ -20,11 +21,12 @@ public class CutsceneDeconstruct: ScriptableObject
 
     //DataTracking
 
-    public void Deconstruct(DialogueContainer input, string name)
+    public void Deconstruct(DialogueContainer input, string name, GameObject source)
     {
         currentGUID = FindNextNode(input, input.StartingGUID);
         DialogueInput = input;
         speakerName = name;
+        cutsceneSource = source;
         GraphDeconstruct(DialogueInput);
     }
 
@@ -59,7 +61,20 @@ public class CutsceneDeconstruct: ScriptableObject
                 dialogueCutscene.currentLinks = input.NodeLinks.Where(x => x.BaseNodeGuid == currentGUID).ToList();
                 dialogueCutscene.deconstructerSource = this;
 
-                CutsceneController.addCutsceneEvent(dialogueCutscene, null, true, OverworldController.gameModeOptions.Cutscene);
+                CutsceneController.addCutsceneEvent(dialogueCutscene, cutsceneSource, true, OverworldController.gameModeOptions.Cutscene);
+                continue;
+            }
+            //Animation Trigger
+            if (input.AnimationTriggerNodeData.Any(x => x.Guid == currentGUID))
+            {
+                AnimationTriggerNodeData node = input.AnimationTriggerNodeData.First(x => x.Guid == currentGUID);
+
+                AnimationTriggerCutscene animationTriggerCutscene = ScriptableObject.CreateInstance<AnimationTriggerCutscene>();
+                animationTriggerCutscene.TriggerName = node.TriggerName;
+                animationTriggerCutscene.TargetName = node.TargetPlayer;
+
+                CutsceneController.addCutsceneEvent(animationTriggerCutscene, cutsceneSource, false, OverworldController.gameModeOptions.Cutscene);
+                currentGUID = FindNextNode(input, currentGUID);
                 continue;
             }
             //Set Flag

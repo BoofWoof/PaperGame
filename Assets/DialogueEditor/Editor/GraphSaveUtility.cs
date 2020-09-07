@@ -14,6 +14,7 @@ public class GraphSaveUtility
 
     private List<Edge> Edges => _targetGraphView.edges.ToList();
     private List<DialogueNode> DialogueNodes => _targetGraphView.nodes.ToList().Where(x => x is DialogueNode).Cast<DialogueNode>().ToList();
+    private List<AnimationTriggerNode> AnimationTriggerNodes => _targetGraphView.nodes.ToList().Where(x => x is AnimationTriggerNode).Cast<AnimationTriggerNode>().ToList();
     private List<GetFlagNode> GetFlagNodes => _targetGraphView.nodes.ToList().Where(x => x is GetFlagNode).Cast<GetFlagNode>().ToList();
     private List<SetFlagNode> SetFlagNodes => _targetGraphView.nodes.ToList().Where(x => x is SetFlagNode).Cast<SetFlagNode>().ToList();
     private List<BooleanGetFlagNode> BooleanGetFlagNodes => _targetGraphView.nodes.ToList().Where(x => x is BooleanGetFlagNode).Cast<BooleanGetFlagNode>().ToList();
@@ -33,6 +34,7 @@ public class GraphSaveUtility
         var dialogueContainer = ScriptableObject.CreateInstance<DialogueContainer>();
         SaveNodeLinks(dialogueContainer);
         SaveDialogueNodes(dialogueContainer);
+        SaveAnimationTriggerNodes(dialogueContainer);
         SaveGetFlagNodes(dialogueContainer);
         SaveSetFlagNodes(dialogueContainer);
         SaveBooleanGetFlagNodes(dialogueContainer);
@@ -73,6 +75,22 @@ public class GraphSaveUtility
                 DialogueText = dialogueNode.DialogueText,
                 TargetPlayer = dialogueNode.TargetPlayer,
                 Position = dialogueNode.GetPosition().position
+            });
+        }
+
+        return;
+    }
+
+    public void SaveAnimationTriggerNodes(DialogueContainer dialogueContainer)
+    {
+        foreach (var animationTriggerNode in AnimationTriggerNodes.Where(node => !node.EntryPoint))
+        {
+            dialogueContainer.AnimationTriggerNodeData.Add(new AnimationTriggerNodeData
+            {
+                Guid = animationTriggerNode.GUID,
+                TriggerName = animationTriggerNode.TriggerName,
+                TargetPlayer = animationTriggerNode.TargetPlayer,
+                Position = animationTriggerNode.GetPosition().position
             });
         }
 
@@ -151,6 +169,7 @@ public class GraphSaveUtility
 
         ClearGraph();
         CreateDialogueNodes();
+        CreateAnimationTriggerNodes();
         CreateGetFlagNodes();
         CreateSetFlagNodes();
         CreateBooleanGetFlagNodes();
@@ -174,6 +193,12 @@ public class GraphSaveUtility
         DialogueNodes.Find(x => x.EntryPoint).GUID = _containerCache.StartingGUID;
 
         foreach (var node in DialogueNodes)
+        {
+            if (node.EntryPoint) continue;
+            Edges.Where(x => x.input.node == node).ToList().ForEach(edge => _targetGraphView.RemoveElement(edge));
+            _targetGraphView.RemoveElement(node);
+        }
+        foreach (var node in AnimationTriggerNodes)
         {
             if (node.EntryPoint) continue;
             Edges.Where(x => x.input.node == node).ToList().ForEach(edge => _targetGraphView.RemoveElement(edge));
@@ -215,6 +240,21 @@ public class GraphSaveUtility
 
             var nodePorts = _containerCache.NodeLinks.Where(x => x.BaseNodeGuid == nodeData.Guid).ToList();
             nodePorts.ForEach(x => _targetGraphView.AddChoicePort(tempNode, x.PortName));
+
+            tempNode.SetPosition(new Rect(
+                nodeData.Position,
+                _targetGraphView.defaultNodeSize
+                ));
+        }
+    }
+
+    private void CreateAnimationTriggerNodes()
+    {
+        foreach (var nodeData in _containerCache.AnimationTriggerNodeData)
+        {
+            var tempNode = _targetGraphView.CreateAnimationTriggerNode(nodeData.TriggerName, nodeData.TargetPlayer, Vector2.zero);
+            tempNode.GUID = nodeData.Guid;
+            _targetGraphView.AddElement(tempNode);
 
             tempNode.SetPosition(new Rect(
                 nodeData.Position,
@@ -325,6 +365,7 @@ public class GraphSaveUtility
     {
         List<NodeTemplate> tempAllList = new List<NodeTemplate>();
         foreach (var node in DialogueNodes) tempAllList.Add(node);
+        foreach (var node in AnimationTriggerNodes) tempAllList.Add(node);
         foreach (var node in SetFlagNodes) tempAllList.Add(node);
         foreach (var node in GetFlagNodes) tempAllList.Add(node);
         foreach (var node in BooleanSetFlagNodes) tempAllList.Add(node);

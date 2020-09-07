@@ -13,3 +13,6 @@ BooleanGetFlagNode #title{
 BooleanSetFlagNode #title{
 	background-color: rgb(200, 0, 200);
 }
+AnimationTriggerNode #title{
+	background-color: rgb(50, 50, 200);
+}
