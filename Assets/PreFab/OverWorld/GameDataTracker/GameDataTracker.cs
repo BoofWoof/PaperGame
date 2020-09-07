@@ -18,7 +18,11 @@ public class GameDataTracker : MonoBehaviour
     public static Vector3 combatStartPosition;
     public static List<int> deadEnemyIDs = new List<int>();
     public static bool lastAreaWasCombat = false;
-    
+
+    //Flags
+    public static Dictionary<string, bool> boolFlags = new Dictionary<string, bool>();
+    public static Dictionary<string, string> stringFlags = new Dictionary<string, string>();
+
     void Awake()
     {
         //MAKES THIS OBJECT PERSIST IN EVERY SCENE

@@ -84,7 +84,7 @@ public class DialogueGraph : EditorWindow
         ConstructGraphView();
         GenerateToolbar();
         GenerateMiniMap();
-        GenerateBlackBoard();
+        //GenerateBlackBoard();
     }
 
     private void GenerateBlackBoard()

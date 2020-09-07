@@ -1,0 +1,15 @@
+﻿SetFlagNode #title{
+	background-color: rgb(128, 0, 128);
+}
+
+GetFlagNode #title{
+	background-color: rgb(128, 0, 128);
+}
+
+BooleanGetFlagNode #title{
+	background-color: rgb(200, 0, 200);
+}
+
+BooleanSetFlagNode #title{
+	background-color: rgb(200, 0, 200);
+}

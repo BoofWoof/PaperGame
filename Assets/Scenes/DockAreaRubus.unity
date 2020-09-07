@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4513982, g: 0.50049955, b: 0.5702233, a: 1}
+  m_IndirectSpecularColor: {r: 0.4513985, g: 0.50049996, b: 0.5702245, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3174,8 +3174,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: Mandrakko
   InputText: {fileID: 4900000, guid: eef8aaf2e5b64de45a4a32e3c49c6e11, type: 3}
-  dialogue: {fileID: 11400000, guid: ffa5c3ac1dceebb48823237544e56d08, type: 2}
   heightOverSpeaker: 1.18
+  dialogue: {fileID: 11400000, guid: 375f8c81165087342bbc99f9175c68f8, type: 2}
   InputString: 
   dialogueBubble: {fileID: 218867043}
   distanceToPlayer: 0
@@ -3842,6 +3842,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PedestalPaperGameMuseum
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6e2f8aae113c63141a5a6dd3986ab0a1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Environment
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e2f8aae113c63141a5a6dd3986ab0a1, type: 3}
@@ -4631,8 +4636,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: Madrakko2
   InputText: {fileID: 4900000, guid: eef8aaf2e5b64de45a4a32e3c49c6e11, type: 3}
-  dialogue: {fileID: 0}
   heightOverSpeaker: 1.3
+  dialogue: {fileID: 0}
   InputString: Thecuteplantdrakko
   dialogueBubble: {fileID: 218867043}
   distanceToPlayer: 0
@@ -5997,8 +6002,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: Chip
   InputText: {fileID: 4900000, guid: 0b323a6e5e00f6342863d19b4b6b53fa, type: 3}
-  dialogue: {fileID: 11400000, guid: 74c7976a38d2eaf4d8de1c31cf6a9fb0, type: 2}
-  heightOverSpeaker: 1.3
+  heightOverSpeaker: 1.45
+  dialogue: {fileID: 11400000, guid: 0815d96aaf771be4f934840772d43467, type: 2}
   InputString: Test
   dialogueBubble: {fileID: 218867043}
   distanceToPlayer: 0
@@ -7086,6 +7091,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2049867077 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6e2f8aae113c63141a5a6dd3986ab0a1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1235723338}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2049867082
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049867077}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2073467969
 GameObject:
   m_ObjectHideFlags: 0

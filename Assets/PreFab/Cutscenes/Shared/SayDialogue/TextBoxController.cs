@@ -12,7 +12,7 @@ public class TextBoxController : MonoBehaviour
     public string speakerName;
 
     //Choices
-    public SayDialogue scriptSource;
+    public CutsceneDeconstruct scriptSource;
     private List<GameObject> choiceBoxes = new List<GameObject>();
     private Vector2 activeChoice = new Vector2(0, 0);
     private float choiceTime = 0;
@@ -226,10 +226,12 @@ public class TextBoxController : MonoBehaviour
             {
                 if (choices.Count == 1)
                 {
-                    scriptSource.selectedLink = choices[0];
+                    scriptSource.nextGUID = choices[0].TargetNodeGuid;
+                    scriptSource.Update();
                 } else
                 {
-                    scriptSource.selectedLink = choices[(int)activeChoice.x + (int)activeChoice.y * 2];
+                    scriptSource.nextGUID = choices[(int)activeChoice.x + (int)activeChoice.y * 2].TargetNodeGuid;
+                    scriptSource.Update();
                 }
             }
             Destroy(gameObject);

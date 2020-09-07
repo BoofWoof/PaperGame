@@ -12,8 +12,8 @@ public class FriendlyNPCClass : MonoBehaviour
     //Dialogue Info
     private GameObject Bubble;
     public TextAsset InputText;
-    public DialogueContainer dialogue;
     public float heightOverSpeaker = 1.3f;
+    public DialogueContainer dialogue;
 
     public string InputString = "You didn't give me any text ya dingus.";
     public GameObject dialogueBubble;
@@ -138,18 +138,19 @@ public class FriendlyNPCClass : MonoBehaviour
 
     protected virtual void Activated()
     {
-        SayDialogue dialogueCutscene = ScriptableObject.CreateInstance<SayDialogue>();
-        dialogueCutscene.heightOverSpeaker = heightOverSpeaker;
-        dialogueCutscene.speakerName = CharacterName;
         //GameObject Dialogue = Instantiate<GameObject>(dialogueCutscene, Vector3.zero, Quaternion.identity);
         if (dialogue != null)
         {
-            dialogueCutscene.inputDialogue = dialogue;
+            CutsceneDeconstruct complexCutscene = ScriptableObject.CreateInstance<CutsceneDeconstruct>();
+            complexCutscene.Deconstruct(dialogue, CharacterName);
         }
         else
         {
+            SayDialogue dialogueCutscene = ScriptableObject.CreateInstance<SayDialogue>();
+            dialogueCutscene.heightOverSpeaker = heightOverSpeaker;
+            dialogueCutscene.speakerName = CharacterName;
             dialogueCutscene.inputText = new TextAsset(InputString);
+            CutsceneController.addCutsceneEvent(dialogueCutscene, gameObject, true, OverworldController.gameModeOptions.Cutscene);
         }
-        CutsceneController.addCutsceneEvent(dialogueCutscene,gameObject,true, OverworldController.gameModeOptions.Cutscene);
     }
 }

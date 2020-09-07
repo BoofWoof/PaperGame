@@ -42,7 +42,7 @@ public class DialogueGraphView : GraphView
         nodeCreationRequest = context => SearchWindow.Open(new SearchWindowContext(context.screenMousePosition), _searchWindow);
     }
 
-    private Port GeneratePort(DialogueNode node, Direction portDirection, Port.Capacity capacity = Port.Capacity.Single)
+    private Port GeneratePort(Node node, Direction portDirection, Port.Capacity capacity = Port.Capacity.Single)
     {
         return node.InstantiatePort(Orientation.Horizontal, portDirection, capacity, typeof(float)); //Arbitrary Type
     }
@@ -59,6 +59,7 @@ public class DialogueGraphView : GraphView
 
         var generatedPort = GeneratePort(node, Direction.Output);
         generatedPort.portName = "Next";
+        generatedPort.name = "Next";
         node.outputContainer.Add(generatedPort);
 
         node.capabilities &= ~Capabilities.Movable;
@@ -85,7 +86,7 @@ public class DialogueGraphView : GraphView
         inputPort.portName = "Input";
         dialogueNode.inputContainer.Add(inputPort);
 
-        dialogueNode.styleSheets.Add(Resources.Load<StyleSheet>("Node"));
+        dialogueNode.styleSheets.Add(Resources.Load<StyleSheet>("DialogueNode"));
 
         var button = new Button(clickEvent: () =>
         {
@@ -98,7 +99,7 @@ public class DialogueGraphView : GraphView
         {
             name = "Target",
             value = target,
-            label = "Target"
+            label = "Target\n"
         };
         textFieldTarget.RegisterValueChangedCallback(evt =>
         {
@@ -110,7 +111,7 @@ public class DialogueGraphView : GraphView
         {
             name = "Dialogue",
             value = dialogue,
-            label = "Dialogue"
+            label = "Dialogue\n"
         };
         textField.RegisterValueChangedCallback(evt =>
         {
@@ -127,9 +128,230 @@ public class DialogueGraphView : GraphView
         return dialogueNode;
     }
 
-    public void CreateNode(string nodeName, Vector2 mousePosition)
+    public SetFlagNode CreateSetFlagNode(string flagTag, string flagName, Vector2 mousePosition)
     {
-        AddElement(CreateDialogueNode(nodeName, string.Empty, mousePosition));
+        var setFlagNode = new SetFlagNode
+        {
+            title = "SetFlagNode",
+            FlagName = flagName,
+            FlagTag = flagTag,
+            GUID = Guid.NewGuid().ToString()
+        };
+
+        var inputPort = GeneratePort(setFlagNode, Direction.Input, Port.Capacity.Multi);
+        inputPort.portName = "Input";
+        setFlagNode.inputContainer.Add(inputPort);
+
+        var generatedPort = GeneratePort(setFlagNode, Direction.Output);
+        generatedPort.portName = "Next";
+        generatedPort.name = "Next";
+        setFlagNode.outputContainer.Add(generatedPort);
+
+        setFlagNode.styleSheets.Add(Resources.Load<StyleSheet>("FlagNode"));
+
+        var textFieldTarget = new TextField
+        {
+            name = "FlagName",
+            value = flagName,
+            label = "FlagName\n"
+        };
+        textFieldTarget.RegisterValueChangedCallback(evt =>
+        {
+            setFlagNode.FlagName = evt.newValue;
+        });
+        setFlagNode.mainContainer.Add(textFieldTarget);
+
+        var textField = new TextField
+        {
+            name = "FlagTag",
+            value = flagTag,
+            label = "FlagTag\n"
+        };
+        textField.RegisterValueChangedCallback(evt =>
+        {
+            setFlagNode.FlagTag = evt.newValue;
+            //dialogueNode.title = evt.newValue;
+        });
+        //textField.SetValueWithoutNotify(dialogueNode.title);
+        setFlagNode.mainContainer.Add(textField);
+
+        setFlagNode.RefreshExpandedState();
+        setFlagNode.RefreshPorts();
+        setFlagNode.SetPosition(new Rect(mousePosition, defaultNodeSize));
+
+        return setFlagNode;
+    }
+
+    public GetFlagNode CreateGetFlagNode(string flagName, Vector2 mousePosition)
+    {
+        var getFlagNode = new GetFlagNode
+        {
+            title = "GetFlagNode",
+            FlagName = flagName,
+            GUID = Guid.NewGuid().ToString()
+        };
+
+        var inputPort = GeneratePort(getFlagNode, Direction.Input, Port.Capacity.Multi);
+        inputPort.portName = "Input";
+        getFlagNode.inputContainer.Add(inputPort);
+
+        var generatedPort = GeneratePort(getFlagNode, Direction.Output);
+        generatedPort.portName = "Other";
+        generatedPort.name = "Other";
+        getFlagNode.outputContainer.Add(generatedPort);
+
+        var button = new Button(clickEvent: () =>
+        {
+            AddChoicePort(getFlagNode);
+        });
+        button.text = "New Choice";
+        getFlagNode.titleContainer.Add(button);
+
+        getFlagNode.styleSheets.Add(Resources.Load<StyleSheet>("FlagNode"));
+
+        var textFieldTarget = new TextField
+        {
+            name = "FlagName",
+            value = flagName,
+            label = "FlagName\n"
+        };
+        textFieldTarget.RegisterValueChangedCallback(evt =>
+        {
+            getFlagNode.FlagName = evt.newValue;
+        });
+        getFlagNode.mainContainer.Add(textFieldTarget);
+
+        getFlagNode.RefreshExpandedState();
+        getFlagNode.RefreshPorts();
+        getFlagNode.SetPosition(new Rect(mousePosition, defaultNodeSize));
+
+        return getFlagNode;
+    }
+
+    public BooleanSetFlagNode CreateBoolSetFlagNode(bool flagBool, string flagName, Vector2 mousePosition)
+    {
+        var setFlagNode = new BooleanSetFlagNode
+        {
+            title = "SetFlagNode",
+            FlagName = flagName,
+            FlagBool = flagBool,
+            GUID = Guid.NewGuid().ToString()
+        };
+
+        var inputPort = GeneratePort(setFlagNode, Direction.Input, Port.Capacity.Multi);
+        inputPort.portName = "Input";
+        setFlagNode.inputContainer.Add(inputPort);
+
+        var generatedPort = GeneratePort(setFlagNode, Direction.Output);
+        generatedPort.portName = "Next";
+        generatedPort.name = "Next";
+        setFlagNode.outputContainer.Add(generatedPort);
+
+        setFlagNode.styleSheets.Add(Resources.Load<StyleSheet>("FlagNode"));
+
+        var textFieldTarget = new TextField
+        {
+            name = "FlagName",
+            value = flagName,
+            label = "FlagName\n"
+        };
+        textFieldTarget.RegisterValueChangedCallback(evt =>
+        {
+            setFlagNode.FlagName = evt.newValue;
+        });
+        setFlagNode.mainContainer.Add(textFieldTarget);
+
+        var boolFieldTarget = new UnityEngine.UIElements.Toggle
+        {
+            name = "FlagSet",
+            value = flagBool,
+            label = "FlagSet\n"
+        };
+        boolFieldTarget.RegisterValueChangedCallback(evt =>
+        {
+            setFlagNode.FlagBool = evt.newValue;
+        });
+        setFlagNode.mainContainer.Add(boolFieldTarget);
+
+        setFlagNode.RefreshExpandedState();
+        setFlagNode.RefreshPorts();
+        setFlagNode.SetPosition(new Rect(mousePosition, defaultNodeSize));
+
+        return setFlagNode;
+    }
+
+    public BooleanGetFlagNode CreateBoolGetFlagNode(string flagName, Vector2 mousePosition)
+    {
+        var getFlagNode = new BooleanGetFlagNode
+        {
+            title = "GetFlagNode",
+            FlagName = flagName,
+            GUID = Guid.NewGuid().ToString()
+        };
+
+        var inputPort = GeneratePort(getFlagNode, Direction.Input, Port.Capacity.Multi);
+        inputPort.portName = "Input";
+        getFlagNode.inputContainer.Add(inputPort);
+
+        var generatedPort = GeneratePort(getFlagNode, Direction.Output);
+        generatedPort.portName = "Other";
+        generatedPort.name = "Other";
+        getFlagNode.outputContainer.Add(generatedPort);
+
+        var truePort = GeneratePort(getFlagNode, Direction.Output);
+        truePort.portName = "True";
+        truePort.name = "True";
+        getFlagNode.outputContainer.Add(truePort);
+
+        var falsePort = GeneratePort(getFlagNode, Direction.Output);
+        falsePort.portName = "False";
+        falsePort.name = "False";
+        getFlagNode.outputContainer.Add(falsePort);
+
+        getFlagNode.styleSheets.Add(Resources.Load<StyleSheet>("FlagNode"));
+
+        var textFieldTarget = new TextField
+        {
+            name = "FlagName",
+            value = flagName,
+            label = "FlagName\n"
+        };
+        textFieldTarget.RegisterValueChangedCallback(evt =>
+        {
+            getFlagNode.FlagName = evt.newValue;
+        });
+        getFlagNode.mainContainer.Add(textFieldTarget);
+
+        getFlagNode.RefreshExpandedState();
+        getFlagNode.RefreshPorts();
+        getFlagNode.SetPosition(new Rect(mousePosition, defaultNodeSize));
+
+        return getFlagNode;
+    }
+
+    public void AddDialogueNode(string nodeName, Vector2 mousePosition)
+    {
+        AddElement(CreateDialogueNode(string.Empty, string.Empty, mousePosition));
+    }
+
+    public void AddSetFlagNode(string nodeName, Vector2 mousePosition)
+    {
+        AddElement(CreateSetFlagNode(string.Empty, string.Empty, mousePosition));
+    }
+
+    public void AddGetFlagNode(string nodeName, Vector2 mousePosition)
+    {
+        AddElement(CreateGetFlagNode(string.Empty, mousePosition));
+    }
+
+    public void AddBooleanSetFlagNode(string nodeName, Vector2 mousePosition)
+    {
+        AddElement(CreateBoolSetFlagNode(false, string.Empty, mousePosition));
+    }
+
+    public void AddBooleanGetFlagNode(string nodeName, Vector2 mousePosition)
+    {
+        AddElement(CreateBoolGetFlagNode(string.Empty, mousePosition));
     }
 
     public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
@@ -147,14 +369,14 @@ public class DialogueGraphView : GraphView
         return compatiblePorts;
     }
 
-    public void AddChoicePort(DialogueNode dialogueNode, string overriddenPortName = "")
+    public void AddChoicePort(Node node, string overriddenPortName = "")
     {
-        var generatedPort = GeneratePort(dialogueNode, Direction.Output);
+        var generatedPort = GeneratePort(node, Direction.Output);
 
         var oldLabel = generatedPort.contentContainer.Q<Label>("type");
         generatedPort.contentContainer.Remove(oldLabel);
 
-        var outputPortCount = dialogueNode.outputContainer.Query(name: "connector").ToList().Count;
+        var outputPortCount = node.outputContainer.Query(name: "connector").ToList().Count;
 
         var choicePortName = string.IsNullOrEmpty(overriddenPortName)
             ? $"Choice {outputPortCount}"
@@ -168,19 +390,21 @@ public class DialogueGraphView : GraphView
         textField.RegisterValueChangedCallback(evt => generatedPort.portName = evt.newValue);
         generatedPort.contentContainer.Add(new Label("  "));
         generatedPort.contentContainer.Add(textField);
-        var deleteButton = new Button(() => RemovePort(dialogueNode, generatedPort))
+
+        var deleteButton = new Button(() => RemovePort(node, generatedPort))
         {
             text = "X"
         };
         generatedPort.contentContainer.Add(deleteButton);
 
         generatedPort.portName = choicePortName;
-        dialogueNode.outputContainer.Add(generatedPort);
-        dialogueNode.RefreshExpandedState();
-        dialogueNode.RefreshPorts();
+        generatedPort.name = choicePortName;
+        node.outputContainer.Add(generatedPort);
+        node.RefreshExpandedState();
+        node.RefreshPorts();
     }
 
-    private void RemovePort(DialogueNode dialogueNode, Port generatedPort)
+    private void RemovePort(Node node, Port generatedPort)
     {
         var targetEdge = edges.ToList().Where(x =>
         x.output.portName == generatedPort.portName && x.output.node == generatedPort.node);
@@ -192,9 +416,9 @@ public class DialogueGraphView : GraphView
             RemoveElement(targetEdge.First());
         }
 
-        dialogueNode.outputContainer.Remove(generatedPort);
-        dialogueNode.RefreshPorts();
-        dialogueNode.RefreshExpandedState();
+        node.outputContainer.Remove(generatedPort);
+        node.RefreshPorts();
+        node.RefreshExpandedState();
     }
 
     public void AddPropertyToBlackBoard(ExposedProperty exposedProperty)

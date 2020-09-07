@@ -30,6 +30,23 @@ public class NodeSearchWindow : ScriptableObject, ISearchWindowProvider
             new SearchTreeEntry(new GUIContent("Dialogue Node", _indentationIcon))
             {
                 userData = new DialogueNode(), level = 2
+            },
+            new SearchTreeGroupEntry(new GUIContent("Flag Node"), 1),
+            new SearchTreeEntry(new GUIContent("Set Flag Node", _indentationIcon))
+            {
+                userData = new SetFlagNode(), level = 2
+            },
+            new SearchTreeEntry(new GUIContent("Check Flag Node", _indentationIcon))
+            {
+                userData = new GetFlagNode(), level = 2
+            },
+            new SearchTreeEntry(new GUIContent("Set Boolean Flag Node", _indentationIcon))
+            {
+                userData = new BooleanSetFlagNode(), level = 2
+            },
+            new SearchTreeEntry(new GUIContent("Check Boolean Flag Node", _indentationIcon))
+            {
+                userData = new BooleanGetFlagNode(), level = 2
             }
         };
         return tree;
@@ -43,7 +60,19 @@ public class NodeSearchWindow : ScriptableObject, ISearchWindowProvider
         switch (SearchTreeEntry.userData)
         {
             case DialogueNode dialogueNode:
-                _graphView.CreateNode("Dialogue Node", localMousePosition);
+                _graphView.AddDialogueNode("Dialogue Node", localMousePosition);
+                return true;
+            case SetFlagNode setFlagNode:
+                _graphView.AddSetFlagNode("Set Flag Node", localMousePosition);
+                return true;
+            case GetFlagNode getFlagNode:
+                _graphView.AddGetFlagNode("Get Flag Node", localMousePosition);
+                return true;
+            case BooleanSetFlagNode booleanSetFlagNode:
+                _graphView.AddBooleanSetFlagNode("Set Boolean Flag Node", localMousePosition);
+                return true;
+            case BooleanGetFlagNode booleanGetFlagNode:
+                _graphView.AddBooleanGetFlagNode("Get Boolean Flag Node", localMousePosition);
                 return true;
             default:
                 return false;

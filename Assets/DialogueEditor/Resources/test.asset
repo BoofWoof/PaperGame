@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 804751d7c03844a4d8e72e8bb960ccc0, type: 3}
+  m_Name: test
+  m_EditorClassIdentifier: 
+  StartingGUID: 999c4d84-cbaa-4c34-965e-0b3fbbd97836
+  NodeLinks:
+  - BaseNodeGuid: d38e569a-07f3-4449-9f6e-e6a153c4608f
+    PortName: Choice 1
+    TargetNodeGuid: dcd2f2c3-0b93-4469-a286-005a4866a102
+  - BaseNodeGuid: d38e569a-07f3-4449-9f6e-e6a153c4608f
+    PortName: Choice 0
+    TargetNodeGuid: 7d9dc181-226f-4eba-a317-e5be2eb399e4
+  - BaseNodeGuid: 999c4d84-cbaa-4c34-965e-0b3fbbd97836
+    PortName: Next
+    TargetNodeGuid: d38e569a-07f3-4449-9f6e-e6a153c4608f
+  DialogueNodeData:
+  - Guid: dcd2f2c3-0b93-4469-a286-005a4866a102
+    DialogueText: test3
+    TargetPlayer: 
+    Position: {x: 721, y: 411}
+  - Guid: 7d9dc181-226f-4eba-a317-e5be2eb399e4
+    DialogueText: test2
+    TargetPlayer: 
+    Position: {x: 735, y: 94}
+  - Guid: d38e569a-07f3-4449-9f6e-e6a153c4608f
+    DialogueText: test1
+    TargetPlayer: 
+    Position: {x: 360, y: 210}
+  GetFlagNodeData: []
+  SetFlagNodeData: []
+  BooleanGetFlagNodeData: []
+  BooleanSetFlagNodeData: []
+  ExposedProperties: []

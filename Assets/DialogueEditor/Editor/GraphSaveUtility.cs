@@ -13,7 +13,12 @@ public class GraphSaveUtility
     private DialogueContainer _containerCache;
 
     private List<Edge> Edges => _targetGraphView.edges.ToList();
-    private List<DialogueNode> Nodes => _targetGraphView.nodes.ToList().Cast<DialogueNode>().ToList();
+    private List<DialogueNode> DialogueNodes => _targetGraphView.nodes.ToList().Where(x => x is DialogueNode).Cast<DialogueNode>().ToList();
+    private List<GetFlagNode> GetFlagNodes => _targetGraphView.nodes.ToList().Where(x => x is GetFlagNode).Cast<GetFlagNode>().ToList();
+    private List<SetFlagNode> SetFlagNodes => _targetGraphView.nodes.ToList().Where(x => x is SetFlagNode).Cast<SetFlagNode>().ToList();
+    private List<BooleanGetFlagNode> BooleanGetFlagNodes => _targetGraphView.nodes.ToList().Where(x => x is BooleanGetFlagNode).Cast<BooleanGetFlagNode>().ToList();
+    private List<BooleanSetFlagNode> BooleanSetFlagNodes => _targetGraphView.nodes.ToList().Where(x => x is BooleanSetFlagNode).Cast<BooleanSetFlagNode>().ToList();
+    private List<NodeTemplate> AllNodes;
 
     public static GraphSaveUtility GetInstance(DialogueGraphView targetGraphView)
     {
@@ -26,32 +31,28 @@ public class GraphSaveUtility
     public void SaveGraph(string filename)
     {
         var dialogueContainer = ScriptableObject.CreateInstance<DialogueContainer>();
-        if (!SaveNodes(dialogueContainer))
-        {
-            return;
-        }
-        SaveExposedProperties(dialogueContainer);
-        var initialNode = Nodes.First(node => node.EntryPoint);
-        dialogueContainer.StartingGUID = dialogueContainer.NodeLinks.First(link => link.BaseNodeGuid == initialNode.GUID).TargetNodeGuid;
+        SaveNodeLinks(dialogueContainer);
+        SaveDialogueNodes(dialogueContainer);
+        SaveGetFlagNodes(dialogueContainer);
+        SaveSetFlagNodes(dialogueContainer);
+        SaveBooleanGetFlagNodes(dialogueContainer);
+        SaveBooleanSetFlagNodes(dialogueContainer);
+        //SaveExposedProperties(dialogueContainer);
+        var initialNode = DialogueNodes.First(node => node.EntryPoint);
+        dialogueContainer.StartingGUID = initialNode.GUID;
+            //dialogueContainer.NodeLinks.First(link => link.BaseNodeGuid == initialNode.GUID).TargetNodeGuid;
 
         AssetDatabase.CreateAsset(dialogueContainer, $"Assets/DialogueEditor/Resources/{filename}.asset");
         AssetDatabase.SaveAssets();
     }
 
-    private void SaveExposedProperties(DialogueContainer dialogueContainer)
+    public void SaveNodeLinks(DialogueContainer dialogueContainer)
     {
-        dialogueContainer.ExposedProperties.AddRange(_targetGraphView.ExposedProperties);
-    }
-
-    public bool SaveNodes(DialogueContainer dialogueContainer)
-    {
-        if (!Edges.Any()) return false;
-
         var connectedPorts = Edges.Where(x => x.input.node != null).ToArray();
         for (var i = 0; i < connectedPorts.Length; i++)
         {
-            var outputNode = connectedPorts[i].output.node as DialogueNode;
-            var inputNode = connectedPorts[i].input.node as DialogueNode;
+            var outputNode = connectedPorts[i].output.node as NodeTemplate;
+            var inputNode = connectedPorts[i].input.node as NodeTemplate;
 
             dialogueContainer.NodeLinks.Add(new NodeLinkData
             {
@@ -60,8 +61,11 @@ public class GraphSaveUtility
                 TargetNodeGuid = inputNode.GUID
             });
         }
+    }
 
-        foreach (var dialogueNode in Nodes.Where(node => !node.EntryPoint))
+    public void SaveDialogueNodes(DialogueContainer dialogueContainer)
+    {
+        foreach (var dialogueNode in DialogueNodes.Where(node => !node.EntryPoint))
         {
             dialogueContainer.DialogueNodeData.Add(new DialogueNodeData
             {
@@ -72,7 +76,69 @@ public class GraphSaveUtility
             });
         }
 
-        return true;
+        return;
+    }
+
+    public void SaveGetFlagNodes(DialogueContainer dialogueContainer)
+    {
+        foreach (var getFlagNode in GetFlagNodes.Where(node => !node.EntryPoint))
+        {
+            dialogueContainer.GetFlagNodeData.Add(new GetFlagNodeData
+            {
+                Guid = getFlagNode.GUID,
+                FlagName = getFlagNode.FlagName,
+                Position = getFlagNode.GetPosition().position
+            });
+        }
+
+        return;
+    }
+
+    public void SaveSetFlagNodes(DialogueContainer dialogueContainer)
+    {
+        foreach (var setFlagNode in SetFlagNodes.Where(node => !node.EntryPoint))
+        {
+            dialogueContainer.SetFlagNodeData.Add(new SetFlagNodeData
+            {
+                Guid = setFlagNode.GUID,
+                FlagName = setFlagNode.FlagName,
+                FlagTag = setFlagNode.FlagTag,
+                Position = setFlagNode.GetPosition().position
+            });
+        }
+
+        return;
+    }
+
+    public void SaveBooleanGetFlagNodes(DialogueContainer dialogueContainer)
+    {
+        foreach (var booleanGetFlagNode in BooleanGetFlagNodes.Where(node => !node.EntryPoint))
+        {
+            dialogueContainer.BooleanGetFlagNodeData.Add(new BooleanGetFlagNodeData
+            {
+                Guid = booleanGetFlagNode.GUID,
+                FlagName = booleanGetFlagNode.FlagName,
+                Position = booleanGetFlagNode.GetPosition().position
+            });
+        }
+
+        return;
+    }
+
+    public void SaveBooleanSetFlagNodes(DialogueContainer dialogueContainer)
+    {
+        foreach (var booleanSetFlagNode in BooleanSetFlagNodes.Where(node => !node.EntryPoint))
+        {
+            dialogueContainer.BooleanSetFlagNodeData.Add(new BooleanSetFlagNodeData
+            {
+                Guid = booleanSetFlagNode.GUID,
+                FlagName = booleanSetFlagNode.FlagName,
+                FlagBool = booleanSetFlagNode.FlagBool,
+                Position = booleanSetFlagNode.GetPosition().position
+            });
+        }
+
+        return;
     }
 
     public void LoadGraph(string filename)
@@ -84,9 +150,14 @@ public class GraphSaveUtility
         }
 
         ClearGraph();
-        CreateNodes();
+        CreateDialogueNodes();
+        CreateGetFlagNodes();
+        CreateSetFlagNodes();
+        CreateBooleanGetFlagNodes();
+        CreateBooleanSetFlagNodes();
+        AllNodes = CombineAllLists();
         ConnectNodes();
-        CreateExposedProperties();
+        //CreateExposedProperties();
     }
 
     private void CreateExposedProperties()
@@ -100,18 +171,41 @@ public class GraphSaveUtility
 
     private void ClearGraph()
     {
-        Nodes.Find(x => x.EntryPoint).GUID = _containerCache.NodeLinks[0].BaseNodeGuid;
+        DialogueNodes.Find(x => x.EntryPoint).GUID = _containerCache.StartingGUID;
 
-        foreach (var node in Nodes)
+        foreach (var node in DialogueNodes)
         {
             if (node.EntryPoint) continue;
             Edges.Where(x => x.input.node == node).ToList().ForEach(edge => _targetGraphView.RemoveElement(edge));
-
+            _targetGraphView.RemoveElement(node);
+        }
+        foreach (var node in GetFlagNodes)
+        {
+            if (node.EntryPoint) continue;
+            Edges.Where(x => x.input.node == node).ToList().ForEach(edge => _targetGraphView.RemoveElement(edge));
+            _targetGraphView.RemoveElement(node);
+        }
+        foreach (var node in SetFlagNodes)
+        {
+            if (node.EntryPoint) continue;
+            Edges.Where(x => x.input.node == node).ToList().ForEach(edge => _targetGraphView.RemoveElement(edge));
+            _targetGraphView.RemoveElement(node);
+        }
+        foreach (var node in BooleanGetFlagNodes)
+        {
+            if (node.EntryPoint) continue;
+            Edges.Where(x => x.input.node == node).ToList().ForEach(edge => _targetGraphView.RemoveElement(edge));
+            _targetGraphView.RemoveElement(node);
+        }
+        foreach (var node in BooleanSetFlagNodes)
+        {
+            if (node.EntryPoint) continue;
+            Edges.Where(x => x.input.node == node).ToList().ForEach(edge => _targetGraphView.RemoveElement(edge));
             _targetGraphView.RemoveElement(node);
         }
     }
 
-    private void CreateNodes()
+    private void CreateDialogueNodes()
     {
         foreach (var nodeData in _containerCache.DialogueNodeData)
         {
@@ -121,24 +215,90 @@ public class GraphSaveUtility
 
             var nodePorts = _containerCache.NodeLinks.Where(x => x.BaseNodeGuid == nodeData.Guid).ToList();
             nodePorts.ForEach(x => _targetGraphView.AddChoicePort(tempNode, x.PortName));
+
+            tempNode.SetPosition(new Rect(
+                nodeData.Position,
+                _targetGraphView.defaultNodeSize
+                ));
+        }
+    }
+
+    private void CreateGetFlagNodes()
+    {
+        foreach (var nodeData in _containerCache.GetFlagNodeData)
+        {
+            var tempNode = _targetGraphView.CreateGetFlagNode(nodeData.FlagName, Vector2.zero);
+            tempNode.GUID = nodeData.Guid;
+            _targetGraphView.AddElement(tempNode);
+
+            var nodePorts = _containerCache.NodeLinks.Where(x => x.BaseNodeGuid == nodeData.Guid).ToList();
+            nodePorts.ForEach(x => {
+                if (x.PortName != "Other") _targetGraphView.AddChoicePort(tempNode, x.PortName);
+            });
+
+            tempNode.SetPosition(new Rect(
+                nodeData.Position,
+                _targetGraphView.defaultNodeSize
+                ));
+        }
+    }
+
+    private void CreateSetFlagNodes()
+    {
+        foreach (var nodeData in _containerCache.SetFlagNodeData)
+        {
+            var tempNode = _targetGraphView.CreateSetFlagNode(nodeData.FlagTag, nodeData.FlagName, Vector2.zero);
+            tempNode.GUID = nodeData.Guid;
+            _targetGraphView.AddElement(tempNode);
+
+            tempNode.SetPosition(new Rect(
+                nodeData.Position,
+                _targetGraphView.defaultNodeSize
+                ));
+        }
+    }
+
+    private void CreateBooleanGetFlagNodes()
+    {
+        foreach (var nodeData in _containerCache.BooleanGetFlagNodeData)
+        {
+            var tempNode = _targetGraphView.CreateBoolGetFlagNode(nodeData.FlagName, Vector2.zero);
+            tempNode.GUID = nodeData.Guid;
+            _targetGraphView.AddElement(tempNode);
+
+            tempNode.SetPosition(new Rect(
+                nodeData.Position,
+                _targetGraphView.defaultNodeSize
+                ));
+        }
+    }
+
+    private void CreateBooleanSetFlagNodes()
+    {
+        foreach (var nodeData in _containerCache.BooleanSetFlagNodeData)
+        {
+            var tempNode = _targetGraphView.CreateBoolSetFlagNode(nodeData.FlagBool, nodeData.FlagName, Vector2.zero);
+            tempNode.GUID = nodeData.Guid;
+            _targetGraphView.AddElement(tempNode);
+
+            tempNode.SetPosition(new Rect(
+                nodeData.Position,
+                _targetGraphView.defaultNodeSize
+                ));
         }
     }
 
     private void ConnectNodes()
     {
-        for (var i = 0; i < Nodes.Count; i++)
+        for (var i = 0; i < AllNodes.Count; i++)
         {
-            var connections = _containerCache.NodeLinks.Where(x => x.BaseNodeGuid == Nodes[i].GUID).ToList();
+            var connections = _containerCache.NodeLinks.Where(x => x.BaseNodeGuid == AllNodes[i].GUID).ToList();
             for (var j = 0; j < connections.Count; j++)
             {
                 var targetNodeGuid = connections[j].TargetNodeGuid;
-                var targetNode = Nodes.First(x => x.GUID == targetNodeGuid);
-                LinkNodes(Nodes[i].outputContainer[j].Q<Port>(), (Port)targetNode.inputContainer[0]);
-
-                targetNode.SetPosition(new Rect(
-                    _containerCache.DialogueNodeData.First(x => x.Guid == targetNodeGuid).Position,
-                    _targetGraphView.defaultNodeSize
-                    ));
+                var targetNode = AllNodes.First(x => x.GUID == targetNodeGuid);
+                
+                LinkNodes(AllNodes[i].outputContainer.Q<Port>(name: connections[j].PortName), (Port)targetNode.inputContainer[0]);
             }
         }
     }
@@ -154,5 +314,21 @@ public class GraphSaveUtility
         tempEdge.input.Connect(tempEdge);
         tempEdge.output.Connect(tempEdge);
         _targetGraphView.Add(tempEdge);
+    }
+
+    private void SaveExposedProperties(DialogueContainer dialogueContainer)
+    {
+        dialogueContainer.ExposedProperties.AddRange(_targetGraphView.ExposedProperties);
+    }
+
+    private List<NodeTemplate> CombineAllLists()
+    {
+        List<NodeTemplate> tempAllList = new List<NodeTemplate>();
+        foreach (var node in DialogueNodes) tempAllList.Add(node);
+        foreach (var node in SetFlagNodes) tempAllList.Add(node);
+        foreach (var node in GetFlagNodes) tempAllList.Add(node);
+        foreach (var node in BooleanSetFlagNodes) tempAllList.Add(node);
+        foreach (var node in BooleanGetFlagNodes) tempAllList.Add(node);
+        return tempAllList;
     }
 }
