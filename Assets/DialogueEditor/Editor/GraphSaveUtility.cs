@@ -19,6 +19,7 @@ public class GraphSaveUtility
     private List<SetFlagNode> SetFlagNodes => _targetGraphView.nodes.ToList().Where(x => x is SetFlagNode).Cast<SetFlagNode>().ToList();
     private List<BooleanGetFlagNode> BooleanGetFlagNodes => _targetGraphView.nodes.ToList().Where(x => x is BooleanGetFlagNode).Cast<BooleanGetFlagNode>().ToList();
     private List<BooleanSetFlagNode> BooleanSetFlagNodes => _targetGraphView.nodes.ToList().Where(x => x is BooleanSetFlagNode).Cast<BooleanSetFlagNode>().ToList();
+    private List<MoveToPosNode> MoveToPosNodes => _targetGraphView.nodes.ToList().Where(x => x is MoveToPosNode).Cast<MoveToPosNode>().ToList();
     private List<NodeTemplate> AllNodes;
 
     public static GraphSaveUtility GetInstance(DialogueGraphView targetGraphView)
@@ -39,6 +40,7 @@ public class GraphSaveUtility
         SaveSetFlagNodes(dialogueContainer);
         SaveBooleanGetFlagNodes(dialogueContainer);
         SaveBooleanSetFlagNodes(dialogueContainer);
+        SaveMoveToPosNodes(dialogueContainer);
         //SaveExposedProperties(dialogueContainer);
         var initialNode = DialogueNodes.First(node => node.EntryPoint);
         dialogueContainer.StartingGUID = initialNode.GUID;
@@ -159,6 +161,24 @@ public class GraphSaveUtility
         return;
     }
 
+    public void SaveMoveToPosNodes(DialogueContainer dialogueContainer)
+    {
+        foreach (var moveToPosNode in MoveToPosNodes.Where(node => !node.EntryPoint))
+        {
+            dialogueContainer.MoveToPosNodeData.Add(new MoveToPosNodeData
+            {
+                Guid = moveToPosNode.GUID,
+                TargetObject = moveToPosNode.TargetObject,
+                ReferenceObject = moveToPosNode.ReferenceObject,
+                PosOffset = moveToPosNode.PosOffset,
+                Wait = moveToPosNode.Wait,
+                Position = moveToPosNode.GetPosition().position
+            });
+        }
+
+        return;
+    }
+
     public void LoadGraph(string filename)
     {
         _containerCache = Resources.Load<DialogueContainer>(filename);
@@ -174,6 +194,7 @@ public class GraphSaveUtility
         CreateSetFlagNodes();
         CreateBooleanGetFlagNodes();
         CreateBooleanSetFlagNodes();
+        CreateMoveToPosNodes();
         AllNodes = CombineAllLists();
         ConnectNodes();
         //CreateExposedProperties();
@@ -223,6 +244,12 @@ public class GraphSaveUtility
             _targetGraphView.RemoveElement(node);
         }
         foreach (var node in BooleanSetFlagNodes)
+        {
+            if (node.EntryPoint) continue;
+            Edges.Where(x => x.input.node == node).ToList().ForEach(edge => _targetGraphView.RemoveElement(edge));
+            _targetGraphView.RemoveElement(node);
+        }
+        foreach (var node in MoveToPosNodes)
         {
             if (node.EntryPoint) continue;
             Edges.Where(x => x.input.node == node).ToList().ForEach(edge => _targetGraphView.RemoveElement(edge));
@@ -328,6 +355,21 @@ public class GraphSaveUtility
         }
     }
 
+    private void CreateMoveToPosNodes()
+    {
+        foreach (var nodeData in _containerCache.MoveToPosNodeData)
+        {
+            var tempNode = _targetGraphView.CreateMoveToPosNode(nodeData.TargetObject, nodeData.ReferenceObject, nodeData.PosOffset, nodeData.Wait, nodeData.Position);
+            tempNode.GUID = nodeData.Guid;
+            _targetGraphView.AddElement(tempNode);
+
+            tempNode.SetPosition(new Rect(
+                nodeData.Position,
+                _targetGraphView.defaultNodeSize
+                ));
+        }
+    }
+
     private void ConnectNodes()
     {
         for (var i = 0; i < AllNodes.Count; i++)
@@ -370,6 +412,7 @@ public class GraphSaveUtility
         foreach (var node in GetFlagNodes) tempAllList.Add(node);
         foreach (var node in BooleanSetFlagNodes) tempAllList.Add(node);
         foreach (var node in BooleanGetFlagNodes) tempAllList.Add(node);
+        foreach (var node in MoveToPosNodes) tempAllList.Add(node);
         return tempAllList;
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.AI;
 
 public class CharacterMovementOverworld : MonoBehaviour
 {
@@ -64,13 +65,18 @@ public class CharacterMovementOverworld : MonoBehaviour
         scanLengthSize = length/(scanLengthCount-1);
         scanHeightSize = height/(scanHeightCount-1);
 
-    groundPlayer();
+        groundPlayer();
         lastground = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(OverworldController.gameMode != OverworldController.gameModeOptions.Cutscene)
+        {
+            NavMeshAgent agent = GetComponent<NavMeshAgent>();
+            agent.enabled = false;
+        }
         //Check if grounded--------------------
         //Check at two different spots to make sure.
         bool isGrounded = false;

@@ -52,6 +52,11 @@ public class NodeSearchWindow : ScriptableObject, ISearchWindowProvider
             new SearchTreeEntry(new GUIContent("Animation Trigger", _indentationIcon))
             {
                 userData = new AnimationTriggerNode(), level = 2
+            },
+            new SearchTreeGroupEntry(new GUIContent("Movement Node"), 1),
+            new SearchTreeEntry(new GUIContent("Move To Position", _indentationIcon))
+            {
+                userData = new MoveToPosNode(), level = 2
             }
         };
         return tree;
@@ -81,6 +86,9 @@ public class NodeSearchWindow : ScriptableObject, ISearchWindowProvider
                 return true;
             case AnimationTriggerNode animationTriggerNode:
                 _graphView.AddAnimationTriggerNode("Animation Trigger Node", localMousePosition);
+                return true;
+            case MoveToPosNode moveToPosNode:
+                _graphView.AddMoveToPosNode("Move To Pos Node", localMousePosition);
                 return true;
             default:
                 return false;

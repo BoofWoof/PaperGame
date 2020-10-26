@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 104110597}
   - component: {fileID: 4588247435204376514}
   - component: {fileID: 2376355678275175775}
+  - component: {fileID: 8986831372874746389}
   m_Layer: 0
   m_Name: Clip
   m_TagString: Player
@@ -47,12 +48,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   height: 0
+  width: 0
+  length: 0
   speed: 3
   gravity: -30
   jumpForce: 9.7
   maxJumpHeight: 1.4
   sprite: {fileID: 8967315692417093172}
   rotSpeedMagnitude: 360
+  goal: 0
   moveHorizontal: 0
   moveVertical: 0
   stopOnCutscene: 1
@@ -85,6 +89,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!195 &8986831372874746389
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104110595}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.36
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0.05
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.97
+  m_BaseOffset: 0.44
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &83144561644245481
 GameObject:
   m_ObjectHideFlags: 0

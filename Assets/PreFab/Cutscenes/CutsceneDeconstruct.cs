@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-//HI FUTURE GARRETT.  YOU WANT TO MAKE IT SO THESE ALL ARE ADDED TO THE CUTSCENE QUEUE INSTEAD OF MAKING ALL THE
-//CUTSCENES EXIST IN THIS WEIRD SPACE.  MAKE IT SO THE DIALOGUE CAN ACCEPT CHOICES AND THEN CALL A CUTSCENE WITH THAT.
-//ALSO COMBINE THIS WITH THE CUTSCENE CONTROLLER OR ELSE YOU WON'T BE ABLE TO SEE RESPONSES FROM THE CUTSCENES
-
 public class CutsceneDeconstruct: ScriptableObject
 {
     DialogueContainer DialogueInput;
@@ -60,7 +56,6 @@ public class CutsceneDeconstruct: ScriptableObject
                 dialogueCutscene.inputText = new TextAsset(node.DialogueText);
                 dialogueCutscene.currentLinks = input.NodeLinks.Where(x => x.BaseNodeGuid == currentGUID).ToList();
                 dialogueCutscene.deconstructerSource = this;
-
                 CutsceneController.addCutsceneEvent(dialogueCutscene, cutsceneSource, true, OverworldController.gameModeOptions.Cutscene);
                 continue;
             }
@@ -151,6 +146,25 @@ public class CutsceneDeconstruct: ScriptableObject
                 {
                     currentGUID = input.NodeLinks.First(x => x.PortName == "Other" && x.BaseNodeGuid == currentGUID).TargetNodeGuid;
                 }
+                continue;
+            }
+            //Move To Position
+            if (input.MoveToPosNodeData.Any(x => x.Guid == currentGUID))
+            {
+                MoveToPosNodeData MoveToPosNode = input.MoveToPosNodeData.First(x => x.Guid == currentGUID);
+                string TargetObject = MoveToPosNode.TargetObject;
+                string ReferenceObject = MoveToPosNode.ReferenceObject;
+                bool Wait = MoveToPosNode.Wait;
+                Vector3 Offset = MoveToPosNode.PosOffset;
+
+                MoveToPosition moveToPosition = ScriptableObject.CreateInstance<MoveToPosition>();
+                moveToPosition.PositionOffset = Offset;
+                moveToPosition.ReferenceObject = ReferenceObject;
+                moveToPosition.TargetObject = TargetObject;
+                moveToPosition.Wait = Wait;
+
+                CutsceneController.addCutsceneEvent(moveToPosition, cutsceneSource, true, OverworldController.gameModeOptions.Cutscene);
+                currentGUID = FindNextNode(input, currentGUID);
                 continue;
             }
         }

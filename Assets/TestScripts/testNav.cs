@@ -12,6 +12,11 @@ public class testNav : MonoBehaviour
     public float secondsTillMoveRange = 1;
     private float wait_count = 0;
 
+    private void Start()
+    {
+        agent.updateRotation = false;
+    }
+
     // Update is called once per frame
     void Update()
     {

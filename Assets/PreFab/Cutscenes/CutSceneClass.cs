@@ -13,13 +13,13 @@ public class CutSceneClass : ScriptableObject
         
     }
 
-    // Update is called once per frame
     public virtual bool Activate()
     {
         active = true;
         return false;
     }
 
+    // Update is called once per frame
     public virtual bool Update()
     {
         return false;

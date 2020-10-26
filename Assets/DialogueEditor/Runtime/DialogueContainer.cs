@@ -13,5 +13,6 @@ public class DialogueContainer: ScriptableObject
     public List<SetFlagNodeData> SetFlagNodeData = new List<SetFlagNodeData>();
     public List<BooleanGetFlagNodeData> BooleanGetFlagNodeData = new List<BooleanGetFlagNodeData>();
     public List<BooleanSetFlagNodeData> BooleanSetFlagNodeData = new List<BooleanSetFlagNodeData>();
+    public List<MoveToPosNodeData> MoveToPosNodeData = new List<MoveToPosNodeData>(); 
     public List<ExposedProperty> ExposedProperties = new List<ExposedProperty>();
 }

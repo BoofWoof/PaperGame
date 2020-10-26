@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -383,6 +384,85 @@ public class DialogueGraphView : GraphView
         return getFlagNode;
     }
 
+    public MoveToPosNode CreateMoveToPosNode(string targetObject, string referenceObject, Vector3 posOffset, bool wait, Vector2 mousePosition)
+    {
+        var moveToPosNode = new MoveToPosNode
+        {
+            title = "MoveToPosNode",
+            TargetObject = targetObject,
+            ReferenceObject = referenceObject,
+            PosOffset = posOffset,
+            Wait = wait,
+            GUID = Guid.NewGuid().ToString()
+        };
+
+        var inputPort = GeneratePort(moveToPosNode, Direction.Input, Port.Capacity.Multi);
+        inputPort.portName = "Input";
+        moveToPosNode.inputContainer.Add(inputPort);
+
+        var generatedPort = GeneratePort(moveToPosNode, Direction.Output);
+        generatedPort.portName = "Next";
+        generatedPort.name = "Next";
+        moveToPosNode.outputContainer.Add(generatedPort);
+
+        moveToPosNode.styleSheets.Add(Resources.Load<StyleSheet>("FlagNode"));
+
+        var textFieldTarget = new TextField
+        {
+            name = "TargetObject",
+            value = targetObject,
+            label = "TargetObject\n"
+        };
+        textFieldTarget.RegisterValueChangedCallback(evt =>
+        {
+            moveToPosNode.TargetObject = evt.newValue;
+        });
+        moveToPosNode.mainContainer.Add(textFieldTarget);
+
+        textFieldTarget = new TextField
+        {
+            name = "ReferenceObject",
+            value = referenceObject,
+            label = "ReferenceObject\n"
+        };
+        textFieldTarget.RegisterValueChangedCallback(evt =>
+        {
+            moveToPosNode.ReferenceObject = evt.newValue;
+        });
+        moveToPosNode.mainContainer.Add(textFieldTarget);
+
+        var vector3FieldTarget = new Vector3Field
+        {
+            name = "PositionOffset",
+            value = posOffset,
+            label = "PositionOffset\n"
+
+        };
+        vector3FieldTarget.RegisterValueChangedCallback(evt =>
+        {
+            moveToPosNode.PosOffset = evt.newValue;
+        });
+        moveToPosNode.mainContainer.Add(vector3FieldTarget);
+
+        var boolFieldTarget = new UnityEngine.UIElements.Toggle
+        {
+            name = "Wait",
+            value = wait,
+            label = "Wait\n"
+        };
+        boolFieldTarget.RegisterValueChangedCallback(evt =>
+        {
+            moveToPosNode.Wait = evt.newValue;
+        });
+        moveToPosNode.mainContainer.Add(boolFieldTarget);
+
+        moveToPosNode.RefreshExpandedState();
+        moveToPosNode.RefreshPorts();
+        moveToPosNode.SetPosition(new Rect(mousePosition, defaultNodeSize));
+
+        return moveToPosNode;
+    }
+
     public void AddDialogueNode(string nodeName, Vector2 mousePosition)
     {
         AddElement(CreateDialogueNode(string.Empty, string.Empty, mousePosition));
@@ -411,6 +491,11 @@ public class DialogueGraphView : GraphView
     public void AddBooleanGetFlagNode(string nodeName, Vector2 mousePosition)
     {
         AddElement(CreateBoolGetFlagNode(string.Empty, mousePosition));
+    }
+
+    public void AddMoveToPosNode(string nodeName, Vector2 mousePosition)
+    {
+        AddElement(CreateMoveToPosNode(string.Empty, string.Empty, Vector3.zero, false, mousePosition));
     }
 
     public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)

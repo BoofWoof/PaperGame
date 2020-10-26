@@ -2,7 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
+
+[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(Animator))]
 public class FriendlyNPCClass : MonoBehaviour
 {
     //Character Information
@@ -44,6 +49,10 @@ public class FriendlyNPCClass : MonoBehaviour
         OverworldController.CharacterList.Add(thisNPCCharacter);
 
         height = transform.GetComponent<BoxCollider>().size.y;
+
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent.autoTraverseOffMeshLink = false;
+        agent.updateRotation = false;
     }
 
     // Update is called once per frame

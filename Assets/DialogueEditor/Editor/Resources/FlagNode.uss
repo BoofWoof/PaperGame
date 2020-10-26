@@ -16,3 +16,7 @@ BooleanSetFlagNode #title{
 AnimationTriggerNode #title{
 	background-color: rgb(50, 50, 200);
 }
+
+MoveToPosNode #title{
+	background-color: rgb(128, 75, 10);
+}

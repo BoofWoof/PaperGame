@@ -48,6 +48,7 @@ public class SayDialogue : CutSceneClass
                 return true;
             } else
             {
+                OverworldController.setTrackingMultiplyer(1.0f);
                 return true;
             }
         }
