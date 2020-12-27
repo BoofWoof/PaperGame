@@ -28,10 +28,12 @@ public class OverworldController : MonoBehaviour
     public static List<Character> CharacterList;
     public static List<Character> EnemyList;
     public static GameObject Player;
+    private static GameObject PauseMenu;
     //-----------------------------------------------------
 
     //Spawned Objects
     public GameObject playerInput;  //Player Object
+    public GameObject pauseMenu; //Pause Menu Object
     public GameObject spawnPoint;  //Where to spawn if not transitioning between areas.
     public GameObject trackingCameraInput;  //What track camera to use.
     public static GameObject trackingCamera;  //Publically accessible camera.
@@ -47,6 +49,8 @@ public class OverworldController : MonoBehaviour
     {
         CharacterList = new List<Character>();
         EnemyList = new List<Character>();
+        PauseMenu = Instantiate(pauseMenu, Vector3.zero, Quaternion.identity);
+        PauseMenu.SetActive(false);
         if (GameDataTracker.lastAreaWasCombat == false)
         {
             if (GameDataTracker.previousArea != null)
@@ -113,11 +117,13 @@ public class OverworldController : MonoBehaviour
             if (gameMode == gameModeOptions.Paused)
             {
                 gameMode = gameModePre;
+                PauseMenu.SetActive(false);
             }
             else
             {
                 gameModePre = gameMode;
                 gameMode = gameModeOptions.Paused;
+                PauseMenu.SetActive(true);
             }
         }
         if (gameMode == gameModeOptions.Paused)
