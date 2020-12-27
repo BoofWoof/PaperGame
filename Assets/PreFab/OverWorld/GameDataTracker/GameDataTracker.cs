@@ -12,6 +12,8 @@ public class GameDataTracker : MonoBehaviour
     public static GameDataTracker DataTracker;
     public static PlayerData playerData = new PlayerData();
 
+    public static string saveFileName = null;
+
     //Super Important Data
     public static string previousArea;
     //CombatInfo
@@ -30,7 +32,6 @@ public class GameDataTracker : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
             DataTracker = this;
-            Load();
         }
         else if (DataTracker != this)
         {
@@ -58,7 +59,7 @@ public class GameDataTracker : MonoBehaviour
     public static void Save()
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/savedata.bof";
+        string path = Application.persistentDataPath + "/" + saveFileName + ".bof";
         FileStream stream = new FileStream(path, FileMode.Create);
 
         formatter.Serialize(stream, playerData);
@@ -67,7 +68,7 @@ public class GameDataTracker : MonoBehaviour
 
     public static void Load()
     {
-        string path = Application.persistentDataPath + "/savedata.bof";
+        string path = Application.persistentDataPath + "/" + saveFileName + ".bof";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();

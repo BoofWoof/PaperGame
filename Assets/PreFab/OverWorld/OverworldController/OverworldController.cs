@@ -98,7 +98,6 @@ public class OverworldController : MonoBehaviour
         else
         {
             //SPAWNS PLAYER WHERE THEY STARTED COMBAT
-            GameDataTracker.Save();
             Player = Instantiate(playerInput, GameDataTracker.combatStartPosition, Quaternion.identity);
             GameDataTracker.lastAreaWasCombat = false;
         }

@@ -1997,6 +1997,12 @@ PrefabInstance:
       propertyPath: SceneTransfers.Array.data[0]
       value: 
       objectReference: {fileID: 1186974829}
+    - target: {fileID: 962728223710326191, guid: 73b6a1165c26b5749b2060b516b9f945,
+        type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 9132869976274382273, guid: 5406e0012d9f5a84b9f6a89dd4df9e5f,
+        type: 3}
     - target: {fileID: 6065652336505517037, guid: 73b6a1165c26b5749b2060b516b9f945,
         type: 3}
       propertyPath: m_Name

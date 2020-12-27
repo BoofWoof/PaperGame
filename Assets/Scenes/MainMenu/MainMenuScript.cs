@@ -18,8 +18,10 @@ public class MainMenuScript : MonoBehaviour
         
     }
 
-    public void StartGame()
+    public void StartGame(string saveFileName)
     {
+        GameDataTracker.saveFileName = saveFileName;
+        GameDataTracker.Load();
         SceneManager.LoadScene(startSceneName, LoadSceneMode.Single);
     }
 
