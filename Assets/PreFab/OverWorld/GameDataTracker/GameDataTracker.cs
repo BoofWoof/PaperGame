@@ -79,8 +79,16 @@ public class GameDataTracker : MonoBehaviour
         } else
         {
             //Debug.LogError("Save file not found in " + path);
-            print("Save file not found in " + path);
+            print("Creating new save data.");
+            PlayerData playerData = new PlayerData();
         }
+    }
+
+    public static void DeleteFile(string deleteFileName)
+    {
+        playerData = new PlayerData();
+        saveFileName = deleteFileName;
+        Save();
     }
 }
 

@@ -29,4 +29,9 @@ public class MainMenuScript : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void DeleteSave(string deleteFileName)
+    {
+        GameDataTracker.DeleteFile(deleteFileName);
+    }
 }
