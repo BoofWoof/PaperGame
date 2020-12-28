@@ -96,6 +96,9 @@ public class GameDataTracker : MonoBehaviour
 [Serializable]
 public class PlayerData
 {
+    //Metaknowledge
+    public string fileName = "New Game";
+
     //Statsaves
     public int maxHealth = 10;
     public int health = 10;
