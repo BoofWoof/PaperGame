@@ -45,6 +45,7 @@ public class OverworldController : MonoBehaviour
     private gameModeOptions gameModePre = gameModeOptions.Mobile;
     //-----------------------------------------------------------------
 
+
     public void Awake()
     {
         CharacterList = new List<Character>();

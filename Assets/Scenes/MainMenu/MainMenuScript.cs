@@ -22,6 +22,7 @@ public class MainMenuScript : MonoBehaviour
 
     public GameObject FileNameMenu;
     // Start is called before the first frame update
+
     void Start()
     {
         UpdateAllFileName();

@@ -6,7 +6,27 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuScript : MonoBehaviour
 {
+    [Header("Character Submenu")]
+    public GameObject characterMenu;
     public GameObject characterMenuFirstFocus;
+
+    [Header("Item Submenu")]
+    public GameObject itemMenu;
+    public GameObject itemMenuFirstFocus;
+
+    private int currentMenuID = 0;
+    private List<GameObject> menuList;
+    private int maxMenuID = 2;
+
+    void Start()
+    {
+        menuList = new List<GameObject>()
+        {
+            characterMenu,
+            itemMenu
+        };
+        itemMenu.SetActive(false);
+    }
 
     private void OnEnable()
     {
@@ -28,15 +48,28 @@ public class PauseMenuScript : MonoBehaviour
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown("Right Bumper"))
+        {
+            menuList[currentMenuID].SetActive(false);
+            currentMenuID += 1;
+            if (currentMenuID >= maxMenuID)
+            {
+                currentMenuID = 0;
+            }
+            menuList[currentMenuID].SetActive(true);
+        }
+        if (Input.GetButtonDown("Left Bumper"))
+        {
+            menuList[currentMenuID].SetActive(false);
+            currentMenuID -= 1;
+            if (currentMenuID <= -1)
+            {
+                currentMenuID = maxMenuID - 1;
+            };
+            menuList[currentMenuID].SetActive(true);
+        }
     }
 }

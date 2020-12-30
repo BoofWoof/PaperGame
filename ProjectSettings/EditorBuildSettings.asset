@@ -5,12 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/MainMenu/MainMenu.unity
+    guid: c024ce6143a39694e9669a4742249c4a
   - enabled: 1
     path: Assets/Scenes/TestScene2.unity
     guid: a77048099ea8cb34ba3021cdb10aea9a
@@ -18,9 +15,14 @@ EditorBuildSettings:
     path: Assets/Scenes/CombatTest.unity
     guid: fc0519223757adb49922aaba90d18aef
   - enabled: 1
-    path: Assets/Scenes/MainMenu/MainMenu.unity
-    guid: c024ce6143a39694e9669a4742249c4a
-  - enabled: 1
     path: Assets/Scenes/DockAreaRubus.unity
     guid: 6031eba62ccd8e74fb7e4e136a54caac
-  m_configObjects: {}
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 9a529581dc6239742aba524a1de37dde,
+      type: 2}
