@@ -95,6 +95,15 @@ public class GameDataTracker : MonoBehaviour
     {
         playerData.Inventory.Add(id);
     }
+
+    public static void ChangeHealth(int amount)
+    {
+        playerData.health += amount;
+        if (playerData.health > playerData.maxHealth)
+        {
+            playerData.health = playerData.maxHealth;
+        }
+    }
 }
 
 
@@ -142,6 +151,7 @@ public class PlayerData
 
     //ItemsList -- Every Item has an ID.  A value can appear on the list multiple times.
     public List<int> Inventory = new List<int>();
+    public Dictionary<string, List<double>> GatheredItemsDictionary = new Dictionary<string, List<double>>();
     public int InventorySize = 10;
 }
 

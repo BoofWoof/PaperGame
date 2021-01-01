@@ -22,4 +22,23 @@ public class ItemMapping : MonoBehaviour
         imageMap = inputImageMap;
         defaultImage = inputDefaultImage;
     }
+
+    public static ItemTemplate actionMap(int idx)
+    {
+        switch (idx)
+        {
+            case 0:
+                return HoneyBobaScript.CreateInstance<HoneyBobaScript>();
+            case 1:
+                return StarBobaScript.CreateInstance<StarBobaScript>();
+            case 2:
+                return UFOBobaScript.CreateInstance<UFOBobaScript>();
+            case 3:
+                return FishBobaScript.CreateInstance<FishBobaScript>();
+            default:
+                Debug.Log("No Matching Index");
+                break;
+        }
+        return HoneyBobaScript.CreateInstance<ItemTemplate>();
+    }
 }

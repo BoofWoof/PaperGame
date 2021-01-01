@@ -119,6 +119,17 @@ public class ItemList : MonoBehaviour
             string itemDescription = ItemMapping.descriptionMap[itemList[itemIdx]];
 
             descriptionText.text = itemName + ": " + itemDescription;
+            if (Input.GetButton("Fire1"))
+            {
+                if (movementDelay > 0.25)
+                {
+                    ItemMapping.actionMap(itemList[itemIdx]).OverWorldUse();
+                    GameDataTracker.playerData.Inventory.RemoveAt(itemIdx);
+                    clearItems();
+                    generateItems();
+                    movementDelay = 0;
+                }
+            }
         } else
         {
             descriptionText.text = "Empty Pocket";
@@ -131,6 +142,7 @@ public class ItemList : MonoBehaviour
         //Debug.Log(movementDelay);
         //Debug.Log(xPress);
         //Debug.Log(yPress);
+
 
         if (movementDelay > 0.25 )
         {

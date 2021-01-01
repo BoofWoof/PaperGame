@@ -1656,7 +1656,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CLIP'S QUEST FOR THE WEED KILLER
+  m_text: CLIP'S QUEST TO COVER UP HIS WAR CRIMES
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2075,6 +2075,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1560771609228037931, guid: d315f83e088f00b41a0d48756cceac8d,
+        type: 3}
+      propertyPath: inputActionMap.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8858686985350053313, guid: d315f83e088f00b41a0d48756cceac8d,
         type: 3}
       propertyPath: m_RootOrder

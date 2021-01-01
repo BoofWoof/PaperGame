@@ -76,3 +76,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 495b9054387d79a4dbd489052ae470d6, type: 3}
   - {fileID: 21300000, guid: c082381633537094285a7891caf02184, type: 3}
   inputDefaultImage: {fileID: 21300000, guid: 3e183257eca12dd40955f945d313514f, type: 3}
+  inputActionMap:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
