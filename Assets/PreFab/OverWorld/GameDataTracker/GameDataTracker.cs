@@ -90,7 +90,13 @@ public class GameDataTracker : MonoBehaviour
         saveFileName = deleteFileName;
         Save();
     }
+
+    public static void AddItem(int id)
+    {
+        playerData.Inventory.Add(id);
+    }
 }
+
 
 //THESE ARE THE OBJECTS I EXPECT WE'LL NEED====================
 [Serializable]

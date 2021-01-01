@@ -15,7 +15,7 @@ public class ItemMapping : MonoBehaviour
     public Sprite[] inputImageMap;
     public Sprite inputDefaultImage;
 
-    void Start()
+    void Awake()
     {
         nameMap = inputNameMap;
         descriptionMap = inputDescriptionMap;

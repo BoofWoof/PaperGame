@@ -31,18 +31,33 @@ public class ItemList : MonoBehaviour
     private TextMeshProUGUI descriptionText;
 
     //Debug
-    private List<int> debugItemList;
+    private List<int> itemList;
 
     //All Items
     private List<List<GameObject>> gameObjectRow = new List<List<GameObject>>();
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
-        debugItemList = new List<int>()
+        clearItems();
+        generateItems();
+    }
+
+    public void clearItems()
+    {
+        foreach (List<GameObject> delrows in gameObjectRow)
         {
-            0, 1, 2, 3, 3, 0, 3
-        };
+            foreach (GameObject delitems in delrows)
+            {
+                Destroy(delitems);
+            }
+        }
+        gameObjectRow = new List<List<GameObject>>();
+    }
+
+    public void generateItems()
+    {
+        itemList = GameDataTracker.playerData.Inventory;
 
         descriptionText = itemDescriptions.GetComponent<TextMeshProUGUI>();
 
@@ -56,13 +71,13 @@ public class ItemList : MonoBehaviour
                 NewObj.AddComponent<CanvasRenderer>(); //Add the Image Component script
                 Image NewImage = NewObj.AddComponent<Image>(); //Add the Image Component script
                 int itemIdx = row * visibleColumns + j;
-                if (itemIdx >= debugItemList.Count)
+                if (itemIdx >= itemList.Count)
                 {
                     NewImage.sprite = ItemMapping.defaultImage;
                 }
                 else
                 {
-                    NewImage.sprite = ItemMapping.imageMap[debugItemList[itemIdx]];
+                    NewImage.sprite = ItemMapping.imageMap[itemList[itemIdx]];
                 }
                 NewObj.transform.SetParent(transform, false);
                 NewObj.transform.position = transform.position + new Vector3(Screen.width * (itemXOffset * j - initialXOffset), Screen.height * (-itemYOffset * i - initialYOffset), 0);
@@ -95,14 +110,13 @@ public class ItemList : MonoBehaviour
         {
             ycord = visibleRows - 1;
         }
-        Debug.Log(ycord);
         cursor.transform.position = transform.position + new Vector3(Screen.width * (itemXOffset * xcord - initialXOffset), Screen.height * (-itemYOffset * ycord - initialYOffset), 0);
 
         int itemIdx = ycord * visibleColumns + xcord;
-        if(itemIdx < debugItemList.Count)
+        if(itemIdx < itemList.Count)
         {
-            string itemName = ItemMapping.nameMap[debugItemList[itemIdx]];
-            string itemDescription = ItemMapping.descriptionMap[debugItemList[itemIdx]];
+            string itemName = ItemMapping.nameMap[itemList[itemIdx]];
+            string itemDescription = ItemMapping.descriptionMap[itemList[itemIdx]];
 
             descriptionText.text = itemName + ": " + itemDescription;
         } else
@@ -158,45 +172,5 @@ public class ItemList : MonoBehaviour
         {
             ycord -= 1;
         }
-
-        /*
-        foreach (List<GameObject> delrows in gameObjectRow)
-        {
-            foreach (GameObject delitems in delrows)
-            {
-                Destroy(delitems);
-            }
-        }
-        gameObjectRow = new List<List<GameObject>>();
-
-        for (int i = 0; i < visibleRows; i++)
-        {
-            int row = topRowIdx + i;
-            List<GameObject> gameObjectCol = new List<GameObject>();
-            for (int j = 0; j < visibleColumns; j++)
-            {
-                GameObject NewObj = new GameObject(); //Create the GameObject
-                NewObj.AddComponent<CanvasRenderer>(); //Add the Image Component script
-                Image NewImage = NewObj.AddComponent<Image>(); //Add the Image Component script
-                int itemIdx1 = row * visibleColumns + j;
-                if (itemIdx1 >= debugItemList.Count)
-                {
-                    NewImage.sprite = ItemMapping.defaultImage;
-                }
-                else
-                {
-                    NewImage.sprite = ItemMapping.imageMap[debugItemList[itemIdx1]];
-                }
-                NewObj.transform.SetParent(transform, false);
-                NewObj.transform.position = transform.position + new Vector3(Screen.width * (itemXOffset * j - initialXOffset), Screen.height * (-itemYOffset * i - initialYOffset), 0);
-                NewObj.transform.localScale = new Vector3(itemXSize, itemYSize, 1);
-                RectTransform NewObjRect = NewObj.GetComponent<RectTransform>();
-                NewObjRect.anchorMin = new Vector2(0, 0);
-                NewObjRect.anchorMax = new Vector2(1, 1);
-                gameObjectCol.Add(NewObj);
-            }
-            gameObjectRow.Add(gameObjectCol);
-        }
-        */
     }
 }
