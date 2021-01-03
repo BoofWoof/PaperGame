@@ -14,18 +14,25 @@ public class PauseMenuScript : MonoBehaviour
     public GameObject itemMenu;
     public GameObject itemMenuFirstFocus;
 
+    [Header("Badge Submenu")]
+    public GameObject badgeMenu;
+    public GameObject badgeMenuFirstFocus;
+
     private int currentMenuID = 0;
     private List<GameObject> menuList;
-    private int maxMenuID = 2;
+    private int maxMenuID;
 
     void Start()
     {
         menuList = new List<GameObject>()
         {
             characterMenu,
-            itemMenu
+            itemMenu,
+            badgeMenu
         };
         itemMenu.SetActive(false);
+        badgeMenu.SetActive(false);
+        maxMenuID = menuList.Count;
     }
 
     private void OnEnable()

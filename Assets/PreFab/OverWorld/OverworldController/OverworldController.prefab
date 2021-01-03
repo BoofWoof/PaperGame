@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 104110595, guid: 05535381b9cbe1541a68f8b43ef2741f, type: 3}
+  pauseMenu: {fileID: 9132869976274382273, guid: 5406e0012d9f5a84b9f6a89dd4df9e5f,
+    type: 3}
   spawnPoint: {fileID: 0}
   trackingCameraInput: {fileID: 6844698882489473077, guid: 3b37c697e051fa2448470695f77f7ff3,
     type: 3}
