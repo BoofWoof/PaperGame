@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8858686985350053313}
   - component: {fileID: 8858686985350053342}
   - component: {fileID: 1560771609228037931}
+  - component: {fileID: 3072369847045792476}
   m_Layer: 0
   m_Name: GameDataTrackerTest
   m_TagString: Untagged
@@ -76,8 +77,26 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 495b9054387d79a4dbd489052ae470d6, type: 3}
   - {fileID: 21300000, guid: c082381633537094285a7891caf02184, type: 3}
   inputDefaultImage: {fileID: 21300000, guid: 3e183257eca12dd40955f945d313514f, type: 3}
-  inputActionMap:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+--- !u!114 &3072369847045792476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8858686985350053343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3426215f21ee144da7013460ca9e488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputNameMap:
+  - VitaMedal
+  - PartnerVitaMedal
+  inputDescriptionMap:
+  - Have some health.
+  - Have some health pardner.
+  inputBadgeCost: 0200000002000000
+  inputImageMap:
+  - {fileID: 21300000, guid: efa6403e9f0f3914aa82f64b03f4411c, type: 3}
+  - {fileID: 21300000, guid: efa6403e9f0f3914aa82f64b03f4411c, type: 3}
+  inputDefaultImage: {fileID: 21300000, guid: 3e183257eca12dd40955f945d313514f, type: 3}

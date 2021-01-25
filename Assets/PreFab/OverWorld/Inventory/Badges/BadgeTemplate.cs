@@ -5,13 +5,17 @@ using System;
 
 
 [Serializable]
-public class Badge : MonoBehaviour
+public class BadgeTemplate : ScriptableObject
 {
-    public string badgeName;
-    public int slotReq;
-    public int id;
+    public virtual void OnEquip()
+    {
 
-    
+    }
+    public virtual void OnUnequip()
+    {
+
+    }
+
     //==================================================OVERWORLD TRIGGERS===============================================
     public virtual void EnterRoom()
     {

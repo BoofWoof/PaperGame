@@ -96,6 +96,11 @@ public class GameDataTracker : MonoBehaviour
         playerData.Inventory.Add(id);
     }
 
+    public static void AddBadge(int id)
+    {
+        playerData.UnlockedEquipmentID[id] = true;
+    }
+
     public static void ChangeHealth(int amount)
     {
         playerData.health += amount;
@@ -140,7 +145,13 @@ public class PlayerData
     public bool Artist = false;
     public int ArtistHealth = 10;
 
+    //One Time Collectibles Tracker
+    public Dictionary<string, List<double>> GatheredItemsDictionary = new Dictionary<string, List<double>>();
+
     //Equipment -- Every badge is equipped to an ID.
+    public int MaxBadgePoints = 3;
+    public int CurrentBadgePoints = 3;
+
     public bool[] UnlockedEquipmentID = new bool[128];
     public bool[] EquipedEquipmentID = new bool[128];
 
@@ -151,7 +162,6 @@ public class PlayerData
 
     //ItemsList -- Every Item has an ID.  A value can appear on the list multiple times.
     public List<int> Inventory = new List<int>();
-    public Dictionary<string, List<double>> GatheredItemsDictionary = new Dictionary<string, List<double>>();
     public int InventorySize = 10;
 }
 

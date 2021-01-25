@@ -30,17 +30,35 @@ public class BadgeList : MonoBehaviour
     public GameObject itemDescriptions;
     private TextMeshProUGUI descriptionText;
 
+    //BadgeEconomy
+    public GameObject badgeEconomy;
+    private TextMeshProUGUI badgeEconomyText;
+
     //Debug
-    private List<int> itemList;
+    private List<int> badgeList;
 
     //All Items
     private List<List<GameObject>> gameObjectRow = new List<List<GameObject>>();
 
-    // Start is called before the first frame update
+    private void Start()
+    {
+        badgeEconomyText = badgeEconomy.GetComponent<TextMeshProUGUI>();
+        descriptionText = itemDescriptions.GetComponent<TextMeshProUGUI>();
+        UpdateEconomyText();
+    }
+
     void OnEnable()
     {
-        clearItems();
         generateItems();
+    }
+    void OnDisable()
+    {
+        clearItems();
+    }
+
+    void UpdateEconomyText()
+    {
+        badgeEconomyText.text = GameDataTracker.playerData.CurrentBadgePoints.ToString() + "/" + GameDataTracker.playerData.MaxBadgePoints.ToString();
     }
 
     public void clearItems()
@@ -57,9 +75,7 @@ public class BadgeList : MonoBehaviour
 
     public void generateItems()
     {
-        itemList = GameDataTracker.playerData.Inventory;
-
-        descriptionText = itemDescriptions.GetComponent<TextMeshProUGUI>();
+        badgeList = equipmentProcessor(GameDataTracker.playerData.UnlockedEquipmentID);
 
         for (int i = 0; i < visibleRows; i++)
         {
@@ -71,13 +87,21 @@ public class BadgeList : MonoBehaviour
                 NewObj.AddComponent<CanvasRenderer>(); //Add the Image Component script
                 Image NewImage = NewObj.AddComponent<Image>(); //Add the Image Component script
                 int itemIdx = row * visibleColumns + j;
-                if (itemIdx >= itemList.Count)
+                if (itemIdx >= badgeList.Count)
                 {
-                    NewImage.sprite = ItemMapping.defaultImage;
+                    NewImage.sprite = BadgeMapping.defaultImage;
+                    NewImage.color = new Color32(255, 255, 255, 255);
                 }
                 else
                 {
-                    NewImage.sprite = ItemMapping.imageMap[itemList[itemIdx]];
+                    NewImage.sprite = BadgeMapping.imageMap[badgeList[itemIdx]];
+                    if (GameDataTracker.playerData.EquipedEquipmentID[badgeList[itemIdx]])
+                    {
+                        NewImage.color = new Color32(255, 255, 255, 255);
+                    } else
+                    {
+                        NewImage.color = new Color32(125, 125, 125, 125);
+                    }
                 }
                 NewObj.transform.SetParent(transform, false);
                 NewObj.transform.position = transform.position + new Vector3(Screen.width * (itemXOffset * j - initialXOffset), Screen.height * (-itemYOffset * i - initialYOffset), 0);
@@ -89,6 +113,19 @@ public class BadgeList : MonoBehaviour
             }
             gameObjectRow.Add(gameObjectCol);
         }
+    }
+
+    List<int> equipmentProcessor(bool[] UnlockedEquipmentID)
+    {
+        List<int> trueIndexes = new List<int>();
+        for (int i = 0; i < UnlockedEquipmentID.Length; i++)
+        {
+            if (UnlockedEquipmentID[i])
+            {
+                trueIndexes.Add(i);
+            }
+        }
+        return trueIndexes;
     }
 
     // Update is called once per frame
@@ -113,20 +150,35 @@ public class BadgeList : MonoBehaviour
         cursor.transform.position = transform.position + new Vector3(Screen.width * (itemXOffset * xcord - initialXOffset), Screen.height * (-itemYOffset * ycord - initialYOffset), 0);
 
         int itemIdx = ycord * visibleColumns + xcord;
-        if(itemIdx < itemList.Count)
+        if(itemIdx < badgeList.Count)
         {
-            string itemName = ItemMapping.nameMap[itemList[itemIdx]];
-            string itemDescription = ItemMapping.descriptionMap[itemList[itemIdx]];
+            string itemName = BadgeMapping.nameMap[badgeList[itemIdx]];
+            string itemDescription = BadgeMapping.descriptionMap[badgeList[itemIdx]];
 
             descriptionText.text = itemName + ": " + itemDescription;
             if (Input.GetButton("Fire1"))
             {
                 if (movementDelay > 0.25)
                 {
-                    ItemMapping.actionMap(itemList[itemIdx]).OverWorldUse();
-                    GameDataTracker.playerData.Inventory.RemoveAt(itemIdx);
-                    clearItems();
-                    generateItems();
+                    if (!GameDataTracker.playerData.EquipedEquipmentID[badgeList[itemIdx]])
+                    {
+                        if (GameDataTracker.playerData.CurrentBadgePoints > BadgeMapping.badgeCost[badgeList[itemIdx]])
+                        {
+                            GameDataTracker.playerData.EquipedEquipmentID[badgeList[itemIdx]] = !GameDataTracker.playerData.EquipedEquipmentID[badgeList[itemIdx]];
+                            gameObjectRow[ycord][xcord].GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+                            BadgeMapping.actionMap(badgeList[itemIdx]).OnEquip();
+                            GameDataTracker.playerData.CurrentBadgePoints -= BadgeMapping.badgeCost[badgeList[itemIdx]];
+                            UpdateEconomyText();
+                        }
+
+                    } else
+                    {
+                        GameDataTracker.playerData.EquipedEquipmentID[badgeList[itemIdx]] = !GameDataTracker.playerData.EquipedEquipmentID[badgeList[itemIdx]];
+                        gameObjectRow[ycord][xcord].GetComponent<Image>().color = new Color32(125, 125, 125, 125);
+                        BadgeMapping.actionMap(badgeList[itemIdx]).OnUnequip();
+                        GameDataTracker.playerData.CurrentBadgePoints += BadgeMapping.badgeCost[badgeList[itemIdx]];
+                        UpdateEconomyText();
+                    }
                     movementDelay = 0;
                 }
             }

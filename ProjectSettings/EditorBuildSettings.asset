@@ -9,14 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu/MainMenu.unity
     guid: c024ce6143a39694e9669a4742249c4a
   - enabled: 1
-    path: Assets/Scenes/TestScene2.unity
+    path: Assets/Scenes/TestScene/TestScene2.unity
     guid: a77048099ea8cb34ba3021cdb10aea9a
   - enabled: 1
-    path: Assets/Scenes/CombatTest.unity
+    path: Assets/Scenes/CombatTestOld/CombatTest.unity
     guid: fc0519223757adb49922aaba90d18aef
   - enabled: 1
-    path: Assets/Scenes/DockArea/DockAreaRubus.unity
+    path: Assets/Scenes/DockAreaRubus/DockAreaRubus.unity
     guid: 6031eba62ccd8e74fb7e4e136a54caac
+  - enabled: 1
+    path: Assets/Scenes/LexMail/LexMail.unity
+    guid: 4bf11b7d94571594d8df5b4c4bfb9cb5
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PickUpItem : MonoBehaviour
+public class PickUpBadge : MonoBehaviour
 {
-    public int ItemID;
+    public int BadgeID;
 
     private Vector3 startingPos;
     private float phase;
@@ -30,14 +30,14 @@ public class PickUpItem : MonoBehaviour
             Destroy(gameObject);
         }
         SpriteRenderer SR = gameObject.GetComponent<SpriteRenderer>();
-        SR.sprite = ItemMapping.imageMap[ItemID];
+        SR.sprite = BadgeMapping.imageMap[BadgeID];
     }
 
     private void OnTriggerEnter(Collider trig)
     {
         if (trig.CompareTag("Player") && OverworldController.gameMode == OverworldController.gameModeOptions.Mobile)
         {
-            GameDataTracker.AddItem(ItemID);
+            GameDataTracker.AddBadge(BadgeID);
             GameDataTracker.playerData.GatheredItemsDictionary[sceneName].Add(instanceID);
             Destroy(gameObject);
         }
@@ -45,6 +45,6 @@ public class PickUpItem : MonoBehaviour
 
     private void Update()
     {
-        transform.position = startingPos + new Vector3(0, 0.05f*Mathf.Sin(Time.time*2 + phase), 0);
+        transform.position = startingPos + new Vector3(0, 0.05f * Mathf.Sin(Time.time * 2 + phase), 0);
     }
 }
