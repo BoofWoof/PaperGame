@@ -56,6 +56,9 @@ TextureImporter:
   - first:
       213: 7857918660212196041
     second: ChipMehFace
+  - first:
+      213: -4077089219926139577
+    second: ClipSmackHand
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -418,11 +421,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 873
-        y: 527
+        y: 454
         width: 126
         height: 116
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -443,7 +446,7 @@ TextureImporter:
         width: 129
         height: 105
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -464,7 +467,7 @@ TextureImporter:
         width: 123
         height: 103
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -485,7 +488,7 @@ TextureImporter:
         width: 128
         height: 111
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -506,7 +509,7 @@ TextureImporter:
         width: 137
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -514,6 +517,27 @@ TextureImporter:
       bones: []
       spriteID: 9c28cdf636fec0d60800000000000000
       internalID: 7857918660212196041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClipSmackHand
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 651
+        width: 215
+        height: 330
+      alignment: 9
+      pivot: {x: 0.8247059, y: 0.089341044}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74d5ab0b4f44b67c0800000000000000
+      internalID: -4077089219926139577
       vertices: []
       indices: 
       edges: []
