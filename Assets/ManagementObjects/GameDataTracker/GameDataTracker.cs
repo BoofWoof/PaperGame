@@ -25,6 +25,9 @@ public class GameDataTracker : MonoBehaviour
     public static Dictionary<string, bool> boolFlags = new Dictionary<string, bool>();
     public static Dictionary<string, string> stringFlags = new Dictionary<string, string>();
 
+    //CombatTracking
+    public static CombatExecutor combatExecutor;
+
     void Awake()
     {
         //MAKES THIS OBJECT PERSIST IN EVERY SCENE

@@ -77,7 +77,8 @@ public class ItemList : MonoBehaviour
                 }
                 else
                 {
-                    NewImage.sprite = ItemMapping.imageMap[itemList[itemIdx]];
+                    ItemTemplate item = ItemMapping.itemMap[itemList[itemIdx]].GetComponent<ItemTemplate>();
+                    NewImage.sprite = item.itemImage;
                 }
                 NewObj.transform.SetParent(transform, false);
                 NewObj.transform.position = transform.position + new Vector3(Screen.width * (itemXOffset * j - initialXOffset), Screen.height * (-itemYOffset * i - initialYOffset), 0);
@@ -115,16 +116,16 @@ public class ItemList : MonoBehaviour
         int itemIdx = ycord * visibleColumns + xcord;
         if(itemIdx < itemList.Count)
         {
-            string itemName = ItemMapping.nameMap[itemList[itemIdx]];
-            string itemDescription = ItemMapping.descriptionMap[itemList[itemIdx]];
+            ItemTemplate item = ItemMapping.itemMap[itemList[itemIdx]].GetComponent<ItemTemplate>();
+            string itemName = item.name;
+            string itemDescription = item.itemDescription;
 
             descriptionText.text = itemName + ": " + itemDescription;
             if (Input.GetButton("Fire1"))
             {
                 if (movementDelay > 0.25)
                 {
-                    ItemMapping.actionMap(itemList[itemIdx]).OverWorldUse();
-                    GameDataTracker.playerData.Inventory.RemoveAt(itemIdx);
+                    ItemMapping.itemMap[itemList[itemIdx]].GetComponent<ItemTemplate>().OverWorldUse(itemIdx);
                     clearItems();
                     generateItems();
                     movementDelay = 0;

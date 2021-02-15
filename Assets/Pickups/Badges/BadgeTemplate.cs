@@ -5,8 +5,13 @@ using System;
 
 
 [Serializable]
-public class BadgeTemplate : ScriptableObject
+public class BadgeTemplate : MonoBehaviour
 {
+    public string name;
+    public string itemDescription;
+    public int badgeCost;
+    public Sprite sprite;
+
     public virtual void OnEquip()
     {
 
@@ -15,20 +20,17 @@ public class BadgeTemplate : ScriptableObject
     {
 
     }
-
-    //==================================================OVERWORLD TRIGGERS===============================================
+    
     public virtual void EnterRoom()
     {
 
     }
 
-    public virtual void WorldTick()//On realtime tick
+    public virtual void WorldTick()
     {
 
     }
-
-
-    //==================================================BATTLE TRIGGERS==================================================
+    
     public virtual void BattleStart()
     {
 

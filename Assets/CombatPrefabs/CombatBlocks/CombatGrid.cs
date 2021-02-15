@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 using UnityEditor;
 using UnityEngine.UI;
+using System.Linq;
 
 public class CombatGrid : MonoBehaviour
 {
@@ -760,6 +760,7 @@ public class CombatGrid : MonoBehaviour
         gridHeight = new int[rows, cols];
         blockGrid = new GameObject[rows, cols];
         characterGrid = new GameObject[rows, cols];
+        objectGrid = new GameObject[rows, cols];
         for (int row = 0; row < rows; row++)
         {
             for (int col = 0; col < cols; col++)
