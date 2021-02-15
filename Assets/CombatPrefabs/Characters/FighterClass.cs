@@ -7,7 +7,21 @@ using TMPro;
 //THIS IS THE CLASS ANY COMBAT CHARACTER USES
 public class FighterClass : MonoBehaviour
 {
-    public enum CharacterPosition{Ground, Air, Water}
+    //DAMAGE AND EFFECT TYPES-----------------------
+    public enum attackType { Normal, Fire, Heal, LifeSteal, GuaranteedDamage };
+    public enum statusEffects { None, Defending };
+    public enum statusTrigger { TurnStart, TurnEnd}
+    public enum attackLocation { All, Ground, Air, Water }
+    public enum CharacterPosition { Ground, Air, Water }
+    //----------------------------------------------
+
+    public struct statusInfo
+    {
+        public statusEffects status;
+        public int intensity;
+        public statusTrigger trigger;
+        public int timeRemaining;
+    }
 
     public string CharacterName = "NameMeYouDingus";
 
@@ -17,32 +31,23 @@ public class FighterClass : MonoBehaviour
     public GameObject SelectionWheel;
     public Sprite characterSelector;
 
-    //DAMAGE AND EFFECT TYPES-----------------------
-    public enum attackType { Normal, Fire, Heal, LifeSteal, GuaranteedDamage };
-    public enum statusEffects { None };
-    public enum attackLocation {All, Ground, Air, Water}
-    public enum passiveTileEffects {None, Burn, Zap}
-    //----------------------------------------------
-
     [Header("Character Stats")]
-    //IDENTIFICATION OF THIS CHARACTER----------------
     public bool friendly = false;
-    //-----------------------------------------------
-
-    //HEALTH VARIABLES AND DEFENSE----------------
+    
     public int HPMax = 25;
     public int HP = 20;
     public int Power = 2;
     public int Defense = 0;
-    //---------------------------------
 
-    //---------------------------------
     public float CharacterHeight = 1.0f;
     public float CharacterWidth = 1.0f;
 
     [Header("Display Options")]
     public bool displayHealth;
     private TextMeshPro healthText;
+
+    [Header("Status Effects")]
+    public List<statusInfo> characterStatus = new List<statusInfo>();
 
     //INPUT OF AVAIALBE ATTACKS--------------------------
     [HideInInspector]public movesetContainer moveContainer;
@@ -68,6 +73,26 @@ public class FighterClass : MonoBehaviour
     public virtual void Update()
     {
         healthText.text = HP.ToString() + "/" + HPMax.ToString();
+    }
+
+    public virtual void TurnStart()
+    {
+        for(int statusIdx = 0; statusIdx < characterStatus.Count; statusIdx++)
+        {
+            statusInfo status = characterStatus[statusIdx];
+            if(status.trigger == statusTrigger.TurnStart)
+            {
+                status.timeRemaining = status.timeRemaining - 1;
+                if(status.timeRemaining <= 0)
+                {
+                    if(status.status == statusEffects.Defending)
+                    {
+                        Defense -= status.intensity;
+                    }
+                    characterStatus.RemoveAt(statusIdx);
+                }
+            }
+        }
     }
 
     public void postBufferAttackEffect(int amount, attackType type, statusEffects effects, attackLocation location, GameObject source)

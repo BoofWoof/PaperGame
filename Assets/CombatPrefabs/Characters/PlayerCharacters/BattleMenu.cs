@@ -28,11 +28,14 @@ public class BattleMenu : ScriptableObject
     private GameObject selectionWheel;
     private TextMeshPro selectionText;
 
+    //ShadingInfo
+    public Material spriteShader;
+
     public void Activate()
     {
         moveCount = movesList.Length;
         spriteObjects = new GameObject[moveCount];
-        centerPoint = new Vector3(characterTarget.transform.position.x - characterWidth, characterTarget.transform.position.y + characterHeight + 0.5f, characterTarget.transform.position.z);
+        centerPoint = new Vector3(characterTarget.transform.position.x - characterWidth, characterTarget.transform.position.y + characterHeight + 0.8f, characterTarget.transform.position.z - 0.2f);
 
         selectionWheel = Instantiate(characterTarget.GetComponent<FighterClass>().SelectionWheel, centerPoint, Quaternion.identity);
         selectionText = selectionWheel.GetComponent<TextMeshPro>();
@@ -42,7 +45,10 @@ public class BattleMenu : ScriptableObject
         {
             GameObject moveSprite = new GameObject("Menu Sprite");
             SpriteRenderer renderer = moveSprite.AddComponent<SpriteRenderer>();
+            renderer.sortingOrder = 5;
             renderer.sprite = spriteList[spriteIdx];
+            //renderer.material = spriteShader;
+            //moveSprite.AddComponent<SpriteFrontShader>();
             float xOffset = Mathf.Cos(2f * Mathf.PI * ((1.0f * spriteIdx - currentRotation) / moveCount)) * 0.75f;
             float yOffset = Mathf.Sin(2f * Mathf.PI * ((1.0f * spriteIdx - currentRotation) / moveCount)) * 0.75f;
             moveSprite.transform.position = centerPoint + new Vector3(xOffset, yOffset, 0);
