@@ -4,7 +4,7 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -3374827970140768718
-    second: MorganStaff
+    second: MorganStickBell
   - first:
       213: -5657131248742641783
     second: MorganBell
@@ -64,7 +64,7 @@ TextureImporter:
     second: MorganCrazyFace
   - first:
       213: -9203419437103375140
-    second: MorganStaff
+    second: MorganStickBell
   - first:
       213: -2282066225405441738
     second: MorganBell
@@ -749,10 +749,10 @@ TextureImporter:
         serializedVersion: 2
         x: 8
         y: 407
-        width: 130
+        width: 187
         height: 421
       alignment: 9
-      pivot: {x: 0.31935197, y: 0.28999686}
+      pivot: {x: 0.22862802, y: 0.29447433}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -768,8 +768,8 @@ TextureImporter:
       name: MorganBell
       rect:
         serializedVersion: 2
-        x: 158
-        y: 441
+        x: 898
+        y: 93
         width: 56
         height: 57
       alignment: 9
@@ -1054,6 +1054,27 @@ TextureImporter:
       bones: []
       spriteID: 2fd55add04f0ad880800000000000000
       internalID: -8585532968357503502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MorganStickBell
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 75
+        width: 89
+        height: 114
+      alignment: 9
+      pivot: {x: 0.4999993, y: 0.8637797}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 236f4bd77d33a21d0800000000000000
+      internalID: -3374827970140768718
       vertices: []
       indices: 
       edges: []
