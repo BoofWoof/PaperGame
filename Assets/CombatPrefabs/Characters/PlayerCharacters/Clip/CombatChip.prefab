@@ -76,6 +76,10 @@ MonoBehaviour:
   HP: 20
   Power: 2
   Defense: 0
+  WalkSpeed: 5
+  JumpSpeed: 2
+  SwimSpeed: 1
+  MaxJumpHeight: 1
   CharacterHeight: 1.3
   CharacterWidth: 1
   displayHealth: 0

@@ -56,7 +56,7 @@ public class CombatGrid : MonoBehaviour
                 gridHeight[row, col] = 0;
                 blockGrid[row, col] = Instantiate(CombatMapper.blockMap[defaultBlock], new Vector3(col * xOffset, gridHeight[row, col] * zOffset, row * yOffset), Quaternion.identity);
                 //blockGrid[row, col].transform.localScale = new Vector3(30, 30, 30);
-                blockGrid[row, col].transform.eulerAngles = new Vector3(-90, 0, 0);
+                //blockGrid[row, col].transform.eulerAngles = new Vector3(-90, 0, 0);
             }
         }
     }
@@ -158,7 +158,7 @@ public class CombatGrid : MonoBehaviour
                 if (Pobject is null)
                 {
                     GameObject block = blockGrid[row, col];
-                    objectGrid[row, col] = Instantiate(CombatMapper.objectMap[selectedObject], block.transform.position + new Vector3(0, 0.6f, 0), Quaternion.identity);
+                    objectGrid[row, col] = Instantiate(CombatMapper.objectMap[selectedObject], block.transform.position + new Vector3(0, 0, 0), Quaternion.identity);
                 }
             }
         }
@@ -196,7 +196,7 @@ public class CombatGrid : MonoBehaviour
                 if (character is null)
                 {
                     GameObject block = blockGrid[row, col];
-                    characterGrid[row, col] = Instantiate(CombatMapper.characterMap[selectedCharacter], block.transform.position + new Vector3(0, 0.6f, 0), Quaternion.identity);
+                    characterGrid[row, col] = Instantiate(CombatMapper.characterMap[selectedCharacter], block.transform.position + new Vector3(0, 0, 0), Quaternion.identity);
                 }
             }
         }
@@ -272,12 +272,12 @@ public class CombatGrid : MonoBehaviour
                 GameObject character = characterGrid[row, col];
                 if (!(character is null))
                 {
-                    character.transform.position = block.transform.position + new Vector3(0, 0.6f, 0);
+                    character.transform.position = block.transform.position + new Vector3(0, 0, 0);
                 }
                 GameObject Pobject = objectGrid[row, col];
                 if (!(Pobject is null))
                 {
-                    Pobject.transform.position = block.transform.position + new Vector3(0, 0.6f, 0);
+                    Pobject.transform.position = block.transform.position + new Vector3(0, 0, 0);
                 }
                 for (int above_row = row + 1; above_row < rows; above_row++)
                 {
@@ -289,12 +289,12 @@ public class CombatGrid : MonoBehaviour
                         character = characterGrid[above_row, col];
                         if (!(character is null))
                         {
-                            character.transform.position = block.transform.position + new Vector3(0, 0.6f, 0);
+                            character.transform.position = block.transform.position + new Vector3(0, 0, 0);
                         }
                         Pobject = objectGrid[above_row, col];
                         if (!(Pobject is null))
                         {
-                            Pobject.transform.position = block.transform.position + new Vector3(0, 0.6f, 0);
+                            Pobject.transform.position = block.transform.position + new Vector3(0, 0, 0);
                         }
                     }
                 }
@@ -315,12 +315,12 @@ public class CombatGrid : MonoBehaviour
                 GameObject character = characterGrid[row, col];
                 if (!(character is null))
                 {
-                    character.transform.position = block.transform.position + new Vector3(0, 0.6f, 0);
+                    character.transform.position = block.transform.position + new Vector3(0, 0, 0);
                 }
                 GameObject Pobject = objectGrid[row, col];
                 if (!(Pobject is null))
                 {
-                    Pobject.transform.position = block.transform.position + new Vector3(0, 0.6f, 0);
+                    Pobject.transform.position = block.transform.position + new Vector3(0, 0, 0);
                 }
                 for (int below_row = row - 1; below_row > -1; below_row--)
                 {
@@ -332,12 +332,12 @@ public class CombatGrid : MonoBehaviour
                         character = characterGrid[below_row, col];
                         if (!(character is null))
                         {
-                            character.transform.position = block.transform.position + new Vector3(0, 0.6f, 0);
+                            character.transform.position = block.transform.position + new Vector3(0, 0, 0);
                         }
                         Pobject = objectGrid[below_row, col];
                         if (!(Pobject is null))
                         {
-                            Pobject.transform.position = block.transform.position + new Vector3(0, 0.6f, 0);
+                            Pobject.transform.position = block.transform.position + new Vector3(0, 0, 0);
                         }
                     }
                 }
@@ -367,7 +367,7 @@ public class CombatGrid : MonoBehaviour
             int col = 0;
             newGridHeight[row, col] = 0;
             newBlockGrid[row, col] = Instantiate(CombatMapper.blockMap[defaultBlock], new Vector3(col * xOffset, newGridHeight[row, col] * zOffset, row * yOffset), Quaternion.identity);
-            newBlockGrid[row, col].transform.eulerAngles = new Vector3(-90, 0, 0);
+            //newBlockGrid[row, col].transform.eulerAngles = new Vector3(-90, 0, 0);
         }
         blockGrid = newBlockGrid;
         characterGrid = newCharacterGrid;
@@ -437,7 +437,7 @@ public class CombatGrid : MonoBehaviour
             int col = cols;
             newGridHeight[row, col] = 0;
             newBlockGrid[row, col] = Instantiate(CombatMapper.blockMap[defaultBlock], new Vector3(col * xOffset, newGridHeight[row, col] * zOffset, row * yOffset), Quaternion.identity);
-            newBlockGrid[row, col].transform.eulerAngles = new Vector3(-90, 0, 0);
+            //newBlockGrid[row, col].transform.eulerAngles = new Vector3(-90, 0, 0);
         }
         blockGrid = newBlockGrid;
         characterGrid = newCharacterGrid;
@@ -507,7 +507,7 @@ public class CombatGrid : MonoBehaviour
             int row = 0;
             newGridHeight[row, col] = gridHeight[row, col];
             newBlockGrid[row, col] = Instantiate(CombatMapper.blockMap[defaultBlock], new Vector3(col * xOffset, newGridHeight[row, col] * zOffset, row * yOffset), Quaternion.identity);
-            newBlockGrid[row, col].transform.eulerAngles = new Vector3(-90, 0, 0);
+            //newBlockGrid[row, col].transform.eulerAngles = new Vector3(-90, 0, 0);
         }
         blockGrid = newBlockGrid;
         characterGrid = newCharacterGrid;
@@ -571,7 +571,7 @@ public class CombatGrid : MonoBehaviour
             int row = rows;
             newGridHeight[row, col] = gridHeight[row - 1, col];
             newBlockGrid[row, col] = Instantiate(CombatMapper.blockMap[defaultBlock], new Vector3(col * xOffset, newGridHeight[row, col] * zOffset, row * yOffset), Quaternion.identity);
-            newBlockGrid[row, col].transform.eulerAngles = new Vector3(-90, 0, 0);
+            //newBlockGrid[row, col].transform.eulerAngles = new Vector3(-90, 0, 0);
         }
         blockGrid = newBlockGrid;
         characterGrid = newCharacterGrid;
@@ -630,12 +630,12 @@ public class CombatGrid : MonoBehaviour
                 GameObject character = characterGrid[row, col];
                 if (!(character is null))
                 {
-                    character.transform.position = new Vector3(col * xOffset, gridHeight[row, col] * zOffset + 0.6f, row * yOffset);
+                    character.transform.position = new Vector3(col * xOffset, gridHeight[row, col] * zOffset + 0, row * yOffset);
                 }
                 GameObject Pobject = objectGrid[row, col];
                 if (!(Pobject is null))
                 {
-                    Pobject.transform.position = new Vector3(col * xOffset, gridHeight[row, col] * zOffset + 0.6f, row * yOffset);
+                    Pobject.transform.position = new Vector3(col * xOffset, gridHeight[row, col] * zOffset + 0, row * yOffset);
                 }
             }
         }
@@ -768,14 +768,14 @@ public class CombatGrid : MonoBehaviour
                 gridHeight[row, col] = _containerCache.gridHeight[row * cols + col];
                 blockGrid[row, col] = Instantiate(CombatMapper.blockMap[_containerCache.blockGrid[row * cols + col]], new Vector3(col * xOffset, gridHeight[row, col] * zOffset, row * yOffset), Quaternion.identity);
                 //blockGrid[row, col].transform.localScale = new Vector3(30, 30, 30);
-                blockGrid[row, col].transform.eulerAngles = new Vector3(-90, 0, 0);
+                //blockGrid[row, col].transform.eulerAngles = new Vector3(-90, 0, 0);
                 if (_containerCache.characterGrid[row * cols + col] > -1)
                 {
-                    characterGrid[row, col] = Instantiate(CombatMapper.characterMap[_containerCache.characterGrid[row * cols + col]], blockGrid[row, col].transform.position + new Vector3(0, 0.6f, 0), Quaternion.identity);
+                    characterGrid[row, col] = Instantiate(CombatMapper.characterMap[_containerCache.characterGrid[row * cols + col]], blockGrid[row, col].transform.position + new Vector3(0, 0, 0), Quaternion.identity);
                 }
                 if (_containerCache.objectGrid[row * cols + col] > -1)
                 {
-                    objectGrid[row, col] = Instantiate(CombatMapper.objectMap[_containerCache.objectGrid[row * cols + col]], blockGrid[row, col].transform.position + new Vector3(0, 0.6f, 0), Quaternion.identity);
+                    objectGrid[row, col] = Instantiate(CombatMapper.objectMap[_containerCache.objectGrid[row * cols + col]], blockGrid[row, col].transform.position + new Vector3(0, 0, 0), Quaternion.identity);
                 }
             }
         }

@@ -38,6 +38,13 @@ public class FighterClass : MonoBehaviour
     public int HP = 20;
     public int Power = 2;
     public int Defense = 0;
+    public float WalkSpeed = 5.0f;
+    public float JumpSpeed = 2.0f;
+    public float SwimSpeed = 1.0f;
+    public int MaxJumpHeight = 1;
+    public bool CanWalk = true;
+    public bool CanFly = false;
+    public bool CanSwim = false;
 
     public float CharacterHeight = 1.0f;
     public float CharacterWidth = 1.0f;
@@ -51,6 +58,7 @@ public class FighterClass : MonoBehaviour
 
     //INPUT OF AVAIALBE ATTACKS--------------------------
     [HideInInspector]public movesetContainer moveContainer;
+    [HideInInspector]public CutSceneClass move;
     //---------------------------------------------------
 
     public virtual void Awake()

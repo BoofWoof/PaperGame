@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd67e239ac09cb46a0eaddcc4849d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterName: Morgana
+  CharacterName: Morgan
   characterPosition: 0
   SelectionWheel: {fileID: 2257321630957254045, guid: 6fe8dd55b8074c24d9ad4c099e59d986,
     type: 3}
@@ -74,10 +74,18 @@ MonoBehaviour:
   HP: 20
   Power: 2
   Defense: 0
+  WalkSpeed: 3
+  JumpSpeed: 2
+  SwimSpeed: 1
+  MaxJumpHeight: 1
+  CanWalk: 1
+  CanFly: 0
+  CanSwim: 0
   CharacterHeight: 1.5
   CharacterWidth: 1
   displayHealth: 0
   moveContainer: {fileID: 0}
+  move: {fileID: 0}
 --- !u!1001 &342279383283329747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -98,7 +106,7 @@ PrefabInstance:
     - target: {fileID: 1085157379728176082, guid: 20ae95057e1bdc340a5a1ab436f411ec,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.238
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1085157379728176082, guid: 20ae95057e1bdc340a5a1ab436f411ec,
         type: 3}

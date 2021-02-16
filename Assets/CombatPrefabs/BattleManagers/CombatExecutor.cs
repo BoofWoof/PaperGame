@@ -38,7 +38,6 @@ public class CombatExecutor : MonoBehaviour
     private CutSceneClass PartnerMov;
     //Enemy Info
     private List<Vector2> EnemyPosList = new List<Vector2>();
-    private List<CutSceneClass> EnemyMovList = new List<CutSceneClass>();
 
     //Menu Info
     private List<BattleMenu> currentMenu = new List<BattleMenu>();
@@ -87,10 +86,10 @@ public class CombatExecutor : MonoBehaviour
                 gridHeight[row, col] = _containerCache.gridHeight[row * cols + col];
                 blockGrid[row, col] = Instantiate(CombatMapper.blockMap[_containerCache.blockGrid[row * cols + col]], new Vector3(col * xOffset, gridHeight[row, col] * zOffset, row * yOffset), Quaternion.identity);
                 //blockGrid[row, col].transform.localScale = new Vector3(30, 30, 30);
-                blockGrid[row, col].transform.eulerAngles = new Vector3(-90, 0, 0);
+                //blockGrid[row, col].transform.eulerAngles = new Vector3(-90, 0, 0);
                 if (_containerCache.characterGrid[row * cols + col] > -1)
                 {
-                    characterGrid[row, col] = Instantiate(CombatMapper.characterMap[_containerCache.characterGrid[row * cols + col]], blockGrid[row, col].transform.position + new Vector3(0, 0.6f, 0), Quaternion.identity);
+                    characterGrid[row, col] = Instantiate(CombatMapper.characterMap[_containerCache.characterGrid[row * cols + col]], blockGrid[row, col].transform.position + new Vector3(0, 0, 0), Quaternion.identity);
                     if (_containerCache.characterGrid[row * cols + col] == 0)
                     {
                         ClipPos = new Vector2(row, col);
@@ -106,7 +105,7 @@ public class CombatExecutor : MonoBehaviour
                 }
                 if (_containerCache.objectGrid[row * cols + col] > -1)
                 {
-                    objectGrid[row, col] = Instantiate(CombatMapper.objectMap[_containerCache.objectGrid[row * cols + col]], blockGrid[row, col].transform.position + new Vector3(0, 0.6f, 0), Quaternion.identity);
+                    objectGrid[row, col] = Instantiate(CombatMapper.objectMap[_containerCache.objectGrid[row * cols + col]], blockGrid[row, col].transform.position + new Vector3(0, 0, 0), Quaternion.identity);
                 }
             }
         }
@@ -278,8 +277,14 @@ public class CombatExecutor : MonoBehaviour
 
     void EnemyTurn()
     {
-        turnTimeLeft -= Time.deltaTime;
-        TimerBar.transform.localScale = new Vector3(turnTimeLeft / turnLength, 1, 1);
+        if (turnTimeLeft > 0)
+        {
+            turnTimeLeft -= Time.deltaTime;
+            TimerBar.transform.localScale = new Vector3(turnTimeLeft / turnLength, 1, 1);
+        } else
+        {
+            turnTimeLeft = 0;
+        }
         int HorMov = 0;
         int VerMov = 0;
         if (ClipMov is null)
@@ -352,7 +357,45 @@ public class CombatExecutor : MonoBehaviour
             }
         }
 
-        if (turnTimeLeft < 0 && PartnerMov is null && ClipMov is null)
+        bool allEnemyMoveDone = true;
+        for (int enemyIdx = 0; enemyIdx < EnemyPosList.Count; enemyIdx++)
+        {
+            Vector2 enemyPos = EnemyPosList[enemyIdx];
+            FighterClass enemy = characterGrid[(int)enemyPos.x, (int)enemyPos.y].GetComponent<FighterClass>();
+            if (enemy.move is null)
+            {
+                if (turnTimeLeft > 0)
+                {
+                    allEnemyMoveDone = false;
+                    AStar router = ScriptableObject.CreateInstance<AStar>();
+                    List<Vector2> goalPos = new List<Vector2>();
+                    goalPos.Add(ClipPos);
+                    goalPos.Add(PartnerPos);
+                    (Vector2 newPos, FighterClass.CharacterPosition moveType) = router.GetNextTile(
+                        enemy,
+                        blockGrid,
+                        characterGrid,
+                        objectGrid,
+                        gridHeight,
+                        enemyPos,
+                        goalPos
+                        );
+                    print(newPos);
+                    (EnemyPosList[enemyIdx], enemy.move) = MoveCharacter(enemyPos, (int)(newPos.y - enemyPos.y), (int)(newPos.x - enemyPos.x));
+                }
+            }
+            else
+            {
+                allEnemyMoveDone = false;
+                if (enemy.move.Update())
+                {
+                    Destroy(enemy.move);
+                    enemy.move = null;
+                }
+            }
+        }
+
+        if (turnTimeLeft <= 0 && PartnerMov is null && ClipMov is null && allEnemyMoveDone)
         {
             currentTurn = turnManager.NextTurn();
         }
@@ -367,29 +410,34 @@ public class CombatExecutor : MonoBehaviour
     (Vector2, CutSceneClass) MoveCharacter(Vector2 CurrentPos, int HorChange, int VerChange)
     {
         Vector2 EndPos = new Vector2(CurrentPos.x + VerChange, CurrentPos.y + HorChange);
-        if (EndPos.x >= 0 && EndPos.x < rows && EndPos.y >= 0 && EndPos.y < cols && characterGrid[(int)EndPos.x, (int)EndPos.y] is null)
+        GameObject character = characterGrid[(int)CurrentPos.x, (int)CurrentPos.y];
+        FighterClass stats = character.GetComponent<FighterClass>();
+        if (EndPos.x >= 0 && EndPos.x < rows && EndPos.y >= 0 && EndPos.y < cols && characterGrid[(int)EndPos.x, (int)EndPos.y] is null &&
+            (gridHeight[(int)EndPos.x, (int)EndPos.y] - gridHeight[(int)CurrentPos.x, (int)CurrentPos.y] <= stats.MaxJumpHeight) &&
+            blockGrid[(int)EndPos.x, (int)EndPos.y].GetComponent<BlockTemplate>().Walkable)
         {
             CutSceneClass MoveTo;
-            GameObject character = characterGrid[(int)CurrentPos.x, (int)CurrentPos.y];
             characterGrid[(int)CurrentPos.x, (int)CurrentPos.y] = null;
             characterGrid[(int)EndPos.x, (int)EndPos.y] = character;
             if (gridHeight[(int)CurrentPos.x, (int)CurrentPos.y] != gridHeight[(int)EndPos.x, (int)EndPos.y])
             {
                 JumpToLocation JumpTo = ScriptableObject.CreateInstance<JumpToLocation>();
-                JumpTo.endPosition = new Vector3(EndPos.y * xOffset, gridHeight[(int)EndPos.x, (int)EndPos.y] * zOffset + 0.6f, EndPos.x * yOffset);
+                JumpTo.endPosition = new Vector3(EndPos.y * xOffset, gridHeight[(int)EndPos.x, (int)EndPos.y] * zOffset + 0, EndPos.x * yOffset);
                 JumpTo.parent = character;
                 JumpTo.heightOverHighestCharacter = 1;
-                JumpTo.speed = 2f;
+                JumpTo.speed = stats.JumpSpeed;
                 JumpTo.Activate();
                 MoveTo = JumpTo;
-            } else
+            }
+            else
             {
                 MoveToLocation WalkTo = ScriptableObject.CreateInstance<MoveToLocation>();
-                WalkTo.endPosition = new Vector3(EndPos.y * xOffset, gridHeight[(int)EndPos.x, (int)EndPos.y] * zOffset + 0.6f, EndPos.x * yOffset);
+                WalkTo.endPosition = new Vector3(EndPos.y * xOffset, gridHeight[(int)EndPos.x, (int)EndPos.y] * zOffset + 0, EndPos.x * yOffset);
                 WalkTo.parent = character;
-                WalkTo.speed = 5f;
+                WalkTo.speed = stats.WalkSpeed;
                 WalkTo.Activate();
                 MoveTo = WalkTo;
+
             }
             return (EndPos, MoveTo);
         } else
@@ -506,6 +554,7 @@ public class CombatExecutor : MonoBehaviour
                     targeter = null;
                     currentMenu = new List<BattleMenu>();
                     currentTurn = turnManager.NextTurn();
+                    AbilityDescription.SetActive(false);
                 }
             }
         }
@@ -521,12 +570,12 @@ public class CombatExecutor : MonoBehaviour
                 GameObject character = characterGrid[row, col];
                 if (!(character is null))
                 {
-                    character.transform.position = new Vector3(col * xOffset, gridHeight[row, col] * zOffset + 0.6f, row * yOffset);
+                    character.transform.position = new Vector3(col * xOffset, gridHeight[row, col] * zOffset + 0, row * yOffset);
                 }
                 GameObject Pobject = objectGrid[row, col];
                 if (!(Pobject is null))
                 {
-                    Pobject.transform.position = new Vector3(col * xOffset, gridHeight[row, col] * zOffset + 0.6f, row * yOffset);
+                    Pobject.transform.position = new Vector3(col * xOffset, gridHeight[row, col] * zOffset + 0, row * yOffset);
                 }
             }
         }
@@ -551,7 +600,7 @@ public class CombatExecutor : MonoBehaviour
     void FocusOnCharacter(Vector2 PlayerPos)
     {
         combatCamera.transform.position = characterGrid[(int)PlayerPos.x, (int)PlayerPos.y].transform.position
-            + new Vector3(1f, 6f, -8);
+            + new Vector3(1f, 5.8f, -8);
         combatCamera.transform.eulerAngles = new Vector3(30f, 0, 0);
     }
 }

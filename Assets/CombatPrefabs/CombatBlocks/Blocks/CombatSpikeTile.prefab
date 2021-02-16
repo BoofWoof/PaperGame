@@ -1,24 +1,77 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!65 &6120065069608794151
+--- !u!1 &4301510048133450725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8548176706882187839}
+  - component: {fileID: 1536237394680246443}
+  - component: {fileID: -6421449426000528650}
+  m_Layer: 0
+  m_Name: CombatSpikeTile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8548176706882187839
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4301510048133450725}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.608, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2058460021598147839}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1536237394680246443
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8369901359651174065}
+  m_GameObject: {fileID: 4301510048133450725}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.04, y: 0.039999995, z: 0.034999993}
-  m_Center: {x: 0, y: -5.32907e-17, z: 0.0074999984}
---- !u!1001 &8711849682652629984
+  m_Size: {x: 1.14, y: 0.88, z: 1.15}
+  m_Center: {x: 0, y: -0.45, z: 0}
+--- !u!114 &-6421449426000528650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4301510048133450725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f68bf9aa81bfb74993478963abc0128, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Walkable: 1
+  Flyable: 1
+  Swimable: 0
+  PlaceObjectsOn: 0
+  Alterable: 0
+  WalkCost: 2
+  FlyCost: 1
+  SwimCost: 1
+--- !u!1001 &1953338510778708756
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 8548176706882187839}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d105a277085a3b94580aee5a37025c2c,
         type: 3}
@@ -43,17 +96,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d105a277085a3b94580aee5a37025c2c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.72
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d105a277085a3b94580aee5a37025c2c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.47
+      value: -0.608
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d105a277085a3b94580aee5a37025c2c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.54
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d105a277085a3b94580aee5a37025c2c,
         type: 3}
@@ -68,7 +121,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d105a277085a3b94580aee5a37025c2c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d105a277085a3b94580aee5a37025c2c,
         type: 3}
@@ -97,9 +150,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d105a277085a3b94580aee5a37025c2c, type: 3}
---- !u!1 &8369901359651174065 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d105a277085a3b94580aee5a37025c2c,
+--- !u!4 &2058460021598147839 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d105a277085a3b94580aee5a37025c2c,
     type: 3}
-  m_PrefabInstance: {fileID: 8711849682652629984}
+  m_PrefabInstance: {fileID: 1953338510778708756}
   m_PrefabAsset: {fileID: 0}

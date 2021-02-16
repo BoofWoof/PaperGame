@@ -45,7 +45,7 @@ public class BattleMenu : ScriptableObject
         {
             GameObject moveSprite = new GameObject("Menu Sprite");
             SpriteRenderer renderer = moveSprite.AddComponent<SpriteRenderer>();
-            renderer.sortingOrder = 5;
+            renderer.sortingOrder = 999;
             renderer.sprite = spriteList[spriteIdx];
             //renderer.material = spriteShader;
             //moveSprite.AddComponent<SpriteFrontShader>();
