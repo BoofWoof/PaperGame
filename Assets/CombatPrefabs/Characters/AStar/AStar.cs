@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using TMPro;
+
 public class AStar : ScriptableObject
 {
     //Character To Move
@@ -21,6 +23,7 @@ public class AStar : ScriptableObject
     int rows;
     int cols;
 
+    /*
     private struct AStarNode
     {
         public float g;
@@ -31,6 +34,7 @@ public class AStar : ScriptableObject
         public Vector2 parent;
         public FighterClass.CharacterPosition move;
     }
+    */
 
     public (Vector2, FighterClass.CharacterPosition) GetNextTile(
         FighterClass character,
@@ -55,7 +59,48 @@ public class AStar : ScriptableObject
 
         return NextMove(StartPosition);
     }
-    
+
+    public void Debug(
+        FighterClass character,
+        GameObject[,] blockGrid,
+        GameObject[,] characterGrid,
+        GameObject[,] objectGrid,
+        int[,] tileHeight,
+        Vector2 StartPosition,
+        List<Vector2> goalCoordinates
+        )
+    {
+        this.characterInfo = character;
+
+        this.blockGrid = blockGrid;
+        this.characterGrid = characterGrid;
+        this.objectGrid = objectGrid;
+        this.tileHeight = tileHeight;
+        this.goalCoordinates = goalCoordinates;
+
+        this.rows = blockGrid.GetLength(0);
+        this.cols = blockGrid.GetLength(1);
+
+        NextMove(StartPosition);
+
+        for (int row = 0; row < rows; row++)
+        {
+            for (int col = 0; col < cols; col++)
+            {
+                if (!(routeMap[row, col] is null))
+                {
+                    GameObject debugText = new GameObject("debugText");
+                    debugText.transform.position = blockGrid[row, col].transform.position + new Vector3(0, 0.5f, 0);
+                    TextMeshPro tx = debugText.AddComponent<TextMeshPro>();
+                    tx.text = routeMap[row, col].totalCost.ToString();
+                    tx.fontSize = 10;
+                    tx.verticalAlignment = VerticalAlignmentOptions.Middle;
+                    tx.horizontalAlignment = HorizontalAlignmentOptions.Center;
+                }
+            }
+        }
+    }
+
     public (Vector2, FighterClass.CharacterPosition) NextMove(Vector2 startCoordinate)
     {
         routeMap = new AStarNode[rows, cols];
@@ -63,6 +108,10 @@ public class AStar : ScriptableObject
 
         //Create and Expand first node.
         AStarNode newNode = createRootNode(startCoordinate);
+        if(newNode.h == 0)
+        {
+            return (startCoordinate, FighterClass.CharacterPosition.Ground);
+        }
         routeMap[(int)startCoordinate.x, (int)startCoordinate.y] = newNode;
         costList.Add(newNode);
 
@@ -71,9 +120,10 @@ public class AStar : ScriptableObject
         while (!solved)
         {
             steps++;
-            Debug.Log(steps);
-            if (steps > 100)
+            //Debug.Log(steps);
+            if (steps > 200)
             {
+                //Debug.Log(costList.Count);
                 break;
             }
             AStarNode bestNode = costList[0];
@@ -88,11 +138,10 @@ public class AStar : ScriptableObject
             //Add nodes based on cost.
             foreach (AStarNode node in newNodes)
             {
-                addNodeToRouteMap(node);
                 if (costList.Count == 0)
                 {
                     costList.Add(node);
-                } else if (node.totalCost > costList[costList.Count-1].totalCost)
+                } else if (node.totalCost >= costList[costList.Count-1].totalCost)
                 {
                     costList.Add(node);
                 } else
@@ -107,14 +156,18 @@ public class AStar : ScriptableObject
                     }
                 }
             }
+            if(costList.Count == 0)
+            {
+                break;
+            }
         }
-        return (Vector2.zero, FighterClass.CharacterPosition.Ground);
+        return (startCoordinate, FighterClass.CharacterPosition.Ground);
     }
 
     private (Vector2, FighterClass.CharacterPosition) getNextMove(AStarNode bestNode)
     {
         AStarNode node = bestNode;
-        AStarNode prevNode = new AStarNode();
+        AStarNode prevNode = null;
         while (node.parent != new Vector2(-1, -1))
         {
             prevNode = node;
@@ -123,6 +176,7 @@ public class AStar : ScriptableObject
         return (prevNode.coordinates, prevNode.move);
     }
 
+    /*
     private void addNodeToRouteMap(AStarNode node)
     {
         Vector2 coordinate = node.coordinates;
@@ -137,9 +191,11 @@ public class AStar : ScriptableObject
             }
         }
     }
+    */
 
     private List<AStarNode> expandNode(AStarNode bestNode)
     {
+        bestNode.expanded = true;
         List<AStarNode> newNodes = new List<AStarNode>();
         Vector2 coordinates = bestNode.coordinates;
 
@@ -166,14 +222,55 @@ public class AStar : ScriptableObject
         return newNodes;
     }
 
+    private bool checkIfExpand(Vector2 from, Vector2 to)
+    {
+        if (to.y < 0 || to.y > cols - 1 || to.x < 0 || to.x > rows - 1)
+        {
+            return false;
+        }
+        if (!(routeMap[(int)to.x, (int)to.y] is null))
+        {
+            return false;
+        }
+        /*
+        if(routeMap[(int)to.x, (int)to.y].expanded)
+        {
+            return false;
+        }
+        */
+        bool isGoal = false;
+        foreach (Vector2 goal in goalCoordinates)
+        {
+            if (goal == to)
+            {
+                isGoal = true;
+            }
+        }
+        if (!(characterGrid[(int)to.x, (int)to.y] is null) && !isGoal)
+        {
+            return false;
+        }
+        BlockTemplate blockInfo = blockGrid[(int)to.x, (int)to.y].GetComponent<BlockTemplate>();
+        if (!((characterInfo.CanWalk && blockInfo.Walkable) ||
+            (characterInfo.CanFly && blockInfo.Flyable) ||
+            (characterInfo.CanSwim && blockInfo.Swimable)))
+        {
+            return false;
+        }
+        int heightDifference = tileHeight[(int)to.x, (int)to.y] - tileHeight[(int)from.x, (int)from.y];
+        if (heightDifference > characterInfo.MaxJumpHeight)
+        {
+            return false;
+        }
+        return true;
+    }
+
     private AStarNode createNewNode(AStarNode bestNode, Vector2 newCoordinate)
     {
-        bestNode.expanded = true;
-
-        AStarNode newNode = new AStarNode();
+        AStarNode newNode = ScriptableObject.CreateInstance<AStarNode>();
         BlockTemplate blockInfo = blockGrid[(int)newCoordinate.x, (int)newCoordinate.y].GetComponent<BlockTemplate>();
 
-        float cheapestMove = 1000;
+        float cheapestMove = 10000;
         if (characterInfo.CanWalk)
         {
             if (blockInfo.WalkCost < cheapestMove)
@@ -197,10 +294,10 @@ public class AStar : ScriptableObject
         }
         
         newNode.g = bestNode.g + cheapestMove;
-        float closestGoal = 1000;
+        float closestGoal = 10000;
         foreach (Vector2 goal in goalCoordinates)
         {
-            float distance = Mathf.Sqrt(Mathf.Pow((goal.x - newCoordinate.x), 2) + Mathf.Pow((goal.y - newCoordinate.y), 2));
+            float distance = Mathf.Abs(goal.x - newCoordinate.x) + Mathf.Abs(goal.y - newCoordinate.y);
             if (distance < closestGoal)
             {
                 closestGoal = distance;
@@ -209,18 +306,22 @@ public class AStar : ScriptableObject
 
         newNode.h = closestGoal;
         newNode.totalCost = newNode.g + newNode.h;
+        //Debug.Log(newNode.totalCost);
         newNode.expanded = false;
         newNode.coordinates = newCoordinate;
         newNode.parent = bestNode.coordinates;
+
+        routeMap[(int)newCoordinate.x, (int)newCoordinate.y] = newNode;
+
         return newNode;
     }
 
     private AStarNode createRootNode(Vector2 newCoordinate)
     {
-        AStarNode newNode = new AStarNode();
+        AStarNode newNode = ScriptableObject.CreateInstance<AStarNode>();
         BlockTemplate blockInfo = blockGrid[(int)newCoordinate.x, (int)newCoordinate.y].GetComponent<BlockTemplate>();
 
-        float cheapestMove = 1000;
+        float cheapestMove = 10000;
         if (characterInfo.CanWalk)
         {
             if (blockInfo.WalkCost < cheapestMove)
@@ -247,10 +348,10 @@ public class AStar : ScriptableObject
         }
 
         newNode.g = cheapestMove;
-        float closestGoal = 1000;
+        float closestGoal = 10000;
         foreach (Vector2 goal in goalCoordinates)
         {
-            float distance = Mathf.Sqrt(Mathf.Pow((goal.x - newCoordinate.x), 2) + Mathf.Pow((goal.y - newCoordinate.y), 2));
+            float distance = Mathf.Abs(goal.x - newCoordinate.x) + Mathf.Abs(goal.y - newCoordinate.y); //Mathf.Sqrt(Mathf.Pow((goal.x - newCoordinate.x), 2) + Mathf.Pow((goal.y - newCoordinate.y), 2));
             if (distance < closestGoal)
             {
                 closestGoal = distance;
@@ -263,42 +364,5 @@ public class AStar : ScriptableObject
         newNode.coordinates = newCoordinate;
         newNode.parent = new Vector2(-1, -1);
         return newNode;
-    }
-
-    private bool checkIfExpand(Vector2 from, Vector2 to)
-    {
-        if(to.y < 0 || to.y > cols - 1 || to.x < 0 || to.x > rows - 1)
-        {
-            return false;
-        }
-        if(routeMap[(int)to.x, (int)to.y].expanded)
-        {
-            return false;
-        }
-        bool isGoal = false;
-        foreach (Vector2 goal in goalCoordinates)
-        {
-            if(goal == to)
-            {
-                isGoal = true;
-            }
-        }
-        if(!(characterGrid[(int)to.x, (int)to.y] is null) && !isGoal)
-        {
-            return false;
-        }
-        BlockTemplate blockInfo = blockGrid[(int)to.x, (int)to.y].GetComponent<BlockTemplate>();
-        if (!((characterInfo.CanWalk && blockInfo.Walkable) ||
-            (characterInfo.CanFly && blockInfo.Flyable) ||
-            (characterInfo.CanSwim && blockInfo.Swimable)))
-        {
-            return false;
-        }
-        int heightDifference = tileHeight[(int)to.x, (int)to.y] - tileHeight[(int)from.x, (int)from.y];
-        if (heightDifference > characterInfo.MaxJumpHeight)
-        {
-            return false;
-        }
-        return true;
     }
 }

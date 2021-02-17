@@ -63,7 +63,7 @@ MonoBehaviour:
   Swimable: 0
   PlaceObjectsOn: 0
   Alterable: 0
-  WalkCost: 4
+  WalkCost: 5
   FlyCost: 1
   SwimCost: 1
 --- !u!1001 &1953338510778708756

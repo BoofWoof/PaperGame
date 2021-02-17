@@ -59,6 +59,7 @@ public class FighterClass : MonoBehaviour
     //INPUT OF AVAIALBE ATTACKS--------------------------
     [HideInInspector]public movesetContainer moveContainer;
     [HideInInspector]public CutSceneClass move;
+    [HideInInspector]public Vector2 pos;
     //---------------------------------------------------
 
     public virtual void Awake()
@@ -101,6 +102,12 @@ public class FighterClass : MonoBehaviour
                 }
             }
         }
+    }
+
+    public virtual moveTemplate GetMove()
+    {
+        int moveIndex = Random.Range(0, moveContainer.moves.Length);
+        return moveContainer.moves[moveIndex].GetComponent<moveTemplate>();
     }
 
     public void postBufferAttackEffect(int amount, attackType type, statusEffects effects, attackLocation location, GameObject source)

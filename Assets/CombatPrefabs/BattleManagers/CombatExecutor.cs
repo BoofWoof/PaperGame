@@ -32,12 +32,12 @@ public class CombatExecutor : MonoBehaviour
     public CombatContainer _containerCache;
 
     //Ally Info
-    private Vector2 ClipPos;
+    private GameObject Clip;
     private CutSceneClass ClipMov;
-    private Vector2 PartnerPos;
+    private GameObject Partner;
     private CutSceneClass PartnerMov;
     //Enemy Info
-    private List<Vector2> EnemyPosList = new List<Vector2>();
+    private List<GameObject> EnemyList = new List<GameObject>();
 
     //Menu Info
     private List<BattleMenu> currentMenu = new List<BattleMenu>();
@@ -92,15 +92,18 @@ public class CombatExecutor : MonoBehaviour
                     characterGrid[row, col] = Instantiate(CombatMapper.characterMap[_containerCache.characterGrid[row * cols + col]], blockGrid[row, col].transform.position + new Vector3(0, 0, 0), Quaternion.identity);
                     if (_containerCache.characterGrid[row * cols + col] == 0)
                     {
-                        ClipPos = new Vector2(row, col);
+                        Clip = characterGrid[row, col];
+                        Clip.GetComponent<FighterClass>().pos = new Vector2(row, col);
                     }
                     else if (_containerCache.characterGrid[row * cols + col] == 1)
                     {
-                        PartnerPos = new Vector2(row, col);
+                        Partner = characterGrid[row, col];
+                        Partner.GetComponent<FighterClass>().pos = new Vector2(row, col);
                     }
                     else
                     {
-                        EnemyPosList.Add(new Vector2(row, col));
+                        characterGrid[row, col].GetComponent<FighterClass>().pos = new Vector2(row, col);
+                        EnemyList.Add(characterGrid[row, col]);
                     }
                 }
                 if (_containerCache.objectGrid[row * cols + col] > -1)
@@ -112,10 +115,10 @@ public class CombatExecutor : MonoBehaviour
         UpdatePositions();
 
         //Update Clip And Partner Stats
-        FighterClass ClipStats = characterGrid[(int)ClipPos.x, (int)ClipPos.y].GetComponent<FighterClass>();
+        FighterClass ClipStats = Clip.GetComponent<FighterClass>();
         ClipStats.HP = GameDataTracker.playerData.health;
         ClipStats.HPMax = GameDataTracker.playerData.maxHealth;
-        FighterClass PartnerStats = characterGrid[(int)PartnerPos.x, (int)PartnerPos.y].GetComponent<FighterClass>();
+        FighterClass PartnerStats = Partner.GetComponent<FighterClass>();
         PartnerStats.HP = GameDataTracker.playerData.FaeHealth;
         PartnerStats.HPMax = GameDataTracker.playerData.CompanionMaxHealth;
 
@@ -135,12 +138,15 @@ public class CombatExecutor : MonoBehaviour
             startGameWait -= Time.deltaTime;
         } else
         {
-            FighterClass ClipStats = characterGrid[(int)ClipPos.x, (int)ClipPos.y].GetComponent<FighterClass>();
-            print(ClipStats.Defense);
+            FighterClass ClipStats = Clip.GetComponent<FighterClass>();
+            //print(ClipStats.Defense);
 
             UpdateHealth();
 
             bool cutScenesDone = true;
+
+            Vector2 ClipPos = Clip.GetComponent<FighterClass>().pos;
+            Vector2 PartnerPos = Partner.GetComponent<FighterClass>().pos;
 
             if (cutScenesDone)
             {
@@ -309,7 +315,7 @@ public class CombatExecutor : MonoBehaviour
                     {
                         VerMov = -1;
                     }
-                    (ClipPos, ClipMov) = MoveCharacter(ClipPos, HorMov, VerMov);
+                    (Clip.GetComponent<FighterClass>().pos, ClipMov) = MoveCharacter(Clip.GetComponent<FighterClass>().pos, HorMov, VerMov);
                 }
             }
         }
@@ -343,7 +349,7 @@ public class CombatExecutor : MonoBehaviour
                     {
                         VerMov = -1;
                     }
-                    (PartnerPos, PartnerMov) = MoveCharacter(PartnerPos, HorMov, VerMov);
+                    (Partner.GetComponent<FighterClass>().pos, PartnerMov) = MoveCharacter(Partner.GetComponent<FighterClass>().pos, HorMov, VerMov);
                 }
 
             }
@@ -358,9 +364,9 @@ public class CombatExecutor : MonoBehaviour
         }
 
         bool allEnemyMoveDone = true;
-        for (int enemyIdx = 0; enemyIdx < EnemyPosList.Count; enemyIdx++)
+        for (int enemyIdx = 0; enemyIdx < EnemyList.Count; enemyIdx++)
         {
-            Vector2 enemyPos = EnemyPosList[enemyIdx];
+            Vector2 enemyPos = EnemyList[enemyIdx].GetComponent<FighterClass>().pos;
             FighterClass enemy = characterGrid[(int)enemyPos.x, (int)enemyPos.y].GetComponent<FighterClass>();
             if (enemy.move is null)
             {
@@ -369,8 +375,10 @@ public class CombatExecutor : MonoBehaviour
                     allEnemyMoveDone = false;
                     AStar router = ScriptableObject.CreateInstance<AStar>();
                     List<Vector2> goalPos = new List<Vector2>();
-                    goalPos.Add(ClipPos);
-                    goalPos.Add(PartnerPos);
+                    //Get Move
+                    moveTemplate move = enemy.GetMove();
+                    //Get Goals
+                    goalPos = move.findGoals(getTargets(move.targetType), rows, cols);
                     (Vector2 newPos, FighterClass.CharacterPosition moveType) = router.GetNextTile(
                         enemy,
                         blockGrid,
@@ -380,8 +388,21 @@ public class CombatExecutor : MonoBehaviour
                         enemyPos,
                         goalPos
                         );
-                    print(newPos);
-                    (EnemyPosList[enemyIdx], enemy.move) = MoveCharacter(enemyPos, (int)(newPos.y - enemyPos.y), (int)(newPos.x - enemyPos.x));
+                    /*
+                    if (Input.GetButton("Fire1"))
+                    {
+                        router.Debug(
+                            enemy,
+                            blockGrid,
+                            characterGrid,
+                            objectGrid,
+                            gridHeight,
+                            enemyPos,
+                            goalPos
+                            );
+                    }
+                    */
+                    (EnemyList[enemyIdx].GetComponent<FighterClass>().pos, enemy.move) = MoveCharacter(enemyPos, (int)(newPos.y - enemyPos.y), (int)(newPos.x - enemyPos.x));
                 }
             }
             else
@@ -455,78 +476,7 @@ public class CombatExecutor : MonoBehaviour
             AbilityDescriptionText.GetComponent<Text>().text = selectedMove.combatDescription;
             targeter = ScriptableObject.CreateInstance<Targeter>();
             moveTemplate.TargetType targetType = selectedMove.targetType;
-            List<GameObject> potentialTargets = new List<GameObject>();
-            if (targetType == moveTemplate.TargetType.Self)
-            {
-                potentialTargets.Add(selectedMove.character);
-            }
-            if (targetType == moveTemplate.TargetType.Clip)
-            {
-                potentialTargets.Add(characterGrid[(int)ClipPos.x, (int)ClipPos.y]);
-            }
-            if (targetType == moveTemplate.TargetType.Partner)
-            {
-                potentialTargets.Add(characterGrid[(int)PartnerPos.x, (int)PartnerPos.y]);
-            }
-            if (targetType == moveTemplate.TargetType.Allies)
-            {
-                potentialTargets.Add(characterGrid[(int)ClipPos.x, (int)ClipPos.y]);
-                potentialTargets.Add(characterGrid[(int)PartnerPos.x, (int)PartnerPos.y]);
-            }
-            //Enemy Targets
-            if (targetType == moveTemplate.TargetType.Enemies)
-            {
-                foreach (Vector2 EnemyPos in EnemyPosList)
-                {
-                    potentialTargets.Add(characterGrid[(int)EnemyPos.x, (int)EnemyPos.y]);
-                }
-            }
-            if (targetType == moveTemplate.TargetType.Ground)
-            {
-                foreach (Vector2 EnemyPos in EnemyPosList)
-                {
-                    GameObject enemy = characterGrid[(int)EnemyPos.x, (int)EnemyPos.y];
-                    FighterClass enemyInfo = enemy.GetComponent<FighterClass>();
-                    if (enemyInfo.characterPosition == FighterClass.CharacterPosition.Ground)
-                    {
-                        potentialTargets.Add(enemy);
-                    }
-                }
-            }
-            if (targetType == moveTemplate.TargetType.Flying)
-            {
-                foreach (Vector2 EnemyPos in EnemyPosList)
-                {
-                    GameObject enemy = characterGrid[(int)EnemyPos.x, (int)EnemyPos.y];
-                    FighterClass enemyInfo = enemy.GetComponent<FighterClass>();
-                    if (enemyInfo.characterPosition == FighterClass.CharacterPosition.Air)
-                    {
-                        potentialTargets.Add(enemy);
-                    }
-                }
-            }
-            if (targetType == moveTemplate.TargetType.Submerged)
-            {
-                foreach (Vector2 EnemyPos in EnemyPosList)
-                {
-                    GameObject enemy = characterGrid[(int)EnemyPos.x, (int)EnemyPos.y];
-                    FighterClass enemyInfo = enemy.GetComponent<FighterClass>();
-                    if (enemyInfo.characterPosition == FighterClass.CharacterPosition.Water)
-                    {
-                        potentialTargets.Add(enemy);
-                    }
-                }
-            }
-            //Environment
-            if (targetType == moveTemplate.TargetType.Tile)
-            {
-                Debug.Log("Not Yet Implemented");
-            }
-            if (targetType == moveTemplate.TargetType.Object)
-            {
-                Debug.Log("Not Yet Implemented");
-            }
-            targeter.potentialTargets = potentialTargets;
+            targeter.potentialTargets = getTargets(targetType);
             targeter.targetQuantity = selectedMove.targetQuantity;
             targeter.targeterSprite = selectedMove.character.GetComponent<FighterClass>().characterSelector;
             targeter.Activate();
@@ -560,6 +510,79 @@ public class CombatExecutor : MonoBehaviour
         }
     }
 
+    private List<GameObject> getTargets(moveTemplate.TargetType targetType)
+    {
+        List<GameObject> potentialTargets = new List<GameObject>();
+        if (targetType == moveTemplate.TargetType.Self)
+        {
+            potentialTargets.Add(selectedMove.character);
+        }
+        if (targetType == moveTemplate.TargetType.Clip)
+        {
+            potentialTargets.Add(Clip);
+        }
+        if (targetType == moveTemplate.TargetType.Partner)
+        {
+            potentialTargets.Add(Partner);
+        }
+        if (targetType == moveTemplate.TargetType.Allies)
+        {
+            potentialTargets.Add(Clip);
+            potentialTargets.Add(Partner);
+        }
+        //Enemy Targets
+        if (targetType == moveTemplate.TargetType.Enemies)
+        {
+            foreach (GameObject enemy in EnemyList)
+            {
+                potentialTargets.Add(enemy);
+            }
+        }
+        if (targetType == moveTemplate.TargetType.Ground)
+        {
+            foreach (GameObject enemy in EnemyList)
+            {
+                FighterClass enemyInfo = enemy.GetComponent<FighterClass>();
+                if (enemyInfo.characterPosition == FighterClass.CharacterPosition.Ground)
+                {
+                    potentialTargets.Add(enemy);
+                }
+            }
+        }
+        if (targetType == moveTemplate.TargetType.Flying)
+        {
+            foreach (GameObject enemy in EnemyList)
+            {
+                FighterClass enemyInfo = enemy.GetComponent<FighterClass>();
+                if (enemyInfo.characterPosition == FighterClass.CharacterPosition.Air)
+                {
+                    potentialTargets.Add(enemy);
+                }
+            }
+        }
+        if (targetType == moveTemplate.TargetType.Submerged)
+        {
+            foreach (GameObject enemy in EnemyList)
+            {
+                FighterClass enemyInfo = enemy.GetComponent<FighterClass>();
+                if (enemyInfo.characterPosition == FighterClass.CharacterPosition.Water)
+                {
+                    potentialTargets.Add(enemy);
+                }
+            }
+        }
+        //Environment
+        if (targetType == moveTemplate.TargetType.Tile)
+        {
+            Debug.Log("Not Yet Implemented");
+        }
+        if (targetType == moveTemplate.TargetType.Object)
+        {
+            Debug.Log("Not Yet Implemented");
+        }
+        return potentialTargets;
+    }
+
     private void UpdatePositions()
     {
         for (int row = 0; row < rows; row++)
@@ -583,10 +606,10 @@ public class CombatExecutor : MonoBehaviour
 
     void UpdateHealth()
     {
-        FighterClass ClipStats = characterGrid[(int)ClipPos.x, (int)ClipPos.y].GetComponent<FighterClass>();
+        FighterClass ClipStats = Clip.GetComponent<FighterClass>();
         ClipHealth.GetComponent<Text>().text = ClipStats.HP.ToString();
         ClipMaxHealth.GetComponent<Text>().text = ClipStats.HPMax.ToString();
-        FighterClass PartnerStats = characterGrid[(int)PartnerPos.x, (int)PartnerPos.y].GetComponent<FighterClass>();
+        FighterClass PartnerStats = Partner.GetComponent<FighterClass>();
         PartnerHealth.GetComponent<Text>().text = PartnerStats.HP.ToString();
         PartnerMaxHealth.GetComponent<Text>().text = PartnerStats.HPMax.ToString();
     }

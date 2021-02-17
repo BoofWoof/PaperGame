@@ -1340,7 +1340,7 @@ MonoBehaviour:
   cameraAngle: 42.13
   cameraOffset: -10
   cameraSpeed: 2
-  _containerCache: {fileID: 11400000, guid: 34f56820e732c264689f4122e4cd3d5f, type: 2}
+  _containerCache: {fileID: 11400000, guid: 7f679e4512c844c4fa2b50ab92c55ad3, type: 2}
   ClipHealth: {fileID: 674561532}
   ClipMaxHealth: {fileID: 1777475733}
   PartnerHealth: {fileID: 1228784325}
