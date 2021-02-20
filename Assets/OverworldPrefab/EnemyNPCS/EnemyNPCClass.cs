@@ -2,12 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider))]
+
 public class EnemyNPCClass : MonoBehaviour
 {
     //CharactersName
     private GameObject Player;
     public string CharacterName = "NameMeYaDingus";
-    public int UniqueSceneID = -1;
+    public CombatContainer combatEncounter;
+    [HideInInspector]public float UniqueSceneID;
+
+    private void Awake()
+    {
+        UniqueSceneID = (1000f * transform.position.x) + transform.position.y + (.001f * transform.position.z);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +49,8 @@ public class EnemyNPCClass : MonoBehaviour
                 GameDataTracker.lastAreaWasCombat = true;
 
                 ChangeScenesCutscene s = ScriptableObject.CreateInstance<ChangeScenesCutscene>();
-                s.nextSceneName = "CombatTest";
+                GameDataTracker.combatScene = combatEncounter;
+                s.nextSceneName = "CombatExecution";
                 CutsceneController.addCutsceneEvent(s, OverworldController.Player, true, OverworldController.gameModeOptions.Cutscene);
             }
         }

@@ -23,21 +23,19 @@ public class CombatExecutor : MonoBehaviour
     private float cameraY = 0;
     private float cameraZ = 0;
 
-    private GameObject[,] blockGrid;
-    private GameObject[,] characterGrid;
-    private GameObject[,] objectGrid;
-    private int[,] gridHeight;
+    [HideInInspector]public GameObject[,] blockGrid;
+    [HideInInspector] public GameObject[,] characterGrid;
+    [HideInInspector] public GameObject[,] objectGrid;
+    [HideInInspector] public int[,] gridHeight;
 
     [Header("Loading")]
     public CombatContainer _containerCache;
 
     //Ally Info
-    private GameObject Clip;
-    private CutSceneClass ClipMov;
-    private GameObject Partner;
-    private CutSceneClass PartnerMov;
+    [HideInInspector]public GameObject Clip;
+    [HideInInspector] public GameObject Partner;
     //Enemy Info
-    private List<GameObject> EnemyList = new List<GameObject>();
+    [HideInInspector] public List<GameObject> EnemyList = new List<GameObject>();
 
     //Menu Info
     private List<BattleMenu> currentMenu = new List<BattleMenu>();
@@ -62,11 +60,16 @@ public class CombatExecutor : MonoBehaviour
     private TurnManager.turnPhases currentTurn;
     private float turnLength = 10.0f;
     private float turnTimeLeft;
-    private float startGameWait = 3.0f;
+    private float startGameWait = 1.5f;
 
     // Start is called before the first frame update
     void Start()
     {
+        if(!(GameDataTracker.combatScene is null))
+        {
+            _containerCache = GameDataTracker.combatScene;
+        }
+
         AbilityDescription.SetActive(false);
         TimerContainer.SetActive(false);
 
@@ -133,6 +136,7 @@ public class CombatExecutor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdateHealth();
         if (startGameWait > 0)
         {
             startGameWait -= Time.deltaTime;
@@ -140,8 +144,6 @@ public class CombatExecutor : MonoBehaviour
         {
             FighterClass ClipStats = Clip.GetComponent<FighterClass>();
             //print(ClipStats.Defense);
-
-            UpdateHealth();
 
             bool cutScenesDone = true;
 
@@ -152,13 +154,13 @@ public class CombatExecutor : MonoBehaviour
             {
                 if (currentTurn == TurnManager.turnPhases.ClipTurnStart)
                 {
-                    PlayerTurnStart(ClipPos);
+                    PlayerTurnStart(Clip);
                 }
                 if (currentTurn == TurnManager.turnPhases.ClipTurn)
                 {
                     if (selectedMove is null)
                     {
-                        PlayerTurn(ClipPos);
+                        PlayerTurn(Clip);
                     }
                     else
                     {
@@ -167,17 +169,17 @@ public class CombatExecutor : MonoBehaviour
                 }
                 if (currentTurn == TurnManager.turnPhases.ClipTurnEnd)
                 {
-                    PlayerTurnEnd(ClipPos);
+                    PlayerTurnEnd(Clip);
                 }
                 if (currentTurn == TurnManager.turnPhases.PartnerTurnStart)
                 {
-                    PlayerTurnStart(PartnerPos);
+                    PlayerTurnStart(Partner);
                 }
                 if (currentTurn == TurnManager.turnPhases.PartnerTurn)
                 {
                     if (selectedMove is null)
                     {
-                        PlayerTurn(PartnerPos);
+                        PlayerTurn(Partner);
                     }
                     else
                     {
@@ -186,7 +188,7 @@ public class CombatExecutor : MonoBehaviour
                 }
                 if (currentTurn == TurnManager.turnPhases.PartnerTurnEnd)
                 {
-                    PlayerTurnEnd(PartnerPos);
+                    PlayerTurnEnd(Partner);
                 }
                 if (currentTurn == TurnManager.turnPhases.EnemyTurnStart)
                 {
@@ -204,22 +206,26 @@ public class CombatExecutor : MonoBehaviour
         }
     }
 
-    void PlayerTurnStart(Vector2 PlayerPos)
+    void PlayerTurnStart(GameObject Player)
     {
-        FocusOnCharacter(PlayerPos);
-        characterGrid[(int)PlayerPos.x, (int)PlayerPos.y].GetComponent<FighterClass>().TurnStart();
+        FighterClass playerInfo = Player.GetComponent<FighterClass>();
+        FocusOnCharacter(playerInfo.pos);
+        playerInfo.GetComponent<FighterClass>().TurnStart();
         currentTurn = turnManager.NextTurn();
+        if(playerInfo.Dead == true)
+        {
+            currentTurn = turnManager.NextTurn();
+        }
     }
 
-    void PlayerTurn(Vector2 PlayerPos)
+    void PlayerTurn(GameObject character)
     {
-        FocusOnCharacter(PlayerPos);
-        GameObject character = characterGrid[(int)PlayerPos.x, (int)PlayerPos.y];
+        FighterClass stats = character.GetComponent<FighterClass>();
+        FocusOnCharacter(stats.pos);
         //If no option menu create one.
         if (currentMenu.Count == 0)
         {
             movesetContainer moves = character.GetComponent<movesetContainer>();
-            FighterClass stats = character.GetComponent<FighterClass>();
 
             BattleMenu menu = ScriptableObject.CreateInstance<BattleMenu>();
             menu.characterTarget = character;
@@ -261,7 +267,7 @@ public class CombatExecutor : MonoBehaviour
         }
     }
 
-    void PlayerTurnEnd(Vector2 PlayerPos)
+    void PlayerTurnEnd(GameObject Player)
     {
         currentTurn = turnManager.NextTurn();
     }
@@ -291,95 +297,35 @@ public class CombatExecutor : MonoBehaviour
         {
             turnTimeLeft = 0;
         }
-        int HorMov = 0;
-        int VerMov = 0;
-        if (ClipMov is null)
-        {
-            if (turnTimeLeft > 0)
-            {
-                if (Input.GetButton("Fire2"))
-                {
-                    if (Input.GetAxis("Horizontal") > 0.3)
-                    {
-                        HorMov = 1;
-                    }
-                    if (Input.GetAxis("Horizontal") < -0.3)
-                    {
-                        HorMov = -1;
-                    }
-                    if (Input.GetAxis("Vertical") > 0.3)
-                    {
-                        VerMov = 1;
-                    }
-                    if (Input.GetAxis("Vertical") < -0.3)
-                    {
-                        VerMov = -1;
-                    }
-                    (Clip.GetComponent<FighterClass>().pos, ClipMov) = MoveCharacter(Clip.GetComponent<FighterClass>().pos, HorMov, VerMov);
-                }
-            }
-        }
-        else
-        {
-            if (ClipMov.Update())
-            {
-                Destroy(ClipMov);
-                ClipMov = null;
-            }
-        }
-        if (PartnerMov is null)
-        {
-            if (turnTimeLeft > 0)
-            {
-                if (Input.GetButton("Fire3"))
-                {
-                    if (Input.GetAxis("Horizontal") > 0.3)
-                    {
-                        HorMov = 1;
-                    }
-                    if (Input.GetAxis("Horizontal") < -0.3)
-                    {
-                        HorMov = -1;
-                    }
-                    if (Input.GetAxis("Vertical") > 0.3)
-                    {
-                        VerMov = 1;
-                    }
-                    if (Input.GetAxis("Vertical") < -0.3)
-                    {
-                        VerMov = -1;
-                    }
-                    (Partner.GetComponent<FighterClass>().pos, PartnerMov) = MoveCharacter(Partner.GetComponent<FighterClass>().pos, HorMov, VerMov);
-                }
-
-            }
-        }
-        else
-        {
-            if (PartnerMov.Update())
-            {
-                Destroy(PartnerMov);
-                PartnerMov = null;
-            }
-        }
 
         bool allEnemyMoveDone = true;
         for (int enemyIdx = 0; enemyIdx < EnemyList.Count; enemyIdx++)
         {
-            Vector2 enemyPos = EnemyList[enemyIdx].GetComponent<FighterClass>().pos;
-            FighterClass enemy = characterGrid[(int)enemyPos.x, (int)enemyPos.y].GetComponent<FighterClass>();
+            GameObject enemyObject = EnemyList[enemyIdx];
+            FighterClass enemy = enemyObject.GetComponent<FighterClass>();
+            Vector2 enemyPos = enemy.GetComponent<FighterClass>().pos;
             if (enemy.move is null)
             {
-                if (turnTimeLeft > 0)
+                if (turnTimeLeft > 0 && !enemy.Paralyzed)
                 {
                     allEnemyMoveDone = false;
                     AStar router = ScriptableObject.CreateInstance<AStar>();
                     List<Vector2> goalPos = new List<Vector2>();
+                    List<GameObject> goalObjects = new List<GameObject>();
                     //Get Move
                     moveTemplate move = enemy.GetMove();
                     //Get Goals
-                    goalPos = move.findGoals(getTargets(move.targetType), rows, cols);
-                    (Vector2 newPos, FighterClass.CharacterPosition moveType) = router.GetNextTile(
+                    List<GameObject> possibleTargets = getTargets(move.targetType);
+                    if (Clip.GetComponent<FighterClass>().Dead)
+                    {
+                        possibleTargets.Remove(Clip);
+                    }
+                    if (Partner.GetComponent<FighterClass>().Dead)
+                    {
+                        possibleTargets.Remove(Partner);
+                    }
+                    (goalPos, goalObjects) = move.findGoals(possibleTargets, rows, cols);
+                    (Vector2 newPos, FighterClass.CharacterPosition moveType, bool atGoal) = router.GetNextTile(
                         enemy,
                         blockGrid,
                         characterGrid,
@@ -402,7 +348,17 @@ public class CombatExecutor : MonoBehaviour
                             );
                     }
                     */
-                    (EnemyList[enemyIdx].GetComponent<FighterClass>().pos, enemy.move) = MoveCharacter(enemyPos, (int)(newPos.y - enemyPos.y), (int)(newPos.x - enemyPos.x));
+                    if (atGoal)
+                    {
+                        move.character = enemyObject;
+                        List<GameObject> selectedTargets = new List<GameObject>();
+                        selectedTargets.Add(goalObjects[router.finalGoalIdx]);
+                        move.Activate(selectedTargets);
+                    }
+                    else
+                    {
+                        MoveCharacter(enemyPos, (int)(newPos.y - enemyPos.y), (int)(newPos.x - enemyPos.x));
+                    }
                 }
             }
             else
@@ -416,7 +372,83 @@ public class CombatExecutor : MonoBehaviour
             }
         }
 
-        if (turnTimeLeft <= 0 && PartnerMov is null && ClipMov is null && allEnemyMoveDone)
+        int HorMov = 0;
+        int VerMov = 0;
+        if (Clip.GetComponent<FighterClass>().move is null)
+        {
+            FighterClass clipInfo = Clip.GetComponent<FighterClass>();
+            if ((turnTimeLeft > 0 || !allEnemyMoveDone) && !clipInfo.Paralyzed && !clipInfo.Dead)
+            {
+                if (Input.GetButton("Fire2"))
+                {
+                    if (Input.GetAxis("Horizontal") > 0.3)
+                    {
+                        HorMov = 1;
+                    }
+                    if (Input.GetAxis("Horizontal") < -0.3)
+                    {
+                        HorMov = -1;
+                    }
+                    if (Input.GetAxis("Vertical") > 0.3)
+                    {
+                        VerMov = 1;
+                    }
+                    if (Input.GetAxis("Vertical") < -0.3)
+                    {
+                        VerMov = -1;
+                    }
+                    MoveCharacter(Clip.GetComponent<FighterClass>().pos, HorMov, VerMov);
+                }
+            }
+        }
+        else
+        {
+            if (Clip.GetComponent<FighterClass>().move.Update())
+            {
+                Destroy(Clip.GetComponent<FighterClass>().move);
+                Clip.GetComponent<FighterClass>().move = null;
+            }
+        }
+        if (Partner.GetComponent<FighterClass>().move is null)
+        {
+            FighterClass partnerInfo = Partner.GetComponent<FighterClass>();
+            if ((turnTimeLeft > 0 || !allEnemyMoveDone) && !partnerInfo.Paralyzed && !partnerInfo.Dead)
+            {
+                if (Input.GetButton("Fire3"))
+                {
+                    if (Input.GetAxis("Horizontal") > 0.3)
+                    {
+                        HorMov = 1;
+                    }
+                    if (Input.GetAxis("Horizontal") < -0.3)
+                    {
+                        HorMov = -1;
+                    }
+                    if (Input.GetAxis("Vertical") > 0.3)
+                    {
+                        VerMov = 1;
+                    }
+                    if (Input.GetAxis("Vertical") < -0.3)
+                    {
+                        VerMov = -1;
+                    }
+                    MoveCharacter(Partner.GetComponent<FighterClass>().pos, HorMov, VerMov);
+                }
+
+            }
+        }
+        else
+        {
+            if (Partner.GetComponent<FighterClass>().move.Update())
+            {
+                Destroy(Partner.GetComponent<FighterClass>().move);
+                Partner.GetComponent<FighterClass>().move = null;
+            }
+        }
+
+        if ((turnTimeLeft <= 0 && Partner.GetComponent<FighterClass>().move is null && 
+            Clip.GetComponent<FighterClass>().move is null && allEnemyMoveDone) || 
+            EnemyList.Count == 0)
         {
             currentTurn = turnManager.NextTurn();
         }
@@ -424,20 +456,96 @@ public class CombatExecutor : MonoBehaviour
 
     void EnemyTurnEnd()
     {
+        foreach (GameObject enemy in EnemyList)
+        {
+            enemy.GetComponent<FighterClass>().TurnEnd();
+        }
         TimerContainer.SetActive(false);
         currentTurn = turnManager.NextTurn();
     }
 
-    (Vector2, CutSceneClass) MoveCharacter(Vector2 CurrentPos, int HorChange, int VerChange)
+    private void MoveCharacter(Vector2 CurrentPos, int HorChange, int VerChange)
     {
         Vector2 EndPos = new Vector2(CurrentPos.x + VerChange, CurrentPos.y + HorChange);
         GameObject character = characterGrid[(int)CurrentPos.x, (int)CurrentPos.y];
         FighterClass stats = character.GetComponent<FighterClass>();
+
+        if(EndPos.x >= 0 && EndPos.x < rows && EndPos.y >= 0 && EndPos.y < cols)
+        {
+            bool openSpace = false;
+            bool push = false;
+            if(characterGrid[(int)EndPos.x, (int)EndPos.y] is null)
+            {
+                openSpace = true;
+            } else
+            {
+                if(characterGrid[(int)EndPos.x, (int)EndPos.y].GetComponent<FighterClass>().Pushable &&
+                    gridHeight[(int)EndPos.x, (int)EndPos.y] - gridHeight[(int)CurrentPos.x, (int)CurrentPos.y] <= 0)
+                {
+                    openSpace = true;
+                    push = true;
+                }
+            }
+
+            if (openSpace && (gridHeight[(int)EndPos.x, (int)EndPos.y] - gridHeight[(int)CurrentPos.x, (int)CurrentPos.y] <= stats.MaxJumpHeight) &&
+                blockGrid[(int)EndPos.x, (int)EndPos.y].GetComponent<BlockTemplate>().Walkable)
+            {
+                CutSceneClass MoveTo;
+                if (gridHeight[(int)CurrentPos.x, (int)CurrentPos.y] != gridHeight[(int)EndPos.x, (int)EndPos.y])
+                {
+                    if (!push)
+                    {
+                        JumpToLocation JumpTo = ScriptableObject.CreateInstance<JumpToLocation>();
+                        JumpTo.endPosition = new Vector3(EndPos.y * xOffset, gridHeight[(int)EndPos.x, (int)EndPos.y] * zOffset + 0, EndPos.x * yOffset);
+                        JumpTo.parent = character;
+                        JumpTo.heightOverHighestCharacter = 1;
+                        JumpTo.speed = stats.JumpSpeed;
+                        JumpTo.Activate();
+                        MoveTo = JumpTo;
+                    } else
+                    {
+                        stats.pos = CurrentPos;
+                        return;
+                    }
+                }
+                else
+                {
+                    if (push)
+                    {
+                        if (!PushCharacter(EndPos, HorChange, VerChange, stats.WalkSpeed))
+                        {
+                            stats.pos = CurrentPos;
+                            return;
+                        }
+                    }
+                    MoveToLocation WalkTo = ScriptableObject.CreateInstance<MoveToLocation>();
+                    WalkTo.endPosition = new Vector3(EndPos.y * xOffset, gridHeight[(int)EndPos.x, (int)EndPos.y] * zOffset + 0, EndPos.x * yOffset);
+                    WalkTo.parent = character;
+                    WalkTo.speed = stats.WalkSpeed;
+                    WalkTo.Activate();
+                    MoveTo = WalkTo;
+                }
+                characterGrid[(int)CurrentPos.x, (int)CurrentPos.y] = null;
+                characterGrid[(int)EndPos.x, (int)EndPos.y] = character;
+                stats.move = MoveTo;
+                stats.pos = EndPos;
+            } else
+            {
+                stats.pos = CurrentPos;
+            }
+        }
+    }
+
+    private bool PushCharacter(Vector2 CurrentPos, int HorChange, int VerChange, float Speed)
+    {
+        Vector2 EndPos = new Vector2(CurrentPos.x + VerChange, CurrentPos.y + HorChange);
+        GameObject character = characterGrid[(int)CurrentPos.x, (int)CurrentPos.y];
+        FighterClass stats = character.GetComponent<FighterClass>();
+
         if (EndPos.x >= 0 && EndPos.x < rows && EndPos.y >= 0 && EndPos.y < cols && characterGrid[(int)EndPos.x, (int)EndPos.y] is null &&
-            (gridHeight[(int)EndPos.x, (int)EndPos.y] - gridHeight[(int)CurrentPos.x, (int)CurrentPos.y] <= stats.MaxJumpHeight) &&
+            (gridHeight[(int)EndPos.x, (int)EndPos.y] - gridHeight[(int)CurrentPos.x, (int)CurrentPos.y] <= 0) &&
             blockGrid[(int)EndPos.x, (int)EndPos.y].GetComponent<BlockTemplate>().Walkable)
         {
-            CutSceneClass MoveTo;
             characterGrid[(int)CurrentPos.x, (int)CurrentPos.y] = null;
             characterGrid[(int)EndPos.x, (int)EndPos.y] = character;
             if (gridHeight[(int)CurrentPos.x, (int)CurrentPos.y] != gridHeight[(int)EndPos.x, (int)EndPos.y])
@@ -445,26 +553,25 @@ public class CombatExecutor : MonoBehaviour
                 JumpToLocation JumpTo = ScriptableObject.CreateInstance<JumpToLocation>();
                 JumpTo.endPosition = new Vector3(EndPos.y * xOffset, gridHeight[(int)EndPos.x, (int)EndPos.y] * zOffset + 0, EndPos.x * yOffset);
                 JumpTo.parent = character;
-                JumpTo.heightOverHighestCharacter = 1;
-                JumpTo.speed = stats.JumpSpeed;
+                JumpTo.heightOverHighestCharacter = 0.5f;
+                JumpTo.speed = Speed;
                 JumpTo.Activate();
-                MoveTo = JumpTo;
-            }
-            else
+                stats.move = JumpTo;
+                stats.pos = EndPos;
+                return true;
+            } else
             {
                 MoveToLocation WalkTo = ScriptableObject.CreateInstance<MoveToLocation>();
                 WalkTo.endPosition = new Vector3(EndPos.y * xOffset, gridHeight[(int)EndPos.x, (int)EndPos.y] * zOffset + 0, EndPos.x * yOffset);
                 WalkTo.parent = character;
-                WalkTo.speed = stats.WalkSpeed;
+                WalkTo.speed = Speed;
                 WalkTo.Activate();
-                MoveTo = WalkTo;
-
+                stats.move = WalkTo;
+                stats.pos = EndPos;
+                return true;
             }
-            return (EndPos, MoveTo);
-        } else
-        {
-            return (CurrentPos, null);
         }
+        return false;
     }
 
     void Targeting()
@@ -625,5 +732,88 @@ public class CombatExecutor : MonoBehaviour
         combatCamera.transform.position = characterGrid[(int)PlayerPos.x, (int)PlayerPos.y].transform.position
             + new Vector3(1f, 5.8f, -8);
         combatCamera.transform.eulerAngles = new Vector3(30f, 0, 0);
+    }
+
+    public List<Vector2> FindNearestTileNoCharacter(Vector2 currentPos, int closestDist)
+    {
+        List<Vector2> targetOptions = new List<Vector2>();
+        //Top Side
+        for (int col = -closestDist; col <= closestDist; col++)
+        {
+            Vector2 newPos = new Vector2(currentPos.x - closestDist, currentPos.y + col);
+            if (isThisOnTheGrid(newPos))
+            {
+                if (characterGrid[(int)newPos.x, (int)newPos.y] is null)
+                {
+                    targetOptions.Add(newPos);
+                }
+            }
+        }
+        for (int col = -closestDist; col <= closestDist; col++)
+        {
+            Vector2 newPos = new Vector2(currentPos.x + closestDist, currentPos.y + col);
+            if (isThisOnTheGrid(newPos))
+            {
+                if (characterGrid[(int)newPos.x, (int)newPos.y] is null)
+                {
+                    targetOptions.Add(newPos);
+                }
+            }
+        }
+        for (int row = -closestDist + 1; row < closestDist; row++)
+        {
+            Vector2 newPos = new Vector2(currentPos.x + row, currentPos.y - closestDist);
+            if (isThisOnTheGrid(newPos))
+            {
+                if (characterGrid[(int)newPos.x, (int)newPos.y] is null)
+                {
+                    targetOptions.Add(newPos);
+                }
+            }
+        }
+        for (int row = -closestDist + 1; row < closestDist; row++)
+        {
+            Vector2 newPos = new Vector2(currentPos.x + row, currentPos.y + closestDist);
+            if (isThisOnTheGrid(newPos))
+            {
+                if (characterGrid[(int)newPos.x, (int)newPos.y] is null)
+                {
+                    targetOptions.Add(newPos);
+                }
+            }
+        }
+        if (targetOptions.Count == 0)
+        {
+            return FindNearestTileNoCharacter(currentPos, closestDist + 1);
+        }
+        return targetOptions;
+    }
+
+    public bool isThisOnTheGrid(Vector2 pos)
+    {
+        if (pos.x >= 0 && pos.x < rows && pos.y >= 0 && pos.y < cols)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void IDiedBye(GameObject deadBoi)
+    {
+        if (EnemyList.Contains(deadBoi))
+        {
+            Vector2 pos = deadBoi.GetComponent<FighterClass>().pos;
+            characterGrid[(int)pos.x, (int)pos.y] = null;
+            EnemyList.Remove(deadBoi);
+            Destroy(deadBoi);
+        }
+        if (Clip == deadBoi)
+        {
+            Clip.GetComponent<FighterClass>().Dead = true;
+        }
+        if (Partner == deadBoi)
+        {
+            Partner.GetComponent<FighterClass>().Dead = true;
+        }
     }
 }

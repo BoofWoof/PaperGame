@@ -15,7 +15,7 @@ public class StarBobaScript : ItemTemplate
         base.Activate(targets);
         foreach (GameObject target in targets)
         {
-            target.GetComponent<FighterClass>().HP -= 5;
+            target.GetComponent<FighterClass>().postBufferAttackEffect(5, FighterClass.attackType.Normal, FighterClass.statusEffects.None, FighterClass.attackLocation.Ground, character);
         }
     }
 }

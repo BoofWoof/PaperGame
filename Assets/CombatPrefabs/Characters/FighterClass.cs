@@ -9,7 +9,7 @@ public class FighterClass : MonoBehaviour
 {
     //DAMAGE AND EFFECT TYPES-----------------------
     public enum attackType { Normal, Fire, Heal, LifeSteal, GuaranteedDamage };
-    public enum statusEffects { None, Defending };
+    public enum statusEffects { None, Defending, Stunned, Pushable};
     public enum statusTrigger { TurnStart, TurnEnd}
     public enum attackLocation { All, Ground, Air, Water }
     public enum CharacterPosition { Ground, Air, Water }
@@ -49,6 +49,11 @@ public class FighterClass : MonoBehaviour
     public float CharacterHeight = 1.0f;
     public float CharacterWidth = 1.0f;
 
+    [Header("Status Effects")]
+    public bool Paralyzed = false;
+    public bool Pushable = false;
+    public bool Dead = false;
+
     [Header("Display Options")]
     public bool displayHealth;
     private TextMeshPro healthText;
@@ -59,6 +64,7 @@ public class FighterClass : MonoBehaviour
     //INPUT OF AVAIALBE ATTACKS--------------------------
     [HideInInspector]public movesetContainer moveContainer;
     [HideInInspector]public CutSceneClass move;
+    [HideInInspector]public moveTemplate attack;
     [HideInInspector]public Vector2 pos;
     //---------------------------------------------------
 
@@ -86,7 +92,7 @@ public class FighterClass : MonoBehaviour
 
     public virtual void TurnStart()
     {
-        for(int statusIdx = 0; statusIdx < characterStatus.Count; statusIdx++)
+        for (int statusIdx = characterStatus.Count - 1; statusIdx >= 0; statusIdx--)
         {
             statusInfo status = characterStatus[statusIdx];
             if(status.trigger == statusTrigger.TurnStart)
@@ -104,10 +110,75 @@ public class FighterClass : MonoBehaviour
         }
     }
 
+    public virtual void TurnEnd()
+    {
+        for (int statusIdx = characterStatus.Count - 1; statusIdx >= 0; statusIdx--)
+        {
+            statusInfo status = characterStatus[statusIdx];
+            if (status.trigger == statusTrigger.TurnEnd)
+            {
+                status.timeRemaining = status.timeRemaining - 1;
+                if (status.timeRemaining <= 0)
+                {
+                    if (status.status == statusEffects.Stunned)
+                    {
+                        Paralyzed = false;
+                    }
+                    if (status.status == statusEffects.Pushable)
+                    {
+                        Pushable = false;
+                    }
+                    characterStatus.RemoveAt(statusIdx);
+                }
+            }
+        }
+    }
+
+    public void Defend(int intensity, int turns)
+    {
+        FighterClass.statusInfo defenseStatus = new FighterClass.statusInfo();
+        defenseStatus.status = FighterClass.statusEffects.Defending;
+        defenseStatus.intensity = intensity;
+        defenseStatus.trigger = FighterClass.statusTrigger.TurnStart;
+        defenseStatus.timeRemaining = turns;
+
+        characterStatus.Add(defenseStatus);
+        Defense += intensity;
+    }
+
+    public void Stun(int turns)
+    {
+        FighterClass.statusInfo stunStatus = new FighterClass.statusInfo();
+        stunStatus.status = FighterClass.statusEffects.Stunned;
+        stunStatus.trigger = FighterClass.statusTrigger.TurnEnd;
+        stunStatus.timeRemaining = turns;
+
+        characterStatus.Add(stunStatus);
+        Paralyzed = true;
+    }
+
+    public void LightWeight(int turns)
+    {
+        FighterClass.statusInfo pushStatus = new FighterClass.statusInfo();
+        pushStatus.status = FighterClass.statusEffects.Pushable;
+        pushStatus.trigger = FighterClass.statusTrigger.TurnEnd;
+        pushStatus.timeRemaining = turns;
+
+        characterStatus.Add(pushStatus);
+        Pushable = true;
+    }
+
     public virtual moveTemplate GetMove()
     {
-        int moveIndex = Random.Range(0, moveContainer.moves.Length);
-        return moveContainer.moves[moveIndex].GetComponent<moveTemplate>();
+        if (attack is null)
+        {
+            int moveIndex = Random.Range(0, moveContainer.moves.Length);
+            attack = moveContainer.moves[moveIndex].GetComponent<moveTemplate>();
+            return attack;
+        } else
+        {
+            return attack;
+        }
     }
 
     public void postBufferAttackEffect(int amount, attackType type, statusEffects effects, attackLocation location, GameObject source)
@@ -200,7 +271,7 @@ public class FighterClass : MonoBehaviour
 
     public virtual void death()
     {
-        //DeathEvent deathEvent = new DeathEvent();
-        //CutsceneController.addCutsceneEventFront(deathEvent, gameObject, true, OverworldController.gameModeOptions.Cutscene);
+        characterStatus = new List<statusInfo>();
+        GameDataTracker.combatExecutor.IDiedBye(gameObject);
     }
 }

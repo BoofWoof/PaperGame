@@ -15,7 +15,7 @@ public class UFOBobaScript : ItemTemplate
         base.Activate(targets);
         foreach (GameObject target in targets)
         {
-            target.GetComponent<FighterClass>().HP -= 2;
+            target.GetComponent<FighterClass>().postBufferAttackEffect(2, FighterClass.attackType.Normal, FighterClass.statusEffects.None, FighterClass.attackLocation.Ground, character);
         }
     }
 }

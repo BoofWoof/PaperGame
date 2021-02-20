@@ -9,7 +9,7 @@ public class DebugAttack : moveTemplate
         base.Activate(targets);
         foreach (GameObject target in targets)
         {
-            target.GetComponent<FighterClass>().HP -= 1;
+            target.GetComponent<FighterClass>().postBufferAttackEffect(character.GetComponent<FighterClass>().Power, FighterClass.attackType.Normal, FighterClass.statusEffects.None, FighterClass.attackLocation.Ground, character);
         }
     }
 }

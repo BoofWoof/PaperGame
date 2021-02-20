@@ -50,7 +50,7 @@ MonoBehaviour:
   moveIndex: 0
   targetType: 4
   targetQuantity: 1
-  targetShape: 2
+  targetShape: 1
   MaxRange: 3
-  MinRange: 2
+  MinRange: 3
   targetCount: 1

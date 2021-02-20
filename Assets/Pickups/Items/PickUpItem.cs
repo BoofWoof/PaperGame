@@ -30,7 +30,6 @@ public class PickUpItem : MonoBehaviour
             Destroy(gameObject);
         }
         SpriteRenderer SR = gameObject.GetComponent<SpriteRenderer>();
-        print(ItemID);
         SR.sprite = ItemMapping.itemMap[ItemID].GetComponent<ItemTemplate>().itemImage;
     }
 

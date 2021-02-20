@@ -9,7 +9,7 @@ public class Character
     public GameObject CharacterObject;
     public string CharacterName;
     public float dialogueHeight;
-    public int uniqueSceneID;
+    public float uniqueSceneID;
 }
 [System.Serializable]
 public class CutSceneEvent

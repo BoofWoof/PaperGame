@@ -6,6 +6,7 @@ public class CutSceneClass : ScriptableObject
 {
     public bool active = false;
     public GameObject parent;
+    internal FighterClass target;
 
     // Start is called before the first frame update
     void Start()
@@ -13,13 +14,14 @@ public class CutSceneClass : ScriptableObject
         
     }
 
+    // Return true if it needs to get called again 
     public virtual bool Activate()
     {
         active = true;
         return false;
     }
 
-    // Update is called once per frame
+    // Return True When Done
     public virtual bool Update()
     {
         return false;

@@ -18,7 +18,7 @@ public class GameDataTracker : MonoBehaviour
     public static string previousArea;
     //CombatInfo
     public static Vector3 combatStartPosition;
-    public static List<int> deadEnemyIDs = new List<int>();
+    public static List<float> deadEnemyIDs = new List<float>();
     public static bool lastAreaWasCombat = false;
 
     //Flags
@@ -27,6 +27,7 @@ public class GameDataTracker : MonoBehaviour
 
     //CombatTracking
     public static CombatExecutor combatExecutor;
+    public static CombatContainer combatScene;
 
     void Awake()
     {
@@ -42,8 +43,11 @@ public class GameDataTracker : MonoBehaviour
         }
     }
 
-    private void Start()
+    static public void GameOver()
     {
+        deadEnemyIDs = new List<float>();
+        lastAreaWasCombat = false;
+        previousArea = null;
     }
 
     public void ConvertInventoryListToSaveData()

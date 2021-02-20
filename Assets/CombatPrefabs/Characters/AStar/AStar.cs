@@ -7,6 +7,8 @@ using TMPro;
 
 public class AStar : ScriptableObject
 {
+    public int finalGoalIdx;
+
     //Character To Move
     FighterClass characterInfo;
 
@@ -36,7 +38,7 @@ public class AStar : ScriptableObject
     }
     */
 
-    public (Vector2, FighterClass.CharacterPosition) GetNextTile(
+    public (Vector2, FighterClass.CharacterPosition, bool) GetNextTile(
         FighterClass character,
         GameObject[,] blockGrid,
         GameObject[,] characterGrid,
@@ -101,7 +103,7 @@ public class AStar : ScriptableObject
         }
     }
 
-    public (Vector2, FighterClass.CharacterPosition) NextMove(Vector2 startCoordinate)
+    public (Vector2, FighterClass.CharacterPosition, bool) NextMove(Vector2 startCoordinate)
     {
         routeMap = new AStarNode[rows, cols];
         List<AStarNode> costList = new List<AStarNode>();
@@ -110,7 +112,7 @@ public class AStar : ScriptableObject
         AStarNode newNode = createRootNode(startCoordinate);
         if(newNode.h == 0)
         {
-            return (startCoordinate, FighterClass.CharacterPosition.Ground);
+            return (startCoordinate, FighterClass.CharacterPosition.Ground, true);
         }
         routeMap[(int)startCoordinate.x, (int)startCoordinate.y] = newNode;
         costList.Add(newNode);
@@ -161,10 +163,10 @@ public class AStar : ScriptableObject
                 break;
             }
         }
-        return (startCoordinate, FighterClass.CharacterPosition.Ground);
+        return (startCoordinate, FighterClass.CharacterPosition.Ground, false);
     }
 
-    private (Vector2, FighterClass.CharacterPosition) getNextMove(AStarNode bestNode)
+    private (Vector2, FighterClass.CharacterPosition, bool) getNextMove(AStarNode bestNode)
     {
         AStarNode node = bestNode;
         AStarNode prevNode = null;
@@ -173,7 +175,7 @@ public class AStar : ScriptableObject
             prevNode = node;
             node = routeMap[(int)node.parent.x, (int)node.parent.y];
         }
-        return (prevNode.coordinates, prevNode.move);
+        return (prevNode.coordinates, prevNode.move, false);
     }
 
     /*
@@ -238,6 +240,7 @@ public class AStar : ScriptableObject
             return false;
         }
         */
+        /*
         bool isGoal = false;
         foreach (Vector2 goal in goalCoordinates)
         {
@@ -246,7 +249,8 @@ public class AStar : ScriptableObject
                 isGoal = true;
             }
         }
-        if (!(characterGrid[(int)to.x, (int)to.y] is null) && !isGoal)
+        */
+        if (!(characterGrid[(int)to.x, (int)to.y] is null))
         {
             return false;
         }
@@ -349,12 +353,17 @@ public class AStar : ScriptableObject
 
         newNode.g = cheapestMove;
         float closestGoal = 10000;
-        foreach (Vector2 goal in goalCoordinates)
+        for (int goalIdx = 0; goalIdx < goalCoordinates.Count; goalIdx++)
         {
+            Vector2 goal = goalCoordinates[goalIdx];
             float distance = Mathf.Abs(goal.x - newCoordinate.x) + Mathf.Abs(goal.y - newCoordinate.y); //Mathf.Sqrt(Mathf.Pow((goal.x - newCoordinate.x), 2) + Mathf.Pow((goal.y - newCoordinate.y), 2));
             if (distance < closestGoal)
             {
                 closestGoal = distance;
+                if (distance == 0)
+                {
+                    finalGoalIdx = goalIdx;
+                }
             }
         }
 
