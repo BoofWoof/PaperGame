@@ -5,7 +5,7 @@ using TMPro;
 
 [RequireComponent(typeof(movesetContainer))]
 //THIS IS THE CLASS ANY COMBAT CHARACTER USES
-public class FighterClass : MonoBehaviour
+public class FighterClass : CombatObject
 {
     //DAMAGE AND EFFECT TYPES-----------------------
     public enum attackType { Normal, Fire, Heal, LifeSteal, GuaranteedDamage };
@@ -51,7 +51,6 @@ public class FighterClass : MonoBehaviour
 
     [Header("Status Effects")]
     public bool Paralyzed = false;
-    public bool Pushable = false;
     public bool Dead = false;
 
     [Header("Display Options")]
@@ -63,9 +62,7 @@ public class FighterClass : MonoBehaviour
 
     //INPUT OF AVAIALBE ATTACKS--------------------------
     [HideInInspector]public movesetContainer moveContainer;
-    [HideInInspector]public CutSceneClass move;
     [HideInInspector]public moveTemplate attack;
-    [HideInInspector]public Vector2 pos;
     //---------------------------------------------------
 
     public virtual void Awake()
@@ -219,6 +216,10 @@ public class FighterClass : MonoBehaviour
             damage = 0;
         }
         HP -= damage;
+        
+        GameObject damageText = Instantiate<GameObject>(Resources.Load<GameObject>("DamageTextDebug"));
+        damageText.transform.position = transform.position + new Vector3(CharacterWidth * 0.75f, CharacterHeight * 0.75f, 0);
+        damageText.GetComponent<TextMeshPro>().text = damage.ToString();
     }
     //-----------------------------------------------------------------------
 

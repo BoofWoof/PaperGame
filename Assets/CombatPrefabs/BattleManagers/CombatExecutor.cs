@@ -112,6 +112,7 @@ public class CombatExecutor : MonoBehaviour
                 if (_containerCache.objectGrid[row * cols + col] > -1)
                 {
                     objectGrid[row, col] = Instantiate(CombatMapper.objectMap[_containerCache.objectGrid[row * cols + col]], blockGrid[row, col].transform.position + new Vector3(0, 0, 0), Quaternion.identity);
+                    objectGrid[row, col].GetComponent<ObjectTemplate>().pos = new Vector2(row, col);
                 }
             }
         }
@@ -269,6 +270,8 @@ public class CombatExecutor : MonoBehaviour
 
     void PlayerTurnEnd(GameObject Player)
     {
+        FighterClass playerInfo = Player.GetComponent<FighterClass>();
+        blockGrid[(int)playerInfo.pos.x, (int)playerInfo.pos.y].GetComponent<BlockTemplate>().EndTurnOn(playerInfo);
         currentTurn = turnManager.NextTurn();
     }
 
@@ -364,11 +367,7 @@ public class CombatExecutor : MonoBehaviour
             else
             {
                 allEnemyMoveDone = false;
-                if (enemy.move.Update())
-                {
-                    Destroy(enemy.move);
-                    enemy.move = null;
-                }
+                updateMove(enemy);
             }
         }
 
@@ -403,11 +402,7 @@ public class CombatExecutor : MonoBehaviour
         }
         else
         {
-            if (Clip.GetComponent<FighterClass>().move.Update())
-            {
-                Destroy(Clip.GetComponent<FighterClass>().move);
-                Clip.GetComponent<FighterClass>().move = null;
-            }
+            updateMove(Clip.GetComponent<FighterClass>());
         }
         if (Partner.GetComponent<FighterClass>().move is null)
         {
@@ -439,11 +434,7 @@ public class CombatExecutor : MonoBehaviour
         }
         else
         {
-            if (Partner.GetComponent<FighterClass>().move.Update())
-            {
-                Destroy(Partner.GetComponent<FighterClass>().move);
-                Partner.GetComponent<FighterClass>().move = null;
-            }
+            updateMove(Partner.GetComponent<FighterClass>());
         }
 
         if ((turnTimeLeft <= 0 && Partner.GetComponent<FighterClass>().move is null && 
@@ -456,12 +447,26 @@ public class CombatExecutor : MonoBehaviour
 
     void EnemyTurnEnd()
     {
-        foreach (GameObject enemy in EnemyList)
+        int enemyCount = EnemyList.Count;
+        for(int enemyIdx = 0; enemyIdx < enemyCount; enemyIdx++)
         {
-            enemy.GetComponent<FighterClass>().TurnEnd();
+            GameObject enemy = EnemyList[enemyIdx];
+            FighterClass enemyInfo = enemy.GetComponent<FighterClass>();
+            enemyInfo.TurnEnd();
+            blockGrid[(int)enemyInfo.pos.x, (int)enemyInfo.pos.y].GetComponent<BlockTemplate>().EndTurnOn(enemyInfo);
         }
         TimerContainer.SetActive(false);
         currentTurn = turnManager.NextTurn();
+    }
+
+    private void updateMove(FighterClass character)
+    {
+        if (character.move.Update())
+        {
+            Destroy(character.move);
+            character.move = null;
+            blockGrid[(int)character.pos.x, (int)character.pos.y].GetComponent<BlockTemplate>().TileEntered(character);
+        }
     }
 
     private void MoveCharacter(Vector2 CurrentPos, int HorChange, int VerChange)
@@ -469,21 +474,37 @@ public class CombatExecutor : MonoBehaviour
         Vector2 EndPos = new Vector2(CurrentPos.x + VerChange, CurrentPos.y + HorChange);
         GameObject character = characterGrid[(int)CurrentPos.x, (int)CurrentPos.y];
         FighterClass stats = character.GetComponent<FighterClass>();
+        stats.prevPos = CurrentPos;
 
         if(EndPos.x >= 0 && EndPos.x < rows && EndPos.y >= 0 && EndPos.y < cols)
         {
             bool openSpace = false;
-            bool push = false;
-            if(characterGrid[(int)EndPos.x, (int)EndPos.y] is null)
+            bool pushCharacter = false;
+            bool pushObject = false;
+            if (characterGrid[(int)EndPos.x, (int)EndPos.y] is null && isObjectPassable(EndPos))
             {
                 openSpace = true;
             } else
             {
-                if(characterGrid[(int)EndPos.x, (int)EndPos.y].GetComponent<FighterClass>().Pushable &&
-                    gridHeight[(int)EndPos.x, (int)EndPos.y] - gridHeight[(int)CurrentPos.x, (int)CurrentPos.y] <= 0)
+                if (gridHeight[(int)EndPos.x, (int)EndPos.y] - gridHeight[(int)CurrentPos.x, (int)CurrentPos.y] <= 0)
                 {
-                    openSpace = true;
-                    push = true;
+                    if (!(characterGrid[(int)EndPos.x, (int)EndPos.y] is null))
+                    {
+                        if (characterGrid[(int)EndPos.x, (int)EndPos.y].GetComponent<FighterClass>().Pushable)
+                        {
+                            openSpace = true;
+                            pushCharacter = true;
+                        }
+                    }
+                    if (!(objectGrid[(int)EndPos.x, (int)EndPos.y] is null))
+                    {
+                        if (objectGrid[(int)EndPos.x, (int)EndPos.y].GetComponent<ObjectTemplate>().Pushable)
+                        {
+                            openSpace = true;
+                            pushObject = true;
+                        }
+                    }
+
                 }
             }
 
@@ -493,7 +514,7 @@ public class CombatExecutor : MonoBehaviour
                 CutSceneClass MoveTo;
                 if (gridHeight[(int)CurrentPos.x, (int)CurrentPos.y] != gridHeight[(int)EndPos.x, (int)EndPos.y])
                 {
-                    if (!push)
+                    if (!pushCharacter && !pushObject)
                     {
                         JumpToLocation JumpTo = ScriptableObject.CreateInstance<JumpToLocation>();
                         JumpTo.endPosition = new Vector3(EndPos.y * xOffset, gridHeight[(int)EndPos.x, (int)EndPos.y] * zOffset + 0, EndPos.x * yOffset);
@@ -510,9 +531,17 @@ public class CombatExecutor : MonoBehaviour
                 }
                 else
                 {
-                    if (push)
+                    if (pushCharacter)
                     {
-                        if (!PushCharacter(EndPos, HorChange, VerChange, stats.WalkSpeed))
+                        if (!PushObject(EndPos, HorChange, VerChange, stats.WalkSpeed, true))
+                        {
+                            stats.pos = CurrentPos;
+                            return;
+                        }
+                    }
+                    if (pushObject)
+                    {
+                        if (!PushObject(EndPos, HorChange, VerChange, stats.WalkSpeed, false))
                         {
                             stats.pos = CurrentPos;
                             return;
@@ -536,23 +565,40 @@ public class CombatExecutor : MonoBehaviour
         }
     }
 
-    private bool PushCharacter(Vector2 CurrentPos, int HorChange, int VerChange, float Speed)
+    public bool PushObject(Vector2 CurrentPos, int HorChange, int VerChange, float Speed, bool Char)
     {
         Vector2 EndPos = new Vector2(CurrentPos.x + VerChange, CurrentPos.y + HorChange);
-        GameObject character = characterGrid[(int)CurrentPos.x, (int)CurrentPos.y];
-        FighterClass stats = character.GetComponent<FighterClass>();
+        GameObject pushObject;
+        if (Char)
+        {
+            pushObject = characterGrid[(int)CurrentPos.x, (int)CurrentPos.y];
+        } else
+        {
+            pushObject = objectGrid[(int)CurrentPos.x, (int)CurrentPos.y];
+        }
+        CombatObject stats = pushObject.GetComponent<CombatObject>();
+        stats.prevPos = CurrentPos;
 
         if (EndPos.x >= 0 && EndPos.x < rows && EndPos.y >= 0 && EndPos.y < cols && characterGrid[(int)EndPos.x, (int)EndPos.y] is null &&
             (gridHeight[(int)EndPos.x, (int)EndPos.y] - gridHeight[(int)CurrentPos.x, (int)CurrentPos.y] <= 0) &&
-            blockGrid[(int)EndPos.x, (int)EndPos.y].GetComponent<BlockTemplate>().Walkable)
+            blockGrid[(int)EndPos.x, (int)EndPos.y].GetComponent<BlockTemplate>().Walkable && isObjectPassable(EndPos))
         {
-            characterGrid[(int)CurrentPos.x, (int)CurrentPos.y] = null;
-            characterGrid[(int)EndPos.x, (int)EndPos.y] = character;
+            if (Char)
+            {
+                characterGrid[(int)CurrentPos.x, (int)CurrentPos.y] = null;
+                characterGrid[(int)EndPos.x, (int)EndPos.y] = pushObject;
+            } else
+            {
+                objectGrid[(int)CurrentPos.x, (int)CurrentPos.y] = null;
+                objectGrid[(int)EndPos.x, (int)EndPos.y] = pushObject;
+            }
+
+            stats.pos = EndPos;
             if (gridHeight[(int)CurrentPos.x, (int)CurrentPos.y] != gridHeight[(int)EndPos.x, (int)EndPos.y])
             {
                 JumpToLocation JumpTo = ScriptableObject.CreateInstance<JumpToLocation>();
                 JumpTo.endPosition = new Vector3(EndPos.y * xOffset, gridHeight[(int)EndPos.x, (int)EndPos.y] * zOffset + 0, EndPos.x * yOffset);
-                JumpTo.parent = character;
+                JumpTo.parent = pushObject;
                 JumpTo.heightOverHighestCharacter = 0.5f;
                 JumpTo.speed = Speed;
                 JumpTo.Activate();
@@ -563,7 +609,7 @@ public class CombatExecutor : MonoBehaviour
             {
                 MoveToLocation WalkTo = ScriptableObject.CreateInstance<MoveToLocation>();
                 WalkTo.endPosition = new Vector3(EndPos.y * xOffset, gridHeight[(int)EndPos.x, (int)EndPos.y] * zOffset + 0, EndPos.x * yOffset);
-                WalkTo.parent = character;
+                WalkTo.parent = pushObject;
                 WalkTo.speed = Speed;
                 WalkTo.Activate();
                 stats.move = WalkTo;
@@ -743,7 +789,7 @@ public class CombatExecutor : MonoBehaviour
             Vector2 newPos = new Vector2(currentPos.x - closestDist, currentPos.y + col);
             if (isThisOnTheGrid(newPos))
             {
-                if (characterGrid[(int)newPos.x, (int)newPos.y] is null)
+                if (characterGrid[(int)newPos.x, (int)newPos.y] is null  && isObjectPassable(newPos))
                 {
                     targetOptions.Add(newPos);
                 }
@@ -754,7 +800,7 @@ public class CombatExecutor : MonoBehaviour
             Vector2 newPos = new Vector2(currentPos.x + closestDist, currentPos.y + col);
             if (isThisOnTheGrid(newPos))
             {
-                if (characterGrid[(int)newPos.x, (int)newPos.y] is null)
+                if (characterGrid[(int)newPos.x, (int)newPos.y] is null && isObjectPassable(newPos))
                 {
                     targetOptions.Add(newPos);
                 }
@@ -765,7 +811,7 @@ public class CombatExecutor : MonoBehaviour
             Vector2 newPos = new Vector2(currentPos.x + row, currentPos.y - closestDist);
             if (isThisOnTheGrid(newPos))
             {
-                if (characterGrid[(int)newPos.x, (int)newPos.y] is null)
+                if (characterGrid[(int)newPos.x, (int)newPos.y] is null && isObjectPassable(newPos))
                 {
                     targetOptions.Add(newPos);
                 }
@@ -776,7 +822,7 @@ public class CombatExecutor : MonoBehaviour
             Vector2 newPos = new Vector2(currentPos.x + row, currentPos.y + closestDist);
             if (isThisOnTheGrid(newPos))
             {
-                if (characterGrid[(int)newPos.x, (int)newPos.y] is null)
+                if (characterGrid[(int)newPos.x, (int)newPos.y] is null && isObjectPassable(newPos))
                 {
                     targetOptions.Add(newPos);
                 }
@@ -787,6 +833,18 @@ public class CombatExecutor : MonoBehaviour
             return FindNearestTileNoCharacter(currentPos, closestDist + 1);
         }
         return targetOptions;
+    }
+
+    public bool isObjectPassable(Vector2 pos)
+    {
+        if (!(objectGrid[(int)pos.x, (int)pos.y] is null))
+        {
+            if (!objectGrid[(int)pos.x, (int)pos.y].GetComponent<ObjectTemplate>().Passable)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     public bool isThisOnTheGrid(Vector2 pos)

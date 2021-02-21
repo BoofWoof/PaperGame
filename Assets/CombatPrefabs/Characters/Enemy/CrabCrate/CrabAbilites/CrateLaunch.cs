@@ -80,7 +80,7 @@ public class CrateLaunchScript : CutSceneClass
             {
                 if (target.pos == EndPos)
                 {
-                    target.postBufferAttackEffect(target.Power, FighterClass.attackType.Normal, FighterClass.statusEffects.None, FighterClass.attackLocation.Ground, parent);
+                    target.postBufferAttackEffect(source.Power, FighterClass.attackType.Normal, FighterClass.statusEffects.None, FighterClass.attackLocation.Ground, parent);
                 }
 
                 List<Vector2> possibleLocations = combatData.FindNearestTileNoCharacter(EndPos, 3);

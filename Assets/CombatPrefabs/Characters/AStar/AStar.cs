@@ -254,6 +254,13 @@ public class AStar : ScriptableObject
         {
             return false;
         }
+        if (!(objectGrid[(int)to.x, (int)to.y] is null))
+        {
+            if (!objectGrid[(int)to.x, (int)to.y].GetComponent<ObjectTemplate>().Passable)
+            {
+                return false;
+            }
+        }
         BlockTemplate blockInfo = blockGrid[(int)to.x, (int)to.y].GetComponent<BlockTemplate>();
         if (!((characterInfo.CanWalk && blockInfo.Walkable) ||
             (characterInfo.CanFly && blockInfo.Flyable) ||

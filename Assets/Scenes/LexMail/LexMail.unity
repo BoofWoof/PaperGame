@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 18.09949, g: 36.27049, b: 34.13714, a: 1}
+  m_IndirectSpecularColor: {r: 262.3371, g: 325.05005, b: 430.21954, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1726,6 +1726,81 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d68f46ab779b1204297f62902a03e26f, type: 3}
+--- !u!1001 &1704211528
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 134079040270856812, guid: 702e6f1d58f83d1448ac76ea641623d9,
+        type: 3}
+      propertyPath: m_Name
+      value: OverworldCrabCrate (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100486210798427351, guid: 702e6f1d58f83d1448ac76ea641623d9,
+        type: 3}
+      propertyPath: combatEncounter
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f679e4512c844c4fa2b50ab92c55ad3,
+        type: 2}
+    - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.02999988
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 702e6f1d58f83d1448ac76ea641623d9, type: 3}
 --- !u!1001 &1769664167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1974,6 +2049,81 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33a726b4372fc10409e6cc0bd86d69af, type: 3}
+--- !u!1001 &1949053092
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 134079040270856812, guid: 702e6f1d58f83d1448ac76ea641623d9,
+        type: 3}
+      propertyPath: m_Name
+      value: OverworldCrabCrate (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100486210798427351, guid: 702e6f1d58f83d1448ac76ea641623d9,
+        type: 3}
+      propertyPath: combatEncounter
+      value: 
+      objectReference: {fileID: 11400000, guid: 683530ec1f1a58b4bb057bd254b6df6c,
+        type: 2}
+    - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.847
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.02999988
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8988394
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.4382781
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -51.988003
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 702e6f1d58f83d1448ac76ea641623d9, type: 3}
 --- !u!1001 &2010467748
 PrefabInstance:
   m_ObjectHideFlags: 0
