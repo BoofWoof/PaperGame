@@ -149,13 +149,13 @@ MonoBehaviour:
     m_Value: 60.29
   albedo:
     m_OverrideState: 1
-    m_Value: {r: 0.5749377, g: 0.7925856, b: 0.8018868, a: 1}
+    m_Value: {r: 0.9056604, g: 0.9966898, b: 1, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
   meanFreePath:
     m_OverrideState: 1
-    m_Value: 40
+    m_Value: 70
     min: 1
   enableVolumetricFog:
     m_OverrideState: 1
@@ -205,8 +205,8 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   exposure:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 0.13
   multiplier:
     m_OverrideState: 0
     m_Value: 1
@@ -238,20 +238,20 @@ MonoBehaviour:
     showAlpha: 0
     showEyeDropper: 1
   middle:
-    m_OverrideState: 0
-    m_Value: {r: 0.6320754, g: 0.92933553, b: 1, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
   bottom:
-    m_OverrideState: 0
-    m_Value: {r: 0.48834103, g: 0.86271805, b: 0.8773585, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
   gradientDiffusion:
     m_OverrideState: 1
-    m_Value: 0.11
+    m_Value: -1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,7 +286,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   skyType:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 3
   skyAmbientMode:
     m_OverrideState: 1
     m_Value: 1

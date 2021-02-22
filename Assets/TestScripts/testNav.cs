@@ -20,7 +20,7 @@ public class testNav : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (OverworldController.gameMode != OverworldController.gameModeOptions.Cutscene)
+        if (GameDataTracker.gameMode != GameDataTracker.gameModeOptions.Cutscene)
         {
             if (agent.remainingDistance < 0.01 * walkRadius)
             {

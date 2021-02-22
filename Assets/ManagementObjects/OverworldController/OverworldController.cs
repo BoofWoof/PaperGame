@@ -11,16 +11,6 @@ public class Character
     public float dialogueHeight;
     public float uniqueSceneID;
 }
-[System.Serializable]
-public class CutSceneEvent
-{
-    public CutSceneClass CutsceneEvent;
-    public GameObject CutsceneTarget;
-    public bool Wait;
-    public GameObject CameraFocus;
-    public Vector3 CameraOffset;
-    public OverworldController.gameModeOptions GameMode;
-}
 
 public class OverworldController : MonoBehaviour
 {
@@ -40,9 +30,6 @@ public class OverworldController : MonoBehaviour
     public GameObject[] SceneTransfers;  //Triggers that will cause a scene transfer.
 
     //GameplayMode---------------------------------------------------
-    public enum gameModeOptions {Mobile, Cutscene, MobileCutscene, DialogueReady, Paused};
-    public static gameModeOptions gameMode = gameModeOptions.Mobile;
-    private gameModeOptions gameModePre = gameModeOptions.Mobile;
     //-----------------------------------------------------------------
 
 
@@ -63,7 +50,7 @@ public class OverworldController : MonoBehaviour
                     {
                         Player = Instantiate(playerInput, sceneTransfer.transform.position, Quaternion.identity);
 
-                        gameMode = gameModeOptions.Cutscene;
+                        GameDataTracker.gameMode = GameDataTracker.gameModeOptions.Cutscene;
                         PlayerTravelDirection pm = ScriptableObject.CreateInstance<PlayerTravelDirection>();
                         SceneMover.exitDirectionOptions entranceDirection = sceneTransfer.GetComponent<SceneMover>().exitDirection;
                         if (entranceDirection == SceneMover.exitDirectionOptions.up)
@@ -86,7 +73,7 @@ public class OverworldController : MonoBehaviour
                             pm.endPosition = Player.transform.position + new Vector3(0, 0, 2);
                             pm.travelDirection = SceneMover.exitDirectionOptions.up;
                         }
-                        CutsceneController.addCutsceneEvent(pm, Player, true, gameModeOptions.Cutscene);
+                        CutsceneController.addCutsceneEvent(pm, Player, true, GameDataTracker.gameModeOptions.Cutscene);
                     }
                 }
             }
@@ -112,21 +99,21 @@ public class OverworldController : MonoBehaviour
     public void Update()
     {
         //Pause and unpause game. ================
-        if (Input.GetKeyDown(KeyCode.I) && (gameMode == gameModeOptions.Mobile || gameMode == gameModeOptions.Paused))
+        if (Input.GetKeyDown(KeyCode.I) && (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Mobile || GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Paused))
         {
-            if (gameMode == gameModeOptions.Paused)
+            if (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Paused)
             {
-                gameMode = gameModePre;
+                GameDataTracker.gameMode = GameDataTracker.gameModePre;
                 PauseMenu.SetActive(false);
             }
             else
             {
-                gameModePre = gameMode;
-                gameMode = gameModeOptions.Paused;
+                GameDataTracker.gameModePre = GameDataTracker.gameMode;
+                GameDataTracker.gameMode = GameDataTracker.gameModeOptions.Paused;
                 PauseMenu.SetActive(true);
             }
         }
-        if (gameMode == gameModeOptions.Paused)
+        if (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Paused)
         {
             Time.timeScale = 0.0f;
         }
@@ -136,9 +123,9 @@ public class OverworldController : MonoBehaviour
         }
         //=========================================
         //Check if any dialogue is available.
-        if ((gameMode == gameModeOptions.Mobile) || (gameMode == gameModeOptions.DialogueReady))
+        if ((GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Mobile) || (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.DialogueReady))
         {
-            gameMode = gameModeOptions.Mobile;
+            GameDataTracker.gameMode = GameDataTracker.gameModeOptions.Mobile;
             float closestCharacterDistance = 100;
             GameObject closestCharacter = null;
             foreach (Character CharacterItem in CharacterList)
@@ -157,14 +144,9 @@ public class OverworldController : MonoBehaviour
             if (closestCharacterDistance < 1)
             {
                 closestCharacter.GetComponent<FriendlyNPCClass>().readyForDialogue = true;
-                gameMode = gameModeOptions.DialogueReady;
+                GameDataTracker.gameMode = GameDataTracker.gameModeOptions.DialogueReady;
             }
         }
-    }
-
-    public void LateUpdate()
-    {
-        CutsceneController.Update();
     }
 
     public static Character findCharacterByName(string Name, List<Character> charList)
@@ -206,14 +188,6 @@ public class OverworldController : MonoBehaviour
         if (trackingCamera != null)
         {
             trackingCamera.GetComponent<CameraFollow>().trackingcameraY = newY;
-        }
-    }
-
-    public static void setTrackingMultiplyer(float multiple)
-    {
-        if(trackingCamera != null)
-        {
-            trackingCamera.GetComponent<CameraFollow>().dialogueOffsetMultiplier = multiple;
         }
     }
 }

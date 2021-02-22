@@ -50,7 +50,7 @@ public class PauseMenuScript : MonoBehaviour
     {
         GameDataTracker.deadEnemyIDs.Clear();
         GameDataTracker.previousArea = null;
-        OverworldController.gameMode = OverworldController.gameModeOptions.Mobile;
+        GameDataTracker.gameMode = GameDataTracker.gameModeOptions.Mobile;
 
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }

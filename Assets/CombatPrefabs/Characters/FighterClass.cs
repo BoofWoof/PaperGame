@@ -75,7 +75,7 @@ public class FighterClass : CombatObject
         GameObject healthTextObject = new GameObject("Health Text");
         healthText = healthTextObject.AddComponent<TextMeshPro>();
         healthTextObject.transform.position = transform.position + new Vector3(0, CharacterHeight, 0);
-        healthTextObject.transform.parent = transform;
+        healthTextObject.transform.SetParent(transform);
         healthText.text = HP.ToString() + "/" + HPMax.ToString();
         healthText.fontSize = 2f;
         healthText.horizontalAlignment = HorizontalAlignmentOptions.Center;

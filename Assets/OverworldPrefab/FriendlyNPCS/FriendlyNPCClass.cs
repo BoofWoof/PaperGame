@@ -66,7 +66,7 @@ public class FriendlyNPCClass : MonoBehaviour
     private void FacePlayer(float distanceToPlayer, GameObject Player)
     {
         //Face Player If Near
-        if ((distanceToPlayer < 1) && ((OverworldController.gameMode == OverworldController.gameModeOptions.Mobile) || (OverworldController.gameMode == OverworldController.gameModeOptions.DialogueReady)))
+        if ((distanceToPlayer < 1) && ((GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Mobile) || (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.DialogueReady)))
         {
             //SetRotationGoals=================================================================================
             if ((Player.transform.position.x > this.transform.position.x + 0.2f))
@@ -109,7 +109,7 @@ public class FriendlyNPCClass : MonoBehaviour
 
     private void DialogueCheck(float distanceToPlayer, GameObject Player)
     {
-        if (readyForDialogue && ((OverworldController.gameMode == OverworldController.gameModeOptions.Mobile) || (OverworldController.gameMode == OverworldController.gameModeOptions.DialogueReady)))
+        if (readyForDialogue && ((GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Mobile) || (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.DialogueReady)))
         {
             if (Bubble == null)
             {
@@ -158,7 +158,7 @@ public class FriendlyNPCClass : MonoBehaviour
             dialogueCutscene.heightOverSpeaker = heightOverSpeaker;
             dialogueCutscene.speakerName = CharacterName;
             dialogueCutscene.inputText = new TextAsset(InputString);
-            CutsceneController.addCutsceneEvent(dialogueCutscene, gameObject, true, OverworldController.gameModeOptions.Cutscene);
+            CutsceneController.addCutsceneEvent(dialogueCutscene, gameObject, true, GameDataTracker.gameModeOptions.Cutscene);
         }
     }
 }

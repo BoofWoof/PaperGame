@@ -29,7 +29,6 @@ public class SayDialogue : CutSceneClass
             GameObject textbox = Resources.Load<GameObject>("TextBox");
             spawnedTextBox = Instantiate<GameObject>(textbox, new Vector3(parent.transform.position.x, parent.transform.position.y + heightOverSpeaker, parent.transform.position.z), Quaternion.identity);
             spawnedTextBox.GetComponent<TextBoxController>().textfile = inputText;
-            OverworldController.setTrackingMultiplyer(0.7f);
         } else
         {
             DialogueNodeRead();
@@ -44,11 +43,9 @@ public class SayDialogue : CutSceneClass
         {
             if (deconstructerSource == null)
             {
-                OverworldController.setTrackingMultiplyer(1.0f);
                 return true;
             } else
             {
-                OverworldController.setTrackingMultiplyer(1.0f);
                 return true;
             }
         }
@@ -73,7 +70,6 @@ public class SayDialogue : CutSceneClass
         spawnedTextBox.GetComponent<TextBoxController>().choices = currentLinks;
         spawnedTextBox.GetComponent<TextBoxController>().speakerName = speakerName;
         spawnedTextBox.GetComponent<TextBoxController>().scriptSource = deconstructerSource;
-        OverworldController.setTrackingMultiplyer(0.7f);
     }
 
 }

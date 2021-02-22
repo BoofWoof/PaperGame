@@ -9,7 +9,12 @@ public class EnemyNPCClass : MonoBehaviour
     //CharactersName
     private GameObject Player;
     public string CharacterName = "NameMeYaDingus";
+
+    [Header("Combat Encounter Info")]
     public CombatContainer combatEncounter;
+    public CutsceneTrigger cutsceneTrigger;
+
+
     [HideInInspector]public float UniqueSceneID;
 
     private void Awake()
@@ -50,8 +55,9 @@ public class EnemyNPCClass : MonoBehaviour
 
                 ChangeScenesCutscene s = ScriptableObject.CreateInstance<ChangeScenesCutscene>();
                 GameDataTracker.combatScene = combatEncounter;
+                GameDataTracker.cutsceneTrigger = cutsceneTrigger;
                 s.nextSceneName = "CombatExecution";
-                CutsceneController.addCutsceneEvent(s, OverworldController.Player, true, OverworldController.gameModeOptions.Cutscene);
+                CutsceneController.addCutsceneEvent(s, OverworldController.Player, true, GameDataTracker.gameModeOptions.Cutscene);
             }
         }
     }

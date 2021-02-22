@@ -72,7 +72,7 @@ public class CharacterMovementOverworld : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(OverworldController.gameMode != OverworldController.gameModeOptions.Cutscene)
+        if(GameDataTracker.gameMode != GameDataTracker.gameModeOptions.Cutscene)
         {
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
             agent.enabled = false;
@@ -139,7 +139,7 @@ public class CharacterMovementOverworld : MonoBehaviour
         }
         */
         //POSITION RESET IF FALLEN END---------------------------
-        if (OverworldController.gameMode == OverworldController.gameModeOptions.Mobile)
+        if (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Mobile)
         {
             if (Input.GetButtonDown("Fire1") && (jumped == false))
             {
@@ -147,14 +147,14 @@ public class CharacterMovementOverworld : MonoBehaviour
                 jumped = true;
             }
         }
-        if ((OverworldController.gameMode == OverworldController.gameModeOptions.Cutscene || OverworldController.gameMode == OverworldController.gameModeOptions.MobileCutscene) && jump > 0)
+        if ((GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Cutscene || GameDataTracker.gameMode == GameDataTracker.gameModeOptions.MobileCutscene) && jump > 0)
         {
             groundPlayer();
             isGrounded = true;
             jump = 0;
         }
         //MOVEMENT START---------------------------------------------------------------------------------
-        if (OverworldController.gameMode != OverworldController.gameModeOptions.Cutscene)
+        if (GameDataTracker.gameMode != GameDataTracker.gameModeOptions.Cutscene)
         {
             moveHorizontal = Input.GetAxis("Horizontal");
             moveVertical = Input.GetAxis("Vertical");

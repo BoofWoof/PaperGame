@@ -14,8 +14,14 @@ public class GameDataTracker : MonoBehaviour
 
     public static string saveFileName = null;
 
+    //Current Mode
+    public enum gameModeOptions { Mobile, Cutscene, MobileCutscene, DialogueReady, Paused };
+    public static gameModeOptions gameMode = gameModeOptions.Mobile;
+    public static gameModeOptions gameModePre = gameModeOptions.Mobile;
+
     //Super Important Data
     public static string previousArea;
+
     //CombatInfo
     public static Vector3 combatStartPosition;
     public static List<float> deadEnemyIDs = new List<float>();
@@ -28,6 +34,7 @@ public class GameDataTracker : MonoBehaviour
     //CombatTracking
     public static CombatExecutor combatExecutor;
     public static CombatContainer combatScene;
+    public static CutsceneTrigger cutsceneTrigger;
 
     void Awake()
     {
@@ -89,6 +96,11 @@ public class GameDataTracker : MonoBehaviour
             print("Creating new save data.");
             PlayerData playerData = new PlayerData();
         }
+    }
+
+    public void LateUpdate()
+    {
+        CutsceneController.Update();
     }
 
     public static void DeleteFile(string deleteFileName)

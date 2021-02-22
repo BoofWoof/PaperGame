@@ -727,8 +727,8 @@ public class CombatGrid : MonoBehaviour
         //Save cols 
         combatContainer.cols = cols;
 
-        AssetDatabase.CreateAsset(combatContainer, $"Assets/CombatPrefabs/Resources/{filename}.asset");
-        AssetDatabase.SaveAssets();
+        //AssetDatabase.CreateAsset(combatContainer, $"Assets/CombatPrefabs/Resources/{filename}.asset");
+        //AssetDatabase.SaveAssets();
     }
 
     void Clear()

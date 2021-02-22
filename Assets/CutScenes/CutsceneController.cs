@@ -2,6 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class CutSceneEvent
+{
+    public CutSceneClass CutsceneEvent;
+    public GameObject CutsceneTarget;
+    public bool Wait;
+    public GameObject CameraFocus;
+    public Vector3 CameraOffset;
+    public GameDataTracker.gameModeOptions GameMode;
+}
+
 public class CutsceneController
 {
     private static List<CutSceneEvent> CutsceneQueue = new List<CutSceneEvent>();
@@ -9,7 +20,7 @@ public class CutsceneController
     public static int CutscenesPlaying = 0;
 
     //WAYS TO ADD CUTSCENE EVENTS-----------------------------------------------------------------------
-    public static void addCutsceneEvent(CutSceneClass CutsceneEventInput, GameObject CutsceneTargetInput, bool WaitInput, OverworldController.gameModeOptions GameModeInput, GameObject CameraFocusInput, Vector3 CameraOffsetInput)
+    public static void addCutsceneEvent(CutSceneClass CutsceneEventInput, GameObject CutsceneTargetInput, bool WaitInput, GameDataTracker.gameModeOptions GameModeInput, GameObject CameraFocusInput, Vector3 CameraOffsetInput)
     {
         CutSceneEvent newEvent = new CutSceneEvent();
         newEvent.CutsceneEvent = CutsceneEventInput;
@@ -21,7 +32,7 @@ public class CutsceneController
         CutsceneQueue.Add(newEvent);
     }
 
-    public static void addCutsceneEvent(CutSceneClass CutsceneEventInput, GameObject CutsceneTargetInput, bool WaitInput, OverworldController.gameModeOptions GameModeInput)
+    public static void addCutsceneEvent(CutSceneClass CutsceneEventInput, GameObject CutsceneTargetInput, bool WaitInput, GameDataTracker.gameModeOptions GameModeInput)
     {
         CutSceneEvent newEvent = new CutSceneEvent();
         newEvent.CutsceneEvent = CutsceneEventInput;
@@ -32,7 +43,7 @@ public class CutsceneController
         newEvent.CameraOffset = Vector3.zero;
         CutsceneQueue.Add(newEvent);
     }
-    public static void addCutsceneEventFront(CutSceneClass CutsceneEventInput, GameObject CutsceneTargetInput, bool WaitInput, OverworldController.gameModeOptions GameModeInput, GameObject CameraFocusInput, Vector3 CameraOffsetInput)
+    public static void addCutsceneEventFront(CutSceneClass CutsceneEventInput, GameObject CutsceneTargetInput, bool WaitInput, GameDataTracker.gameModeOptions GameModeInput, GameObject CameraFocusInput, Vector3 CameraOffsetInput)
     {
         CutSceneEvent newEvent = new CutSceneEvent();
         newEvent.CutsceneEvent = CutsceneEventInput;
@@ -44,7 +55,7 @@ public class CutsceneController
         CutsceneQueue.Insert(0, newEvent);
     }
 
-    public static void addCutsceneEventFront(CutSceneClass CutsceneEventInput, GameObject CutsceneTargetInput, bool WaitInput, OverworldController.gameModeOptions GameModeInput)
+    public static void addCutsceneEventFront(CutSceneClass CutsceneEventInput, GameObject CutsceneTargetInput, bool WaitInput, GameDataTracker.gameModeOptions GameModeInput)
     {
         CutSceneEvent newEvent = new CutSceneEvent();
         newEvent.CutsceneEvent = CutsceneEventInput;
@@ -72,7 +83,7 @@ public class CutsceneController
                 {
                     keepPlaying = false;
                 }
-                OverworldController.gameMode = eventInitiation.GameMode;
+                GameDataTracker.gameMode = eventInitiation.GameMode;
                 if (keep) {
                     CutsceneActive.Add(eventInitiation);
                     CutscenesPlaying++;
@@ -80,9 +91,9 @@ public class CutsceneController
                 CutsceneQueue.Remove(eventInitiation);
             }
         }
-        if (CutscenesPlaying == 0 && CutsceneQueue.Count == 0 && (OverworldController.gameMode == OverworldController.gameModeOptions.MobileCutscene || OverworldController.gameMode == OverworldController.gameModeOptions.Cutscene))
+        if (CutscenesPlaying == 0 && CutsceneQueue.Count == 0 && (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.MobileCutscene || GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Cutscene))
         {
-            OverworldController.gameMode = OverworldController.gameModeOptions.Mobile;
+            GameDataTracker.gameMode = GameDataTracker.gameModeOptions.Mobile;
         }
         for (int i = CutsceneActive.Count; i > 0; i--)
         {
@@ -94,5 +105,10 @@ public class CutsceneController
                 CutscenesPlaying--;
             }
         }
+    }
+
+    public static bool noCutscenes()
+    {
+        return CutscenesPlaying == 0 && CutsceneQueue.Count == 0;
     }
 }

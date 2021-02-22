@@ -56,7 +56,7 @@ public class CutsceneDeconstruct: ScriptableObject
                 dialogueCutscene.inputText = new TextAsset(node.DialogueText);
                 dialogueCutscene.currentLinks = input.NodeLinks.Where(x => x.BaseNodeGuid == currentGUID).ToList();
                 dialogueCutscene.deconstructerSource = this;
-                CutsceneController.addCutsceneEvent(dialogueCutscene, cutsceneSource, true, OverworldController.gameModeOptions.Cutscene);
+                CutsceneController.addCutsceneEvent(dialogueCutscene, cutsceneSource, true, GameDataTracker.gameModeOptions.Cutscene);
                 continue;
             }
             //Animation Trigger
@@ -68,7 +68,7 @@ public class CutsceneDeconstruct: ScriptableObject
                 animationTriggerCutscene.TriggerName = node.TriggerName;
                 animationTriggerCutscene.TargetName = node.TargetPlayer;
 
-                CutsceneController.addCutsceneEvent(animationTriggerCutscene, cutsceneSource, false, OverworldController.gameModeOptions.Cutscene);
+                CutsceneController.addCutsceneEvent(animationTriggerCutscene, cutsceneSource, false, GameDataTracker.gameModeOptions.Cutscene);
                 currentGUID = FindNextNode(input, currentGUID);
                 continue;
             }
@@ -163,7 +163,7 @@ public class CutsceneDeconstruct: ScriptableObject
                 moveToPosition.TargetObject = TargetObject;
                 moveToPosition.Wait = Wait;
 
-                CutsceneController.addCutsceneEvent(moveToPosition, cutsceneSource, true, OverworldController.gameModeOptions.Cutscene);
+                CutsceneController.addCutsceneEvent(moveToPosition, cutsceneSource, true, GameDataTracker.gameModeOptions.Cutscene);
                 currentGUID = FindNextNode(input, currentGUID);
                 continue;
             }

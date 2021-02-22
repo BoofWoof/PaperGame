@@ -30,6 +30,7 @@ public class CombatExecutor : MonoBehaviour
 
     [Header("Loading")]
     public CombatContainer _containerCache;
+    public CutsceneTrigger cutsceneTrigger;
 
     //Ally Info
     [HideInInspector]public GameObject Clip;
@@ -68,6 +69,10 @@ public class CombatExecutor : MonoBehaviour
         if(!(GameDataTracker.combatScene is null))
         {
             _containerCache = GameDataTracker.combatScene;
+        }
+        if (!(GameDataTracker.cutsceneTrigger is null))
+        {
+            cutsceneTrigger = GameDataTracker.cutsceneTrigger;
         }
 
         AbilityDescription.SetActive(false);
@@ -127,11 +132,15 @@ public class CombatExecutor : MonoBehaviour
         PartnerStats.HPMax = GameDataTracker.playerData.CompanionMaxHealth;
 
         //Set Turn
-        turnManager = new TurnManager();
+        turnManager = ScriptableObject.CreateInstance<TurnManager>();
         currentTurn = turnManager.GoodGuysFirst();
 
         //Set Camera Position
         SetCameraToWorld();
+        if (!(cutsceneTrigger is null))
+        {
+            cutsceneTrigger.onCombatStart();
+        }
     }
 
     // Update is called once per frame
@@ -143,15 +152,7 @@ public class CombatExecutor : MonoBehaviour
             startGameWait -= Time.deltaTime;
         } else
         {
-            FighterClass ClipStats = Clip.GetComponent<FighterClass>();
-            //print(ClipStats.Defense);
-
-            bool cutScenesDone = true;
-
-            Vector2 ClipPos = Clip.GetComponent<FighterClass>().pos;
-            Vector2 PartnerPos = Partner.GetComponent<FighterClass>().pos;
-
-            if (cutScenesDone)
+            if (CutsceneController.noCutscenes())
             {
                 if (currentTurn == TurnManager.turnPhases.ClipTurnStart)
                 {
@@ -203,6 +204,9 @@ public class CombatExecutor : MonoBehaviour
                 {
                     EnemyTurnEnd();
                 }
+            } else
+            {
+
             }
         }
     }
@@ -384,15 +388,15 @@ public class CombatExecutor : MonoBehaviour
                     {
                         HorMov = 1;
                     }
-                    if (Input.GetAxis("Horizontal") < -0.3)
+                    else if (Input.GetAxis("Horizontal") < -0.3)
                     {
                         HorMov = -1;
                     }
-                    if (Input.GetAxis("Vertical") > 0.3)
+                    else if (Input.GetAxis("Vertical") > 0.3)
                     {
                         VerMov = 1;
                     }
-                    if (Input.GetAxis("Vertical") < -0.3)
+                    else if (Input.GetAxis("Vertical") < -0.3)
                     {
                         VerMov = -1;
                     }
@@ -415,15 +419,15 @@ public class CombatExecutor : MonoBehaviour
                     {
                         HorMov = 1;
                     }
-                    if (Input.GetAxis("Horizontal") < -0.3)
+                    else if (Input.GetAxis("Horizontal") < -0.3)
                     {
                         HorMov = -1;
                     }
-                    if (Input.GetAxis("Vertical") > 0.3)
+                    else if (Input.GetAxis("Vertical") > 0.3)
                     {
                         VerMov = 1;
                     }
-                    if (Input.GetAxis("Vertical") < -0.3)
+                    else if (Input.GetAxis("Vertical") < -0.3)
                     {
                         VerMov = -1;
                     }

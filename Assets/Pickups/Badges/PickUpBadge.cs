@@ -35,7 +35,7 @@ public class PickUpBadge : MonoBehaviour
 
     private void OnTriggerEnter(Collider trig)
     {
-        if (trig.CompareTag("Player") && OverworldController.gameMode == OverworldController.gameModeOptions.Mobile)
+        if (trig.CompareTag("Player") && GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Mobile)
         {
             GameDataTracker.AddBadge(BadgeID);
             GameDataTracker.playerData.GatheredItemsDictionary[sceneName].Add(instanceID);
