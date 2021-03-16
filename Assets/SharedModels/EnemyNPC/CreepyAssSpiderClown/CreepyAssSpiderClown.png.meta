@@ -1,0 +1,608 @@
+fileFormatVersion: 2
+guid: 1c247b3de5176914a863cf0242e1878a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5341087003580819395
+    second: ClownLeftBackClaws
+  - first:
+      213: -4503080499130445680
+    second: ClownLeftFrontClaws
+  - first:
+      213: -8022897923291437968
+    second: ClownRightBackClaws
+  - first:
+      213: 1967763584460216301
+    second: ClownRightFrontClaws
+  - first:
+      213: -2975885633748512778
+    second: ClownLeftBow
+  - first:
+      213: -4661701489644263606
+    second: ClownRightBow
+  - first:
+      213: -5549086924676787757
+    second: ClownBody
+  - first:
+      213: -6860477701805474429
+    second: ClownTiara
+  - first:
+      213: -8211562132697879013
+    second: ClownFace
+  - first:
+      213: -4269642113318868460
+    second: ClownBackBow
+  - first:
+      213: -1387260381694976159
+    second: ClownFrontBow
+  - first:
+      213: 6398113730178530256
+    second: ClownRightTux
+  - first:
+      213: -3848808422410013033
+    second: ClownLeftTux
+  - first:
+      213: -6383029003397850899
+    second: CreepyAssSpiderClown_13
+  - first:
+      213: -5604046260380866732
+    second: CreepyAssSpiderClown_14
+  - first:
+      213: -766367560541178670
+    second: CreepyAssSpiderClown_15
+  - first:
+      213: -215113186097990496
+    second: CreepyAssSpiderClown_16
+  - first:
+      213: 566160758983060411
+    second: ClownRightFrontLeg
+  - first:
+      213: -3199758890197155791
+    second: ClownRightBackLeg
+  - first:
+      213: 740082255730250428
+    second: ClownLeftBackLeg
+  - first:
+      213: -4851215718050661546
+    second: ClownLeftFrontLeg
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 410
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ClownLeftBackClaws
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 938
+        width: 87
+        height: 120
+      alignment: 9
+      pivot: {x: 0.059094902, y: 0.38446146}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d381c152ba5a0e5b0800000000000000
+      internalID: -5341087003580819395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClownLeftFrontClaws
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 828
+        width: 70
+        height: 84
+      alignment: 9
+      pivot: {x: 0.10194032, y: 0.11724999}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0905756f428d181c0800000000000000
+      internalID: -4503080499130445680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClownRightBackClaws
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 656
+        width: 88
+        height: 119
+      alignment: 9
+      pivot: {x: 0.9080667, y: 0.3994125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 074aefc88d0f8a090800000000000000
+      internalID: -8022897923291437968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClownRightFrontClaws
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 539
+        width: 70
+        height: 83
+      alignment: 9
+      pivot: {x: 0.90071714, y: 0.108684495}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de753bded86ee4b10800000000000000
+      internalID: 1967763584460216301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClownLeftBow
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 643
+        width: 358
+        height: 310
+      alignment: 9
+      pivot: {x: 0.9798872, y: 0.9720898}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ff4b3478c783b6d0800000000000000
+      internalID: -2975885633748512778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClownRightBow
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 648
+        width: 357
+        height: 311
+      alignment: 9
+      pivot: {x: 0.019949093, y: 0.9747931}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4728d4a13f4e4fb0800000000000000
+      internalID: -4661701489644263606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClownBody
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 662
+        width: 112
+        height: 288
+      alignment: 9
+      pivot: {x: 0.48316193, y: 0.078743614}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d110e2a7deadf2b0800000000000000
+      internalID: -5549086924676787757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClownTiara
+      rect:
+        serializedVersion: 2
+        x: 1063
+        y: 878
+        width: 193
+        height: 212
+      alignment: 9
+      pivot: {x: 0.49059427, y: 0.38325098}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38d756ae0efaac0a0800000000000000
+      internalID: -6860477701805474429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClownFace
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 415
+        width: 263
+        height: 186
+      alignment: 9
+      pivot: {x: 0.4937143, y: 0.0674573}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1e6e7d3fbbaa0e80800000000000000
+      internalID: -8211562132697879013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClownBackBow
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 293
+        width: 188
+        height: 86
+      alignment: 9
+      pivot: {x: 0.5, y: 0.68105865}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41aa4959e1f2fb4c0800000000000000
+      internalID: -4269642113318868460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClownFrontBow
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 251
+        width: 37
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16f191a68067fbce0800000000000000
+      internalID: -1387260381694976159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClownRightTux
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 23
+        width: 86
+        height: 211
+      alignment: 9
+      pivot: {x: 0.74855256, y: 0.9453233}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0db37d7f98aaac850800000000000000
+      internalID: 6398113730178530256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClownLeftTux
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 24
+        width: 86
+        height: 210
+      alignment: 9
+      pivot: {x: 0.23591295, y: 0.94532335}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79638b5b129469ac0800000000000000
+      internalID: -3848808422410013033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CreepyAssSpiderClown_13
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 17
+        width: 56
+        height: 58
+      alignment: 9
+      pivot: {x: 0.34635273, y: 0.82451326}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de8947da0fcea67a0800000000000000
+      internalID: -6383029003397850899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CreepyAssSpiderClown_14
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 22
+        width: 53
+        height: 55
+      alignment: 9
+      pivot: {x: 0.7805613, y: 0.77518755}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45764212e9d6a32b0800000000000000
+      internalID: -5604046260380866732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CreepyAssSpiderClown_15
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 89
+        width: 291
+        height: 515
+      alignment: 9
+      pivot: {x: 0.15992764, y: 0.6789558}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d47f8a93c05d55f0800000000000000
+      internalID: -766367560541178670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CreepyAssSpiderClown_16
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 110
+        width: 256
+        height: 486
+      alignment: 9
+      pivot: {x: 0.827549, y: 0.6787535}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a4702c62b3c30df0800000000000000
+      internalID: -215113186097990496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClownRightFrontLeg
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 92
+        width: 73
+        height: 281
+      alignment: 9
+      pivot: {x: 0.9286289, y: 0.95000786}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbb63fce5386bd700800000000000000
+      internalID: 566160758983060411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClownRightBackLeg
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 39
+        width: 41
+        height: 306
+      alignment: 9
+      pivot: {x: 0.758092, y: 0.96684307}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13086ee0e3c2893d0800000000000000
+      internalID: -3199758890197155791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClownLeftBackLeg
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 35
+        width: 43
+        height: 308
+      alignment: 9
+      pivot: {x: 0.180086, y: 0.9724007}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb21f55f3ec454a00800000000000000
+      internalID: 740082255730250428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClownLeftFrontLeg
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 90
+        width: 76
+        height: 273
+      alignment: 9
+      pivot: {x: 0.07533666, y: 0.9728852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65b7cccd1050dacb0800000000000000
+      internalID: -4851215718050661546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: f4d933d0756957c45aa750b2600931c8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
