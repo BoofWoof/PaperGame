@@ -58,7 +58,7 @@ public class SayDialogue : CutSceneClass
 
         Debug.Log(speakerName);
         
-        Character findCharacter = OverworldController.findCharacterByName(speakerName, OverworldController.CharacterList);
+        Character findCharacter = GameDataTracker.findCharacterByName(speakerName, GameDataTracker.CharacterList);
         Transform target;
         float dialogueHeight;
 

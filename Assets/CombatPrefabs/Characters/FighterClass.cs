@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 
 [RequireComponent(typeof(movesetContainer))]
+[RequireComponent(typeof(SpriteFlipper))]
 //THIS IS THE CLASS ANY COMBAT CHARACTER USES
 public class FighterClass : CombatObject
 {
@@ -60,6 +61,10 @@ public class FighterClass : CombatObject
     [Header("Status Effects")]
     public List<statusInfo> characterStatus = new List<statusInfo>();
 
+    [Header("Inspection Cutscene")]
+    public Animator animator;
+    public DialogueContainer inspectionInfo;
+
     //INPUT OF AVAIALBE ATTACKS--------------------------
     [HideInInspector]public movesetContainer moveContainer;
     [HideInInspector]public moveTemplate attack;
@@ -67,6 +72,12 @@ public class FighterClass : CombatObject
 
     public virtual void Awake()
     {
+        Character thisNPCCharacter = new Character();
+        thisNPCCharacter.CharacterObject = gameObject;
+        thisNPCCharacter.CharacterName = name;
+        thisNPCCharacter.dialogueHeight = CharacterHeight;
+        thisNPCCharacter.uniqueSceneID = GetInstanceID();
+        GameDataTracker.CharacterList.Add(thisNPCCharacter);
         moveContainer = GetComponent<movesetContainer>();
     }
 
@@ -74,7 +85,7 @@ public class FighterClass : CombatObject
     {
         GameObject healthTextObject = new GameObject("Health Text");
         healthText = healthTextObject.AddComponent<TextMeshPro>();
-        healthTextObject.transform.position = transform.position + new Vector3(0, CharacterHeight, 0);
+        healthTextObject.transform.position = transform.position + new Vector3(0, CharacterHeight - 0.5f, 0);
         healthTextObject.transform.SetParent(transform);
         healthText.text = HP.ToString() + "/" + HPMax.ToString();
         healthText.fontSize = 2f;

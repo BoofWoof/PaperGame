@@ -679,7 +679,7 @@ public class CombatGrid : MonoBehaviour
             for (int col = 0; col < cols; col++)
             {
                 GameObject character = characterGrid[row, col];
-                for (int character_idx = 0; character_idx < CombatMapper.blockMap.ToList().Count; character_idx++)
+                for (int character_idx = 0; character_idx < CombatMapper.characterMap.ToList().Count; character_idx++)
                 {
                     if (character is null)
                     {
@@ -727,8 +727,8 @@ public class CombatGrid : MonoBehaviour
         //Save cols 
         combatContainer.cols = cols;
 
-        //AssetDatabase.CreateAsset(combatContainer, $"Assets/CombatPrefabs/Resources/{filename}.asset");
-        //AssetDatabase.SaveAssets();
+        AssetDatabase.CreateAsset(combatContainer, $"Assets/CombatPrefabs/CombatBlocks/Resources/{filename}.asset");
+        AssetDatabase.SaveAssets();
     }
 
     void Clear()

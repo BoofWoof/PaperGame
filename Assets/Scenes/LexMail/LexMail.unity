@@ -1103,7 +1103,7 @@ PrefabInstance:
         type: 3}
       propertyPath: combatEncounter
       value: 
-      objectReference: {fileID: 11400000, guid: 34f56820e732c264689f4122e4cd3d5f,
+      objectReference: {fileID: 11400000, guid: a5bb5b85f55526649bf4a4ef5e04614a,
         type: 2}
     - target: {fileID: 6100486210798427351, guid: 702e6f1d58f83d1448ac76ea641623d9,
         type: 3}
@@ -2113,7 +2113,7 @@ PrefabInstance:
         type: 3}
       propertyPath: combatEncounter
       value: 
-      objectReference: {fileID: 11400000, guid: 683530ec1f1a58b4bb057bd254b6df6c,
+      objectReference: {fileID: 11400000, guid: bb1c14dc68e2441419de377450295580,
         type: 2}
     - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
         type: 3}

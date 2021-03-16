@@ -15,7 +15,7 @@ public class AnimationTriggerCutscene : CutSceneClass
             animatorStorage = parent.GetComponent<Animator>();
         } else
         {
-            animatorStorage = OverworldController.findCharacterByName(TargetName, OverworldController.CharacterList).CharacterObject.GetComponent<Animator>();
+            animatorStorage = GameDataTracker.findCharacterByName(TargetName, GameDataTracker.CharacterList).CharacterObject.GetComponent<Animator>();
         }
         animatorStorage.SetTrigger(TriggerName);
         return false;

@@ -15,7 +15,8 @@ public class TurnManager : ScriptableObject
         EnemyTurnStart,
         EnemyTurn,
         EnemyTurnEnd,
-        GameOver
+        GameOver,
+        RoundOver
     }
 
     public int turnCount = 0;
@@ -33,6 +34,7 @@ public class TurnManager : ScriptableObject
         turnQueue.Add(turnPhases.EnemyTurnStart);
         turnQueue.Add(turnPhases.EnemyTurn);
         turnQueue.Add(turnPhases.EnemyTurnEnd);
+        turnQueue.Add(turnPhases.RoundOver);
         return turnQueue[0];
     }
 
@@ -51,9 +53,15 @@ public class TurnManager : ScriptableObject
             return turnPhases.GameOver;
         }
 
-        turnCount++;
         turnQueue.Add(turnQueue[0]);
         turnQueue.RemoveAt(0);
+        if (turnQueue[0] == turnPhases.RoundOver)
+        {
+            turnCount++;
+            turnQueue.Add(turnQueue[0]);
+            turnQueue.RemoveAt(0);
+        }
+        Debug.Log(turnQueue[0]);
         return turnQueue[0];
     }
 

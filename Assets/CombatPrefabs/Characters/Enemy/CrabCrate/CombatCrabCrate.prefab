@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4614533083162089211}
   - component: {fileID: -6788904852698556003}
   - component: {fileID: 3528022716236817427}
+  - component: {fileID: -8003200180741871601}
   m_Layer: 0
   m_Name: CombatCrabCrate
   m_TagString: Untagged
@@ -60,6 +61,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd67e239ac09cb46a0eaddcc4849d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pos: {x: 0, y: 0}
+  move: {fileID: 0}
+  prevPos: {x: 0, y: 0}
+  Pushable: 0
   CharacterName: Crab Crate
   characterPosition: 0
   SelectionWheel: {fileID: 0}
@@ -76,11 +81,32 @@ MonoBehaviour:
   CanWalk: 1
   CanFly: 0
   CanSwim: 0
-  CharacterHeight: 1.3
+  CharacterHeight: 1.8
   CharacterWidth: 1
+  Paralyzed: 0
+  Dead: 0
   displayHealth: 0
+  animator: {fileID: 1324875398338300846}
+  inspectionInfo: {fileID: 11400000, guid: eb9013404c8d7fe46a991a09032028e6, type: 2}
   moveContainer: {fileID: 0}
-  move: {fileID: 0}
+  attack: {fileID: 0}
+--- !u!114 &-8003200180741871601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7392942089371060633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff437bc951ee2014990891a19e339741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useAnimatedTurn: 1
+  startsLeft: 1
+  sprite: {fileID: 1324875398338300833}
+  rotSpeedMagnitude: 500
+  goal: 0
 --- !u!1001 &8895257735848139136
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -150,9 +176,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b458460065e1594883e2b770a9981f5, type: 3}
+--- !u!1 &1324875398338300833 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7570738920764068385, guid: 7b458460065e1594883e2b770a9981f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 8895257735848139136}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1324875398338300847 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7570738920764068399, guid: 7b458460065e1594883e2b770a9981f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 8895257735848139136}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1324875398338300846 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7570738920764068398, guid: 7b458460065e1594883e2b770a9981f5,
     type: 3}
   m_PrefabInstance: {fileID: 8895257735848139136}
   m_PrefabAsset: {fileID: 0}

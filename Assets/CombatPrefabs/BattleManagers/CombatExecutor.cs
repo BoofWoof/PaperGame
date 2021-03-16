@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class CombatExecutor : MonoBehaviour
 {
-    private int rows;
-    private int cols;
+    public int rows;
+    public int cols;
 
     [Header("Block Spacing")]
     public float xOffset;
@@ -31,6 +31,7 @@ public class CombatExecutor : MonoBehaviour
     [Header("Loading")]
     public CombatContainer _containerCache;
     public CutsceneTrigger cutsceneTrigger;
+    public CutsceneDeconstruct cutsceneDeconstruct;
 
     //Ally Info
     [HideInInspector]public GameObject Clip;
@@ -63,10 +64,15 @@ public class CombatExecutor : MonoBehaviour
     private float turnTimeLeft;
     private float startGameWait = 1.5f;
 
+    private void Awake()
+    {
+        GameDataTracker.clearCharacterList();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        if(!(GameDataTracker.combatScene is null))
+        if (!(GameDataTracker.combatScene is null))
         {
             _containerCache = GameDataTracker.combatScene;
         }
@@ -103,7 +109,7 @@ public class CombatExecutor : MonoBehaviour
                         Clip = characterGrid[row, col];
                         Clip.GetComponent<FighterClass>().pos = new Vector2(row, col);
                     }
-                    else if (_containerCache.characterGrid[row * cols + col] == 1)
+                    else if (_containerCache.characterGrid[row * cols + col] <= 10)
                     {
                         Partner = characterGrid[row, col];
                         Partner.GetComponent<FighterClass>().pos = new Vector2(row, col);
@@ -152,11 +158,12 @@ public class CombatExecutor : MonoBehaviour
             startGameWait -= Time.deltaTime;
         } else
         {
-            if (CutsceneController.noCutscenes())
+            if (noCutscenes())
             {
                 if (currentTurn == TurnManager.turnPhases.ClipTurnStart)
                 {
                     PlayerTurnStart(Clip);
+                    return;
                 }
                 if (currentTurn == TurnManager.turnPhases.ClipTurn)
                 {
@@ -168,14 +175,17 @@ public class CombatExecutor : MonoBehaviour
                     {
                         Targeting();
                     }
+                    return;
                 }
                 if (currentTurn == TurnManager.turnPhases.ClipTurnEnd)
                 {
                     PlayerTurnEnd(Clip);
+                    return;
                 }
                 if (currentTurn == TurnManager.turnPhases.PartnerTurnStart)
                 {
                     PlayerTurnStart(Partner);
+                    return;
                 }
                 if (currentTurn == TurnManager.turnPhases.PartnerTurn)
                 {
@@ -187,28 +197,47 @@ public class CombatExecutor : MonoBehaviour
                     {
                         Targeting();
                     }
+                    return;
                 }
                 if (currentTurn == TurnManager.turnPhases.PartnerTurnEnd)
                 {
                     PlayerTurnEnd(Partner);
+                    return;
                 }
                 if (currentTurn == TurnManager.turnPhases.EnemyTurnStart)
                 {
                     EnemyTurnStart();
+                    return;
                 }
                 if (currentTurn == TurnManager.turnPhases.EnemyTurn)
                 {
                     EnemyTurn();
+                    return;
                 }
                 if (currentTurn == TurnManager.turnPhases.EnemyTurnEnd)
                 {
                     EnemyTurnEnd();
+                    return;
                 }
             } else
             {
 
             }
         }
+    }
+
+    private bool noCutscenes()
+    {
+        //Check deconstructor.
+        if(!(cutsceneDeconstruct is null))
+        {
+            if (cutsceneDeconstruct.done)
+            {
+                Destroy(cutsceneDeconstruct);
+                cutsceneDeconstruct = null;
+            }
+        }
+        return CutsceneController.noCutscenes() && (cutsceneDeconstruct is null);
     }
 
     void PlayerTurnStart(GameObject Player)
@@ -258,7 +287,6 @@ public class CombatExecutor : MonoBehaviour
                 selectedMenu.Deactivate();
                 selectedMove = selectedObject.GetComponent<moveTemplate>();
                 int prevMenuCount = currentMenu.Count;
-                selectedMove.character = character;
                 if (selectedMove.targetType == moveTemplate.TargetType.None)
                 {
                     selectedMove.Activate(null);
@@ -380,6 +408,7 @@ public class CombatExecutor : MonoBehaviour
         if (Clip.GetComponent<FighterClass>().move is null)
         {
             FighterClass clipInfo = Clip.GetComponent<FighterClass>();
+            clipInfo.animator.speed = 1.0f;
             if ((turnTimeLeft > 0 || !allEnemyMoveDone) && !clipInfo.Paralyzed && !clipInfo.Dead)
             {
                 if (Input.GetButton("Fire2"))
@@ -452,7 +481,7 @@ public class CombatExecutor : MonoBehaviour
     void EnemyTurnEnd()
     {
         int enemyCount = EnemyList.Count;
-        for(int enemyIdx = 0; enemyIdx < enemyCount; enemyIdx++)
+        for(int enemyIdx = enemyCount - 1; enemyIdx >= 0; enemyIdx--)
         {
             GameObject enemy = EnemyList[enemyIdx];
             FighterClass enemyInfo = enemy.GetComponent<FighterClass>();
@@ -467,6 +496,8 @@ public class CombatExecutor : MonoBehaviour
     {
         if (character.move.Update())
         {
+            character.animator.SetTrigger("Stop");
+            character.animator.speed = 1.0f;
             Destroy(character.move);
             character.move = null;
             blockGrid[(int)character.pos.x, (int)character.pos.y].GetComponent<BlockTemplate>().TileEntered(character);
@@ -480,7 +511,16 @@ public class CombatExecutor : MonoBehaviour
         FighterClass stats = character.GetComponent<FighterClass>();
         stats.prevPos = CurrentPos;
 
-        if(EndPos.x >= 0 && EndPos.x < rows && EndPos.y >= 0 && EndPos.y < cols)
+        if(HorChange > 0)
+        {
+            character.GetComponent<SpriteFlipper>().setFacingRight();
+        }
+        if (HorChange < 0)
+        {
+            character.GetComponent<SpriteFlipper>().setFacingLeft();
+        }
+
+        if (EndPos.x >= 0 && EndPos.x < rows && EndPos.y >= 0 && EndPos.y < cols)
         {
             bool openSpace = false;
             bool pushCharacter = false;
@@ -562,6 +602,8 @@ public class CombatExecutor : MonoBehaviour
                 characterGrid[(int)EndPos.x, (int)EndPos.y] = character;
                 stats.move = MoveTo;
                 stats.pos = EndPos;
+                stats.animator.SetTrigger("Go");
+                stats.animator.speed = 2.0f;
             } else
             {
                 stats.pos = CurrentPos;
@@ -633,7 +675,8 @@ public class CombatExecutor : MonoBehaviour
             AbilityDescriptionText.GetComponent<Text>().text = selectedMove.combatDescription;
             targeter = ScriptableObject.CreateInstance<Targeter>();
             moveTemplate.TargetType targetType = selectedMove.targetType;
-            targeter.potentialTargets = getTargets(targetType);
+            List<GameObject> potentialTargets = getTargets(targetType);
+            targeter.potentialTargets = selectedMove.targetFilter(potentialTargets);
             targeter.targetQuantity = selectedMove.targetQuantity;
             targeter.targeterSprite = selectedMove.character.GetComponent<FighterClass>().characterSelector;
             targeter.Activate();
@@ -644,6 +687,7 @@ public class CombatExecutor : MonoBehaviour
             {
                 if (targeter.Undo())
                 {
+                    selectedMove.hideRange();
                     selectedMove = null;
                     targeter = null;
                     BattleMenu selectedMenu = currentMenu[currentMenu.Count - 1];
@@ -651,11 +695,12 @@ public class CombatExecutor : MonoBehaviour
                     AbilityDescription.SetActive(false);
                 }
             }
-            else
+            else if (targeter.potentialTargets.Count > 0)
             {
                 List<GameObject> moveTargets = targeter.TargeterUpdate(Input.GetAxis("Horizontal"), Input.GetButtonDown("Fire2"));
                 if (!(moveTargets is null))
                 {
+                    selectedMove.hideRange();
                     selectedMove.Activate(moveTargets);
                     selectedMove = null;
                     targeter = null;
@@ -771,13 +816,13 @@ public class CombatExecutor : MonoBehaviour
         PartnerMaxHealth.GetComponent<Text>().text = PartnerStats.HPMax.ToString();
     }
 
-    void SetCameraToWorld()
+    public void SetCameraToWorld()
     {
         combatCamera.transform.position = new Vector3((cols - 1) * xOffset / 2 + cameraX, cameraHeight + cameraY, cameraOffset + cameraZ);
         combatCamera.transform.eulerAngles = new Vector3(cameraAngle, 0, 0);
     }
 
-    void FocusOnCharacter(Vector2 PlayerPos)
+    public void FocusOnCharacter(Vector2 PlayerPos)
     {
         combatCamera.transform.position = characterGrid[(int)PlayerPos.x, (int)PlayerPos.y].transform.position
             + new Vector3(1f, 5.8f, -8);

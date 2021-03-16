@@ -44,10 +44,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Debug Attack
+  combatDescription: A light tap.
   character: {fileID: 0}
-  target: []
   moveIndex: 0
   targetType: 5
   targetQuantity: 1
+  targetShape: 1
+  MaxRange: 2
+  MinRange: 1
   targetCount: 1
-  combatDescription: A light tap.
+  activated: 1
+  rangeIndicator: {fileID: 2100000, guid: 176f95ca553fd644ba02f20c019237d6, type: 2}

@@ -35,7 +35,7 @@ public class BattleMenu : ScriptableObject
     {
         moveCount = movesList.Length;
         spriteObjects = new GameObject[moveCount];
-        centerPoint = new Vector3(characterTarget.transform.position.x - characterWidth, characterTarget.transform.position.y + characterHeight + 0.8f, characterTarget.transform.position.z - 0.2f);
+        centerPoint = new Vector3(characterTarget.transform.position.x - characterWidth, characterTarget.transform.position.y + characterHeight + 0.3f, characterTarget.transform.position.z - 0.2f);
 
         selectionWheel = Instantiate(characterTarget.GetComponent<FighterClass>().SelectionWheel, centerPoint, Quaternion.identity);
         selectionText = selectionWheel.GetComponent<TextMeshPro>();
@@ -54,7 +54,9 @@ public class BattleMenu : ScriptableObject
             moveSprite.transform.position = centerPoint + new Vector3(xOffset, yOffset, 0);
             spriteObjects[spriteIdx] = moveSprite;
             movesList[spriteIdx].GetComponent<moveTemplate>().moveIndex = spriteIdx;
+            movesList[spriteIdx].GetComponent<moveTemplate>().character = characterTarget;
         }
+        movesList[goalRotation % moveCount].GetComponent<moveTemplate>().displayRange();
     }
 
     public void Deactivate()
@@ -73,6 +75,7 @@ public class BattleMenu : ScriptableObject
         {
             if (Mathf.Abs(horizontalSpeed) > 0.3)
             {
+                movesList[goalRotation % moveCount].GetComponent<moveTemplate>().hideRange();
                 if (horizontalSpeed > 0)
                 {
                     goalRotation += 1;
@@ -86,6 +89,7 @@ public class BattleMenu : ScriptableObject
                     goalRotation += moveCount;
                     currentRotation += moveCount;
                 }
+                movesList[goalRotation % moveCount].GetComponent<moveTemplate>().displayRange();
                 selectionText.text = movesList[goalRotation % moveCount].GetComponent<moveTemplate>().name;
             }
         } else

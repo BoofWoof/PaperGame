@@ -34,7 +34,7 @@ public class FriendlyNPCClass : MonoBehaviour
     public float rotSpeedMagnitude = 360;
 
 
-    void Start()
+    void Awake()
     {
         if(CharacterName == "NameMeYaDingus")
         {
@@ -45,7 +45,7 @@ public class FriendlyNPCClass : MonoBehaviour
         thisNPCCharacter.CharacterName = CharacterName;
         thisNPCCharacter.dialogueHeight = heightOverSpeaker;
         thisNPCCharacter.uniqueSceneID = GetInstanceID();
-        OverworldController.CharacterList.Add(thisNPCCharacter);
+        GameDataTracker.CharacterList.Add(thisNPCCharacter);
 
         height = transform.GetComponent<BoxCollider>().size.y;
 

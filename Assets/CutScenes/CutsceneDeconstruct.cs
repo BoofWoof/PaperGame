@@ -15,6 +15,8 @@ public class CutsceneDeconstruct: ScriptableObject
     bool textboxWait = false;
     private GameObject spawnedTextBox;
 
+    public bool done = false;
+
     //DataTracking
 
     public void Deconstruct(DialogueContainer input, string name, GameObject source)
@@ -170,6 +172,7 @@ public class CutsceneDeconstruct: ScriptableObject
         }
         if(!textboxWait && string.IsNullOrEmpty(currentGUID))
         {
+            done = true;
             return true;
         }
         return false;

@@ -36,6 +36,10 @@ public class GameDataTracker : MonoBehaviour
     public static CombatContainer combatScene;
     public static CutsceneTrigger cutsceneTrigger;
 
+    //CharacterInfo
+    public static List<Character> CharacterList = new List<Character>();
+    //public static List<Character> EnemyList;
+
     void Awake()
     {
         //MAKES THIS OBJECT PERSIST IN EVERY SCENE
@@ -48,6 +52,11 @@ public class GameDataTracker : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    static public void clearCharacterList()
+    {
+        CharacterList = new List<Character>();
     }
 
     static public void GameOver()
@@ -128,8 +137,51 @@ public class GameDataTracker : MonoBehaviour
             playerData.health = playerData.maxHealth;
         }
     }
+    
+    public static Character findCharacterByName(string Name, List<Character> charList)
+    {
+        Character foundCharacter = new Character();
+        foundCharacter.CharacterName = "NoNamesLikeThat";
+        foundCharacter.CharacterObject = null;
+        foundCharacter.dialogueHeight = -1;
+        foundCharacter.uniqueSceneID = -1;
+        foreach (Character charItem in charList)
+        {
+            if (charItem.CharacterName == Name)
+            {
+                foundCharacter = charItem;
+                return (foundCharacter);
+            }
+        }
+        return (foundCharacter);
+    }
+    public static Character findCharacterUniqueSceneID(int ID, List<Character> charList)
+    {
+        Character foundCharacter = new Character();
+        foundCharacter.CharacterName = "NoNamesLikeThat";
+        foundCharacter.CharacterObject = null;
+        foundCharacter.dialogueHeight = -1;
+        foundCharacter.uniqueSceneID = -1;
+        foreach (Character charItem in charList)
+        {
+            if (charItem.uniqueSceneID == ID)
+            {
+                foundCharacter = charItem;
+                return (foundCharacter);
+            }
+        }
+        return (foundCharacter);
+    }
+
 }
 
+public class Character
+{
+    public GameObject CharacterObject;
+    public string CharacterName;
+    public float dialogueHeight;
+    public float uniqueSceneID;
+}
 
 //THESE ARE THE OBJECTS I EXPECT WE'LL NEED====================
 [Serializable]

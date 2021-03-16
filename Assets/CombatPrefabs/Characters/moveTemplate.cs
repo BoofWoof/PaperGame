@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.HighDefinition;
 
 public class moveTemplate : MonoBehaviour
 {
@@ -25,7 +27,8 @@ public class moveTemplate : MonoBehaviour
         Diamond,
         Square,
         Cross,
-        X
+        X,
+        None
     }
 
     public enum TargetQuantity
@@ -57,6 +60,9 @@ public class moveTemplate : MonoBehaviour
     public int targetCount = 1;
 
     [HideInInspector] public bool activated = false;
+    [Header("Attack Indicator")]
+    public Material rangeIndicator;
+    private List<GameObject> decalProjectors = new List<GameObject>();
 
     public virtual void Activate(List<GameObject> targets)
     {
@@ -126,7 +132,7 @@ public class moveTemplate : MonoBehaviour
                     if (Mathf.Abs(row) >= MinRange || Mathf.Abs(col) >= MinRange)
                     {
                         Vector2 goal = targetPos + new Vector2(row, col);
-                        if (!goalList.Contains(goal))
+                        if (isThisOnTheGrid(goal, rows, cols) && !goalList.Contains(goal))
                         {
                             goalList.Add(goal);
                             objectList.Add(targetObject);
@@ -156,7 +162,7 @@ public class moveTemplate : MonoBehaviour
                     if (Mathf.Abs(row) + Mathf.Abs(col) >= MinRange)
                     {
                         Vector2 goal = targetPos + new Vector2(row, col);
-                        if (!goalList.Contains(goal))
+                        if (isThisOnTheGrid(goal, rows, cols) && !goalList.Contains(goal))
                         {
                             goalList.Add(goal);
                             objectList.Add(targetObject);
@@ -181,14 +187,31 @@ public class moveTemplate : MonoBehaviour
             Vector2 targetPos = targetObject.GetComponent<FighterClass>().pos;
             for (int idx = MinRange; idx <= MaxRange; idx++)
             {
-                goalList.Add(targetPos + new Vector2(idx, 0));
-                objectList.Add(targetObject);
-                goalList.Add(targetPos + new Vector2(-idx, 0));
-                objectList.Add(targetObject);
-                goalList.Add(targetPos + new Vector2(0, idx));
-                objectList.Add(targetObject);
-                goalList.Add(targetPos + new Vector2(0, -idx));
-                objectList.Add(targetObject);
+                Vector2 newGoalVector;
+                newGoalVector = targetPos + new Vector2(idx, 0);
+                if (isThisOnTheGrid(newGoalVector, rows, cols) && !goalList.Contains(newGoalVector))
+                {
+                    goalList.Add(newGoalVector);
+                    objectList.Add(targetObject);
+                }
+                newGoalVector = targetPos + new Vector2(-idx, 0);
+                if (isThisOnTheGrid(newGoalVector, rows, cols) && !goalList.Contains(newGoalVector))
+                {
+                    goalList.Add(newGoalVector);
+                    objectList.Add(targetObject);
+                }
+                newGoalVector = targetPos + new Vector2(0, idx);
+                if (isThisOnTheGrid(newGoalVector, rows, cols) && !goalList.Contains(newGoalVector))
+                {
+                    goalList.Add(newGoalVector);
+                    objectList.Add(targetObject);
+                }
+                newGoalVector = targetPos + new Vector2(0, -idx);
+                if (isThisOnTheGrid(newGoalVector, rows, cols) && !goalList.Contains(newGoalVector))
+                {
+                    goalList.Add(newGoalVector);
+                    objectList.Add(targetObject);
+                }
             }
         }
         return (goalList, objectList);
@@ -207,16 +230,215 @@ public class moveTemplate : MonoBehaviour
             Vector2 targetPos = targetObject.GetComponent<FighterClass>().pos;
             for (int idx = MinRange; idx <= MaxRange; idx++)
             {
-                goalList.Add(targetPos + new Vector2(idx, idx));
-                objectList.Add(targetObject);
-                goalList.Add(targetPos + new Vector2(-idx, idx));
-                objectList.Add(targetObject);
-                goalList.Add(targetPos + new Vector2(-idx, -idx));
-                objectList.Add(targetObject);
-                goalList.Add(targetPos + new Vector2(idx, -idx));
-                objectList.Add(targetObject);
+                Vector2 newGoalVector;
+                newGoalVector = targetPos + new Vector2(idx, idx);
+                if (isThisOnTheGrid(newGoalVector, rows, cols) && !goalList.Contains(newGoalVector))
+                {
+                    goalList.Add(newGoalVector);
+                    objectList.Add(targetObject);
+                }
+                newGoalVector = targetPos + new Vector2(-idx, -idx);
+                if (isThisOnTheGrid(newGoalVector, rows, cols) && !goalList.Contains(newGoalVector))
+                {
+                    goalList.Add(newGoalVector);
+                    objectList.Add(targetObject);
+                }
+                newGoalVector = targetPos + new Vector2(-idx, idx);
+                if (isThisOnTheGrid(newGoalVector, rows, cols) && !goalList.Contains(newGoalVector))
+                {
+                    goalList.Add(newGoalVector);
+                    objectList.Add(targetObject);
+                }
+                newGoalVector = targetPos + new Vector2(idx, -idx);
+                if (isThisOnTheGrid(newGoalVector, rows, cols) && !goalList.Contains(newGoalVector))
+                {
+                    goalList.Add(newGoalVector);
+                    objectList.Add(targetObject);
+                }
             }
         }
         return (goalList, objectList);
+    }
+
+    private bool isThisOnTheGrid(Vector2 pos, int rows, int cols)
+    {
+        if (pos.x >= 0 && pos.x < rows && pos.y >= 0 && pos.y < cols)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public virtual List<GameObject> targetFilter(List<GameObject> potentialTargets)
+    {
+        if (targetShape == TargetShape.Square)
+        {
+            return squareFilter(
+                potentialTargets
+                );
+        }
+        if (targetShape == TargetShape.Diamond)
+        {
+            return diamondFilter(
+                potentialTargets
+                );
+        }
+        if (targetShape == TargetShape.Cross)
+        {
+            return crossFilter(
+                potentialTargets
+                );
+        }
+        if (targetShape == TargetShape.X)
+        {
+            return xFilter(
+                potentialTargets
+                );
+        }
+
+        return potentialTargets;
+    }
+
+    private List<GameObject> xFilter(List<GameObject> targets)
+    {
+        for (int idx = targets.Count - 1; idx >= 0; idx--)
+        {
+            Vector2 selfPos = character.GetComponent<FighterClass>().pos;
+            Vector2 pos = (targets[idx].GetComponent<FighterClass>().pos - selfPos);
+            if (Mathf.Abs(pos.x) != Mathf.Abs(pos.y))
+            {
+                targets.RemoveAt(idx);
+                continue;
+            }
+            if (Mathf.Abs(pos.x) > MaxRange ||
+                Mathf.Abs(pos.y) > MaxRange ||
+                Mathf.Abs(pos.x) < MinRange ||
+                Mathf.Abs(pos.y) < MinRange)
+            {
+                targets.RemoveAt(idx);
+            }
+        }
+        return targets;
+    }
+
+    private List<GameObject> crossFilter(List<GameObject> targets)
+    {
+        for (int idx = targets.Count - 1; idx >= 0; idx--)
+        {
+            Vector2 selfPos = character.GetComponent<FighterClass>().pos;
+            Vector2 pos = (targets[idx].GetComponent<FighterClass>().pos - selfPos);
+            if(pos.x != 0 && pos.y != 0)
+            {
+                targets.RemoveAt(idx);
+                continue;
+            }
+            if (Mathf.Abs(pos.x) > MaxRange ||
+                Mathf.Abs(pos.y) > MaxRange ||
+                Mathf.Abs(pos.x) < MinRange ||
+                Mathf.Abs(pos.y) < MinRange)
+            {
+                targets.RemoveAt(idx);
+            }
+        }
+        return targets;
+    }
+
+    private List<GameObject> diamondFilter(List<GameObject> targets)
+    {
+        for (int idx = targets.Count - 1; idx >= 0; idx--)
+        {
+            Vector2 selfPos = character.GetComponent<FighterClass>().pos;
+            Vector2 pos = (targets[idx].GetComponent<FighterClass>().pos - selfPos);
+            if (Mathf.Abs(pos.x) + Mathf.Abs(pos.y) > MaxRange ||
+                Mathf.Abs(pos.x) + Mathf.Abs(pos.y) < MinRange)
+            {
+                targets.RemoveAt(idx);
+            }
+        }
+        return targets;
+    }
+
+    private List<GameObject> squareFilter(List<GameObject> targets){
+        for(int idx = targets.Count-1; idx >= 0; idx--)
+        {
+            Vector2 selfPos = character.GetComponent<FighterClass>().pos;
+            Vector2 pos = (targets[idx].GetComponent<FighterClass>().pos - selfPos);
+            if (Mathf.Abs(pos.x) > MaxRange ||
+                Mathf.Abs(pos.y) > MaxRange ||
+                Mathf.Abs(pos.x) < MinRange ||
+                Mathf.Abs(pos.y) < MinRange)
+            {
+                targets.RemoveAt(idx);
+            }
+        }
+        return targets;
+    }
+
+    public virtual void displayRange()
+    {
+        CombatExecutor ce = GameDataTracker.combatExecutor;
+        GameObject[,] blockGrid = ce.blockGrid;
+        int rows = ce.rows;
+        int cols = ce.cols;
+        if (rangeIndicator != null)
+        {
+            List<GameObject> characterTarget = new List<GameObject>();
+            characterTarget.Add(character);
+            List<Vector2> possibleTargets;
+            if (targetShape == TargetShape.Square)
+            {
+                possibleTargets = findGoalsSquare(
+                    characterTarget,
+                    rows,
+                    cols
+                    ).Item1;
+            }
+            else if (targetShape == TargetShape.Diamond)
+            {
+                possibleTargets = findGoalsDiamond(
+                    characterTarget,
+                    rows,
+                    cols
+                    ).Item1;
+            }
+            else if (targetShape == TargetShape.Cross)
+            {
+                possibleTargets = findGoalsCross(
+                    characterTarget,
+                    rows,
+                    cols
+                    ).Item1;
+            }
+            else if (targetShape == TargetShape.X)
+            {
+                possibleTargets = findGoalsX(
+                    characterTarget,
+                    rows,
+                    cols
+                    ).Item1;
+            }
+            else
+            {
+                possibleTargets = new List<Vector2>();
+            }
+            foreach(Vector2 possibleTarget in possibleTargets)
+            {
+                GameObject newProjector = new GameObject("Projector");
+                DecalProjector projector = newProjector.AddComponent<DecalProjector>();
+                projector.material = rangeIndicator;
+                newProjector.transform.localRotation = Quaternion.Euler(90, 0, 0);
+                newProjector.transform.position = blockGrid[(int)possibleTarget.x, (int)possibleTarget.y].transform.position;
+                decalProjectors.Add(newProjector);
+            }
+        }
+    }
+
+    public virtual void hideRange()
+    {
+        for (int idx = decalProjectors.Count - 1; idx >= 0; idx--)
+        {
+            Destroy(decalProjectors[idx]);
+            decalProjectors.RemoveAt(idx);
+        }
     }
 }

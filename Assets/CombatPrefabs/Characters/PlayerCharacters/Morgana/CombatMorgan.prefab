@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4474232655197639559}
   - component: {fileID: 4467085992706049251}
   - component: {fileID: 8217436041696046323}
+  - component: {fileID: -4569328945510236001}
   m_Layer: 0
   m_Name: CombatMorgan
   m_TagString: Untagged
@@ -63,6 +64,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd67e239ac09cb46a0eaddcc4849d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pos: {x: 0, y: 0}
+  move: {fileID: 0}
+  prevPos: {x: 0, y: 0}
+  Pushable: 0
   CharacterName: Morgan
   characterPosition: 0
   SelectionWheel: {fileID: 2257321630957254045, guid: 6fe8dd55b8074c24d9ad4c099e59d986,
@@ -83,9 +88,30 @@ MonoBehaviour:
   CanSwim: 0
   CharacterHeight: 1.5
   CharacterWidth: 1
+  Paralyzed: 0
+  Dead: 0
   displayHealth: 0
+  animator: {fileID: 850975451825150208}
+  inspectionInfo: {fileID: 0}
   moveContainer: {fileID: 0}
-  move: {fileID: 0}
+  attack: {fileID: 0}
+--- !u!114 &-4569328945510236001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8536509292922604207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff437bc951ee2014990891a19e339741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useAnimatedTurn: 0
+  startsLeft: 1
+  sprite: {fileID: 850975451825150215}
+  rotSpeedMagnitude: 500
+  goal: 0
 --- !u!1001 &342279383283329747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -155,9 +181,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20ae95057e1bdc340a5a1ab436f411ec, type: 3}
+--- !u!1 &850975451825150215 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1085157379728176084, guid: 20ae95057e1bdc340a5a1ab436f411ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 342279383283329747}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &850975451825150209 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1085157379728176082, guid: 20ae95057e1bdc340a5a1ab436f411ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 342279383283329747}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &850975451825150208 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1085157379728176083, guid: 20ae95057e1bdc340a5a1ab436f411ec,
     type: 3}
   m_PrefabInstance: {fileID: 342279383283329747}
   m_PrefabAsset: {fileID: 0}

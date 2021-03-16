@@ -39,7 +39,7 @@ public class EnemyNPCClass : MonoBehaviour
             thisNPCCharacter.CharacterObject = gameObject;
             thisNPCCharacter.CharacterName = CharacterName;
             thisNPCCharacter.uniqueSceneID = UniqueSceneID;
-            OverworldController.EnemyList.Add(thisNPCCharacter);
+            GameDataTracker.CharacterList.Add(thisNPCCharacter);
         }
     }
 

@@ -23,7 +23,7 @@ public class MoveToPosition : CutSceneClass
             agent = TObject.GetComponent<NavMeshAgent>();
             agent.enabled = true;
         } else {
-            TObject = OverworldController.findCharacterByName(TargetObject, OverworldController.CharacterList).CharacterObject;
+            TObject = GameDataTracker.findCharacterByName(TargetObject, GameDataTracker.CharacterList).CharacterObject;
             agent = TObject.GetComponent<NavMeshAgent>();
         }
         
@@ -34,7 +34,7 @@ public class MoveToPosition : CutSceneClass
             RObject = GameObject.Find(ReferenceObject);
             if (RObject == null)
             {
-                RObject = OverworldController.findCharacterByName(TargetObject, OverworldController.CharacterList).CharacterObject;
+                RObject = GameDataTracker.findCharacterByName(TargetObject, GameDataTracker.CharacterList).CharacterObject;
             }
         }
 

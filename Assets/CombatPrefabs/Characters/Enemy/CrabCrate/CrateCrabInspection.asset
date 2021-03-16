@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 804751d7c03844a4d8e72e8bb960ccc0, type: 3}
+  m_Name: CrateCrabInspection
+  m_EditorClassIdentifier: 
+  StartingGUID: d43d103a-e243-4bf8-88e8-a45e2123328b
+  NodeLinks:
+  - BaseNodeGuid: d43d103a-e243-4bf8-88e8-a45e2123328b
+    PortName: Next
+    TargetNodeGuid: 73716922-7c36-47df-bb41-22f941bc183e
+  - BaseNodeGuid: 73716922-7c36-47df-bb41-22f941bc183e
+    PortName: Choice 0
+    TargetNodeGuid: 0fbc234c-ef67-421e-8794-fe58a188532a
+  - BaseNodeGuid: 0fbc234c-ef67-421e-8794-fe58a188532a
+    PortName: Choice 0
+    TargetNodeGuid: fc430560-2ebc-42c4-9d9f-b558819a0c9f
+  - BaseNodeGuid: fc430560-2ebc-42c4-9d9f-b558819a0c9f
+    PortName: Choice 0
+    TargetNodeGuid: f9ab02ff-ca9b-4dea-8af0-2aaed9256dd1
+  - BaseNodeGuid: f9ab02ff-ca9b-4dea-8af0-2aaed9256dd1
+    PortName: Choice 0
+    TargetNodeGuid: 4013c467-fda6-452c-bc1b-3a08f954cb6a
+  - BaseNodeGuid: 4013c467-fda6-452c-bc1b-3a08f954cb6a
+    PortName: Choice 0
+    TargetNodeGuid: c9d3afc9-7f32-4a47-89b9-a39eef056bbe
+  - BaseNodeGuid: c9d3afc9-7f32-4a47-89b9-a39eef056bbe
+    PortName: Choice 0
+    TargetNodeGuid: 1207466c-23ae-4fbd-a6ec-b1d5b1f89e71
+  DialogueNodeData:
+  - Guid: 73716922-7c36-47df-bb41-22f941bc183e
+    DialogueText: The case is solved Agent Castaway!
+    TargetPlayer: 
+    Position: {x: 238, y: 200}
+  - Guid: 0fbc234c-ef67-421e-8794-fe58a188532a
+    DialogueText: These snippy fellows are called [rainbow]crate crabs[/rainbow]!
+    TargetPlayer: 
+    Position: {x: 652, y: 199}
+  - Guid: fc430560-2ebc-42c4-9d9f-b558819a0c9f
+    DialogueText: They are more of a risk to themselves than they are to you.
+    TargetPlayer: 
+    Position: {x: 1230, y: 197}
+  - Guid: f9ab02ff-ca9b-4dea-8af0-2aaed9256dd1
+    DialogueText: Their signature move is throwing their crate when startled.  If
+      they miss, they have trouble getting back up.
+    TargetPlayer: 
+    Position: {x: 389, y: 370}
+  - Guid: 4013c467-fda6-452c-bc1b-3a08f954cb6a
+    DialogueText: Try pushing them somewhere that will make them stop bothering you.
+    TargetPlayer: 
+    Position: {x: 1233, y: 363}
+  - Guid: c9d3afc9-7f32-4a47-89b9-a39eef056bbe
+    DialogueText: HP 5. Attack 2. Defense 1.
+    TargetPlayer: 
+    Position: {x: 1847, y: 361}
+  AnimationTriggerNodeData: []
+  GetFlagNodeData: []
+  SetFlagNodeData: []
+  BooleanGetFlagNodeData: []
+  BooleanSetFlagNodeData:
+  - Guid: 1207466c-23ae-4fbd-a6ec-b1d5b1f89e71
+    FlagName: CrateCrabInspected
+    FlagBool: 1
+    Position: {x: 2209, y: 361}
+  MoveToPosNodeData: []
+  ExposedProperties: []

@@ -44,10 +44,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Debug Defend
+  combatDescription: Enemies scary.  Hiding good.
   character: {fileID: 0}
-  target: []
-  moveIndex: 0
+  moveIndex: 1
   targetType: 1
   targetQuantity: 1
+  targetShape: 0
+  MaxRange: 0
+  MinRange: 0
   targetCount: 1
-  combatDescription: Enemies scary.  Hiding good.
+  activated: 0
+  rangeIndicator: {fileID: 2100000, guid: 176f95ca553fd644ba02f20c019237d6, type: 2}

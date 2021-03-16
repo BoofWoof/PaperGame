@@ -131,7 +131,7 @@ public class TextBoxController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (choices.Count >= 1 && stringDisp == stringLen)
+        if (choices.Count >= 2 && stringDisp == stringLen)
         {
             if (choiceTime < 0.2)
             {
@@ -271,10 +271,11 @@ public class TextBoxController : MonoBehaviour
                 if (textmodifier.MODIFICATION == textModifiers.Rainbow)
                 {
                     myText.ForceMeshUpdate();
+                    newVertexColors = textinfo.meshInfo[materialindex].colors32;
                     for (int i = textmodifier.START; i < textmodifier.END; i++)
                     {
                         if (displayedTextFull[i] != ' ')
-                        {
+                        { 
                             vertexIndex = myText.textInfo.characterInfo[i].vertexIndex;
                             float colorUpdate = (updateCount + i * 30) % 500;
                             Color32 c = Color.HSVToRGB(colorUpdate / 500, 1f, 0.8f);
