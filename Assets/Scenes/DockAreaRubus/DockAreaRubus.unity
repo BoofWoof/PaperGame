@@ -5664,10 +5664,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 565578979555153255, guid: c818a07e9a659b149b8116ed84719e46,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2249768036812299376, guid: c818a07e9a659b149b8116ed84719e46,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2249768036812299376, guid: c818a07e9a659b149b8116ed84719e46,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.013001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917824043498140017, guid: c818a07e9a659b149b8116ed84719e46,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 5212452325680909449, guid: c818a07e9a659b149b8116ed84719e46,
         type: 3}
       propertyPath: m_Name
       value: ClockCounter1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072663898250679076, guid: c818a07e9a659b149b8116ed84719e46,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072663898250679076, guid: c818a07e9a659b149b8116ed84719e46,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.01301
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324035545627575666, guid: c818a07e9a659b149b8116ed84719e46,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.013
       objectReference: {fileID: 0}
     - target: {fileID: 8680200185427840852, guid: c818a07e9a659b149b8116ed84719e46,
         type: 3}
