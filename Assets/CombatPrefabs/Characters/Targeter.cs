@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Targeter : ScriptableObject
 {
+    public GameObject source;
+
     public List<GameObject> potentialTargets;
     public moveTemplate.TargetQuantity targetQuantity;
     public Sprite targeterSprite;
@@ -44,13 +46,31 @@ public class Targeter : ScriptableObject
                 indicator = new GameObject();
                 SpriteRenderer sr = indicator.AddComponent<SpriteRenderer>();
                 sr.sprite = targeterSprite;
-                Vector3 indicatorLift = new Vector3(0, potentialTargets[0].GetComponent<FighterClass>().CharacterHeight + heightOverCharacter, 0);
-                indicator.transform.position = potentialTargets[0].transform.position + indicatorLift;
+
+                float closest = 99999;
+                int potential_index = indicatorIdx;
+                for (int targetIdx = 0; targetIdx < potentialTargets.Count; targetIdx++)
+                {
+                    GameObject potentialTargetObject = potentialTargets[targetIdx];
+                    float distance = Vector2.Distance(
+                        new Vector2(source.transform.position.x, source.transform.position.z),
+                        new Vector2(potentialTargetObject.transform.position.x, potentialTargetObject.transform.position.z)
+                        );
+                    float xpos = potentialTargets[targetIdx].transform.position.x;
+                    if (distance < closest)
+                    {
+                        closest = distance;
+                        potential_index = targetIdx;
+                    }
+                }
+                indicatorIdx = potential_index;
+                Vector3 indicatorLift = new Vector3(0, potentialTargets[indicatorIdx].GetComponent<FighterClass>().CharacterHeight + heightOverCharacter, 0);
+                indicator.transform.position = potentialTargets[indicatorIdx].transform.position + indicatorLift;
             }
         }
     }
 
-    public List<GameObject> TargeterUpdate(float horizontalAxis, bool Submit)
+    public List<GameObject> TargeterUpdate(float horizontalAxis, float verticalAxis, bool Submit)
     {
         if (targetQuantity == moveTemplate.TargetQuantity.All)
         {
@@ -74,7 +94,7 @@ public class Targeter : ScriptableObject
         }
         if (targetQuantity == moveTemplate.TargetQuantity.Single)
         {
-            SingleTarget(horizontalAxis);
+            SingleTarget(horizontalAxis, verticalAxis);
             if (Submit)
             {
                 Destroy(indicator);
@@ -83,6 +103,19 @@ public class Targeter : ScriptableObject
             }
         }
         return null;
+    }
+
+    private void faceIndicator(GameObject indicator)
+    {
+        float positionDif = source.transform.position.x - indicator.transform.position.x;
+        if (positionDif > 0.5f)
+        {
+            source.GetComponent<SpriteFlipper>().setFacingLeft();
+        }
+        if (positionDif < -0.5f)
+        {
+            source.GetComponent<SpriteFlipper>().setFacingRight();
+        }
     }
 
     public bool Undo()
@@ -115,28 +148,93 @@ public class Targeter : ScriptableObject
         return true;
     }
 
-    public void SingleTarget(float horizontalAxis)
+    public void SingleTarget(float horizontalAxis, float verticalAxis)
     {
-        if (Mathf.Abs(horizontalAxis) > 0.2)
+        if (Mathf.Abs(horizontalAxis) > 0.2 || Mathf.Abs(verticalAxis) > 0.2)
         {
             if (lastOn == false)
             {
-                if (horizontalAxis > 0)
+                int potential_index = indicatorIdx;
+                float closest = 99999;
+                GameObject currentTargetObject = potentialTargets[indicatorIdx];
+                GameObject potentialTargetObject = null;
+                if (Mathf.Abs(horizontalAxis) > 0.2)
                 {
-                    indicatorIdx += 1;
-                    if (indicatorIdx > (potentialTargets.Count - 1))
+                    float current_xpos = potentialTargets[indicatorIdx].transform.position.x;
+                    if (horizontalAxis > 0)
                     {
-                        indicatorIdx = 0;
+                        for (int targetIdx = 0; targetIdx < potentialTargets.Count; targetIdx++)
+                        {
+                            potentialTargetObject = potentialTargets[targetIdx];
+                            float distance = Vector2.Distance(
+                                new Vector2(currentTargetObject.transform.position.x, currentTargetObject.transform.position.z),
+                                new Vector2(potentialTargetObject.transform.position.x, potentialTargetObject.transform.position.z)
+                                );
+                            float xpos = potentialTargets[targetIdx].transform.position.x;
+                            if (current_xpos < xpos && distance < closest)
+                            {
+                                closest = distance;
+                                potential_index = targetIdx;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int targetIdx = 0; targetIdx < potentialTargets.Count; targetIdx++)
+                        {
+                            potentialTargetObject = potentialTargets[targetIdx];
+                            float distance = Vector2.Distance(
+                                new Vector2(currentTargetObject.transform.position.x, currentTargetObject.transform.position.z),
+                                new Vector2(potentialTargetObject.transform.position.x, potentialTargetObject.transform.position.z)
+                                );
+                            float xpos = potentialTargets[targetIdx].transform.position.x;
+                            if (current_xpos > xpos && distance < closest)
+                            {
+                                closest = distance;
+                                potential_index = targetIdx;
+                            }
+                        }
                     }
                 }
-                else
+                if (Mathf.Abs(verticalAxis) > 0.2)
                 {
-                    indicatorIdx -= 1;
-                    if (indicatorIdx < 0)
+                    float current_zpos = potentialTargets[indicatorIdx].transform.position.z;
+                    if (verticalAxis > 0)
                     {
-                        indicatorIdx += potentialTargets.Count;
+                        for (int targetIdx = 0; targetIdx < potentialTargets.Count; targetIdx++)
+                        {
+                            potentialTargetObject = potentialTargets[targetIdx];
+                            float distance = Vector2.Distance(
+                                new Vector2(currentTargetObject.transform.position.x, currentTargetObject.transform.position.z),
+                                new Vector2(potentialTargetObject.transform.position.x, potentialTargetObject.transform.position.z)
+                                );
+                            float zpos = potentialTargets[targetIdx].transform.position.z;
+                            if (current_zpos < zpos && distance < closest)
+                            {
+                                closest = distance;
+                                potential_index = targetIdx;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int targetIdx = 0; targetIdx < potentialTargets.Count; targetIdx++)
+                        {
+                            potentialTargetObject = potentialTargets[targetIdx];
+                            float distance = Vector2.Distance(
+                                new Vector2(currentTargetObject.transform.position.x, currentTargetObject.transform.position.z),
+                                new Vector2(potentialTargetObject.transform.position.x, potentialTargetObject.transform.position.z)
+                                );
+                            float zpos = potentialTargets[targetIdx].transform.position.z;
+                            if (current_zpos > zpos && distance < closest)
+                            {
+                                closest = distance;
+                                potential_index = targetIdx;
+                            }
+                        }
                     }
                 }
+                indicatorIdx = potential_index;
                 Vector3 indicatorLift = new Vector3(0, potentialTargets[indicatorIdx].GetComponent<FighterClass>().CharacterHeight + heightOverCharacter, 0);
                 indicator.transform.position = potentialTargets[indicatorIdx].transform.position + indicatorLift;
             }
@@ -145,6 +243,7 @@ public class Targeter : ScriptableObject
         {
             lastOn = false;
         }
+        faceIndicator(indicator);
     }
 
     public void MultipleTargets(float horizontalAxis, bool Submit)
