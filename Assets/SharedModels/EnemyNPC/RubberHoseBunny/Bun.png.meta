@@ -1,0 +1,1160 @@
+fileFormatVersion: 2
+guid: 7120e2ed49461d04e87235ce7ebc1d9e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2184277102450767653
+    second: Bun_0
+  - first:
+      213: 454317778290403496
+    second: Bun_1
+  - first:
+      213: -3656358807442201177
+    second: Bun_2
+  - first:
+      213: 6779598260180296434
+    second: Bun_3
+  - first:
+      213: 1562863900484605931
+    second: Bun_4
+  - first:
+      213: -4311171439281678200
+    second: Bun_5
+  - first:
+      213: 6333409183412748195
+    second: Bun_6
+  - first:
+      213: 3839747364805603626
+    second: Bun_7
+  - first:
+      213: 6857564641762754882
+    second: Bun_8
+  - first:
+      213: -9114028993162015850
+    second: Bun_9
+  - first:
+      213: 6706230329068445898
+    second: Bun_10
+  - first:
+      213: 4809245765259107862
+    second: Bun_11
+  - first:
+      213: 6351371724586283250
+    second: Bun_12
+  - first:
+      213: 5195066974219927487
+    second: Bun_13
+  - first:
+      213: -1811386523255300360
+    second: Bun_14
+  - first:
+      213: -7213456690597696077
+    second: Bun_15
+  - first:
+      213: 4973614335195203311
+    second: B
+  - first:
+      213: 4568652076209113021
+    second: Bun_17
+  - first:
+      213: 8185094343507344172
+    second: Bun_18
+  - first:
+      213: -7462191279240540722
+    second: Bun_19
+  - first:
+      213: 300363401475159556
+    second: Bun_20
+  - first:
+      213: -4671342809515684624
+    second: Bun_21
+  - first:
+      213: -7912003985256247576
+    second: Bun_22
+  - first:
+      213: 6463734165645462146
+    second: Bun_23
+  - first:
+      213: 1744710268766506376
+    second: Bun_24
+  - first:
+      213: -6437753622461178848
+    second: Bun_25
+  - first:
+      213: -4889690322941510492
+    second: Bun_26
+  - first:
+      213: -3976961978319420045
+    second: Bun_27
+  - first:
+      213: -990630400558488246
+    second: Bun_28
+  - first:
+      213: -1175543628865600227
+    second: Bun_29
+  - first:
+      213: -8094886571781418337
+    second: Bun_30
+  - first:
+      213: 3928056940436082340
+    second: Bun_31
+  - first:
+      213: -7246133750455032183
+    second: Bun_32
+  - first:
+      213: 3890045569325849728
+    second: Bun_33
+  - first:
+      213: -7887219085433077414
+    second: Bun_34
+  - first:
+      213: 7518576097681258123
+    second: Bun_35
+  - first:
+      213: -7644801773210636164
+    second: Bun_36
+  - first:
+      213: 2697475468184193358
+    second: Bun_37
+  - first:
+      213: 3085686242259316595
+    second: Bun_38
+  - first:
+      213: -2189863505566053987
+    second: Bun_39
+  - first:
+      213: -1929803961130857514
+    second: Bun_40
+  - first:
+      213: 5936982867977412580
+    second: Bun_41
+  - first:
+      213: 2688493575034747581
+    second: Bun_42
+  - first:
+      213: -1369120245126250202
+    second: Bun_43
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 400
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bun_0
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 2497
+        width: 109
+        height: 153
+      alignment: 9
+      pivot: {x: 0.5000004, y: 0.1572872}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 527f89ea37c105e10800000000000000
+      internalID: 2184277102450767653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_1
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 2211
+        width: 393
+        height: 432
+      alignment: 9
+      pivot: {x: 0.95520514, y: 0.5999569}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a8e42ebc9f0e4600800000000000000
+      internalID: 454317778290403496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_2
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 2238
+        width: 571
+        height: 387
+      alignment: 9
+      pivot: {x: 0.0300464, y: 0.06961667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a5690f6901024dc0800000000000000
+      internalID: -3656358807442201177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_3
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 2213
+        width: 563
+        height: 395
+      alignment: 9
+      pivot: {x: 0.98210984, y: 0.06271633}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f227e1a2b8f51e50800000000000000
+      internalID: 6779598260180296434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_4
+      rect:
+        serializedVersion: 2
+        x: 2157
+        y: 2108
+        width: 301
+        height: 460
+      alignment: 9
+      pivot: {x: 0.346292, y: 0.9090189}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be79aa4ef6860b510800000000000000
+      internalID: 1562863900484605931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_5
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 2073
+        width: 295
+        height: 316
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8885ec3ea64ab24c0800000000000000
+      internalID: -4311171439281678200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_6
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 1740
+        width: 567
+        height: 393
+      alignment: 9
+      pivot: {x: 0.03217091, y: 0.060490966}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3af7382b81ac4e750800000000000000
+      internalID: 6333409183412748195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_7
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 1906
+        width: 393
+        height: 200
+      alignment: 9
+      pivot: {x: 0.044794526, y: 0.14529175}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a21fa7a62e5894530800000000000000
+      internalID: 3839747364805603626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_8
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 1533
+        width: 301
+        height: 460
+      alignment: 9
+      pivot: {x: 0.6946968, y: 0.9090191}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2414c8075b6fa2f50800000000000000
+      internalID: 6857564641762754882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_9
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 1052
+        width: 256
+        height: 557
+      alignment: 9
+      pivot: {x: 0.9337449, y: 0.07360949}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69b87fd3be6748180800000000000000
+      internalID: -9114028993162015850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_10
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 1053
+        width: 201
+        height: 580
+      alignment: 9
+      pivot: {x: 0.17774834, y: 0.07988197}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac0631204f0511d50800000000000000
+      internalID: 6706230329068445898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_11
+      rect:
+        serializedVersion: 2
+        x: 1297
+        y: 1425
+        width: 569
+        height: 386
+      alignment: 9
+      pivot: {x: 0.98786765, y: 0.052520595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61e12d30b8fddb240800000000000000
+      internalID: 4809245765259107862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_12
+      rect:
+        serializedVersion: 2
+        x: 1985
+        y: 1381
+        width: 320
+        height: 556
+      alignment: 9
+      pivot: {x: 0.095171355, y: 0.91606194}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f0fc68beea942850800000000000000
+      internalID: 6351371724586283250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_13
+      rect:
+        serializedVersion: 2
+        x: 2431
+        y: 1128
+        width: 454
+        height: 828
+      alignment: 9
+      pivot: {x: 0.19427624, y: 0.90603906}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbffdbe63e5981840800000000000000
+      internalID: 5195066974219927487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_14
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 682
+        width: 455
+        height: 809
+      alignment: 9
+      pivot: {x: 0.79827243, y: 0.9270131}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fe1072ed89acd6e0800000000000000
+      internalID: -1811386523255300360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_15
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 770
+        width: 175
+        height: 168
+      alignment: 9
+      pivot: {x: 0.87012905, y: 0.3898417}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bd6242cb57a4eb90800000000000000
+      internalID: -7213456690597696077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 843
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe6c913f2e3d50540800000000000000
+      internalID: 4973614335195203311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_17
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 789
+        width: 95
+        height: 103
+      alignment: 9
+      pivot: {x: 0.20779194, y: 0.38021642}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db78bc88bdc176f30800000000000000
+      internalID: 4568652076209113021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_18
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 679
+        width: 301
+        height: 284
+      alignment: 9
+      pivot: {x: 0.51024663, y: 0.10901803}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2b70dd50fb479170800000000000000
+      internalID: 8185094343507344172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_19
+      rect:
+        serializedVersion: 2
+        x: 1456
+        y: 749
+        width: 316
+        height: 579
+      alignment: 9
+      pivot: {x: 0.099807546, y: 0.9368245}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecd89d26198f07890800000000000000
+      internalID: -7462191279240540722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_20
+      rect:
+        serializedVersion: 2
+        x: 1923
+        y: 749
+        width: 316
+        height: 586
+      alignment: 9
+      pivot: {x: 0.89043033, y: 0.92634284}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40674781cea1b2400800000000000000
+      internalID: 300363401475159556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_21
+      rect:
+        serializedVersion: 2
+        x: 2378
+        y: 394
+        width: 320
+        height: 558
+      alignment: 9
+      pivot: {x: 0.9433838, y: 0.92009866}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fc0ebee67e0c2fb0800000000000000
+      internalID: -4671342809515684624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_22
+      rect:
+        serializedVersion: 2
+        x: 2906
+        y: 156
+        width: 861
+        height: 994
+      alignment: 9
+      pivot: {x: 0.5931412, y: 0.49069086}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ee83558b4ae23290800000000000000
+      internalID: -7912003985256247576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_23
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 801
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28a8ad13afbc3b950800000000000000
+      internalID: 6463734165645462146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_24
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 91
+        width: 444
+        height: 452
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88dcdcddeb4763810800000000000000
+      internalID: 1744710268766506376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_25
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 252
+        width: 431
+        height: 345
+      alignment: 9
+      pivot: {x: 0.50715613, y: 0.10662603}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02c97b5603188a6a0800000000000000
+      internalID: -6437753622461178848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_26
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 461
+        width: 124
+        height: 86
+      alignment: 9
+      pivot: {x: 0.49472636, y: 0.5228087}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4acf767de84542cb0800000000000000
+      internalID: -4889690322941510492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_27
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 465
+        width: 37
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 375490dc62efec8c0800000000000000
+      internalID: -3976961978319420045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_28
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 465
+        width: 38
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a45220736e29042f0800000000000000
+      internalID: -990630400558488246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_29
+      rect:
+        serializedVersion: 2
+        x: 1699
+        y: 465
+        width: 36
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d150e7f3c41afafe0800000000000000
+      internalID: -1175543628865600227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_30
+      rect:
+        serializedVersion: 2
+        x: 1802
+        y: 465
+        width: 37
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9293ef2d8f29af80800000000000000
+      internalID: -8094886571781418337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_31
+      rect:
+        serializedVersion: 2
+        x: 1927
+        y: 151
+        width: 239
+        height: 447
+      alignment: 9
+      pivot: {x: 0.48709425, y: 0.14118722}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ae4330c9f2438630800000000000000
+      internalID: 3928056940436082340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_32
+      rect:
+        serializedVersion: 2
+        x: 1199
+        y: 342
+        width: 138
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 986a821eebf807b90800000000000000
+      internalID: -7246133750455032183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_33
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 358
+        width: 37
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08cdfbfb5d73cf530800000000000000
+      internalID: 3890045569325849728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_34
+      rect:
+        serializedVersion: 2
+        x: 1543
+        y: 358
+        width: 37
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a518413b708fa8290800000000000000
+      internalID: -7887219085433077414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_35
+      rect:
+        serializedVersion: 2
+        x: 1697
+        y: 315
+        width: 38
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b86b80f2029575860800000000000000
+      internalID: 7518576097681258123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_36
+      rect:
+        serializedVersion: 2
+        x: 1801
+        y: 317
+        width: 38
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c70f0898a4538e590800000000000000
+      internalID: -7644801773210636164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_37
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 204
+        width: 190
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e49037f75ab5f6520800000000000000
+      internalID: 2697475468184193358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_38
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 266
+        width: 35
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37f2d26e94f82da20800000000000000
+      internalID: 3085686242259316595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_39
+      rect:
+        serializedVersion: 2
+        x: 1544
+        y: 266
+        width: 36
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d99c42c7eba0c91e0800000000000000
+      internalID: -2189863505566053987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_40
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 76
+        width: 429
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6db47aa9585f735e0800000000000000
+      internalID: -1929803961130857514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_41
+      rect:
+        serializedVersion: 2
+        x: 1433
+        y: 177
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ef9f538676646250800000000000000
+      internalID: 5936982867977412580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_42
+      rect:
+        serializedVersion: 2
+        x: 1622
+        y: 183
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbabdd889a27f4520800000000000000
+      internalID: 2688493575034747581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bun_43
+      rect:
+        serializedVersion: 2
+        x: 1749
+        y: 206
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62144761468effce0800000000000000
+      internalID: -1369120245126250202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 73a2aab3148bc894c80bc52f2529ebb6
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
