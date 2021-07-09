@@ -9,8 +9,11 @@ public class Targeter : ScriptableObject
     public List<GameObject> potentialTargets;
     public moveTemplate.TargetQuantity targetQuantity;
     public Sprite targeterSprite;
+    public Sprite targeterSpriteFloor;
+    public Material targeterSpriteMaterial;
 
     private GameObject indicator;
+    private GameObject floorIndicator;
     private List<GameObject> indicators;
     private int indicatorIdx = 0;
 
@@ -32,9 +35,11 @@ public class Targeter : ScriptableObject
                 indicators = new List<GameObject>();
                 for (int targetIdx = 0; targetIdx < potentialTargets.Count; targetIdx++)
                 {
-                    indicator = new GameObject();
+                    indicator = new GameObject("Indicator");
                     SpriteRenderer sr = indicator.AddComponent<SpriteRenderer>();
                     sr.sprite = targeterSprite;
+                    sr.material = targeterSpriteMaterial;
+                    indicator.AddComponent<SpriteFrontShader>();
                     Vector3 indicatorLift = new Vector3(0, potentialTargets[targetIdx].GetComponent<FighterClass>().CharacterHeight + heightOverCharacter, 0);
                     indicator.transform.position = potentialTargets[targetIdx].transform.position + indicatorLift;
                     indicators.Add(indicator);
@@ -46,6 +51,8 @@ public class Targeter : ScriptableObject
                 indicator = new GameObject();
                 SpriteRenderer sr = indicator.AddComponent<SpriteRenderer>();
                 sr.sprite = targeterSprite;
+                sr.material = targeterSpriteMaterial;
+                indicator.AddComponent<SpriteFrontShader>();
 
                 float closest = 99999;
                 int potential_index = indicatorIdx;
@@ -66,6 +73,15 @@ public class Targeter : ScriptableObject
                 indicatorIdx = potential_index;
                 Vector3 indicatorLift = new Vector3(0, potentialTargets[indicatorIdx].GetComponent<FighterClass>().CharacterHeight + heightOverCharacter, 0);
                 indicator.transform.position = potentialTargets[indicatorIdx].transform.position + indicatorLift;
+
+                floorIndicator = new GameObject("FloorIndicator");
+                SpriteRenderer srf = floorIndicator.AddComponent<SpriteRenderer>();
+                srf.sprite = targeterSpriteFloor;
+                srf.material = targeterSpriteMaterial;
+                floorIndicator.AddComponent<SpriteFrontShader>();
+                floorIndicator.transform.position = potentialTargets[indicatorIdx].transform.position;
+                floorIndicator.transform.eulerAngles = new Vector3(90, 0, 0);
+                floorIndicator.transform.parent = indicator.transform;
             }
         }
     }

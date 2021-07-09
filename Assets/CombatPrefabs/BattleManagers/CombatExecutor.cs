@@ -467,6 +467,8 @@ public class CombatExecutor : MonoBehaviour
             targeter.potentialTargets = selectedMove.targetFilter(potentialTargets);
             targeter.targetQuantity = selectedMove.targetQuantity;
             targeter.targeterSprite = selectedMove.character.GetComponent<FighterClass>().characterSelector;
+            targeter.targeterSpriteFloor = selectedMove.character.GetComponent<FighterClass>().characterSelectorFloor;
+            targeter.targeterSpriteMaterial = selectedMove.character.GetComponent<FighterClass>().characterSelectorMaterial;
             targeter.Activate();
         }
         else

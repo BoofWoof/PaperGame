@@ -31,6 +31,8 @@ public class FighterClass : CombatObject
     [Header("Selection UI")]
     public GameObject SelectionWheel;
     public Sprite characterSelector;
+    public Sprite characterSelectorFloor;
+    public Material characterSelectorMaterial;
 
     [Header("Character Stats")]
     public bool friendly = false;
@@ -131,6 +133,7 @@ public class FighterClass : CombatObject
                     if (status.status == statusEffects.Stunned)
                     {
                         Paralyzed = false;
+                        animator.SetTrigger("StunEnd");
                     }
                     if (status.status == statusEffects.Pushable)
                     {

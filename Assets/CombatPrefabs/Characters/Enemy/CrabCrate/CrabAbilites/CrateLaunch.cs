@@ -59,6 +59,7 @@ public class CrateLaunchScript : CutSceneClass
         {
             cutscene.Activate();
             cutscenePhase++;
+            source.animator.SetTrigger("CrateAttack");
         }
         if (cutscenePhase == 1)
         {
@@ -94,6 +95,7 @@ public class CrateLaunchScript : CutSceneClass
                 jumpTo.endPosition = new Vector3(EndPos.y * xOffset, gridHeight[(int)EndPos.x, (int)EndPos.y] * zOffset, EndPos.x * yOffset);
                 jumpTo.Activate();
                 cutscene = jumpTo;
+                source.animator.SetTrigger("Land");
             }
             characterGrid[(int)EndPos.x, (int)EndPos.y] = parent;
             source.pos = EndPos;

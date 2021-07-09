@@ -72,8 +72,11 @@ MonoBehaviour:
   characterPosition: 0
   SelectionWheel: {fileID: 2257321630957254045, guid: 6fe8dd55b8074c24d9ad4c099e59d986,
     type: 3}
-  characterSelector: {fileID: -5059545267865291802, guid: d7e5e4114e1137f498bf0cda2d9f55a3,
+  characterSelector: {fileID: 21300000, guid: d4be11df34fee224f9d5c9a52ebc89ab, type: 3}
+  characterSelectorFloor: {fileID: 21300000, guid: 621059488cdb170418b5cd66ad6452d8,
     type: 3}
+  characterSelectorMaterial: {fileID: 2100000, guid: 74d0179e28c9be947b9feb0fdfee7b73,
+    type: 2}
   friendly: 1
   HPMax: 25
   HP: 20

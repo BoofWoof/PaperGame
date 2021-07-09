@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7392942089371060633}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.046, y: -0.382, z: 0.217}
+  m_LocalPosition: {x: -2.244, y: 0.016, z: 0.217}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1324875398338300847}
@@ -69,6 +69,8 @@ MonoBehaviour:
   characterPosition: 0
   SelectionWheel: {fileID: 0}
   characterSelector: {fileID: 0}
+  characterSelectorFloor: {fileID: 0}
+  characterSelectorMaterial: {fileID: 0}
   friendly: 0
   HPMax: 5
   HP: 5
@@ -86,7 +88,7 @@ MonoBehaviour:
   Paralyzed: 0
   Dead: 0
   displayHealth: 0
-  animator: {fileID: 1324875398338300846}
+  animator: {fileID: 5426241112016105082}
   inspectionInfo: {fileID: 11400000, guid: eb9013404c8d7fe46a991a09032028e6, type: 2}
   moveContainer: {fileID: 0}
   attack: {fileID: 0}
@@ -132,12 +134,12 @@ PrefabInstance:
     - target: {fileID: 7570738920764068399, guid: 7b458460065e1594883e2b770a9981f5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.382
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 7570738920764068399, guid: 7b458460065e1594883e2b770a9981f5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.217
+      value: 0.045
       objectReference: {fileID: 0}
     - target: {fileID: 7570738920764068399, guid: 7b458460065e1594883e2b770a9981f5,
         type: 3}
@@ -188,9 +190,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8895257735848139136}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1324875398338300846 stripped
+--- !u!95 &5426241112016105082 stripped
 Animator:
-  m_CorrespondingSourceObject: {fileID: 7570738920764068398, guid: 7b458460065e1594883e2b770a9981f5,
+  m_CorrespondingSourceObject: {fileID: 3476686839531780090, guid: 7b458460065e1594883e2b770a9981f5,
     type: 3}
   m_PrefabInstance: {fileID: 8895257735848139136}
   m_PrefabAsset: {fileID: 0}
