@@ -44,14 +44,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Stick attack.
-  combatDescription: Hold left 1.5 seconds and then release.
+  combatDescription: Hold left until the entire stopwatch turns green.
   character: {fileID: 0}
   moveIndex: 3
   targetType: 5
   targetQuantity: 1
-  targetShape: 1
-  MaxRange: 50
+  targetShape: 3
+  MaxRange: 2
   MinRange: 1
   targetCount: 1
   activated: 1
   rangeIndicator: {fileID: 2100000, guid: 176f95ca553fd644ba02f20c019237d6, type: 2}
+  stickTimer: {fileID: 5212452325680909449, guid: c818a07e9a659b149b8116ed84719e46,
+    type: 3}

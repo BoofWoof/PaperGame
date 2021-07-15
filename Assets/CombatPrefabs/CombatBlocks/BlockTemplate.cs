@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockTemplate : MonoBehaviour
+public class BlockTemplate : GridObject
 {
     [Header("Passability")]
     public bool Walkable = true;

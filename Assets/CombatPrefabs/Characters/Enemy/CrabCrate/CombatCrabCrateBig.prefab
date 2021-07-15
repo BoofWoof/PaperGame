@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &134079040270856812
+--- !u!1 &7392942089371060633
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,66 +8,116 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6436934994925767781}
-  - component: {fileID: 6434764194775373422}
-  - component: {fileID: 6100486210798427351}
+  - component: {fileID: 4614533083162089211}
+  - component: {fileID: -6788904852698556003}
+  - component: {fileID: 3528022716236817427}
+  - component: {fileID: -8003200180741871601}
   m_Layer: 0
-  m_Name: OverworldCrabCrate
+  m_Name: CombatCrabCrateBig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6436934994925767781
+--- !u!4 &4614533083162089211
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134079040270856812}
+  m_GameObject: {fileID: 7392942089371060633}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.616, y: -0.036, z: -2.776}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
-  - {fileID: 5221149186595893690}
+  - {fileID: 1324875398338300847}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6434764194775373422
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134079040270856812}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.74, y: 0.75, z: 0.6}
-  m_Center: {x: 0.09, y: 0.41, z: -0.15}
---- !u!114 &6100486210798427351
+--- !u!114 &-6788904852698556003
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134079040270856812}
+  m_GameObject: {fileID: 7392942089371060633}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1de02794e5c8d7c4c87384b6fa723363, type: 3}
+  m_Script: {fileID: 11500000, guid: cacc32315800057498435d53266b9fdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterName: CrabCrate
-  combatEncounter: {fileID: 11400000, guid: 20647610bab46284ba6fedb275101d50, type: 2}
-  cutsceneTrigger: {fileID: 0}
-  UniqueSceneID: -1
---- !u!1001 &2406493860026114965
+  moves:
+  - {fileID: 8867142412832685942, guid: 595bfe193b2c9ca46950e97c9e8bbdb5, type: 3}
+  sprites: []
+--- !u!114 &3528022716236817427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7392942089371060633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd67e239ac09cb46a0eaddcc4849d0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pos: {x: 0, y: 0}
+  extra_pos: []
+  TileSize: {x: 2, y: 2}
+  objectID: 0
+  move: {fileID: 0}
+  prevPos: {x: 0, y: 0}
+  Pushable: 0
+  CharacterName: BIGCRAB
+  characterPosition: 0
+  SelectionWheel: {fileID: 0}
+  characterSelector: {fileID: 0}
+  characterSelectorFloor: {fileID: 0}
+  characterSelectorMaterial: {fileID: 0}
+  friendly: 0
+  HPMax: 5
+  HP: 5
+  Power: 1
+  Defense: 1
+  WalkSpeed: 2
+  JumpSpeed: 1
+  SwimSpeed: 0.5
+  MaxJumpHeight: 1
+  CanWalk: 1
+  CanFly: 0
+  CanSwim: 0
+  CharacterHeight: 2.2
+  CharacterWidth: 2
+  Paralyzed: 0
+  Dead: 0
+  displayHealth: 0
+  animator: {fileID: 5426241112016105082}
+  inspectionInfo: {fileID: 11400000, guid: eb9013404c8d7fe46a991a09032028e6, type: 2}
+  moveContainer: {fileID: 0}
+  attack: {fileID: 0}
+--- !u!114 &-8003200180741871601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7392942089371060633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff437bc951ee2014990891a19e339741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useAnimatedTurn: 1
+  startsLeft: 1
+  sprite: {fileID: 1324875398338300833}
+  rotSpeedMagnitude: 500
+  goal: 0
+--- !u!1001 &8895257735848139136
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 6436934994925767781}
+    m_TransformParent: {fileID: 4614533083162089211}
     m_Modifications:
     - target: {fileID: 7570738920764068385, guid: 7b458460065e1594883e2b770a9981f5,
         type: 3}
@@ -82,17 +132,17 @@ PrefabInstance:
     - target: {fileID: 7570738920764068399, guid: 7b458460065e1594883e2b770a9981f5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.079888344
+      value: 0.098
       objectReference: {fileID: 0}
     - target: {fileID: 7570738920764068399, guid: 7b458460065e1594883e2b770a9981f5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.04
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 7570738920764068399, guid: 7b458460065e1594883e2b770a9981f5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.07129097
+      value: 0.041
       objectReference: {fileID: 0}
     - target: {fileID: 7570738920764068399, guid: 7b458460065e1594883e2b770a9981f5,
         type: 3}
@@ -131,9 +181,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b458460065e1594883e2b770a9981f5, type: 3}
---- !u!4 &5221149186595893690 stripped
+--- !u!1 &1324875398338300833 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7570738920764068385, guid: 7b458460065e1594883e2b770a9981f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 8895257735848139136}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1324875398338300847 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7570738920764068399, guid: 7b458460065e1594883e2b770a9981f5,
     type: 3}
-  m_PrefabInstance: {fileID: 2406493860026114965}
+  m_PrefabInstance: {fileID: 8895257735848139136}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5426241112016105082 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3476686839531780090, guid: 7b458460065e1594883e2b770a9981f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 8895257735848139136}
   m_PrefabAsset: {fileID: 0}

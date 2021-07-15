@@ -9,6 +9,5 @@ public class CombatContainer : ScriptableObject
     public int[] characterGrid;
     public int[] objectGrid;
     public int[] gridHeight;
-    public int rows;
-    public int cols;
+    public Vector2Int mapShape;
 }

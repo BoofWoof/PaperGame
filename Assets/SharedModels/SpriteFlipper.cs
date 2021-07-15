@@ -24,9 +24,22 @@ public class SpriteFlipper : MonoBehaviour
     {
         goal = 180;
     }
+
+    public void setFacingRightInstant()
+    {
+        goal = 180;
+        rotated = 180;
+        prev_rotated = 180;
+    }
     public void setFacingLeft()
     {
         goal = 0;
+    }
+    public void setFacingLeftInstant()
+    {
+        goal = 0;
+        rotated = 0;
+        prev_rotated = 0;
     }
     // Update is called once per frame
     void Update()

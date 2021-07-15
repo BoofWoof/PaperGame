@@ -6,15 +6,39 @@ public class IceBlock : BlockTemplate
 {
     public override void TileEntered(FighterClass enteredCharacter)
     {
-        Vector2 prevPos = enteredCharacter.prevPos;
-        Vector2 posDif = enteredCharacter.pos - prevPos;
-        enteredCharacter.PushObject((int)posDif.y, (int)posDif.x, 5f, true, GameDataTracker.combatExecutor);
+        SlideObject(enteredCharacter);
     }
 
     public override void ObjectTileEntered(ObjectTemplate enteredObject)
     {
-        Vector2 prevPos = enteredObject.prevPos;
-        Vector2 posDif = enteredObject.pos - prevPos;
-        enteredObject.PushObject((int)posDif.y, (int)posDif.x, 6f, false, GameDataTracker.combatExecutor);
+        SlideObject(enteredObject);
+    }
+
+    public void SlideObject(CombatObject targetObject)
+    {
+        Vector2 prevPos = targetObject.prevPos;
+        Vector2 posDif = targetObject.pos - prevPos;
+        if (Mathf.Abs(posDif.y) > Mathf.Abs(posDif.x))
+        {
+            posDif.x = 0;
+        }
+        else if (Mathf.Abs(posDif.y) < Mathf.Abs(posDif.x))
+        {
+            posDif.y = 0;
+        }
+        if (posDif.y != 0)
+        {
+            posDif.y /= Mathf.Abs(posDif.y);
+        }
+        if (posDif.x != 0)
+        {
+            posDif.x /= Mathf.Abs(posDif.x);
+        }
+        Vector2Int EndPos = targetObject.pos + new Vector2Int((int)posDif.x, (int)posDif.y);
+        List<Vector2Int> potentialGridOccupations = targetObject.PotentialGridOccupation(EndPos);
+        if (targetObject.AttemptPush(potentialGridOccupations, (int)posDif.x, (int)posDif.y, targetObject.LastMoveSpeed, 0))
+        {
+            targetObject.MoveCharacterExecute(EndPos, targetObject.LastMoveSpeed, targetObject.LastMoveSpeed, CombatExecutor.characterGrid);
+        }
     }
 }

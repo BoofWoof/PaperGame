@@ -12,8 +12,6 @@ public class CrateLaunch : moveTemplate
         character.GetComponent<FighterClass>().move.parent = character;
         character.GetComponent<FighterClass>().move.Activate();
     }
-
-
 }
 
 
@@ -24,28 +22,24 @@ public class CrateLaunchScript : CutSceneClass
     private CombatExecutor combatData;
     JumpToLocation cutscene;
 
-    float xOffset;
-    float yOffset;
-    float zOffset;
-    Vector2 EndPos;
+    Vector3 blockOffset;
+    Vector2Int EndPos;
     int[,] gridHeight;
     GameObject[,] characterGrid;
 
     public override bool Activate()
     {
         combatData = GameDataTracker.combatExecutor;
-        xOffset = combatData.xOffset;
-        yOffset = combatData.yOffset;
-        zOffset = combatData.zOffset;
-        gridHeight = combatData.gridHeight;
-        characterGrid = combatData.characterGrid;
-        EndPos = target.pos;
+        blockOffset = CombatExecutor.blockOffset;
+        gridHeight = CombatExecutor.gridHeight;
+        characterGrid = CombatExecutor.characterGrid;
         source = parent.GetComponent<FighterClass>();
+        EndPos = BattleMapProcesses.findNearestTileFullyFitsObject(source.TileSize, target.pos);
 
-        combatData.characterGrid[(int)source.pos.x, (int)source.pos.y] = null;
+        source.RemoveObjectFromGrid();
         
         JumpToLocation jumpTo = ScriptableObject.CreateInstance<JumpToLocation>();
-        jumpTo.endPosition = new Vector3(EndPos.y * xOffset, gridHeight[(int)EndPos.x, (int)EndPos.y] * zOffset + target.CharacterHeight * 0.1f, EndPos.x * yOffset);
+        jumpTo.endPosition = GridManager.GridToPosition(EndPos, source.TileSize);
         jumpTo.parent = parent;
         jumpTo.heightOverHighestCharacter = 2.5f;
         jumpTo.speed = source.JumpSpeed;
@@ -72,19 +66,31 @@ public class CrateLaunchScript : CutSceneClass
         }
         if (cutscenePhase == 2)
         {
-            if (characterGrid[(int)EndPos.x, (int)EndPos.y] is null)
+            List<Vector2Int> potentialGridOccupations = source.PotentialGridOccupation(EndPos);
+            bool landingEmpty = BattleMapProcesses.isTileEmpty(potentialGridOccupations, source.gameObject);
+            if (landingEmpty)
             {
                 source.Stun(1);
                 source.LightWeight(1);
-                parent.transform.position = new Vector3(EndPos.y * xOffset, gridHeight[(int)EndPos.x, (int)EndPos.y] * zOffset, EndPos.x * yOffset);
+                parent.transform.position = GridManager.GridToPosition(EndPos, source.TileSize);
             } else
             {
-                if (target.pos == EndPos)
+                if (BattleMapProcesses.doesObjectOverlapTargets(potentialGridOccupations, target))
                 {
                     target.postBufferAttackEffect(source.Power, FighterClass.attackType.Normal, FighterClass.statusEffects.None, FighterClass.attackLocation.Ground, parent);
                 }
-
-                List<Vector2> possibleLocations = BattleMapProcesses.FindNearestTileNoCharacter(EndPos, 3, combatData);
+            }
+            if(!landingEmpty || !CombatExecutor.LevelFloor(EndPos, source.TileSize))
+            {
+                List<Vector2Int> possibleLocations;
+                if (!landingEmpty)
+                {
+                    possibleLocations = BattleMapProcesses.FindNearestTileNoCharacter(EndPos, 3, source.gameObject);
+                    source.animator.SetTrigger("Land");
+                } else
+                {
+                    possibleLocations = BattleMapProcesses.FindNearestTileNoCharacter(EndPos, 1, source.gameObject);
+                }
                 int locationIndex = Random.Range(0, possibleLocations.Count);
                 EndPos = possibleLocations[locationIndex];
 
@@ -92,13 +98,12 @@ public class CrateLaunchScript : CutSceneClass
                 jumpTo.parent = parent;
                 jumpTo.speed = source.JumpSpeed * 1.5f;
                 jumpTo.heightOverHighestCharacter = 1;
-                jumpTo.endPosition = new Vector3(EndPos.y * xOffset, gridHeight[(int)EndPos.x, (int)EndPos.y] * zOffset, EndPos.x * yOffset);
+                jumpTo.endPosition = GridManager.GridToPosition(EndPos, source.TileSize);
                 jumpTo.Activate();
                 cutscene = jumpTo;
-                source.animator.SetTrigger("Land");
             }
             characterGrid[(int)EndPos.x, (int)EndPos.y] = parent;
-            source.pos = EndPos;
+            source.AddObjectToGrid(EndPos);
             cutscenePhase++;
         }
         if (cutscenePhase == 3)
@@ -118,7 +123,7 @@ public class CrateLaunchScript : CutSceneClass
             }
         }
 
-        //jumpToTwo.endPosition = new Vector3(EndPos.y * xOffset, gridHeight[(int)EndPos.x, (int)EndPos.y] * zOffset + 0, EndPos.x * yOffset);
+        //jumpToTwo.endPosition = new Vector3(EndPos.y * blockOffset.x, gridHeight[(int)EndPos.x, (int)EndPos.y] * blockOffset.z + 0, EndPos.x * blockOffset.y);
         return false;
     }
 }

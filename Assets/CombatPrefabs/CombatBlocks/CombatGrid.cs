@@ -5,31 +5,11 @@ using UnityEditor;
 using UnityEngine.UI;
 using System.Linq;
 
-public class CombatGrid : MonoBehaviour
+public class CombatGrid : GridManager
 {
     public int defaultBlock;
 
-    public int rows;
-    public int cols;
-
-    public float xOffset;
-    public float yOffset;
-    public float zOffset;
-
-    public GameObject combatCamera;
-    public float cameraHeight;
-    public float cameraAngle;
-    public float cameraOffset;
-    public float cameraSpeed;
-    private float cameraX = 0;
-    private float cameraY = 0;
-    private float cameraZ = 0;
-
-    private GameObject[,] blockGrid;
-    private GameObject[,] characterGrid;
-    private GameObject[,] objectGrid;
-    private int[,] gridHeight;
-
+    [Header("UI Info")]
     //UI Stuff
     public GameObject tileMenu;
     private int tileType = 1;
@@ -40,23 +20,28 @@ public class CombatGrid : MonoBehaviour
     //Saving
     public GameObject saveNameTextField;
 
+    [Header("SelectionIndicator")]
+    public Material rangeIndicator;
+    public Material rangeErrorIndicator;
+    private Vector2Int selectionRange = new Vector2Int(1, 1);
+    private Vector2Int selectionPos = new Vector2Int(0, 0);
+    List<GameObject> decalProjectors = new List<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
         tileMenu.SetActive(false);
 
-        blockGrid = new GameObject[rows, cols];
-        characterGrid = new GameObject[rows, cols];
-        objectGrid = new GameObject[rows, cols];
-        gridHeight = new int[rows, cols];
-        for (int row = 0; row < rows; row++)
+        blockGrid = new GameObject[mapShape.x, mapShape.y];
+        characterGrid = new GameObject[mapShape.x, mapShape.y];
+        objectGrid = new GameObject[mapShape.x, mapShape.y];
+        gridHeight = new int[mapShape.x, mapShape.y];
+        for (int x = 0; x < mapShape.x; x++)
         {
-            for (int col = 0; col < cols; col++)
+            for (int y = 0; y < mapShape.y; y++)
             {
-                gridHeight[row, col] = 0;
-                blockGrid[row, col] = Instantiate(CombatMapper.blockMap[defaultBlock], new Vector3(col * xOffset, gridHeight[row, col] * zOffset, row * yOffset), Quaternion.identity);
-                //blockGrid[row, col].transform.localScale = new Vector3(30, 30, 30);
-                //blockGrid[row, col].transform.eulerAngles = new Vector3(-90, 0, 0);
+                gridHeight[x, y] = 0;
+                CreateObject(blockGrid, new Vector2Int(x, y), CombatMapper.blockMap[defaultBlock], defaultBlock);
             }
         }
     }
@@ -78,29 +63,29 @@ public class CombatGrid : MonoBehaviour
         {
             if (Input.GetKey("a"))
             {
-                cameraX -= cameraSpeed * Time.deltaTime;
+                cameraPos.x -= cameraSpeed * Time.deltaTime;
             }
             if (Input.GetKey("d"))
             {
-                cameraX += cameraSpeed * Time.deltaTime;
+                cameraPos.x += cameraSpeed * Time.deltaTime;
             }
             if (Input.GetKey("s"))
             {
-                cameraZ -= cameraSpeed * Time.deltaTime;
+                cameraPos.z -= cameraSpeed * Time.deltaTime;
             }
             if (Input.GetKey("w"))
             {
-                cameraZ += cameraSpeed * Time.deltaTime;
+                cameraPos.z += cameraSpeed * Time.deltaTime;
             }
             if (Input.GetKey("q"))
             {
-                cameraY -= cameraSpeed * Time.deltaTime;
+                cameraPos.y -= cameraSpeed * Time.deltaTime;
             }
             if (Input.GetKey("e"))
             {
-                cameraY += cameraSpeed * Time.deltaTime;
+                cameraPos.y += cameraSpeed * Time.deltaTime;
             }
-
+            HoverDisplay();
             if (editMode == "Height")
             {
                 MoveBlocksHeight();
@@ -118,527 +103,333 @@ public class CombatGrid : MonoBehaviour
                 PlaceObject();
             }
         }
-        combatCamera.transform.position = new Vector3((cols - 1) * xOffset / 2 + cameraX, cameraHeight + cameraY, cameraOffset + cameraZ);
+        combatCamera.transform.position = new Vector3((mapShape.x - 1) * blockOffset.x / 2 + cameraPos.x, cameraHeight + cameraPos.y, cameraOffset + cameraPos.z);
         combatCamera.transform.eulerAngles = new Vector3(cameraAngle, 0, 0);
+    }
+
+    public void HoverDisplay()
+    {
+        Vector2Int grid_pos = BlockAtMouse();
+        if (grid_pos != new Vector2Int(-1, -1))
+        {
+            if (grid_pos != selectionPos)
+            {
+                BlockRangeDisplay.ClearDisplay(decalProjectors);
+                selectionPos = grid_pos;
+                if (LevelFloor(grid_pos, selectionRange))
+                {
+                    decalProjectors = BlockRangeDisplay.RectangleDisplay(rangeIndicator, blockGrid, selectionPos, selectionRange);
+                } else
+                {
+                    decalProjectors = BlockRangeDisplay.RectangleDisplay(rangeErrorIndicator, blockGrid, selectionPos, selectionRange);
+                }
+            }
+        }
     }
 
     public void SetTileType(int tileTypeInput)
     {
         tileType = tileTypeInput;
+        selectionRange = new Vector2Int(1, 1);
     }
 
     public void SetCharacterIndex(int characterTypeInput)
     {
         selectedCharacter = characterTypeInput;
+        selectionRange = CombatMapper.characterMap[selectedCharacter].GetComponent<FighterClass>().TileSize;
     }
 
     public void SetObjectIndex(int objectTypeInput)
     {
         selectedObject = objectTypeInput;
+        selectionRange = new Vector2Int(1, 1);
     }
 
     public void SetEditMode(string editModeInput)
     {
+        if(editModeInput == "Height")
+        {
+            selectionRange = new Vector2Int(1, 1);
+        }
         editMode = editModeInput;
+    }
+
+    Vector2Int BlockAtMouse()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 100))
+        {
+            GridObject blockHit = hit.transform.gameObject.GetComponent<GridObject>();
+            if (blockHit != null)
+            {
+                return blockHit.pos;
+            }
+        }
+        return new Vector2Int(-1, -1);
+    }
+
+    void PlaceOnGrid(GameObject[,] Grid, GameObject PlaceObject, bool ReplaceExisting, GameObject DeletionReplacement, int objectID)
+    {
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+        {
+            Vector2Int grid_pos = BlockAtMouse();
+            if(grid_pos != new Vector2Int(-1, -1))
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    GameObject currentObject = Grid[grid_pos.x, grid_pos.y];
+                    if (!(currentObject is null))
+                    {
+                        if (ReplaceExisting)
+                        {
+                            Grid[grid_pos.x, grid_pos.y].GetComponent<GridObject>().DestoryObject();
+                            CreateObject(Grid, grid_pos, PlaceObject, objectID);
+                        }
+                    }
+                    else
+                    {
+                        CreateObject(Grid, grid_pos, PlaceObject, objectID);
+                    }
+                }
+                if (Input.GetMouseButtonDown(1))
+                {
+                    GameObject currentObject = Grid[grid_pos.x, grid_pos.y];
+                    if (!(currentObject is null))
+                    {
+                        Grid[grid_pos.x, grid_pos.y].GetComponent<GridObject>().DestoryObject();
+                        Grid[grid_pos.x, grid_pos.y] = null;
+                        if (DeletionReplacement != null)
+                        {
+                            CreateObject(Grid, grid_pos, DeletionReplacement, 0);
+                        }
+                    }
+                }
+
+            }
+        }
     }
 
     void PlaceObject()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 100))
-            {
-                Vector3 object_pos = hit.transform.gameObject.transform.position;
-                int col = (int)Mathf.Round(object_pos.x / xOffset);
-                int row = (int)Mathf.Round(object_pos.z / yOffset);
-                GameObject Pobject = objectGrid[row, col];
-                GameObject character = characterGrid[row, col];
-                if (Pobject is null)
-                {
-                    GameObject block = blockGrid[row, col];
-                    objectGrid[row, col] = Instantiate(CombatMapper.objectMap[selectedObject], block.transform.position + new Vector3(0, 0, 0), Quaternion.identity);
-                }
-            }
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 100))
-            {
-                Vector3 object_pos = hit.transform.gameObject.transform.position;
-                int col = (int)Mathf.Round(object_pos.x / xOffset);
-                int row = (int)Mathf.Round(object_pos.z / yOffset);
-                GameObject Pobject = objectGrid[row, col];
-                if (!(Pobject is null))
-                {
-                    Destroy(Pobject);
-                    objectGrid[row, col] = null;
-                }
-            }
-        }
+        PlaceOnGrid(objectGrid, CombatMapper.objectMap[selectedObject], false, null, selectedObject);
     }
 
     void PlaceCharacter()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 100))
-            {
-                Vector3 object_pos = hit.transform.gameObject.transform.position;
-                int col = (int)Mathf.Round(object_pos.x / xOffset);
-                int row = (int)Mathf.Round(object_pos.z / yOffset);
-                GameObject character = characterGrid[row, col];
-                if (character is null)
-                {
-                    GameObject block = blockGrid[row, col];
-                    characterGrid[row, col] = Instantiate(CombatMapper.characterMap[selectedCharacter], block.transform.position + new Vector3(0, 0, 0), Quaternion.identity);
-                }
-            }
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 100))
-            {
-                Vector3 object_pos = hit.transform.gameObject.transform.position;
-                int col = (int)Mathf.Round(object_pos.x / xOffset);
-                int row = (int)Mathf.Round(object_pos.z / yOffset);
-                GameObject character = characterGrid[row, col];
-                if(!(character is null))
-                {
-                    Destroy(character);
-                    characterGrid[row, col] = null;
-                }
-            }
-        }
+        PlaceOnGrid(characterGrid, CombatMapper.characterMap[selectedCharacter], false, null, selectedCharacter);
     }
 
     void ChangeBlock()
     {
-        if (Input.GetMouseButtonDown(0))
+        PlaceOnGrid(blockGrid, CombatMapper.blockMap[tileType], true, CombatMapper.blockMap[0], tileType);
+    }
+
+    void ChangeBlockHeight(Vector2Int grid_pos, int heightChange)
+    {
+        GameObject block = blockGrid[grid_pos.x, grid_pos.y];
+        gridHeight[grid_pos.x, grid_pos.y] += heightChange;
+        block.transform.position = GridToPosition(grid_pos, block.GetComponent<GridObject>().TileSize);
+        GameObject character = characterGrid[grid_pos.x, grid_pos.y];
+        if (!(character is null))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 100))
-            {
-                Vector3 object_pos = hit.transform.gameObject.transform.position;
-                int col = (int)Mathf.Round(object_pos.x / xOffset);
-                int row = (int)Mathf.Round(object_pos.z / yOffset);
-                GameObject block = blockGrid[row, col];
-                GameObject newBlock = Instantiate(CombatMapper.blockMap[tileType]) as GameObject;
-                newBlock.transform.position = block.transform.position;
-                blockGrid[row, col] = newBlock;
-                Destroy(block);
-            }
+            character.transform.position = block.transform.position;
         }
-        if (Input.GetMouseButtonDown(1))
+        GameObject Pobject = objectGrid[grid_pos.x, grid_pos.y];
+        if (!(Pobject is null))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 100))
-            {
-                Vector3 object_pos = hit.transform.gameObject.transform.position;
-                int col = (int)Mathf.Round(object_pos.x / xOffset);
-                int row = (int)Mathf.Round(object_pos.z / yOffset);
-                GameObject block = blockGrid[row, col];
-                GameObject newBlock = Instantiate(CombatMapper.blockMap[0]) as GameObject;
-                newBlock.transform.position = block.transform.position;
-                blockGrid[row, col] = newBlock;
-                Destroy(block);
-            }
+            Pobject.transform.position = block.transform.position;
         }
     }
 
     void MoveBlocksHeight()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 100))
-            {
-                Vector3 object_pos = hit.transform.gameObject.transform.position;
-                int col = (int)Mathf.Round(object_pos.x / xOffset);
-                int row = (int)Mathf.Round(object_pos.z / yOffset);
-                GameObject block = blockGrid[row, col];
-                gridHeight[row, col] += 1;
-                block.transform.position = new Vector3(block.transform.position.x, gridHeight[row, col] * zOffset, block.transform.position.z);
-                GameObject character = characterGrid[row, col];
-                if (!(character is null))
-                {
-                    character.transform.position = block.transform.position + new Vector3(0, 0, 0);
-                }
-                GameObject Pobject = objectGrid[row, col];
-                if (!(Pobject is null))
-                {
-                    Pobject.transform.position = block.transform.position + new Vector3(0, 0, 0);
-                }
-                for (int above_row = row + 1; above_row < rows; above_row++)
-                {
-                    if(gridHeight[row, col] > gridHeight[above_row, col])
-                    {
-                        gridHeight[above_row, col] += 1;
-                        block = blockGrid[above_row, col];
-                        block.transform.position = new Vector3(block.transform.position.x, gridHeight[above_row, col] * zOffset, block.transform.position.z);
-                        character = characterGrid[above_row, col];
-                        if (!(character is null))
-                        {
-                            character.transform.position = block.transform.position + new Vector3(0, 0, 0);
-                        }
-                        Pobject = objectGrid[above_row, col];
-                        if (!(Pobject is null))
-                        {
-                            Pobject.transform.position = block.transform.position + new Vector3(0, 0, 0);
-                        }
-                    }
-                }
-            }
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 100))
-            {
-                Vector3 object_pos = hit.transform.gameObject.transform.position;
-                int col = (int)Mathf.Round(object_pos.x / xOffset);
-                int row = (int)Mathf.Round(object_pos.z / yOffset);
-                GameObject block = blockGrid[row, col];
-                gridHeight[row, col] -= 1;
-                block.transform.position = new Vector3(block.transform.position.x, gridHeight[row, col] * zOffset, block.transform.position.z);
-                GameObject character = characterGrid[row, col];
-                if (!(character is null))
-                {
-                    character.transform.position = block.transform.position + new Vector3(0, 0, 0);
-                }
-                GameObject Pobject = objectGrid[row, col];
-                if (!(Pobject is null))
-                {
-                    Pobject.transform.position = block.transform.position + new Vector3(0, 0, 0);
-                }
-                for (int below_row = row - 1; below_row > -1; below_row--)
-                {
-                    if (gridHeight[row, col] < gridHeight[below_row, col])
-                    {
-                        gridHeight[below_row, col] -= 1;
-                        block = blockGrid[below_row, col];
-                        block.transform.position = new Vector3(block.transform.position.x, gridHeight[below_row, col] * zOffset, block.transform.position.z);
-                        character = characterGrid[below_row, col];
-                        if (!(character is null))
-                        {
-                            character.transform.position = block.transform.position + new Vector3(0, 0, 0);
-                        }
-                        Pobject = objectGrid[below_row, col];
-                        if (!(Pobject is null))
-                        {
-                            Pobject.transform.position = block.transform.position + new Vector3(0, 0, 0);
-                        }
-                    }
-                }
-            }
-        }
 
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+        {
+            Vector2Int grid_pos = BlockAtMouse();
+            if (grid_pos != new Vector2Int(-1, -1)) { 
+                if (Input.GetMouseButtonDown(0))
+                {
+                    ChangeBlockHeight(grid_pos, 1);
+                    for (int y = grid_pos.y + 1; y < mapShape.y; y++)
+                    {
+                        Vector2Int above_grid_pos = new Vector2Int(grid_pos.x, y);
+                        if (gridHeight[grid_pos.x, grid_pos.y] > gridHeight[above_grid_pos.x, above_grid_pos.y])
+                        {
+                            ChangeBlockHeight(above_grid_pos, 1);
+                        }
+                    }
+                }
+                if (Input.GetMouseButtonDown(1))
+                {
+                    ChangeBlockHeight(grid_pos, -1);
+                    for (int y = grid_pos.y - 1; y >= 0; y--)
+                    {
+                        Vector2Int below_grid_pos = new Vector2Int(grid_pos.x, y);
+                        if (gridHeight[grid_pos.x, grid_pos.y] < gridHeight[below_grid_pos.x, below_grid_pos.y])
+                        {
+                            ChangeBlockHeight(below_grid_pos, -1);
+                        }
+                    }
+                }
+            }
+        }
     }
 
-    public void AddLeft()
+    public void SubtractMap(int leftChange, int rightChange, int bottomChange, int topChange)
     {
-        GameObject[,] newCharacterGrid = new GameObject[rows, cols + 1];
-        GameObject[,] newObjectGrid = new GameObject[rows, cols + 1];
-        GameObject[,] newBlockGrid = new GameObject[rows, cols + 1];
-        int[,] newGridHeight = new int[rows, cols + 1];
-        for (int row = 0; row < rows; row++)
+        //Delete Things Outside of Current Grid
+        for(int x = 0; x < mapShape.x; x++)
         {
-            for (int col = 0; col < cols; col++)
+            for (int y = 0; y < mapShape.y; y++)
             {
-                newBlockGrid[row, col + 1] = blockGrid[row, col];
-                newCharacterGrid[row, col + 1] = characterGrid[row, col];
-                newObjectGrid[row, col + 1] = objectGrid[row, col];
-                newGridHeight[row, col + 1] = gridHeight[row, col];
+                if (!(x >= leftChange && x < mapShape.x - rightChange && y >= bottomChange && y < mapShape.y - topChange))
+                {
+                    GameObject character = characterGrid[x, y];
+                    if (!(character is null))
+                    {
+                        characterGrid[x,y].GetComponent<GridObject>().DestoryObject();
+                    }
+                    GameObject Pobject = objectGrid[x, y];
+                    if (!(Pobject is null))
+                    {
+                        objectGrid[x, y].GetComponent<GridObject>().DestoryObject();
+                    }
+                    blockGrid[x, y].GetComponent<GridObject>().DestoryObject();
+                }
             }
         }
-        for (int row = 0; row < rows; row++)
+        
+        //Create new Grids and copy contents over.
+        int verChange = topChange + bottomChange;
+        int horChange = leftChange + rightChange;
+        GameObject[,] newCharacterGrid = new GameObject[mapShape.x - horChange, mapShape.y - verChange];
+        GameObject[,] newObjectGrid = new GameObject[mapShape.x - horChange, mapShape.y - verChange];
+        GameObject[,] newBlockGrid = new GameObject[mapShape.x - horChange, mapShape.y - verChange];
+        int[,] newGridHeight = new int[mapShape.x - horChange, mapShape.y - verChange];
+        mapShape -= new Vector2Int(horChange, verChange);
+        for (int x = 0; x < mapShape.x; x++)
         {
-            int col = 0;
-            newGridHeight[row, col] = 0;
-            newBlockGrid[row, col] = Instantiate(CombatMapper.blockMap[defaultBlock], new Vector3(col * xOffset, newGridHeight[row, col] * zOffset, row * yOffset), Quaternion.identity);
-            //newBlockGrid[row, col].transform.eulerAngles = new Vector3(-90, 0, 0);
+            for (int y = 0; y < mapShape.y; y++)
+            {
+                newBlockGrid[x, y] = blockGrid[x + leftChange, y + bottomChange];
+                newCharacterGrid[x, y] = characterGrid[x + leftChange, y + bottomChange];
+                newObjectGrid[x, y] = objectGrid[x + leftChange, y + bottomChange];
+                newGridHeight[x, y] = gridHeight[x + leftChange, y + bottomChange];
+            }
         }
         blockGrid = newBlockGrid;
         characterGrid = newCharacterGrid;
-        gridHeight = newGridHeight;
         objectGrid = newObjectGrid;
-        cols++;
+        gridHeight = newGridHeight;
         UpdatePositions();
     }
 
     public void SubLeft()
     {
-        GameObject[,] newCharacterGrid = new GameObject[rows, cols - 1];
-        GameObject[,] newObjectGrid = new GameObject[rows, cols - 1];
-        GameObject[,] newBlockGrid = new GameObject[rows, cols - 1];
-        int[,] newGridHeight = new int[rows, cols - 1];
-        cols--;
-        for (int row = 0; row < rows; row++)
-        {
-            int col = 0;
-            GameObject character = characterGrid[row, col];
-            if (!(character is null))
-            {
-                Destroy(characterGrid[row, col]);
-            }
-            GameObject Pobject = objectGrid[row, col];
-            if (!(Pobject is null))
-            {
-                Destroy(objectGrid[row, col]);
-            }
-            Destroy(blockGrid[row, col]);
-        }
-        for (int row = 0; row < rows; row++)
-        {
-            for (int col = 0; col < cols; col++)
-            {
-                newBlockGrid[row, col] = blockGrid[row, col + 1];
-                newCharacterGrid[row, col] = characterGrid[row, col + 1];
-                newObjectGrid[row, col] = objectGrid[row, col + 1];
-                newGridHeight[row, col] = gridHeight[row, col + 1];
-            }
-        }
-        blockGrid = newBlockGrid;
-        characterGrid = newCharacterGrid;
-        gridHeight = newGridHeight;
-        objectGrid = newObjectGrid;
-        UpdatePositions();
-    }
-
-    public void AddRight()
-    {
-        GameObject[,] newCharacterGrid = new GameObject[rows, cols + 1];
-        GameObject[,] newObjectGrid = new GameObject[rows, cols + 1];
-        GameObject[,] newBlockGrid = new GameObject[rows, cols + 1];
-        int[,] newGridHeight = new int[rows, cols + 1];
-        for (int row = 0; row < rows; row++)
-        {
-            for (int col = 0; col < cols; col++)
-            {
-                newBlockGrid[row, col] = blockGrid[row, col];
-                newCharacterGrid[row, col] = characterGrid[row, col];
-                newObjectGrid[row, col] = objectGrid[row, col];
-                newGridHeight[row, col] = gridHeight[row, col];
-            }
-        }
-        for (int row = 0; row < rows; row++)
-        {
-            int col = cols;
-            newGridHeight[row, col] = 0;
-            newBlockGrid[row, col] = Instantiate(CombatMapper.blockMap[defaultBlock], new Vector3(col * xOffset, newGridHeight[row, col] * zOffset, row * yOffset), Quaternion.identity);
-            //newBlockGrid[row, col].transform.eulerAngles = new Vector3(-90, 0, 0);
-        }
-        blockGrid = newBlockGrid;
-        characterGrid = newCharacterGrid;
-        objectGrid = newObjectGrid;
-        gridHeight = newGridHeight;
-        cols++;
-        UpdatePositions();
+        SubtractMap(1, 0, 0, 0);
     }
 
     public void SubRight()
     {
-        GameObject[,] newCharacterGrid = new GameObject[rows, cols - 1];
-        GameObject[,] newObjectGrid = new GameObject[rows, cols - 1];
-        GameObject[,] newBlockGrid = new GameObject[rows, cols - 1];
-        int[,] newGridHeight = new int[rows, cols - 1];
-        cols--;
-        for (int row = 0; row < rows; row++)
-        {
-            int col = cols;
-            GameObject character = characterGrid[row, col];
-            if (!(character is null))
-            {
-                Destroy(characterGrid[row, col]);
-            }
-            GameObject Pobject = objectGrid[row, col];
-            if (!(Pobject is null))
-            {
-                Destroy(objectGrid[row, col]);
-            }
-            Destroy(blockGrid[row, col]);
-        }
-        for (int row = 0; row < rows; row++)
-        {
-            for (int col = 0; col < cols; col++)
-            {
-                newBlockGrid[row, col] = blockGrid[row, col];
-                newCharacterGrid[row, col] = characterGrid[row, col];
-                newObjectGrid[row, col] = objectGrid[row, col];
-                newGridHeight[row, col] = gridHeight[row, col];
-            }
-        }
-        blockGrid = newBlockGrid;
-        characterGrid = newCharacterGrid;
-        objectGrid = newObjectGrid;
-        gridHeight = newGridHeight;
-        UpdatePositions();
-    }
-
-    public void AddBottom()
-    {
-        GameObject[,] newCharacterGrid = new GameObject[rows + 1, cols];
-        GameObject[,] newObjectGrid = new GameObject[rows + 1, cols];
-        GameObject[,] newBlockGrid = new GameObject[rows + 1, cols];
-        int[,] newGridHeight = new int[rows + 1, cols];
-        for (int row = 0; row < rows; row++)
-        {
-            for (int col = 0; col < cols; col++)
-            {
-                newBlockGrid[row + 1, col] = blockGrid[row, col];
-                newCharacterGrid[row + 1, col] = characterGrid[row, col];
-                newObjectGrid[row + 1, col] = objectGrid[row, col];
-                newGridHeight[row + 1, col] = gridHeight[row, col];
-            }
-        }
-        for (int col = 0; col < cols; col++)
-        {
-            int row = 0;
-            newGridHeight[row, col] = gridHeight[row, col];
-            newBlockGrid[row, col] = Instantiate(CombatMapper.blockMap[defaultBlock], new Vector3(col * xOffset, newGridHeight[row, col] * zOffset, row * yOffset), Quaternion.identity);
-            //newBlockGrid[row, col].transform.eulerAngles = new Vector3(-90, 0, 0);
-        }
-        blockGrid = newBlockGrid;
-        characterGrid = newCharacterGrid;
-        objectGrid = newObjectGrid;
-        gridHeight = newGridHeight;
-        rows++;
-        UpdatePositions();
+        SubtractMap(0, 1, 0, 0);
     }
 
     public void SubBottom()
     {
-        GameObject[,] newCharacterGrid = new GameObject[rows - 1, cols];
-        GameObject[,] newObjectGrid = new GameObject[rows - 1, cols];
-        GameObject[,] newBlockGrid = new GameObject[rows - 1, cols];
-        int[,] newGridHeight = new int[rows - 1, cols];
-        rows--;
-        for (int col = 0; col < cols; col++)
-        {
-            int row = 0;
-            GameObject character = objectGrid[row, col];
-            if (!(character is null))
-            {
-                Destroy(objectGrid[row, col]);
-            }
-            Destroy(blockGrid[row, col]);
-        }
-        for (int row = 0; row < rows; row++)
-        {
-            for (int col = 0; col < cols; col++)
-            {
-                newBlockGrid[row, col] = blockGrid[row + 1, col];
-                newObjectGrid[row, col] = objectGrid[row + 1, col];
-                newGridHeight[row, col] = gridHeight[row + 1, col];
-            }
-        }
-        blockGrid = newBlockGrid;
-        characterGrid = newCharacterGrid;
-        objectGrid = newObjectGrid;
-        gridHeight = newGridHeight;
-        UpdatePositions();
-    }
-
-    public void AddTop()
-    {
-        GameObject[,] newCharacterGrid = new GameObject[rows + 1, cols];
-        GameObject[,] newObjectGrid = new GameObject[rows + 1, cols];
-        GameObject[,] newBlockGrid = new GameObject[rows + 1, cols];
-        int[,] newGridHeight = new int[rows + 1, cols];
-        for (int row = 0; row < rows; row++)
-        {
-            for (int col = 0; col < cols; col++)
-            {
-                newBlockGrid[row, col] = blockGrid[row, col];
-                newCharacterGrid[row, col] = characterGrid[row, col];
-                newObjectGrid[row, col] = objectGrid[row, col];
-                newGridHeight[row, col] = gridHeight[row, col];
-            }
-        }
-        for (int col = 0; col < cols; col++)
-        {
-            int row = rows;
-            newGridHeight[row, col] = gridHeight[row - 1, col];
-            newBlockGrid[row, col] = Instantiate(CombatMapper.blockMap[defaultBlock], new Vector3(col * xOffset, newGridHeight[row, col] * zOffset, row * yOffset), Quaternion.identity);
-            //newBlockGrid[row, col].transform.eulerAngles = new Vector3(-90, 0, 0);
-        }
-        blockGrid = newBlockGrid;
-        characterGrid = newCharacterGrid;
-        objectGrid = newObjectGrid;
-        gridHeight = newGridHeight;
-        rows++;
-        UpdatePositions();
+        SubtractMap(0, 0, 1, 0);
     }
 
     public void SubTop()
     {
-        GameObject[,] newCharacterGrid = new GameObject[rows - 1, cols];
-        GameObject[,] newObjectGrid = new GameObject[rows - 1, cols];
-        GameObject[,] newBlockGrid = new GameObject[rows - 1, cols];
-        int[,] newGridHeight = new int[rows - 1, cols];
-        rows--;
-        for (int col = 0; col < cols; col++)
+        SubtractMap(0, 0, 0, 1);
+    }
+
+    public void AddMap(int leftChange, int rightChange, int bottomChange, int topChange)
+    {
+        //Create new Grids and copy contents over.
+        int verChange = topChange + bottomChange;
+        int horChange = leftChange + rightChange;
+        GameObject[,] newCharacterGrid = new GameObject[mapShape.x + horChange, mapShape.y + verChange];
+        GameObject[,] newObjectGrid = new GameObject[mapShape.x + horChange, mapShape.y + verChange];
+        GameObject[,] newBlockGrid = new GameObject[mapShape.x + horChange, mapShape.y + verChange];
+        int[,] prevGridHeight = gridHeight;
+        gridHeight = new int[mapShape.x + horChange, mapShape.y + verChange];
+
+        for (int x = 0; x < mapShape.x; x++)
         {
-            int row = rows;
-            GameObject character = characterGrid[row, col];
-            if (!(character is null))
+            for (int y = 0; y < mapShape.y; y++)
             {
-                Destroy(characterGrid[row, col]);
-            }
-            GameObject Pobject = objectGrid[row, col];
-            if (!(Pobject is null))
-            {
-                Destroy(objectGrid[row, col]);
-            }
-            Destroy(blockGrid[row, col]);
-        }
-        for (int row = 0; row < rows; row++)
-        {
-            for (int col = 0; col < cols; col++)
-            {
-                newBlockGrid[row, col] = blockGrid[row, col];
-                newCharacterGrid[row, col] = characterGrid[row, col];
-                newObjectGrid[row, col] = objectGrid[row, col];
-                newGridHeight[row, col] = gridHeight[row, col];
+                newBlockGrid[x + leftChange, y + bottomChange] = blockGrid[x, y];
+                gridHeight[x + leftChange, y + bottomChange] = prevGridHeight[x, y];
+                newCharacterGrid[x + leftChange, y + bottomChange] = characterGrid[x, y];
+                newObjectGrid[x + leftChange, y + bottomChange] = objectGrid[x, y];
             }
         }
+        mapShape += new Vector2Int(horChange, verChange);
+
+        for (int x = 0; x < leftChange; x++)
+        {
+            for (int y = bottomChange; y < mapShape.y - topChange; y++)
+            {
+                gridHeight[x, y] = prevGridHeight[0, y];
+                CreateObject(newBlockGrid, new Vector2Int(x, y), CombatMapper.blockMap[defaultBlock], defaultBlock);
+            }
+        }
+        for (int x = mapShape.x - rightChange; x < mapShape.x; x++)
+        {
+            for (int y = bottomChange; y < mapShape.y - topChange; y++)
+            {
+                gridHeight[x, y] = prevGridHeight[(mapShape.x - rightChange) - 1, y];
+                CreateObject(newBlockGrid, new Vector2Int(x, y), CombatMapper.blockMap[defaultBlock], defaultBlock);
+            }
+        }
+        for (int x = 0; x < mapShape.x; x++)
+        {
+            for (int y = 0; y < bottomChange; y++)
+            {
+                gridHeight[x, y] = prevGridHeight[x, 0];
+                CreateObject(newBlockGrid, new Vector2Int(x, y), CombatMapper.blockMap[defaultBlock], defaultBlock);
+            }
+            for (int y = mapShape.y - topChange; y < mapShape.y; y++)
+            {
+                gridHeight[x, y] = prevGridHeight[x, (mapShape.y - topChange) - 1];
+                CreateObject(newBlockGrid, new Vector2Int(x, y), CombatMapper.blockMap[defaultBlock], defaultBlock);
+            }
+        }
+
         blockGrid = newBlockGrid;
         characterGrid = newCharacterGrid;
         objectGrid = newObjectGrid;
-        gridHeight = newGridHeight;
         UpdatePositions();
     }
 
-    private void UpdatePositions()
+    public void AddLeft()
     {
-        for (int row = 0; row < rows; row++)
-        {
-            for (int col = 0; col < cols; col++)
-            {
-                blockGrid[row, col].transform.position = new Vector3(col * xOffset, gridHeight[row, col] * zOffset, row * yOffset);
-                GameObject character = characterGrid[row, col];
-                if (!(character is null))
-                {
-                    character.transform.position = new Vector3(col * xOffset, gridHeight[row, col] * zOffset + 0, row * yOffset);
-                }
-                GameObject Pobject = objectGrid[row, col];
-                if (!(Pobject is null))
-                {
-                    Pobject.transform.position = new Vector3(col * xOffset, gridHeight[row, col] * zOffset + 0, row * yOffset);
-                }
-            }
-        }
+        AddMap(1, 0, 0, 0);
+    }
+
+    public void AddRight()
+    {
+        AddMap(0, 1, 0, 0);
+    }
+
+    public void AddBottom()
+    {
+        AddMap(0, 0, 1, 0);
+    }
+
+    public void AddTop()
+    {
+        AddMap(0, 0, 0, 1);
+    }
+
+    public void LoadFromName()
+    {
+        string filename = saveNameTextField.GetComponent<InputField>().text;
+        CombatContainer _containerCache = Resources.Load<CombatContainer>(filename);
+        Load(_containerCache);
     }
 
     public void Save()
@@ -647,138 +438,50 @@ public class CombatGrid : MonoBehaviour
         CombatContainer combatContainer = ScriptableObject.CreateInstance<CombatContainer>();
 
         //Save Grid Height
-        combatContainer.gridHeight = new int[rows * cols];
-        for (int row = 0; row < rows; row++)
+        combatContainer.gridHeight = new int[mapShape.x * mapShape.y];
+        for (int x = 0; x < mapShape.x; x++)
         {
-            for (int col = 0; col < cols; col++)
+            for (int y = 0; y < mapShape.y; y++)
             {
-                combatContainer.gridHeight[row * cols + col] = gridHeight[row, col];
+                combatContainer.gridHeight[x * mapShape.y + y] = gridHeight[x, y];
             }
         }
-        //Save Block Grid
-        combatContainer.blockGrid = new int[rows * cols];
-        for (int row = 0; row < rows; row++)
-        {
-            for (int col = 0; col < cols; col++)
-            {
-                GameObject block = blockGrid[row, col];
-                for (int block_idx = 0; block_idx < CombatMapper.blockMap.ToList().Count; block_idx++)
-                {
-                    if (block.name.Remove(block.name.Length - 7) == CombatMapper.blockMap[block_idx].name)
-                    {
-                        combatContainer.blockGrid[row * cols + col] = block_idx;
-                        break;
-                    }
-                }
-            }
-        }
-        //Save Character Grid
-        combatContainer.characterGrid = new int[rows * cols];
-        for (int row = 0; row < rows; row++)
-        {
-            for (int col = 0; col < cols; col++)
-            {
-                GameObject character = characterGrid[row, col];
-                for (int character_idx = 0; character_idx < CombatMapper.characterMap.ToList().Count; character_idx++)
-                {
-                    if (character is null)
-                    {
-                        combatContainer.characterGrid[row * cols + col] = -1;
-                        break;
-                    }
-                    else
-                    {
-                        if (character.name.Remove(character.name.Length - 7) == CombatMapper.characterMap[character_idx].name)
-                        {
-                            combatContainer.characterGrid[row * cols + col] = character_idx;
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-        //Save Object Grid
-        combatContainer.objectGrid = new int[rows * cols];
-        for (int row = 0; row < rows; row++)
-        {
-            for (int col = 0; col < cols; col++)
-            {
-                GameObject Pobject = objectGrid[row, col];
-                for (int object_idx = 0; object_idx < CombatMapper.blockMap.ToList().Count; object_idx++)
-                {
-                    if (Pobject is null)
-                    {
-                        combatContainer.objectGrid[row * cols + col] = -1;
-                        break;
-                    }
-                    else
-                    {
-                        if (Pobject.name.Remove(Pobject.name.Length - 7) == CombatMapper.objectMap[object_idx].name)
-                        {
-                            combatContainer.objectGrid[row * cols + col] = object_idx;
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-        //Save rows
-        combatContainer.rows = rows;
-        //Save cols 
-        combatContainer.cols = cols;
+        combatContainer.blockGrid = SaveHelper(blockGrid);
+        combatContainer.characterGrid = SaveHelper(characterGrid);
+        combatContainer.objectGrid = SaveHelper(objectGrid);
+
+        //Save Shape
+        combatContainer.mapShape = mapShape;
 
         AssetDatabase.CreateAsset(combatContainer, $"Assets/CombatPrefabs/CombatBlocks/Resources/{filename}.asset");
         AssetDatabase.SaveAssets();
     }
 
-    void Clear()
+    public int[] SaveHelper(GameObject[,] grid)
     {
-        for (int row = 0; row < rows; row++)
+        int[] saveGrid = new int[mapShape.x * mapShape.y];
+        for (int x = 0; x < mapShape.x; x++)
         {
-            for (int col = 0; col < cols; col++)
+            for (int y = 0; y < mapShape.y; y++)
             {
-                GameObject block = blockGrid[row, col];
-                Destroy(block);
-                GameObject character = characterGrid[row, col];
-                Destroy(character);
-            }
-        }
-    }
-
-    public void Load()
-    {
-        Clear();
-        string filename = saveNameTextField.GetComponent<InputField>().text;
-
-        CombatContainer _containerCache = Resources.Load<CombatContainer>(filename);
-        if (_containerCache == null)
-        {
-            EditorUtility.DisplayDialog("File Not Found", "Target dialogue graph file does not exist!", "OK");
-        }
-        rows = _containerCache.rows;
-        cols = _containerCache.cols;
-        gridHeight = new int[rows, cols];
-        blockGrid = new GameObject[rows, cols];
-        characterGrid = new GameObject[rows, cols];
-        objectGrid = new GameObject[rows, cols];
-        for (int row = 0; row < rows; row++)
-        {
-            for (int col = 0; col < cols; col++)
-            {
-                gridHeight[row, col] = _containerCache.gridHeight[row * cols + col];
-                blockGrid[row, col] = Instantiate(CombatMapper.blockMap[_containerCache.blockGrid[row * cols + col]], new Vector3(col * xOffset, gridHeight[row, col] * zOffset, row * yOffset), Quaternion.identity);
-                //blockGrid[row, col].transform.localScale = new Vector3(30, 30, 30);
-                //blockGrid[row, col].transform.eulerAngles = new Vector3(-90, 0, 0);
-                if (_containerCache.characterGrid[row * cols + col] > -1)
+                GameObject targetObject = grid[x, y];
+                if (targetObject is null)
                 {
-                    characterGrid[row, col] = Instantiate(CombatMapper.characterMap[_containerCache.characterGrid[row * cols + col]], blockGrid[row, col].transform.position + new Vector3(0, 0, 0), Quaternion.identity);
+                    saveGrid[x * mapShape.y + y] = -1;
                 }
-                if (_containerCache.objectGrid[row * cols + col] > -1)
+                else
                 {
-                    objectGrid[row, col] = Instantiate(CombatMapper.objectMap[_containerCache.objectGrid[row * cols + col]], blockGrid[row, col].transform.position + new Vector3(0, 0, 0), Quaternion.identity);
+                    if (isBaseOfObject(grid, new Vector2Int(x, y)))
+                    {
+                        saveGrid[x * mapShape.y + y] = targetObject.GetComponent<GridObject>().objectID;
+                    }
+                    else
+                    {
+                        saveGrid[x * mapShape.y + y] = -1;
+                    }
                 }
             }
         }
-        UpdatePositions();
+        return saveGrid;
     }
 }

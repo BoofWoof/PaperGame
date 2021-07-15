@@ -2,69 +2,109 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CombatObject : MonoBehaviour
+public class CombatObject : GridObject
 {
-    [HideInInspector] public Vector2 pos;
     [HideInInspector] public CutSceneClass move;
-    [HideInInspector] public Vector2 prevPos;
     public bool Pushable = false;
-    // Start is called before the first frame update
-    void Start()
+    public bool Passable = false;
+
+    public bool CanWalk = true;
+    public bool CanFly = false;
+    public bool CanSwim = false;
+    public int MaxJumpHeight = 0;
+
+    public float LastMoveSpeed = 0;
+
+    public bool AttemptPush(List<Vector2Int> pushTargets, int HorChange, int VerChange, float Speed, int pushStrength)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public virtual bool PushObject(int HorChange, int VerChange, float Speed, bool Char, CombatExecutor combatExecutor)
-    {
-        Vector2 EndPos = new Vector2(pos.x + VerChange, pos.y + HorChange);
-        prevPos = pos;
-
-        if (EndPos.x >= 0 && EndPos.x < combatExecutor.rows && EndPos.y >= 0 && EndPos.y < combatExecutor.cols && combatExecutor.characterGrid[(int)EndPos.x, (int)EndPos.y] is null &&
-            (combatExecutor.gridHeight[(int)EndPos.x, (int)EndPos.y] - combatExecutor.gridHeight[(int)pos.x, (int)pos.y] <= 0) &&
-            combatExecutor.blockGrid[(int)EndPos.x, (int)EndPos.y].GetComponent<BlockTemplate>().Walkable && BattleMapProcesses.isObjectPassable(EndPos, combatExecutor))
+        List<FighterClass> charactersToPush = new List<FighterClass>();
+        List<CombatObject> objectsToPush = new List<CombatObject>();
+        foreach (Vector2Int pushTarget in pushTargets)
         {
-            if (Char)
+            if (!BattleMapProcesses.isThisOnTheGrid(pushTarget)) return false;
+            if (CombatExecutor.characterGrid[pushTarget.x, pushTarget.y] != null)
             {
-                combatExecutor.characterGrid[(int)pos.x, (int)pos.y] = null;
-                combatExecutor.characterGrid[(int)EndPos.x, (int)EndPos.y] = gameObject;
+                FighterClass characterToPush = CombatExecutor.characterGrid[pushTarget.x, pushTarget.y].GetComponent<FighterClass>();
+                if (!CombatExecutor.characterGrid[pushTarget.x, pushTarget.y].GetComponent<CombatObject>().PushObjectCheck(HorChange, VerChange, Speed, pushStrength - 1)) return false;
+                if(!charactersToPush.Contains(characterToPush)) objectsToPush.Add(characterToPush);
             }
-            else
+            if (CombatExecutor.objectGrid[pushTarget.x, pushTarget.y] != null)
             {
-                combatExecutor.objectGrid[(int)pos.x, (int)pos.y] = null;
-                combatExecutor.objectGrid[(int)EndPos.x, (int)EndPos.y] = gameObject;
-            }
-
-            pos = EndPos;
-            if (combatExecutor.gridHeight[(int)pos.x, (int)pos.y] != combatExecutor.gridHeight[(int)EndPos.x, (int)EndPos.y])
-            {
-                JumpToLocation JumpTo = ScriptableObject.CreateInstance<JumpToLocation>();
-                JumpTo.endPosition = new Vector3(EndPos.y * combatExecutor.xOffset, combatExecutor.gridHeight[(int)EndPos.x, (int)EndPos.y] * combatExecutor.zOffset + 0, EndPos.x * combatExecutor.yOffset);
-                JumpTo.parent = gameObject;
-                JumpTo.heightOverHighestCharacter = 0.5f;
-                JumpTo.speed = Speed;
-                JumpTo.Activate();
-                move = JumpTo;
-                pos = EndPos;
-                return true;
-            }
-            else
-            {
-                MoveToLocation WalkTo = ScriptableObject.CreateInstance<MoveToLocation>();
-                WalkTo.endPosition = new Vector3(EndPos.y * combatExecutor.xOffset, combatExecutor.gridHeight[(int)EndPos.x, (int)EndPos.y] * combatExecutor.zOffset + 0, EndPos.x * combatExecutor.yOffset);
-                WalkTo.parent = gameObject;
-                WalkTo.speed = Speed;
-                WalkTo.Activate();
-                move = WalkTo;
-                pos = EndPos;
-                return true;
+                if (!CombatExecutor.objectGrid[pushTarget.x, pushTarget.y].GetComponent<CombatObject>().Passable)
+                {
+                    CombatObject objectToPush = CombatExecutor.objectGrid[pushTarget.x, pushTarget.y].GetComponent<CombatObject>();
+                    if (!CombatExecutor.objectGrid[pushTarget.x, pushTarget.y].GetComponent<CombatObject>().PushObjectCheck(HorChange, VerChange, Speed, pushStrength - 1)) return false;
+                    if (!objectsToPush.Contains(objectToPush)) objectsToPush.Add(objectToPush);
+                }
             }
         }
+
+        foreach(CombatObject characterToPush in charactersToPush)
+        {
+            characterToPush.MoveCharacterExecute(new Vector2Int(characterToPush.pos.x + HorChange, characterToPush.pos.y + VerChange), Speed, Speed, CombatExecutor.characterGrid);
+        }
+        foreach (CombatObject objectToPush in objectsToPush)
+        {
+            objectToPush.MoveCharacterExecute(new Vector2Int(objectToPush.pos.x + HorChange, objectToPush.pos.y + VerChange), Speed, Speed, CombatExecutor.objectGrid);
+        }
+        return true;
+    }
+
+    public virtual bool PushObjectCheck(int HorChange, int VerChange, float Speed, int pushStrength, bool overridePushability = false)
+    {
+        if (pushStrength < 0) return false;
+        if (!Pushable && !overridePushability) return false;
+
+        Vector2Int EndPos = new Vector2Int(pos.x + HorChange, pos.y + VerChange);
+        List<Vector2Int> potentialGridOccupations = PotentialGridOccupation(EndPos);
+        
+        foreach (Vector2Int potentialGridOccupation in potentialGridOccupations)
+        {
+            if (!BattleMapProcesses.isThisOnTheGrid(EndPos)) return false;
+            if (!BattleMapProcesses.CanIMoveToTile(EndPos, this)) return false;
+            if (CombatExecutor.gridHeight[pos.x, pos.y] < CombatExecutor.gridHeight[potentialGridOccupation.x, potentialGridOccupation.y]) return false;
+        }
+        if (BattleMapProcesses.isTileEmpty(potentialGridOccupations, gameObject))
+        {
+            return true;
+        }
+        if (AttemptPush(potentialGridOccupations, HorChange, VerChange, Speed, pushStrength))
+        {
+            return true;
+        }
         return false;
+    }
+
+    public virtual void MoveCharacterExecute(Vector2Int EndPos, float walkSpeed, float jumpSpeed, GameObject[,] grid)
+    {
+        if (CombatExecutor.gridHeight[EndPos.x, EndPos.y] != CombatExecutor.gridHeight[pos.x, pos.y])
+        {
+            JumpToLocation JumpTo = ScriptableObject.CreateInstance<JumpToLocation>();
+            JumpTo.endPosition = GridManager.GridToPosition(EndPos, TileSize);
+            JumpTo.parent = gameObject;
+            JumpTo.heightOverHighestCharacter = 1;
+            JumpTo.speed = jumpSpeed;
+            LastMoveSpeed = jumpSpeed;
+            JumpTo.Activate();
+            move = JumpTo;
+        }
+        else
+        {
+            MoveToLocation WalkTo = ScriptableObject.CreateInstance<MoveToLocation>();
+            WalkTo.endPosition = GridManager.GridToPosition(EndPos, TileSize);
+            WalkTo.parent = gameObject;
+            WalkTo.speed = walkSpeed;
+            LastMoveSpeed = walkSpeed;
+            WalkTo.Activate();
+            move = WalkTo;
+        }
+        MoveObject(EndPos);
+    }
+
+    public List<Vector2Int> gridCollissionCheck()
+    {
+        List<Vector2Int> collisionPos = new List<Vector2Int>();
+
+        return collisionPos;
     }
 }

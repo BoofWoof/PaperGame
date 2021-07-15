@@ -1849,7 +1849,7 @@ PrefabInstance:
         type: 3}
       propertyPath: combatEncounter
       value: 
-      objectReference: {fileID: 11400000, guid: a5bb5b85f55526649bf4a4ef5e04614a,
+      objectReference: {fileID: 11400000, guid: 463695d1f059a57429aff331ed845d23,
         type: 2}
     - target: {fileID: 6100486210798427351, guid: 702e6f1d58f83d1448ac76ea641623d9,
         type: 3}
@@ -3283,7 +3283,7 @@ PrefabInstance:
         type: 3}
       propertyPath: combatEncounter
       value: 
-      objectReference: {fileID: 11400000, guid: 7f679e4512c844c4fa2b50ab92c55ad3,
+      objectReference: {fileID: 11400000, guid: 463695d1f059a57429aff331ed845d23,
         type: 2}
     - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
         type: 3}
@@ -3606,7 +3606,7 @@ PrefabInstance:
         type: 3}
       propertyPath: combatEncounter
       value: 
-      objectReference: {fileID: 11400000, guid: bb1c14dc68e2441419de377450295580,
+      objectReference: {fileID: 11400000, guid: 45598e7971a8f98479fb6f6b4b45a4e6,
         type: 2}
     - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
         type: 3}
@@ -3806,7 +3806,7 @@ PrefabInstance:
         type: 3}
       propertyPath: combatEncounter
       value: 
-      objectReference: {fileID: 11400000, guid: 34f22211326f6734f82234e3b21c5371,
+      objectReference: {fileID: 11400000, guid: 5dd9eadd7e02b8e43a9d03559c8bdd2f,
         type: 2}
     - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
         type: 3}

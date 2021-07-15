@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class ObjectTemplate : CombatObject
 {
-    public bool Passable = false;
-
-
     public void Update()
     {
         if(!(move is null))
@@ -15,7 +12,7 @@ public class ObjectTemplate : CombatObject
             {
                 Destroy(move);
                 move = null;
-                GameDataTracker.combatExecutor.blockGrid[(int)pos.x, (int)pos.y].GetComponent<BlockTemplate>().ObjectTileEntered(this);
+                CombatExecutor.blockGrid[(int)pos.x, (int)pos.y].GetComponent<BlockTemplate>().ObjectTileEntered(this);
             }
         }
     }

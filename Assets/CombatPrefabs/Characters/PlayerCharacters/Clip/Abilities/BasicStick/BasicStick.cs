@@ -5,6 +5,7 @@ using UnityEngine;
 public class BasicStick : moveTemplate
 {
     GameObject target;
+    public GameObject stickTimer;
 
     public override void Activate(List<GameObject> targets)
     {
@@ -15,6 +16,7 @@ public class BasicStick : moveTemplate
         BasicStickCutscene basicStick = ScriptableObject.CreateInstance<BasicStickCutscene>();
         basicStick.target = target;
         basicStick.power = character.GetComponent<FighterClass>().Power;
+        basicStick.stickTimerPrefab = stickTimer;
         CutsceneController.addCutsceneEvent(basicStick, character, true, GameDataTracker.gameModeOptions.Cutscene);
     }
 }
@@ -25,6 +27,8 @@ public class BasicStickCutscene : CutSceneClass
     private float count = 0.0f;
     public int power;
     public GameObject target;
+    public GameObject stickTimerPrefab;
+    private GameObject stickTimer;
     override public bool Activate()
     {
         return true;
@@ -35,8 +39,16 @@ public class BasicStickCutscene : CutSceneClass
     {
         if (phase == 0)
         {
+            if (stickTimer == null)
+            {
+                GameDataTracker.combatExecutor.FocusOnCharacter(parent.GetComponent<GridObject>().pos);
+                stickTimer = Instantiate(stickTimerPrefab, parent.transform.position + new Vector3(-0.4f, 1.3f, 0f), Quaternion.identity);
+                stickTimer.transform.localScale = new Vector3(2, 2, 1);
+                stickTimer.GetComponent<Animator>().speed = 0;
+            }
             if (Input.GetAxis("Horizontal") < -0.3f)
             {
+                stickTimer.GetComponent<Animator>().speed = 2;
                 parent.GetComponent<FighterClass>().animator.SetTrigger("HoldStickHit");
                 phase++;
             }
@@ -44,26 +56,27 @@ public class BasicStickCutscene : CutSceneClass
         if (phase == 1)
         {
             count += Time.deltaTime;
-            Debug.Log(count);
-            if (Input.GetAxis("Horizontal") > -0.1f || count >= 2.0f)
+            if (Input.GetAxis("Horizontal") > -0.1f || count >= 1.1f)
             {
-                if (count > 1.5f && count < 2.0f)
+                if (count > 0.9f && count < 1.1f)
                 {
                     target.GetComponent<FighterClass>().postBufferAttackEffect(power*2, FighterClass.attackType.Normal, FighterClass.statusEffects.None, FighterClass.attackLocation.Ground, parent);
                 } else
                 {
                     target.GetComponent<FighterClass>().postBufferAttackEffect(power, FighterClass.attackType.Normal, FighterClass.statusEffects.None, FighterClass.attackLocation.Ground, parent);
                 }
-                parent.GetComponent<FighterClass>().animator.SetTrigger("StickHit");
+                parent.GetComponent<FighterClass>().animator.SetTrigger("InstantStickHit");
                 phase++;
                 count = 0;
+                Destroy(stickTimer);
             }
         }
         if (phase == 2)
         {
             count += Time.deltaTime;
-            if (count >= 2.0f)
+            if (count >= 1.0f)
             {
+                GameDataTracker.combatExecutor.SetCameraToWorld();
                 return true;
             }
         }

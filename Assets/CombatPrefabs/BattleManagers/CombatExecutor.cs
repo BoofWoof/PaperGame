@@ -3,41 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CombatExecutor : MonoBehaviour
+public class CombatExecutor : GridManager
 {
-    public int rows;
-    public int cols;
-
-    [Header("Block Spacing")]
-    public float xOffset;
-    public float yOffset;
-    public float zOffset;
-
-    [Header("Camera Variables")]
-    public GameObject combatCamera;
-    public float cameraHeight;
-    public float cameraAngle;
-    public float cameraOffset;
-    public float cameraSpeed;
-    private float cameraX = 0;
-    private float cameraY = 0;
-    private float cameraZ = 0;
-
-    [HideInInspector]public GameObject[,] blockGrid;
-    [HideInInspector] public GameObject[,] characterGrid;
-    [HideInInspector] public GameObject[,] objectGrid;
-    [HideInInspector] public int[,] gridHeight;
-
     [Header("Loading")]
     public CombatContainer _containerCache;
     public CutsceneTrigger cutsceneTrigger;
     public CutsceneDeconstruct cutsceneDeconstruct;
-
-    //Ally Info
-    [HideInInspector]public GameObject Clip;
-    [HideInInspector] public GameObject Partner;
-    //Enemy Info
-    [HideInInspector] public List<GameObject> EnemyList = new List<GameObject>();
 
     //Menu Info
     private List<BattleMenu> currentMenu = new List<BattleMenu>();
@@ -85,49 +56,14 @@ public class CombatExecutor : MonoBehaviour
         TimerContainer.SetActive(false);
 
         GameDataTracker.combatExecutor = this;
-        rows = _containerCache.rows;
-        cols = _containerCache.cols;
+        mapShape = _containerCache.mapShape;
 
-        gridHeight = new int[rows, cols];
-        blockGrid = new GameObject[rows, cols];
-        characterGrid = new GameObject[rows, cols];
-        objectGrid = new GameObject[rows, cols];
+        gridHeight = new int[mapShape.x, mapShape.y];
+        blockGrid = new GameObject[mapShape.x, mapShape.y];
+        characterGrid = new GameObject[mapShape.x, mapShape.y];
+        objectGrid = new GameObject[mapShape.x, mapShape.y];
 
-        for (int row = 0; row < rows; row++)
-        {
-            for (int col = 0; col < cols; col++)
-            {
-                gridHeight[row, col] = _containerCache.gridHeight[row * cols + col];
-                blockGrid[row, col] = Instantiate(CombatMapper.blockMap[_containerCache.blockGrid[row * cols + col]], new Vector3(col * xOffset, gridHeight[row, col] * zOffset, row * yOffset), Quaternion.identity);
-                //blockGrid[row, col].transform.localScale = new Vector3(30, 30, 30);
-                //blockGrid[row, col].transform.eulerAngles = new Vector3(-90, 0, 0);
-                if (_containerCache.characterGrid[row * cols + col] > -1)
-                {
-                    characterGrid[row, col] = Instantiate(CombatMapper.characterMap[_containerCache.characterGrid[row * cols + col]], blockGrid[row, col].transform.position + new Vector3(0, 0, 0), Quaternion.identity);
-                    if (_containerCache.characterGrid[row * cols + col] == 0)
-                    {
-                        Clip = characterGrid[row, col];
-                        Clip.GetComponent<FighterClass>().pos = new Vector2(row, col);
-                    }
-                    else if (_containerCache.characterGrid[row * cols + col] <= 10)
-                    {
-                        Partner = characterGrid[row, col];
-                        Partner.GetComponent<FighterClass>().pos = new Vector2(row, col);
-                    }
-                    else
-                    {
-                        characterGrid[row, col].GetComponent<FighterClass>().pos = new Vector2(row, col);
-                        EnemyList.Add(characterGrid[row, col]);
-                    }
-                }
-                if (_containerCache.objectGrid[row * cols + col] > -1)
-                {
-                    objectGrid[row, col] = Instantiate(CombatMapper.objectMap[_containerCache.objectGrid[row * cols + col]], blockGrid[row, col].transform.position + new Vector3(0, 0, 0), Quaternion.identity);
-                    objectGrid[row, col].GetComponent<ObjectTemplate>().pos = new Vector2(row, col);
-                }
-            }
-        }
-        UpdatePositions();
+        Load(_containerCache);
 
         //Update Clip And Partner Stats
         FighterClass ClipStats = Clip.GetComponent<FighterClass>();
@@ -378,7 +314,7 @@ public class CombatExecutor : MonoBehaviour
                     {
                         VerMov = -1;
                     }
-                    clipInfo.MoveCharacter(HorMov, VerMov, this);
+                    clipInfo.MoveCharacter(HorMov, VerMov);
                 }
             }
         }
@@ -409,7 +345,7 @@ public class CombatExecutor : MonoBehaviour
                     {
                         VerMov = -1;
                     }
-                    partnerInfo.MoveCharacter(HorMov, VerMov, this);
+                    partnerInfo.MoveCharacter(HorMov, VerMov);
                 }
 
             }
@@ -449,7 +385,7 @@ public class CombatExecutor : MonoBehaviour
             character.animator.speed = 1.0f;
             Destroy(character.move);
             character.move = null;
-            blockGrid[(int)character.pos.x, (int)character.pos.y].GetComponent<BlockTemplate>().TileEntered(character);
+            blockGrid[character.pos.x, character.pos.y].GetComponent<BlockTemplate>().TileEntered(character);
         }
     }
 
@@ -575,27 +511,6 @@ public class CombatExecutor : MonoBehaviour
         return potentialTargets;
     }
 
-    private void UpdatePositions()
-    {
-        for (int row = 0; row < rows; row++)
-        {
-            for (int col = 0; col < cols; col++)
-            {
-                blockGrid[row, col].transform.position = new Vector3(col * xOffset, gridHeight[row, col] * zOffset, row * yOffset);
-                GameObject character = characterGrid[row, col];
-                if (!(character is null))
-                {
-                    character.transform.position = new Vector3(col * xOffset, gridHeight[row, col] * zOffset + 0, row * yOffset);
-                }
-                GameObject Pobject = objectGrid[row, col];
-                if (!(Pobject is null))
-                {
-                    Pobject.transform.position = new Vector3(col * xOffset, gridHeight[row, col] * zOffset + 0, row * yOffset);
-                }
-            }
-        }
-    }
-
     void UpdateHealth()
     {
         FighterClass ClipStats = Clip.GetComponent<FighterClass>();
@@ -608,7 +523,7 @@ public class CombatExecutor : MonoBehaviour
 
     public void SetCameraToWorld()
     {
-        combatCamera.transform.position = new Vector3((cols - 1) * xOffset / 2 + cameraX, cameraHeight + cameraY, cameraOffset + cameraZ);
+        combatCamera.transform.position = new Vector3(mapShape.x * blockOffset.x / 2 + cameraPos.x, cameraHeight * mapShape.y/10f + cameraPos.y + 3.5f, cameraOffset * mapShape.y/10f + cameraPos.z - 2.5f);
         combatCamera.transform.eulerAngles = new Vector3(cameraAngle, 0, 0);
     }
 

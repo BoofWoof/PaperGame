@@ -69,10 +69,8 @@ public class moveTemplate : MonoBehaviour
         activated = true;
     }
 
-    public (List<Vector2>, List<GameObject>) findGoals(
-        List<GameObject> targets,
-        int rows,
-        int cols
+    public (List<Vector2Int>, List<GameObject>) findGoals(
+        List<GameObject> targets
         )
     {
         //There is some inefficiency here.
@@ -82,60 +80,55 @@ public class moveTemplate : MonoBehaviour
         if (targetShape == TargetShape.Square)
         {
             return findGoalsSquare(
-                targets,
-                rows,
-                cols
+                targets
                 );
         }
         if (targetShape == TargetShape.Diamond)
         {
             return findGoalsDiamond(
-                targets,
-                rows,
-                cols
+                targets
                 );
         }
         if (targetShape == TargetShape.Cross)
         {
             return findGoalsCross(
-                targets,
-                rows,
-                cols
+                targets
                 );
         }
         if (targetShape == TargetShape.X)
         {
             return findGoalsX(
-                targets,
-                rows,
-                cols
+                targets
                 );
         }
-        return (new List<Vector2>(), new List<GameObject>());
+        return (new List<Vector2Int>(), new List<GameObject>());
     }
 
-    public (List<Vector2>, List<GameObject>) findGoalsSquare(
-        List<GameObject> targets,
-        int rows,
-        int cols
+    public (List<Vector2Int>, List<GameObject>) findGoalsSquare(
+        List<GameObject> targets
         )
     {
-        List<Vector2> goalList = new List<Vector2>();
+        List<Vector2Int> goalList = new List<Vector2Int>();
         List<GameObject> objectList = new List<GameObject>();
         foreach (GameObject targetObject in targets)
         {
-            Vector2 targetPos = targetObject.GetComponent<FighterClass>().pos;
-            for (int row = -MaxRange; row <= MaxRange; row++)
+            List<Vector2Int> allTargetPos = new List<Vector2Int>();
+            allTargetPos.Add(targetObject.GetComponent<FighterClass>().pos);
+            allTargetPos.AddRange(targetObject.GetComponent<FighterClass>().extra_pos);
+            foreach(Vector2Int targetPos in allTargetPos)
             {
-                for (int col = -MaxRange; col <= MaxRange; col++)
+                for (int row = -MaxRange; row <= MaxRange + character.GetComponent<GridObject>().TileSize.x; row++)
                 {
-                    if (Mathf.Abs(row) >= MinRange || Mathf.Abs(col) >= MinRange)
+                    for (int col = -MaxRange; col <= MaxRange + character.GetComponent<GridObject>().TileSize.y; col++)
                     {
-                        Vector2 goal = targetPos + new Vector2(row, col);
-                        if (isThisOnTheGrid(goal, rows, cols) && !goalList.Contains(goal))
+                        if (Mathf.Abs(row) >= MinRange || Mathf.Abs(col) >= MinRange)
                         {
-                            goalList.Add(goal);
-                            objectList.Add(targetObject);
+                            Vector2Int goal = targetPos + new Vector2Int(row, col);
+                            if (BattleMapProcesses.isThisOnTheGrid(goal) && !goalList.Contains(goal))
+                            {
+                                goalList.Add(goal);
+                                objectList.Add(targetObject);
+                            }
                         }
                     }
                 }
@@ -144,28 +137,31 @@ public class moveTemplate : MonoBehaviour
         return (goalList, objectList);
     }
 
-    public (List<Vector2>, List<GameObject>) findGoalsDiamond(
-        List<GameObject> targets,
-        int rows,
-        int cols
+    public (List<Vector2Int>, List<GameObject>) findGoalsDiamond(
+        List<GameObject> targets
         )
     {
-        List<Vector2> goalList = new List<Vector2>();
+        List<Vector2Int> goalList = new List<Vector2Int>();
         List<GameObject> objectList = new List<GameObject>();
         foreach (GameObject targetObject in targets)
         {
-            Vector2 targetPos = targetObject.GetComponent<FighterClass>().pos;
-            for (int row = -MaxRange; row <= MaxRange; row++)
+            List<Vector2Int> allTargetPos = new List<Vector2Int>();
+            allTargetPos.Add(targetObject.GetComponent<FighterClass>().pos);
+            allTargetPos.AddRange(targetObject.GetComponent<FighterClass>().extra_pos);
+            foreach (Vector2Int targetPos in allTargetPos)
             {
-                for (int col = -MaxRange + Mathf.Abs(row); col <= MaxRange - Mathf.Abs(row); col++)
+                for (int row = -MaxRange; row <= MaxRange + character.GetComponent<GridObject>().TileSize.x; row++)
                 {
-                    if (Mathf.Abs(row) + Mathf.Abs(col) >= MinRange)
+                    for (int col = -MaxRange + Mathf.Abs(row); col <= MaxRange - Mathf.Abs(row); col++)
                     {
-                        Vector2 goal = targetPos + new Vector2(row, col);
-                        if (isThisOnTheGrid(goal, rows, cols) && !goalList.Contains(goal))
+                        if (Mathf.Abs(row) + Mathf.Abs(col) >= MinRange)
                         {
-                            goalList.Add(goal);
-                            objectList.Add(targetObject);
+                            Vector2Int goal = targetPos + new Vector2Int(row, col);
+                            if (BattleMapProcesses.isThisOnTheGrid(goal) && !goalList.Contains(goal))
+                            {
+                                goalList.Add(goal);
+                                objectList.Add(targetObject);
+                            }
                         }
                     }
                 }
@@ -174,99 +170,96 @@ public class moveTemplate : MonoBehaviour
         return (goalList, objectList);
     }
 
-    public (List<Vector2>, List<GameObject>) findGoalsCross(
-        List<GameObject> targets,
-        int rows,
-        int cols
+    public (List<Vector2Int>, List<GameObject>) findGoalsCross(
+        List<GameObject> targets
         )
     {
-        List<Vector2> goalList = new List<Vector2>();
+        List<Vector2Int> goalList = new List<Vector2Int>();
         List<GameObject> objectList = new List<GameObject>();
         foreach (GameObject targetObject in targets)
         {
-            Vector2 targetPos = targetObject.GetComponent<FighterClass>().pos;
-            for (int idx = MinRange; idx <= MaxRange; idx++)
+            List<Vector2Int> allTargetPos = new List<Vector2Int>();
+            allTargetPos.Add(targetObject.GetComponent<FighterClass>().pos);
+            allTargetPos.AddRange(targetObject.GetComponent<FighterClass>().extra_pos);
+            foreach (Vector2Int targetPos in allTargetPos)
             {
-                Vector2 newGoalVector;
-                newGoalVector = targetPos + new Vector2(idx, 0);
-                if (isThisOnTheGrid(newGoalVector, rows, cols) && !goalList.Contains(newGoalVector))
+                for (int idx = MinRange; idx <= MaxRange; idx++)
                 {
-                    goalList.Add(newGoalVector);
-                    objectList.Add(targetObject);
-                }
-                newGoalVector = targetPos + new Vector2(-idx, 0);
-                if (isThisOnTheGrid(newGoalVector, rows, cols) && !goalList.Contains(newGoalVector))
-                {
-                    goalList.Add(newGoalVector);
-                    objectList.Add(targetObject);
-                }
-                newGoalVector = targetPos + new Vector2(0, idx);
-                if (isThisOnTheGrid(newGoalVector, rows, cols) && !goalList.Contains(newGoalVector))
-                {
-                    goalList.Add(newGoalVector);
-                    objectList.Add(targetObject);
-                }
-                newGoalVector = targetPos + new Vector2(0, -idx);
-                if (isThisOnTheGrid(newGoalVector, rows, cols) && !goalList.Contains(newGoalVector))
-                {
-                    goalList.Add(newGoalVector);
-                    objectList.Add(targetObject);
+                    Vector2Int newGoalVector;
+                    newGoalVector = targetPos + new Vector2Int(idx, 0);
+                    if (BattleMapProcesses.isThisOnTheGrid(newGoalVector) && !goalList.Contains(newGoalVector))
+                    {
+                        goalList.Add(newGoalVector);
+                        objectList.Add(targetObject);
+                    }
+                    newGoalVector = targetPos + new Vector2Int(-idx, 0);
+                    if (BattleMapProcesses.isThisOnTheGrid(newGoalVector) && !goalList.Contains(newGoalVector))
+                    {
+                        goalList.Add(newGoalVector);
+                        objectList.Add(targetObject);
+                    }
+                    newGoalVector = targetPos + new Vector2Int(0, idx);
+                    if (BattleMapProcesses.isThisOnTheGrid(newGoalVector) && !goalList.Contains(newGoalVector))
+                    {
+                        goalList.Add(newGoalVector);
+                        objectList.Add(targetObject);
+                    }
+                    newGoalVector = targetPos + new Vector2Int(0, -idx);
+                    if (BattleMapProcesses.isThisOnTheGrid(newGoalVector) && !goalList.Contains(newGoalVector))
+                    {
+                        goalList.Add(newGoalVector);
+                        objectList.Add(targetObject);
+                    }
                 }
             }
         }
         return (goalList, objectList);
     }
 
-    public (List<Vector2>, List<GameObject>) findGoalsX(
-        List<GameObject> targets,
-        int rows,
-        int cols
+    public (List<Vector2Int>, List<GameObject>) findGoalsX(
+        List<GameObject> targets
         )
     {
-        List<Vector2> goalList = new List<Vector2>();
+        List<Vector2Int> goalList = new List<Vector2Int>();
         List<GameObject> objectList = new List<GameObject>();
         foreach (GameObject targetObject in targets)
         {
-            Vector2 targetPos = targetObject.GetComponent<FighterClass>().pos;
-            for (int idx = MinRange; idx <= MaxRange; idx++)
+            List<Vector2Int> allTargetPos = new List<Vector2Int>();
+            allTargetPos.Add(targetObject.GetComponent<FighterClass>().pos);
+            allTargetPos.AddRange(targetObject.GetComponent<FighterClass>().extra_pos);
+            foreach (Vector2Int targetPos in allTargetPos)
             {
-                Vector2 newGoalVector;
-                newGoalVector = targetPos + new Vector2(idx, idx);
-                if (isThisOnTheGrid(newGoalVector, rows, cols) && !goalList.Contains(newGoalVector))
+                for (int idx = MinRange; idx <= MaxRange; idx++)
                 {
-                    goalList.Add(newGoalVector);
-                    objectList.Add(targetObject);
-                }
-                newGoalVector = targetPos + new Vector2(-idx, -idx);
-                if (isThisOnTheGrid(newGoalVector, rows, cols) && !goalList.Contains(newGoalVector))
-                {
-                    goalList.Add(newGoalVector);
-                    objectList.Add(targetObject);
-                }
-                newGoalVector = targetPos + new Vector2(-idx, idx);
-                if (isThisOnTheGrid(newGoalVector, rows, cols) && !goalList.Contains(newGoalVector))
-                {
-                    goalList.Add(newGoalVector);
-                    objectList.Add(targetObject);
-                }
-                newGoalVector = targetPos + new Vector2(idx, -idx);
-                if (isThisOnTheGrid(newGoalVector, rows, cols) && !goalList.Contains(newGoalVector))
-                {
-                    goalList.Add(newGoalVector);
-                    objectList.Add(targetObject);
+                    Vector2Int newGoalVector;
+                    newGoalVector = targetPos + new Vector2Int(idx, idx);
+                    if (BattleMapProcesses.isThisOnTheGrid(newGoalVector) && !goalList.Contains(newGoalVector))
+                    {
+                        goalList.Add(newGoalVector);
+                        objectList.Add(targetObject);
+                    }
+                    newGoalVector = targetPos + new Vector2Int(-idx, -idx);
+                    if (BattleMapProcesses.isThisOnTheGrid(newGoalVector) && !goalList.Contains(newGoalVector))
+                    {
+                        goalList.Add(newGoalVector);
+                        objectList.Add(targetObject);
+                    }
+                    newGoalVector = targetPos + new Vector2Int(-idx, idx);
+                    if (BattleMapProcesses.isThisOnTheGrid(newGoalVector) && !goalList.Contains(newGoalVector))
+                    {
+                        goalList.Add(newGoalVector);
+                        objectList.Add(targetObject);
+                    }
+                    newGoalVector = targetPos + new Vector2Int(idx, -idx);
+                    if (BattleMapProcesses.isThisOnTheGrid(newGoalVector) && !goalList.Contains(newGoalVector))
+                    {
+                        goalList.Add(newGoalVector);
+                        objectList.Add(targetObject);
+                    }
                 }
             }
         }
         return (goalList, objectList);
-    }
-
-    private bool isThisOnTheGrid(Vector2 pos, int rows, int cols)
-    {
-        if (pos.x >= 0 && pos.x < rows && pos.y >= 0 && pos.y < cols)
-        {
-            return true;
-        }
-        return false;
     }
 
     public virtual List<GameObject> targetFilter(List<GameObject> potentialTargets)
@@ -303,59 +296,82 @@ public class moveTemplate : MonoBehaviour
     {
         for (int idx = targets.Count - 1; idx >= 0; idx--)
         {
-            Vector2 selfPos = character.GetComponent<FighterClass>().pos;
-            Vector2 pos = (targets[idx].GetComponent<FighterClass>().pos - selfPos);
-            if (Mathf.Abs(pos.x) != Mathf.Abs(pos.y))
-            {
-                targets.RemoveAt(idx);
-                continue;
-            }
-            if (Mathf.Abs(pos.x) > MaxRange ||
-                Mathf.Abs(pos.y) > MaxRange ||
-                Mathf.Abs(pos.x) < MinRange ||
-                Mathf.Abs(pos.y) < MinRange)
+            if (XFilter(targets[idx].GetComponent<GridObject>()))
             {
                 targets.RemoveAt(idx);
             }
         }
         return targets;
+    }
+    private bool XFilter(GridObject targetObject)
+    {
+        Vector2 selfPos = character.GetComponent<GridObject>().pos;
+        Vector2 pos = (targetObject.pos - selfPos);
+        if (Mathf.Abs(pos.x) == Mathf.Abs(pos.y) &&
+            Mathf.Abs(pos.x) + Mathf.Abs(pos.y) <= MaxRange &&
+            Mathf.Abs(pos.x) + Mathf.Abs(pos.y) >= MinRange) return false;
+        foreach (Vector2Int extPos in targetObject.extra_pos)
+        {
+            pos = (extPos - selfPos);
+            if ((pos.x == 0 || pos.y == 0) &&
+            Mathf.Abs(pos.x) + Mathf.Abs(pos.y) <= MaxRange &&
+            Mathf.Abs(pos.x) + Mathf.Abs(pos.y) >= MinRange) return false;
+        }
+        return true;
     }
 
     private List<GameObject> crossFilter(List<GameObject> targets)
     {
         for (int idx = targets.Count - 1; idx >= 0; idx--)
         {
-            Vector2 selfPos = character.GetComponent<FighterClass>().pos;
-            Vector2 pos = (targets[idx].GetComponent<FighterClass>().pos - selfPos);
-            if(pos.x != 0 && pos.y != 0)
-            {
-                targets.RemoveAt(idx);
-                continue;
-            }
-            if (Mathf.Abs(pos.x) > MaxRange ||
-                Mathf.Abs(pos.y) > MaxRange ||
-                Mathf.Abs(pos.x) < MinRange ||
-                Mathf.Abs(pos.y) < MinRange)
+            if (CFilter(targets[idx].GetComponent<GridObject>()))
             {
                 targets.RemoveAt(idx);
             }
         }
         return targets;
     }
+    private bool CFilter(GridObject targetObject)
+    {
+        Vector2 selfPos = character.GetComponent<GridObject>().pos;
+        Vector2 pos = (targetObject.pos - selfPos);
+        if ((pos.x == 0 || pos.y == 0) &&
+            Mathf.Abs(pos.x) + Mathf.Abs(pos.y) <= MaxRange &&
+            Mathf.Abs(pos.x) + Mathf.Abs(pos.y) >= MinRange) return false;
+        foreach (Vector2Int extPos in targetObject.extra_pos)
+        {
+            pos = (extPos - selfPos);
+            if ((pos.x == 0 || pos.y == 0) &&
+            Mathf.Abs(pos.x) + Mathf.Abs(pos.y) <= MaxRange &&
+            Mathf.Abs(pos.x) + Mathf.Abs(pos.y) >= MinRange) return false;
+        }
+        return true;
+    }
 
     private List<GameObject> diamondFilter(List<GameObject> targets)
     {
         for (int idx = targets.Count - 1; idx >= 0; idx--)
         {
-            Vector2 selfPos = character.GetComponent<FighterClass>().pos;
-            Vector2 pos = (targets[idx].GetComponent<FighterClass>().pos - selfPos);
-            if (Mathf.Abs(pos.x) + Mathf.Abs(pos.y) > MaxRange ||
-                Mathf.Abs(pos.x) + Mathf.Abs(pos.y) < MinRange)
+            if (DFilter(targets[idx].GetComponent<GridObject>()))
             {
                 targets.RemoveAt(idx);
             }
         }
         return targets;
+    }
+    private bool DFilter(GridObject targetObject)
+    {
+        Vector2 selfPos = character.GetComponent<GridObject>().pos;
+        Vector2 pos = (targetObject.pos - selfPos);
+        if (Mathf.Abs(pos.x) + Mathf.Abs(pos.y) <= MaxRange &&
+            Mathf.Abs(pos.x) + Mathf.Abs(pos.y) >= MinRange) return false;
+        foreach(Vector2Int extPos in targetObject.extra_pos)
+        {
+            pos = (extPos - selfPos);
+            if (Mathf.Abs(pos.x) + Mathf.Abs(pos.y) <= MaxRange &&
+                Mathf.Abs(pos.x) + Mathf.Abs(pos.y) >= MinRange) return false;
+        }
+        return true;
     }
 
     private List<GameObject> squareFilter(List<GameObject> targets){
@@ -363,63 +379,69 @@ public class moveTemplate : MonoBehaviour
         {
             Vector2 selfPos = character.GetComponent<FighterClass>().pos;
             Vector2 pos = (targets[idx].GetComponent<FighterClass>().pos - selfPos);
-            if (Mathf.Abs(pos.x) > MaxRange ||
-                Mathf.Abs(pos.y) > MaxRange ||
-                Mathf.Abs(pos.x) < MinRange ||
-                Mathf.Abs(pos.y) < MinRange)
+            if (SFilter(targets[idx].GetComponent<GridObject>()))
             {
                 targets.RemoveAt(idx);
             }
         }
         return targets;
     }
+    private bool SFilter(GridObject targetObject)
+    {
+        Vector2 selfPos = character.GetComponent<GridObject>().pos;
+        Vector2 pos = (targetObject.pos - selfPos);
+        if (Mathf.Abs(pos.x) <= MaxRange &&
+                Mathf.Abs(pos.y) <= MaxRange &&
+                Mathf.Abs(pos.x) >= MinRange &&
+                Mathf.Abs(pos.y) >= MinRange) return false;
+        foreach (Vector2Int extPos in targetObject.extra_pos)
+        {
+            pos = (extPos - selfPos);
+            if (Mathf.Abs(pos.x) <= MaxRange &&
+                Mathf.Abs(pos.y) <= MaxRange &&
+                Mathf.Abs(pos.x) >= MinRange &&
+                Mathf.Abs(pos.y) >= MinRange) return false;
+        }
+        return true;
+    }
 
     public virtual void displayRange()
     {
         CombatExecutor ce = GameDataTracker.combatExecutor;
-        GameObject[,] blockGrid = ce.blockGrid;
-        int rows = ce.rows;
-        int cols = ce.cols;
+        GameObject[,] blockGrid = CombatExecutor.blockGrid;
+        Vector2Int mapShape = CombatExecutor.mapShape;
         if (rangeIndicator != null)
         {
             List<GameObject> characterTarget = new List<GameObject>();
             characterTarget.Add(character);
-            List<Vector2> possibleTargets;
+            List<Vector2Int> possibleTargets;
             if (targetShape == TargetShape.Square)
             {
                 possibleTargets = findGoalsSquare(
-                    characterTarget,
-                    rows,
-                    cols
+                    characterTarget
                     ).Item1;
             }
             else if (targetShape == TargetShape.Diamond)
             {
                 possibleTargets = findGoalsDiamond(
-                    characterTarget,
-                    rows,
-                    cols
+                    characterTarget
                     ).Item1;
             }
             else if (targetShape == TargetShape.Cross)
             {
                 possibleTargets = findGoalsCross(
-                    characterTarget,
-                    rows,
-                    cols
+                    characterTarget
                     ).Item1;
             }
             else if (targetShape == TargetShape.X)
             {
                 possibleTargets = findGoalsX(
-                    characterTarget,
-                    rows,
-                    cols
+                    characterTarget
                     ).Item1;
             }
             else
             {
-                possibleTargets = new List<Vector2>();
+                possibleTargets = new List<Vector2Int>();
             }
             foreach(Vector2 possibleTarget in possibleTargets)
             {
