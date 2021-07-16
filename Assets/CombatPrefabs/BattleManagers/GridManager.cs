@@ -28,6 +28,12 @@ public class GridManager : MonoBehaviour
     public static GameObject[,] characterGrid;
     public static GameObject[,] objectGrid;
     public static int[,] gridHeight;
+    public static List<GoalBlock> goalBlockList;
+
+    [Header("Puzzle Info")]
+    public bool puzzleMode = false;
+    public bool doublePuzzleMode = false;
+    public bool turnTie = false;
 
     static public Vector3 GridToPosition(Vector2Int gridPos, Vector2 gridSize)
     {
@@ -68,6 +74,11 @@ public class GridManager : MonoBehaviour
         gridClass.objectID = objectID;
         gridClass.ContainingGrid = grid;
         gridClass.AddObjectToGrid(grid_pos);
+        if (gridClass.name == "GoalBlock")
+        {
+            Debug.Log("BlockAddedToList");
+            goalBlockList.Add(newObject.GetComponent<GoalBlock>());
+        }
         SpriteFlipper flipper = newObject.GetComponent<SpriteFlipper>();
         if(flipper != null)
         {
@@ -122,7 +133,7 @@ public class GridManager : MonoBehaviour
         return true;
     }
 
-    void Clear()
+    public void Clear()
     {
         for (int x = 0; x < mapShape.x; x++)
         {
@@ -146,8 +157,7 @@ public class GridManager : MonoBehaviour
 
     public void Load(CombatContainer _containerCache)
     {
-        Clear();
-
+        goalBlockList = new List<GoalBlock>();
         mapShape = _containerCache.mapShape;
         gridHeight = new int[mapShape.x, mapShape.y];
         blockGrid = new GameObject[mapShape.x, mapShape.y];
@@ -178,6 +188,9 @@ public class GridManager : MonoBehaviour
                 }
             }
         }
+        puzzleMode = _containerCache.puzzleMode;
+        doublePuzzleMode = _containerCache.doublePuzzleMode;
+        turnTie = _containerCache.turnTie;
         UpdatePositions();
     }
 
@@ -251,5 +264,18 @@ public class GridManager : MonoBehaviour
             }
         }
         return true;
+    }
+
+    public void SetCameraToWorld()
+    {
+        combatCamera.transform.position = new Vector3(mapShape.x * blockOffset.x / 2 + cameraPos.x, cameraHeight * mapShape.y / 10f + cameraPos.y + 5.5f, cameraOffset * mapShape.x / 10f + cameraPos.z - -1f);
+        combatCamera.transform.eulerAngles = new Vector3(cameraAngle, 0, 0);
+    }
+
+    public void FocusOnCharacter(Vector2 PlayerPos)
+    {
+        combatCamera.transform.position = characterGrid[(int)PlayerPos.x, (int)PlayerPos.y].transform.position
+            + new Vector3(1f, 5.8f, -8);
+        combatCamera.transform.eulerAngles = new Vector3(30f, 0, 0);
     }
 }

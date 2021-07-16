@@ -44,6 +44,7 @@ public class CombatGrid : GridManager
                 CreateObject(blockGrid, new Vector2Int(x, y), CombatMapper.blockMap[defaultBlock], defaultBlock);
             }
         }
+        goalBlockList = new List<GoalBlock>();
     }
 
     // Update is called once per frame
@@ -405,6 +406,24 @@ public class CombatGrid : GridManager
         UpdatePositions();
     }
 
+    public void TurnTieToggle()
+    {
+        turnTie = !turnTie;
+        Debug.Log(turnTie);
+    }
+
+    public void PuzzleModeToggle()
+    {
+        puzzleMode = !puzzleMode;
+        Debug.Log(puzzleMode);
+    }
+
+    public void DoublePuzzleModeToggle()
+    {
+        doublePuzzleMode = !doublePuzzleMode;
+        Debug.Log(doublePuzzleMode);
+    }
+
     public void AddLeft()
     {
         AddMap(1, 0, 0, 0);
@@ -427,11 +446,13 @@ public class CombatGrid : GridManager
 
     public void LoadFromName()
     {
+        Clear();
         string filename = saveNameTextField.GetComponent<InputField>().text;
         CombatContainer _containerCache = Resources.Load<CombatContainer>(filename);
         Load(_containerCache);
     }
 
+#if UNITY_EDITOR
     public void Save()
     {
         string filename = saveNameTextField.GetComponent<InputField>().text;
@@ -452,10 +473,14 @@ public class CombatGrid : GridManager
 
         //Save Shape
         combatContainer.mapShape = mapShape;
+        combatContainer.puzzleMode = puzzleMode;
+        combatContainer.doublePuzzleMode = doublePuzzleMode;
+        combatContainer.turnTie = turnTie;
 
         AssetDatabase.CreateAsset(combatContainer, $"Assets/CombatPrefabs/CombatBlocks/Resources/{filename}.asset");
         AssetDatabase.SaveAssets();
     }
+#endif
 
     public int[] SaveHelper(GameObject[,] grid)
     {

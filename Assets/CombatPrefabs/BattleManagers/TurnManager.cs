@@ -16,12 +16,19 @@ public class TurnManager : ScriptableObject
         EnemyTurn,
         EnemyTurnEnd,
         GameOver,
-        RoundOver
+        RoundOver,
+        PuzzleTurn,
     }
 
     public int turnCount = 0;
 
     public List<turnPhases> turnQueue = new List<turnPhases>();
+
+    public turnPhases Puzzle()
+    {
+        turnQueue.Add(turnPhases.PuzzleTurn);
+        return turnQueue[0];
+    }
 
     public turnPhases GoodGuysFirst()
     {

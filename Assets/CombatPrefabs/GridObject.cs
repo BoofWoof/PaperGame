@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GridObject : MonoBehaviour
 {
+    public string name = "No Name";
     [HideInInspector] public Vector2Int pos;
     [HideInInspector] public Vector2Int prevPos;
     [HideInInspector] public List<Vector2Int> extra_pos = new List<Vector2Int>();

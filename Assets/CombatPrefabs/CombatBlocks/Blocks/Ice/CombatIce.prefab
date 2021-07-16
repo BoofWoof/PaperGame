@@ -58,6 +58,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b930972a9332194083e1003f2d3be19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Ice
+  pos: {x: 0, y: 0}
+  prevPos: {x: 0, y: 0}
+  extra_pos: []
+  TileSize: {x: 1, y: 1}
+  objectID: 0
+  GoalTile: 0
   Walkable: 1
   Flyable: 1
   Swimable: 0

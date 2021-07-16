@@ -56,26 +56,21 @@ public class CombatExecutor : GridManager
         TimerContainer.SetActive(false);
 
         GameDataTracker.combatExecutor = this;
-        mapShape = _containerCache.mapShape;
-
-        gridHeight = new int[mapShape.x, mapShape.y];
-        blockGrid = new GameObject[mapShape.x, mapShape.y];
-        characterGrid = new GameObject[mapShape.x, mapShape.y];
-        objectGrid = new GameObject[mapShape.x, mapShape.y];
 
         Load(_containerCache);
 
         //Update Clip And Partner Stats
-        FighterClass ClipStats = Clip.GetComponent<FighterClass>();
-        ClipStats.HP = GameDataTracker.playerData.health;
-        ClipStats.HPMax = GameDataTracker.playerData.maxHealth;
-        FighterClass PartnerStats = Partner.GetComponent<FighterClass>();
-        PartnerStats.HP = GameDataTracker.playerData.FaeHealth;
-        PartnerStats.HPMax = GameDataTracker.playerData.CompanionMaxHealth;
+        UpdateHealth();
 
         //Set Turn
         turnManager = ScriptableObject.CreateInstance<TurnManager>();
-        currentTurn = turnManager.GoodGuysFirst();
+        if(puzzleMode || doublePuzzleMode)
+        {
+            currentTurn = turnManager.Puzzle();
+        } else
+        {
+            currentTurn = turnManager.GoodGuysFirst();
+        }
 
         //Set Camera Position
         SetCameraToWorld();
@@ -155,9 +150,144 @@ public class CombatExecutor : GridManager
                     EnemyTurnEnd();
                     return;
                 }
+
+                if (currentTurn == TurnManager.turnPhases.PuzzleTurn)
+                {
+                    PuzzleTurn();
+                }
             } else
             {
 
+            }
+        }
+    }
+
+    private void PuzzleTurn()
+    {
+        turnTimeLeft = 1;
+        bool allEnemyMoveDone = true;
+        for (int enemyIdx = 0; enemyIdx < EnemyList.Count; enemyIdx++)
+        {
+            FighterClass enemy = EnemyList[enemyIdx].GetComponent<FighterClass>();
+            if (enemy.move is null)
+            {
+                if (turnTimeLeft > 0 && !enemy.Paralyzed)
+                {
+                    allEnemyMoveDone = false;
+                    enemy.GetRoute(this);
+                }
+            }
+            else
+            {
+                allEnemyMoveDone = false;
+                updateMove(enemy);
+            }
+        }
+
+        movePlayerCharacter(allEnemyMoveDone);
+
+        if (puzzleMode)
+        {
+            foreach(GoalBlock goalBlock in goalBlockList)
+            {
+                if(goalBlock.active == true)
+                {
+                    currentTurn = turnManager.NextTurn();
+                }
+            }
+        }
+        if (doublePuzzleMode)
+        {
+            bool allActive = true;
+            foreach (GoalBlock goalBlock in goalBlockList)
+            {
+                if (goalBlock.active == false)
+                {
+                    allActive = false;
+                    break;
+                }
+            }
+            if (allActive)
+            {
+                currentTurn = turnManager.NextTurn();
+            }
+        }
+        /*if ((turnTimeLeft <= 0 && Partner.GetComponent<FighterClass>().move is null &&
+            Clip.GetComponent<FighterClass>().move is null && allEnemyMoveDone) ||
+            EnemyList.Count == 0)
+        {
+            currentTurn = turnManager.NextTurn();
+        }*/
+    }
+
+    private void movePlayerCharacter(bool allEnemyMoveDone)
+    {
+        int HorMov = 0;
+        int VerMov = 0;
+        if (Clip.GetComponent<FighterClass>().move is null)
+        {
+            FighterClass clipInfo = Clip.GetComponent<FighterClass>();
+            clipInfo.animator.speed = 1.0f;
+            if ((turnTimeLeft > 0 || !allEnemyMoveDone) && !clipInfo.Paralyzed && !clipInfo.Dead)
+            {
+                if (Input.GetButton("Fire2"))
+                {
+                    if (Input.GetAxis("Horizontal") > 0.3)
+                    {
+                        HorMov = 1;
+                    }
+                    else if (Input.GetAxis("Horizontal") < -0.3)
+                    {
+                        HorMov = -1;
+                    }
+                    else if (Input.GetAxis("Vertical") > 0.3)
+                    {
+                        VerMov = 1;
+                    }
+                    else if (Input.GetAxis("Vertical") < -0.3)
+                    {
+                        VerMov = -1;
+                    }
+                    if(HorMov != 0 || VerMov != 0) clipInfo.MoveCharacter(HorMov, VerMov);
+                }
+            }
+        }
+        else
+        {
+            updateMove(Clip.GetComponent<FighterClass>());
+        }
+        if (Partner != null)
+        {
+            if (Partner.GetComponent<FighterClass>().move is null)
+            {
+                FighterClass partnerInfo = Partner.GetComponent<FighterClass>();
+                if ((turnTimeLeft > 0 || !allEnemyMoveDone) && !partnerInfo.Paralyzed && !partnerInfo.Dead)
+                {
+                    if (Input.GetButton("Fire3"))
+                    {
+                        if (Input.GetAxis("Horizontal") > 0.3)
+                        {
+                            HorMov = 1;
+                        }
+                        else if (Input.GetAxis("Horizontal") < -0.3)
+                        {
+                            HorMov = -1;
+                        }
+                        else if (Input.GetAxis("Vertical") > 0.3)
+                        {
+                            VerMov = 1;
+                        }
+                        else if (Input.GetAxis("Vertical") < -0.3)
+                        {
+                            VerMov = -1;
+                        }
+                        if (HorMov != 0 || VerMov != 0) partnerInfo.MoveCharacter(HorMov, VerMov);
+                    }
+                }
+            }
+            else
+            {
+                updateMove(Partner.GetComponent<FighterClass>());
             }
         }
     }
@@ -288,72 +418,7 @@ public class CombatExecutor : GridManager
             }
         }
 
-        int HorMov = 0;
-        int VerMov = 0;
-        if (Clip.GetComponent<FighterClass>().move is null)
-        {
-            FighterClass clipInfo = Clip.GetComponent<FighterClass>();
-            clipInfo.animator.speed = 1.0f;
-            if ((turnTimeLeft > 0 || !allEnemyMoveDone) && !clipInfo.Paralyzed && !clipInfo.Dead)
-            {
-                if (Input.GetButton("Fire2"))
-                {
-                    if (Input.GetAxis("Horizontal") > 0.3)
-                    {
-                        HorMov = 1;
-                    }
-                    else if (Input.GetAxis("Horizontal") < -0.3)
-                    {
-                        HorMov = -1;
-                    }
-                    else if (Input.GetAxis("Vertical") > 0.3)
-                    {
-                        VerMov = 1;
-                    }
-                    else if (Input.GetAxis("Vertical") < -0.3)
-                    {
-                        VerMov = -1;
-                    }
-                    clipInfo.MoveCharacter(HorMov, VerMov);
-                }
-            }
-        }
-        else
-        {
-            updateMove(Clip.GetComponent<FighterClass>());
-        }
-        if (Partner.GetComponent<FighterClass>().move is null)
-        {
-            FighterClass partnerInfo = Partner.GetComponent<FighterClass>();
-            if ((turnTimeLeft > 0 || !allEnemyMoveDone) && !partnerInfo.Paralyzed && !partnerInfo.Dead)
-            {
-                if (Input.GetButton("Fire3"))
-                {
-                    if (Input.GetAxis("Horizontal") > 0.3)
-                    {
-                        HorMov = 1;
-                    }
-                    else if (Input.GetAxis("Horizontal") < -0.3)
-                    {
-                        HorMov = -1;
-                    }
-                    else if (Input.GetAxis("Vertical") > 0.3)
-                    {
-                        VerMov = 1;
-                    }
-                    else if (Input.GetAxis("Vertical") < -0.3)
-                    {
-                        VerMov = -1;
-                    }
-                    partnerInfo.MoveCharacter(HorMov, VerMov);
-                }
-
-            }
-        }
-        else
-        {
-            updateMove(Partner.GetComponent<FighterClass>());
-        }
+        movePlayerCharacter(allEnemyMoveDone);
 
         if ((turnTimeLeft <= 0 && Partner.GetComponent<FighterClass>().move is null && 
             Clip.GetComponent<FighterClass>().move is null && allEnemyMoveDone) || 
@@ -516,22 +581,12 @@ public class CombatExecutor : GridManager
         FighterClass ClipStats = Clip.GetComponent<FighterClass>();
         ClipHealth.GetComponent<Text>().text = ClipStats.HP.ToString();
         ClipMaxHealth.GetComponent<Text>().text = ClipStats.HPMax.ToString();
-        FighterClass PartnerStats = Partner.GetComponent<FighterClass>();
-        PartnerHealth.GetComponent<Text>().text = PartnerStats.HP.ToString();
-        PartnerMaxHealth.GetComponent<Text>().text = PartnerStats.HPMax.ToString();
-    }
-
-    public void SetCameraToWorld()
-    {
-        combatCamera.transform.position = new Vector3(mapShape.x * blockOffset.x / 2 + cameraPos.x, cameraHeight * mapShape.y/10f + cameraPos.y + 3.5f, cameraOffset * mapShape.y/10f + cameraPos.z - 2.5f);
-        combatCamera.transform.eulerAngles = new Vector3(cameraAngle, 0, 0);
-    }
-
-    public void FocusOnCharacter(Vector2 PlayerPos)
-    {
-        combatCamera.transform.position = characterGrid[(int)PlayerPos.x, (int)PlayerPos.y].transform.position
-            + new Vector3(1f, 5.8f, -8);
-        combatCamera.transform.eulerAngles = new Vector3(30f, 0, 0);
+        if (Partner != null)
+        {
+            FighterClass PartnerStats = Partner.GetComponent<FighterClass>();
+            PartnerHealth.GetComponent<Text>().text = PartnerStats.HP.ToString();
+            PartnerMaxHealth.GetComponent<Text>().text = PartnerStats.HPMax.ToString();
+        }
     }
 
     public void IDiedBye(GameObject deadBoi)

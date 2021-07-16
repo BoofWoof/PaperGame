@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a58164fa21b6b247a3ded9862bec765, type: 3}
+  m_Name: PuzzleTestTie
+  m_EditorClassIdentifier: 
+  blockGrid: 0200000002000000010000000000000000000000010000000100000001000000000000000000000001000000010000000100000000000000000000000100000001000000010000000100000004000000010000000100000001000000000000000000000001000000010000000100000000000000000000000200000002000000010000000000000000000000
+  characterGrid: ffffffffffffffffffffffffffffffffffffffff00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0b000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  objectGrid: ffffffffffffffff00000000ffffffffffffffffffffffffffffffff00000000ffffffffffffffffffffffffffffffff00000000ffffffffffffffffffffffff00000000ffffffffffffffffffffffffffffffffffffffff00000000ffffffffffffffffffffffffffffffff00000000ffffffffffffffffffffffffffffffff00000000ffffffffffffffff
+  gridHeight: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000200000003000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  mapShape: {x: 7, y: 5}
+  puzzleMode: 1
+  doublePuzzleMode: 0
+  turnTie: 1

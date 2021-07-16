@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class BlockTemplate : GridObject
 {
+
+    [Header("PuzzleSettings")]
+    public bool GoalTile = false;
+
     [Header("Passability")]
     public bool Walkable = true;
     public bool Flyable = true;

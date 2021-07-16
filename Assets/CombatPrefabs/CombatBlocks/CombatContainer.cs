@@ -10,4 +10,7 @@ public class CombatContainer : ScriptableObject
     public int[] objectGrid;
     public int[] gridHeight;
     public Vector2Int mapShape;
+    public bool puzzleMode = false;
+    public bool doublePuzzleMode = false;
+    public bool turnTie = false;
 }
