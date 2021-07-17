@@ -17,6 +17,5 @@ public class CombatMapper : MonoBehaviour
         objectMap = inputObjectMap;
         characterMap = inputCharacterMap;
         blockMap = inputBlockMap;
-        Debug.Log(characterMap);
     }
 }

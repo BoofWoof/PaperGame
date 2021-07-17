@@ -28,6 +28,7 @@ public class GridManager : MonoBehaviour
     public static GameObject[,] characterGrid;
     public static GameObject[,] objectGrid;
     public static int[,] gridHeight;
+    public float maxBlockHeight = -100;
     public static List<GoalBlock> goalBlockList;
 
     [Header("Puzzle Info")]
@@ -168,6 +169,7 @@ public class GridManager : MonoBehaviour
             for (int y = 0; y < mapShape.y; y++)
             {
                 gridHeight[x, y] = _containerCache.gridHeight[x * mapShape.y + y];
+                if (gridHeight[x, y] > maxBlockHeight) maxBlockHeight = gridHeight[x, y];
                 if (_containerCache.blockGrid[x * mapShape.y + y] > -1)
                 {
                     CreateObject(blockGrid, new Vector2Int(x, y), CombatMapper.blockMap[_containerCache.blockGrid[x * mapShape.y + y]], _containerCache.blockGrid[x * mapShape.y + y]);
@@ -268,8 +270,11 @@ public class GridManager : MonoBehaviour
 
     public void SetCameraToWorld()
     {
-        combatCamera.transform.position = new Vector3(mapShape.x * blockOffset.x / 2 + cameraPos.x, cameraHeight * mapShape.y / 10f + cameraPos.y + 5.5f, cameraOffset * mapShape.x / 10f + cameraPos.z - -1f);
+        float verticalFOV = combatCamera.GetComponent<Camera>().fieldOfView;
+        float horizontalFOV = Camera.VerticalToHorizontalFieldOfView(verticalFOV, (Screen.width * 1f) / (Screen.height * 1f));
         combatCamera.transform.eulerAngles = new Vector3(cameraAngle, 0, 0);
+        CameraMath.GetCameraPosition(mapShape, blockOffset, maxBlockHeight * blockOffset.z, cameraAngle, combatCamera.GetComponent<Camera>());
+        //combatCamera.transform.position = new Vector3(mapShape.x * blockOffset.x / 2 + cameraPos.x, cameraHeight * mapShape.y / 10f + cameraPos.y + 5.5f, cameraOffset * mapShape.x / 10f + cameraPos.z - -1f);
     }
 
     public void FocusOnCharacter(Vector2 PlayerPos)
