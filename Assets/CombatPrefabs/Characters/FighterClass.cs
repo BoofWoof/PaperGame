@@ -24,8 +24,6 @@ public class FighterClass : CombatObject
         public int timeRemaining;
     }
 
-    public string CharacterName = "NameMeYouDingus";
-
     public CharacterPosition characterPosition;
 
     [Header("Selection UI")]

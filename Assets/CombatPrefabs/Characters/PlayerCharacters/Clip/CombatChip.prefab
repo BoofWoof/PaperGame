@@ -68,10 +68,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd67e239ac09cb46a0eaddcc4849d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Clip
   pos: {x: 0, y: 0}
-  move: {fileID: 0}
   prevPos: {x: 0, y: 0}
+  extra_pos: []
+  TileSize: {x: 1, y: 1}
+  objectID: 0
+  move: {fileID: 0}
   Pushable: 0
+  Passable: 0
+  CanWalk: 1
+  CanFly: 0
+  CanSwim: 0
+  MaxJumpHeight: 1
+  LastMoveSpeed: 0
+  objectReady: 0
   CharacterName: Clip
   characterPosition: 0
   SelectionWheel: {fileID: 2257321630957254045, guid: 6fe8dd55b8074c24d9ad4c099e59d986,
@@ -86,13 +97,10 @@ MonoBehaviour:
   HP: 20
   Power: 2
   Defense: 0
+  PushStrength: 1
   WalkSpeed: 5
   JumpSpeed: 2
   SwimSpeed: 1
-  MaxJumpHeight: 1
-  CanWalk: 1
-  CanFly: 0
-  CanSwim: 0
   CharacterHeight: 1.8
   CharacterWidth: 1
   Paralyzed: 0
