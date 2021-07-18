@@ -33,7 +33,7 @@ public class CombatExecutor : GridManager
     private TurnManager.turnPhases currentTurn;
     private float turnLength = 10.0f;
     private float turnTimeLeft;
-    private float startGameWait = 1.5f;
+    private float startGameWait = 3.5f;
 
     private void Awake()
     {
@@ -66,7 +66,13 @@ public class CombatExecutor : GridManager
         turnManager = ScriptableObject.CreateInstance<TurnManager>();
         if(puzzleMode || doublePuzzleMode)
         {
-            currentTurn = turnManager.Puzzle();
+            if (turnTie)
+            {
+                currentTurn = turnManager.TurnTiePuzzle(doublePuzzleMode);
+            } else
+            {
+                currentTurn = turnManager.Puzzle(doublePuzzleMode);
+            }
         } else
         {
             currentTurn = turnManager.GoodGuysFirst();
@@ -155,11 +161,105 @@ public class CombatExecutor : GridManager
                 {
                     PuzzleTurn();
                 }
+
+                if (currentTurn == TurnManager.turnPhases.TurnTiePlayerStart)
+                {
+                    TurnTiePlayerStart();
+                }
+                if (currentTurn == TurnManager.turnPhases.TurnTiePlayerWait)
+                {
+                    TurnTiePlayerWait();
+                }
+                if (currentTurn == TurnManager.turnPhases.TurnTieEnemyStart)
+                {
+                    TurnTieEnemyStart();
+                }
+                if (currentTurn == TurnManager.turnPhases.TurnTieEnemyWait)
+                {
+                    TurnTieEnemyWait();
+                }
             } else
             {
 
             }
         }
+    }
+
+    private void TurnTiePlayerStart()
+    {
+        turnTimeLeft = 1;
+
+        LetClipMove(true);
+        if (Clip.GetComponent<FighterClass>().move != null)
+        {
+            currentTurn = turnManager.NextTurn();
+            return;
+        }
+
+        LetPartnerMove(true);
+        if (Partner != null)
+        {
+            if (Partner.GetComponent<FighterClass>().move != null)
+            {
+                currentTurn = turnManager.NextTurn();
+                return;
+            }
+        }
+    }
+
+    private void TurnTiePlayerWait()
+    {
+        turnTimeLeft = 1;
+        bool allAlliesMoveDone = true;
+
+        if (Clip.GetComponent<FighterClass>().move != null)
+        {
+            allAlliesMoveDone = false;
+            updateMove(Clip.GetComponent<FighterClass>());
+        }
+        if (Partner != null)
+        {
+            if (Partner.GetComponent<FighterClass>().move != null)
+            {
+                allAlliesMoveDone = false;
+                updateMove(Partner.GetComponent<FighterClass>());
+            }
+        }
+
+        if (allAlliesMoveDone) currentTurn = turnManager.NextTurn();
+    }
+
+    private void TurnTieEnemyStart()
+    {
+        turnTimeLeft = 1;
+        for (int enemyIdx = 0; enemyIdx < EnemyList.Count; enemyIdx++)
+        {
+            FighterClass enemy = EnemyList[enemyIdx].GetComponent<FighterClass>();
+            if (enemy.move is null)
+            {
+                if (turnTimeLeft > 0 && !enemy.Paralyzed)
+                {
+                    enemy.GetRoute(this);
+                }
+            }
+        }
+        currentTurn = turnManager.NextTurn();
+    }
+
+    private void TurnTieEnemyWait()
+    {
+        turnTimeLeft = 1;
+        bool allEnemyMoveDone = true;
+        for (int enemyIdx = 0; enemyIdx < EnemyList.Count; enemyIdx++)
+        {
+            FighterClass enemy = EnemyList[enemyIdx].GetComponent<FighterClass>();
+            if (enemy.move != null)
+            {
+                updateMove(enemy);
+                allEnemyMoveDone = false;
+            }
+        }
+        if(allEnemyMoveDone) currentTurn = turnManager.NextTurn();
     }
 
     private void PuzzleTurn()
@@ -184,34 +284,10 @@ public class CombatExecutor : GridManager
             }
         }
 
-        movePlayerCharacter(allEnemyMoveDone);
+        LetClipMove(allEnemyMoveDone);
+        LetPartnerMove(allEnemyMoveDone);
 
-        if (puzzleMode)
-        {
-            foreach(GoalBlock goalBlock in goalBlockList)
-            {
-                if(goalBlock.active == true)
-                {
-                    currentTurn = turnManager.NextTurn();
-                }
-            }
-        }
-        if (doublePuzzleMode)
-        {
-            bool allActive = true;
-            foreach (GoalBlock goalBlock in goalBlockList)
-            {
-                if (goalBlock.active == false)
-                {
-                    allActive = false;
-                    break;
-                }
-            }
-            if (allActive)
-            {
-                currentTurn = turnManager.NextTurn();
-            }
-        }
+        currentTurn = turnManager.NextTurn();
         /*if ((turnTimeLeft <= 0 && Partner.GetComponent<FighterClass>().move is null &&
             Clip.GetComponent<FighterClass>().move is null && allEnemyMoveDone) ||
             EnemyList.Count == 0)
@@ -220,7 +296,7 @@ public class CombatExecutor : GridManager
         }*/
     }
 
-    private void movePlayerCharacter(bool allEnemyMoveDone)
+    private void LetClipMove(bool allEnemyMoveDone)
     {
         int HorMov = 0;
         int VerMov = 0;
@@ -248,7 +324,7 @@ public class CombatExecutor : GridManager
                     {
                         VerMov = -1;
                     }
-                    if(HorMov != 0 || VerMov != 0) clipInfo.MoveCharacter(HorMov, VerMov);
+                    if (HorMov != 0 || VerMov != 0) clipInfo.MoveCharacter(HorMov, VerMov);
                 }
             }
         }
@@ -256,6 +332,12 @@ public class CombatExecutor : GridManager
         {
             updateMove(Clip.GetComponent<FighterClass>());
         }
+    }
+
+    private void LetPartnerMove(bool allEnemyMoveDone)
+    {
+        int HorMov = 0;
+        int VerMov = 0;
         if (Partner != null)
         {
             if (Partner.GetComponent<FighterClass>().move is null)
@@ -418,7 +500,8 @@ public class CombatExecutor : GridManager
             }
         }
 
-        movePlayerCharacter(allEnemyMoveDone);
+        LetClipMove(allEnemyMoveDone);
+        LetPartnerMove(allEnemyMoveDone);
 
         if ((turnTimeLeft <= 0 && Partner.GetComponent<FighterClass>().move is null && 
             Clip.GetComponent<FighterClass>().move is null && allEnemyMoveDone) || 
@@ -516,12 +599,12 @@ public class CombatExecutor : GridManager
         }
         if (targetType == moveTemplate.TargetType.Partner)
         {
-            potentialTargets.Add(Partner);
+            if (Partner != null) potentialTargets.Add(Partner);
         }
         if (targetType == moveTemplate.TargetType.Allies)
         {
             potentialTargets.Add(Clip);
-            potentialTargets.Add(Partner);
+            if (Partner != null) potentialTargets.Add(Partner);
         }
         //Enemy Targets
         if (targetType == moveTemplate.TargetType.Enemies)
@@ -602,9 +685,12 @@ public class CombatExecutor : GridManager
         {
             Clip.GetComponent<FighterClass>().Dead = true;
         }
-        if (Partner == deadBoi)
+        if (Partner != null)
         {
-            Partner.GetComponent<FighterClass>().Dead = true;
+            if (Partner == deadBoi)
+            {
+                Partner.GetComponent<FighterClass>().Dead = true;
+            }
         }
     }
 }

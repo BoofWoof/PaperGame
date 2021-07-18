@@ -80,8 +80,9 @@ public class FighterClass : CombatObject
         moveContainer = GetComponent<movesetContainer>();
     }
 
-    public virtual void Start()
+    public override void Start()
     {
+        base.Start();
         GameObject healthTextObject = new GameObject("Health Text");
         healthText = healthTextObject.AddComponent<TextMeshPro>();
         healthTextObject.transform.position = transform.position + new Vector3(0, CharacterHeight - 0.5f, 0);
@@ -92,8 +93,9 @@ public class FighterClass : CombatObject
         healthText.verticalAlignment = VerticalAlignmentOptions.Middle;
     }
 
-    public virtual void Update()
+    public override void Update()
     {
+        base.Update();
         healthText.text = HP.ToString() + "/" + HPMax.ToString();
     }
 
@@ -200,9 +202,12 @@ public class FighterClass : CombatObject
         {
             possibleTargets.Remove(combatExecutor.Clip);
         }
-        if (combatExecutor.Partner.GetComponent<FighterClass>().Dead)
+        if (combatExecutor.Partner != null)
         {
-            possibleTargets.Remove(combatExecutor.Partner);
+            if (combatExecutor.Partner.GetComponent<FighterClass>().Dead)
+            {
+                possibleTargets.Remove(combatExecutor.Partner);
+            }
         }
         List<Vector2Int> goalPos = new List<Vector2Int>();
         List<GameObject> goalObjects = new List<GameObject>();

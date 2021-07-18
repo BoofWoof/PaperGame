@@ -21,7 +21,6 @@ public class GridObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void MoveObject(Vector2Int end_pos)
@@ -38,13 +37,13 @@ public class GridObject : MonoBehaviour
         {
             ContainingGrid[ext_pos.x, ext_pos.y] = null;
         }
-        extra_pos = new List<Vector2Int>();
     }
 
     public void AddObjectToGrid(Vector2Int target_pos)
     {
         ContainingGrid[target_pos.x, target_pos.y] = gameObject;
         pos = target_pos;
+        extra_pos = new List<Vector2Int>();
         for (int x = 0; x < TileSize.x; x++)
         {
             for (int y = 0; y < TileSize.y; y++)

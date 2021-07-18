@@ -149,23 +149,6 @@ public class AStar : ScriptableObject
         return (prevNode.coordinates, prevNode.move, false);
     }
 
-    /*
-    private void addNodeToRouteMap(AStarNode node)
-    {
-        Vector2 coordinate = node.coordinates;
-        if (routeMap[(int)coordinate.x, (int)coordinate.y].g == 0)
-        {
-            routeMap[(int)coordinate.x, (int)coordinate.y] = node;
-        } else
-        {
-            if(node.totalCost < routeMap[(int)coordinate.x, (int)coordinate.y].totalCost)
-            {
-                routeMap[(int)coordinate.x, (int)coordinate.y] = node;
-            }
-        }
-    }
-    */
-
     private List<AStarNode> expandNode(AStarNode bestNode)
     {
         bestNode.expanded = true;
@@ -277,6 +260,15 @@ public class AStar : ScriptableObject
             {
                 closestGoal = distance;
             }
+            foreach(Vector2Int extPos in characterInfo.PotentialGridOccupation(newCoordinate))
+            {
+                distance = Mathf.Abs(goal.x - extPos.x) + Mathf.Abs(goal.y - extPos.y);
+                if (distance < closestGoal)
+                {
+                    closestGoal = distance;
+                }
+
+            }
         }
 
         newNode.h = closestGoal;
@@ -335,6 +327,19 @@ public class AStar : ScriptableObject
                 {
                     finalGoalIdx = goalIdx;
                 }
+            }
+            foreach (Vector2Int extPos in characterInfo.PotentialGridOccupation(newCoordinate))
+            {
+                distance = Mathf.Abs(goal.x - extPos.x) + Mathf.Abs(goal.y - extPos.y);
+                if (distance < closestGoal)
+                {
+                    closestGoal = distance;
+                    if (distance == 0)
+                    {
+                        finalGoalIdx = goalIdx;
+                    }
+                }
+
             }
         }
 

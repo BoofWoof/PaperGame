@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ObjectTemplate : CombatObject
 {
-    public void Update()
+    public override void Update()
     {
+        base.Update();
         if(!(move is null))
         {
             if (move.Update())

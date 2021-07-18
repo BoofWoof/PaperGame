@@ -207,16 +207,30 @@ public class GridManager : MonoBehaviour
                 if (block == null)
                 {
                     CreateObject(blockGrid, pos, CombatMapper.blockMap[0], 0);
+                } else
+                {
+                    GridObject blockInfo = block.GetComponent<GridObject>();
+                    blockInfo.ContainingGrid = blockGrid;
+                    blockInfo.AddObjectToGrid(new Vector2Int(x, y));
+                    UpdatePositionHelper(blockGrid, pos);
+                    block.GetComponent<BlockTemplate>().finalPosition = block.transform.position;
                 }
-                UpdatePositionHelper(blockGrid, pos);
+
                 GameObject character = characterGrid[x, y];
                 if (!(character is null))
                 {
+                    GridObject characterInfo = character.GetComponent<GridObject>();
+                    characterInfo.ContainingGrid = characterGrid;
+                    characterInfo.AddObjectToGrid(new Vector2Int(x, y));
                     UpdatePositionHelper(characterGrid, pos);
-                }
+                } 
+
                 GameObject Pobject = objectGrid[x, y];
                 if (!(Pobject is null))
                 {
+                    GridObject PobjectInfo = Pobject.GetComponent<GridObject>();
+                    PobjectInfo.ContainingGrid = objectGrid;
+                    PobjectInfo.AddObjectToGrid(new Vector2Int(x, y));
                     UpdatePositionHelper(objectGrid, pos);
                 }
             }

@@ -18,15 +18,33 @@ public class TurnManager : ScriptableObject
         GameOver,
         RoundOver,
         PuzzleTurn,
+        TurnTiePlayerStart,
+        TurnTiePlayerWait,
+        TurnTieEnemyStart,
+        TurnTieEnemyWait,
     }
 
     public int turnCount = 0;
 
     public List<turnPhases> turnQueue = new List<turnPhases>();
+    public int goalType;
 
-    public turnPhases Puzzle()
+    public turnPhases Puzzle(bool allGoal)
     {
         turnQueue.Add(turnPhases.PuzzleTurn);
+        if (allGoal) goalType = 1;
+        else goalType = 2;
+        return turnQueue[0];
+    }
+
+    public turnPhases TurnTiePuzzle(bool allGoal)
+    {
+        turnQueue.Add(turnPhases.TurnTiePlayerStart);
+        turnQueue.Add(turnPhases.TurnTiePlayerWait);
+        turnQueue.Add(turnPhases.TurnTieEnemyStart);
+        turnQueue.Add(turnPhases.TurnTieEnemyWait);
+        if (allGoal) goalType = 1;
+        else goalType = 2;
         return turnQueue[0];
     }
 
@@ -42,6 +60,7 @@ public class TurnManager : ScriptableObject
         turnQueue.Add(turnPhases.EnemyTurn);
         turnQueue.Add(turnPhases.EnemyTurnEnd);
         turnQueue.Add(turnPhases.RoundOver);
+        goalType = 0;
         return turnQueue[0];
     }
 
@@ -54,10 +73,38 @@ public class TurnManager : ScriptableObject
             SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
             return turnPhases.GameOver;
         }
-        if (GameDataTracker.combatExecutor.EnemyList.Count == 0)
+        if (GameDataTracker.combatExecutor.EnemyList.Count == 0 && goalType == 0)
         {
             SceneManager.LoadScene(GameDataTracker.previousArea);
             return turnPhases.GameOver;
+        }
+        if (goalType == 1)
+        {
+            foreach (GoalBlock goalBlock in CombatExecutor.goalBlockList)
+            {
+                if (goalBlock.active == true)
+                {
+                    SceneManager.LoadScene(GameDataTracker.previousArea);
+                    return turnPhases.GameOver;
+                }
+            }
+        }
+        if (goalType == 2)
+        {
+            bool allActive = true;
+            foreach (GoalBlock goalBlock in CombatExecutor.goalBlockList)
+            {
+                if (goalBlock.active == false)
+                {
+                    allActive = false;
+                    break;
+                }
+            }
+            if (allActive)
+            {
+                SceneManager.LoadScene(GameDataTracker.previousArea);
+                return turnPhases.GameOver;
+            }
         }
 
         turnQueue.Add(turnQueue[0]);

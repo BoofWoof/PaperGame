@@ -15,6 +15,47 @@ public class CombatObject : GridObject
 
     public float LastMoveSpeed = 0;
 
+    public bool objectReady = false;
+    private Vector3 finalPosition;
+    private float dropHeight = 7f;
+    private float startDropTime = 0.5f;
+    private float currentDropTime;
+
+    public virtual void Start()
+    {
+        finalPosition = transform.position;
+        currentDropTime = startDropTime;
+        transform.position = finalPosition + new Vector3(0, 100f, 0);
+    }
+
+    public virtual void Update()
+    {
+        if (!objectReady)
+        {
+            if (checkTileIsReady())
+            {
+                currentDropTime -= Time.deltaTime;
+                if(currentDropTime < 0)
+                {
+                    currentDropTime = 0;
+                    objectReady = true;
+                }
+                transform.position = finalPosition + new Vector3(0, dropHeight * Mathf.Pow(currentDropTime / startDropTime, 2) * Mathf.Abs(Mathf.Cos(0.75f * 2 * Mathf.PI * (1 - currentDropTime / startDropTime))), 0);
+            }
+        }
+    }
+
+    public bool checkTileIsReady()
+    {
+        if (!CombatExecutor.blockGrid[pos.x, pos.y].GetComponent<BlockTemplate>().tileReady) return false; 
+        foreach(Vector2Int extPos in extra_pos)
+        {
+            if (!CombatExecutor.blockGrid[extPos.x, extPos.y].GetComponent<BlockTemplate>().tileReady) return false;
+        }
+        return true;
+    }
+
+
     public bool AttemptPush(List<Vector2Int> pushTargets, int HorChange, int VerChange, float Speed, int pushStrength)
     {
         List<FighterClass> charactersToPush = new List<FighterClass>();
