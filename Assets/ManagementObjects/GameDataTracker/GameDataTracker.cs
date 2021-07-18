@@ -21,6 +21,8 @@ public class GameDataTracker : MonoBehaviour
 
     //Super Important Data
     public static string previousArea;
+    public static int lastTransition = 0;
+    public static bool transitioning = false;
 
     //CombatInfo
     public static Vector3 combatStartPosition;
@@ -52,6 +54,16 @@ public class GameDataTracker : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        spawnLastTransitionObject();
+    }
+
+    static public void spawnLastTransitionObject()
+    {
+        GameObject transitionObject = Instantiate(SceneTransferMapping.sceneTransitionMap[lastTransition]);
     }
 
     static public void clearCharacterList()

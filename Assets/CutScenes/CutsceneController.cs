@@ -90,7 +90,7 @@ public class CutsceneController
                 CutsceneQueue.Remove(eventInitiation);
             }
         }
-        if (CutscenesPlaying == 0 && CutsceneQueue.Count == 0 && (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.MobileCutscene || GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Cutscene))
+        if (CutscenesPlaying == 0 && CutsceneQueue.Count == 0 && (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.MobileCutscene || GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Cutscene) && !GameDataTracker.transitioning)
         {
             GameDataTracker.gameMode = GameDataTracker.gameModeOptions.Mobile;
         }

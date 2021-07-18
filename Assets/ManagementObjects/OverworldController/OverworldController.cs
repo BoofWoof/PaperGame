@@ -84,6 +84,11 @@ public class OverworldController : MonoBehaviour
         updateTrackingCameraY(Player.transform.position.y);
     }
 
+    public void Start()
+    {
+        GameDataTracker.spawnLastTransitionObject();
+    }
+
     //-------------------------------------------------------------------------------------------------------------------------------------------
     public void Update()
     {

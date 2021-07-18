@@ -464,17 +464,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3072369847045792476, guid: d315f83e088f00b41a0d48756cceac8d,
-        type: 3}
-      propertyPath: inputImageMap.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3072369847045792476, guid: d315f83e088f00b41a0d48756cceac8d,
-        type: 3}
-      propertyPath: inputImageMap.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: efa6403e9f0f3914aa82f64b03f4411c,
-        type: 3}
     - target: {fileID: 8858686985350053313, guid: d315f83e088f00b41a0d48756cceac8d,
         type: 3}
       propertyPath: m_RootOrder

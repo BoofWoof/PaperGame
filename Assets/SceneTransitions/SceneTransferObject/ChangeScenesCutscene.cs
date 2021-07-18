@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ChangeScenesCutscene : CutSceneClass
 {
     public string nextSceneName;
+    public int transitionType = 0;
     void Start()
     {
     }
@@ -13,7 +14,8 @@ public class ChangeScenesCutscene : CutSceneClass
     override public bool Activate()
     {
         GameDataTracker.previousArea = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
+        GameObject transitionObject = Instantiate(SceneTransferMapping.sceneTransitionMap[transitionType]);
+        transitionObject.GetComponent<LevelLoaderScript>().LoadNextLevel(nextSceneName);
         return false;
     }
 }

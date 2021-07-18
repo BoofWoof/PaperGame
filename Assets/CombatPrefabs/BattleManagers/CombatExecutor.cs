@@ -38,6 +38,8 @@ public class CombatExecutor : GridManager
     private void Awake()
     {
         GameDataTracker.clearCharacterList();
+        GameDataTracker.spawnLastTransitionObject();
+        GameDataTracker.transitioning = false;
     }
 
     // Start is called before the first frame update
