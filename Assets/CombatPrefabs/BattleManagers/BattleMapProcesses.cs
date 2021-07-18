@@ -15,7 +15,7 @@ public class BattleMapProcesses
             potentialOccupiedTiles = targetObject.GetComponent<GridObject>().PotentialGridOccupation(newPos);
             if (isThisListOnGrid(potentialOccupiedTiles))
             {
-                if(isTileEmpty(potentialOccupiedTiles, targetObject))
+                if(isTileEmpty(potentialOccupiedTiles, targetObject) && isTravelTypeCompatibleList(potentialOccupiedTiles, targetObject.GetComponent<CombatObject>()))
                 {
                     targetOptions.Add(newPos);
                 }
@@ -27,7 +27,7 @@ public class BattleMapProcesses
             potentialOccupiedTiles = targetObject.GetComponent<GridObject>().PotentialGridOccupation(newPos);
             if (isThisListOnGrid(potentialOccupiedTiles))
             {
-                if (isTileEmpty(potentialOccupiedTiles, targetObject))
+                if (isTileEmpty(potentialOccupiedTiles, targetObject) && isTravelTypeCompatibleList(potentialOccupiedTiles, targetObject.GetComponent<CombatObject>()))
                 {
                     targetOptions.Add(newPos);
                 }
@@ -39,7 +39,7 @@ public class BattleMapProcesses
             potentialOccupiedTiles = targetObject.GetComponent<GridObject>().PotentialGridOccupation(newPos);
             if (isThisListOnGrid(potentialOccupiedTiles))
             {
-                if (isTileEmpty(potentialOccupiedTiles, targetObject))
+                if (isTileEmpty(potentialOccupiedTiles, targetObject) && isTravelTypeCompatibleList(potentialOccupiedTiles, targetObject.GetComponent<CombatObject>()))
                 {
                     targetOptions.Add(newPos);
                 }
@@ -51,7 +51,7 @@ public class BattleMapProcesses
             potentialOccupiedTiles = targetObject.GetComponent<GridObject>().PotentialGridOccupation(newPos);
             if (isThisListOnGrid(potentialOccupiedTiles))
             {
-                if (isTileEmpty(potentialOccupiedTiles, targetObject))
+                if (isTileEmpty(potentialOccupiedTiles, targetObject) && isTravelTypeCompatibleList(potentialOccupiedTiles, targetObject.GetComponent<CombatObject>()))
                 {
                     targetOptions.Add(newPos);
                 }
@@ -94,6 +94,15 @@ public class BattleMapProcesses
         if (height_difference > traveler.MaxJumpHeight || !isTravelTypeCompatible(pos, traveler))
         {
             return false;
+        }
+        return true;
+    }
+
+    public static bool isTravelTypeCompatibleList(List<Vector2Int> positions, CombatObject traveler)
+    {
+        foreach(Vector2Int pos in positions)
+        {
+            if (!isTravelTypeCompatible(pos, traveler)) return false;
         }
         return true;
     }
