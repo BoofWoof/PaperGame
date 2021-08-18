@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BlockTemplate : GridObject
 {
-
     [Header("PuzzleSettings")]
     public bool GoalTile = false;
 
@@ -32,7 +31,7 @@ public class BlockTemplate : GridObject
     private float startTimeTillArrived;
     public bool tileReady = false;
 
-    public void Start()
+    public virtual void Start()
     {
         if (tileVariations.Length > 0)
         {
@@ -60,7 +59,7 @@ public class BlockTemplate : GridObject
         transform.position = finalPosition - new Vector3(0, 100, 0);
     }
 
-    public void Update()
+    public virtual void Update()
     {
         if(timeTillArrived > 0)
         {
