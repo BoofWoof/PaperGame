@@ -325,7 +325,6 @@ public class CombatExecutor : GridManager
                 Vector2 thumbstick_values = controls.CombatControls.Movement_Clip.ReadValue<Vector2>();
                 float moveHorizontal = thumbstick_values[0];
                 float moveVertical = thumbstick_values[1];
-                Debug.Log(thumbstick_values);
                 if (moveHorizontal > 0.3)
                 {
                     HorMov = 1;
