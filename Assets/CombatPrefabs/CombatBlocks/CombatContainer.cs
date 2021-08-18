@@ -9,6 +9,7 @@ public class CombatContainer : ScriptableObject
     public int[] characterGrid;
     public int[] objectGrid;
     public int[] gridHeight;
+    public List<ExtraInfo> extraInfo;
     public Vector2Int mapShape;
     public bool puzzleMode = false;
     public bool doublePuzzleMode = false;

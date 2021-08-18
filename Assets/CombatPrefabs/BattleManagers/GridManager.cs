@@ -27,9 +27,10 @@ public class GridManager : MonoBehaviour
     public static GameObject[,] blockGrid;
     public static GameObject[,] characterGrid;
     public static GameObject[,] objectGrid;
+    public static List<GoalBlock> goalBlockList;
     public static int[,] gridHeight;
     public float maxBlockHeight = -100;
-    public static List<GoalBlock> goalBlockList;
+    public List<ExtraInfo> extraInfoList;
 
     [Header("Puzzle Info")]
     public bool puzzleMode = false;
