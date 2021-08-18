@@ -6,6 +6,8 @@ using UnityEngine.AI;
 
 public class CharacterMovementOverworld : MonoBehaviour
 {
+    GameControls controls;
+
     //Character info
     public float height;
     public float width;
@@ -49,6 +51,21 @@ public class CharacterMovementOverworld : MonoBehaviour
     private float scanWidthSize;
     private float scanLengthSize;
     private float scanHeightSize;
+
+    void Awake()
+    {
+        controls = new GameControls();
+    }
+
+    private void OnEnable()
+    {
+        controls.OverworldControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.OverworldControls.Disable();
+    }
 
     void Start()
     {
@@ -121,13 +138,13 @@ public class CharacterMovementOverworld : MonoBehaviour
                 jump = jump + (gravity * 1.5f * Time.deltaTime);
             } else
             {
-                if (Input.GetButton("Fire1"))
+                if (controls.OverworldControls.MainAction.phase == UnityEngine.InputSystem.InputActionPhase.Performed)
                 {
                     jump = jump + (gravity * Time.deltaTime);
                 } else
                 {
                     jump = jump + (gravity * 2.5f * Time.deltaTime);
-                }
+                };
             }
         }
         //POSITION RESET IF FALLEN START---------------------------
@@ -141,10 +158,12 @@ public class CharacterMovementOverworld : MonoBehaviour
         //POSITION RESET IF FALLEN END---------------------------
         if (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Mobile)
         {
-            if (Input.GetButtonDown("Fire1") && (jumped == false))
+            if (jumped == false)
             {
-                jump = jumpForce;
-                jumped = true;
+                if (controls.OverworldControls.MainAction.triggered){
+                    jump = jumpForce;
+                    jumped = true;
+                }
             }
         }
         if ((GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Cutscene || GameDataTracker.gameMode == GameDataTracker.gameModeOptions.MobileCutscene) && jump > 0)
@@ -156,8 +175,9 @@ public class CharacterMovementOverworld : MonoBehaviour
         //MOVEMENT START---------------------------------------------------------------------------------
         if (GameDataTracker.gameMode != GameDataTracker.gameModeOptions.Cutscene)
         {
-            moveHorizontal = Input.GetAxis("Horizontal");
-            moveVertical = Input.GetAxis("Vertical");
+            Vector2 thumbstick_values = controls.OverworldControls.Movement.ReadValue<Vector2>();
+            moveHorizontal = thumbstick_values[0];
+            moveVertical = thumbstick_values[1];
         }
         else if (stopOnCutscene)
         {
@@ -165,10 +185,7 @@ public class CharacterMovementOverworld : MonoBehaviour
             moveVertical = 0;
         }
         Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
-        if (movement != Vector3.zero && movement.magnitude < speed)
-        {
-            movement = movement * Time.deltaTime * speed;
-        }
+        movement = movement * Time.deltaTime * speed;
 
         closestCast = 10000.0f;
         for (int i = 0; i < scanWidthCount; i++)

@@ -5,6 +5,8 @@ using TMPro;
 
 public class BattleMenu : ScriptableObject
 {
+    GameControls controls;
+
     //Target Information
     public GameObject characterTarget;
     public float characterHeight;
@@ -30,6 +32,21 @@ public class BattleMenu : ScriptableObject
 
     //ShadingInfo
     public Material spriteShader;
+
+    private void Awake()
+    {
+        controls = new GameControls();
+    }
+
+    private void OnEnable()
+    {
+        controls.CombatControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.CombatControls.Disable();
+    }
 
     public void Activate()
     {
@@ -118,7 +135,7 @@ public class BattleMenu : ScriptableObject
             }
         }
 
-        if (Input.GetButtonDown("Fire2"))
+        if (controls.CombatControls.MainAction.triggered)
         {
             return movesList[goalRotation%moveCount];
         }

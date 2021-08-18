@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class CombatExecutor : GridManager
 {
+    GameControls controls;
+
     [Header("Loading")]
     public CombatContainer _containerCache;
     public CutsceneTrigger cutsceneTrigger;
@@ -35,11 +37,23 @@ public class CombatExecutor : GridManager
     private float turnTimeLeft;
     private float startGameWait = 3.5f;
 
+
     private void Awake()
     {
         GameDataTracker.clearCharacterList();
         GameDataTracker.spawnLastTransitionObject();
         GameDataTracker.transitioning = false;
+        controls = new GameControls();
+    }
+
+    private void OnEnable()
+    {
+        controls.CombatControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.CombatControls.Disable();
     }
 
     // Start is called before the first frame update
@@ -308,26 +322,27 @@ public class CombatExecutor : GridManager
             clipInfo.animator.speed = 1.0f;
             if ((turnTimeLeft > 0 || !allEnemyMoveDone) && !clipInfo.Paralyzed && !clipInfo.Dead)
             {
-                if (Input.GetButton("Fire2"))
+                Vector2 thumbstick_values = controls.CombatControls.Movement_Clip.ReadValue<Vector2>();
+                float moveHorizontal = thumbstick_values[0];
+                float moveVertical = thumbstick_values[1];
+                Debug.Log(thumbstick_values);
+                if (moveHorizontal > 0.3)
                 {
-                    if (Input.GetAxis("Horizontal") > 0.3)
-                    {
-                        HorMov = 1;
-                    }
-                    else if (Input.GetAxis("Horizontal") < -0.3)
-                    {
-                        HorMov = -1;
-                    }
-                    else if (Input.GetAxis("Vertical") > 0.3)
-                    {
-                        VerMov = 1;
-                    }
-                    else if (Input.GetAxis("Vertical") < -0.3)
-                    {
-                        VerMov = -1;
-                    }
-                    if (HorMov != 0 || VerMov != 0) clipInfo.MoveCharacter(HorMov, VerMov);
+                    HorMov = 1;
                 }
+                else if (moveHorizontal < -0.3)
+                {
+                    HorMov = -1;
+                }
+                else if (moveVertical > 0.3)
+                {
+                    VerMov = 1;
+                }
+                else if (moveVertical < -0.3)
+                {
+                    VerMov = -1;
+                }
+                if (HorMov != 0 || VerMov != 0) clipInfo.MoveCharacter(HorMov, VerMov);
             }
         }
         else
@@ -347,26 +362,26 @@ public class CombatExecutor : GridManager
                 FighterClass partnerInfo = Partner.GetComponent<FighterClass>();
                 if ((turnTimeLeft > 0 || !allEnemyMoveDone) && !partnerInfo.Paralyzed && !partnerInfo.Dead)
                 {
-                    if (Input.GetButton("Fire3"))
+                    Vector2 thumbstick_values = controls.CombatControls.Movement_Partner.ReadValue<Vector2>();
+                    float moveHorizontal = thumbstick_values[0];
+                    float moveVertical = thumbstick_values[1];
+                    if (moveHorizontal > 0.3)
                     {
-                        if (Input.GetAxis("Horizontal") > 0.3)
-                        {
-                            HorMov = 1;
-                        }
-                        else if (Input.GetAxis("Horizontal") < -0.3)
-                        {
-                            HorMov = -1;
-                        }
-                        else if (Input.GetAxis("Vertical") > 0.3)
-                        {
-                            VerMov = 1;
-                        }
-                        else if (Input.GetAxis("Vertical") < -0.3)
-                        {
-                            VerMov = -1;
-                        }
-                        if (HorMov != 0 || VerMov != 0) partnerInfo.MoveCharacter(HorMov, VerMov);
+                        HorMov = 1;
                     }
+                    else if (moveHorizontal < -0.3)
+                    {
+                        HorMov = -1;
+                    }
+                    else if (moveVertical > 0.3)
+                    {
+                        VerMov = 1;
+                    }
+                    else if (moveVertical < -0.3)
+                    {
+                        VerMov = -1;
+                    }
+                    if (HorMov != 0 || VerMov != 0) partnerInfo.MoveCharacter(HorMov, VerMov);
                 }
             }
             else
@@ -422,16 +437,18 @@ public class CombatExecutor : GridManager
         {
             //Move back from a submenu.
             BattleMenu selectedMenu = currentMenu[currentMenu.Count - 1];
-            if (Input.GetButtonDown("Fire3") && currentMenu.Count > 1)
+            if (controls.CombatControls.SecondaryAction.triggered && currentMenu.Count > 1)
             {
                 selectedMenu.Deactivate();
                 currentMenu.Remove(selectedMenu);
                 selectedMenu = currentMenu[currentMenu.Count - 1];
                 selectedMenu.Activate();
             }
+            Vector2 thumbstick_values = controls.CombatControls.Movement_Clip.ReadValue<Vector2>();
+            float moveHorizontal = thumbstick_values[0];
 
             //Check if an action was selected.
-            GameObject selectedObject = selectedMenu.UpdateMenu(Input.GetAxis("Horizontal"), Input.GetButtonDown("Fire2"));
+            GameObject selectedObject = selectedMenu.UpdateMenu(moveHorizontal, controls.CombatControls.MainAction.triggered);
             if (!(selectedObject is null))
             {
                 selectedMenu.Deactivate();
@@ -559,7 +576,7 @@ public class CombatExecutor : GridManager
         }
         else
         {
-            if (Input.GetButtonDown("Fire3") && currentMenu.Count > 0)
+            if (controls.CombatControls.SecondaryAction.triggered && currentMenu.Count > 0)
             {
                 if (targeter.Undo())
                 {
@@ -573,7 +590,10 @@ public class CombatExecutor : GridManager
             }
             else if (targeter.potentialTargets.Count > 0)
             {
-                List<GameObject> moveTargets = targeter.TargeterUpdate(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), Input.GetButtonDown("Fire2"));
+                Vector2 thumbstick_values = controls.CombatControls.Movement_Clip.ReadValue<Vector2>();
+                float moveHorizontal = thumbstick_values[0];
+                float moveVertical = thumbstick_values[1];
+                List<GameObject> moveTargets = targeter.TargeterUpdate(moveHorizontal, moveVertical, controls.CombatControls.MainAction.triggered);
                 if (!(moveTargets is null))
                 {
                     selectedMove.hideRange();

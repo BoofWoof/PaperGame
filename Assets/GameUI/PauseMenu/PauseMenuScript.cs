@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuScript : MonoBehaviour
 {
+    GameControls controls;
+
     [Header("Character Submenu")]
     public GameObject characterMenu;
     public GameObject characterMenuFirstFocus;
@@ -22,6 +24,21 @@ public class PauseMenuScript : MonoBehaviour
     private List<GameObject> menuList;
     private int maxMenuID;
 
+    private void Awake()
+    {
+        controls = new GameControls();
+    }
+
+    private void OnEnable()
+    {
+        controls.OverworldControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.OverworldControls.Disable();
+    }
+
     void Start()
     {
         menuList = new List<GameObject>()
@@ -35,11 +52,11 @@ public class PauseMenuScript : MonoBehaviour
         maxMenuID = menuList.Count;
     }
 
-    private void OnEnable()
-    {
+    //private void OnEnable()
+    //{
         //EventSystem.current.SetSelectedGameObject(null);
         //EventSystem.current.SetSelectedGameObject(characterMenuFirstFocus);
-    }
+    //}
 
     public void SaveGame()
     {
@@ -58,7 +75,7 @@ public class PauseMenuScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Right Bumper"))
+        if (controls.OverworldControls.CycleRight.triggered)
         {
             menuList[currentMenuID].SetActive(false);
             currentMenuID += 1;
@@ -68,7 +85,7 @@ public class PauseMenuScript : MonoBehaviour
             }
             menuList[currentMenuID].SetActive(true);
         }
-        if (Input.GetButtonDown("Left Bumper"))
+        if (controls.OverworldControls.CycleLeft.triggered)
         {
             menuList[currentMenuID].SetActive(false);
             currentMenuID -= 1;

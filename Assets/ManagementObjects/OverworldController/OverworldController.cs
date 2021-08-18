@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class OverworldController : MonoBehaviour
 {
+    GameControls controls;
+
     //List of all nonplayer characters as well as a player specific lookup.
     public static GameObject Player;
     private static GameObject PauseMenu;
@@ -23,8 +25,19 @@ public class OverworldController : MonoBehaviour
     //-----------------------------------------------------------------
 
 
+    private void OnEnable()
+    {
+        controls.OverworldControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.OverworldControls.Disable();
+    }
+
     public void Awake()
     {
+        controls = new GameControls();
         GameDataTracker.clearCharacterList();
         PauseMenu = Instantiate(pauseMenu, Vector3.zero, Quaternion.identity);
         PauseMenu.SetActive(false);
@@ -93,7 +106,7 @@ public class OverworldController : MonoBehaviour
     public void Update()
     {
         //Pause and unpause game. ================
-        if (Input.GetKeyDown(KeyCode.I) && (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Mobile || GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Paused))
+        if (controls.OverworldControls.Inventory.triggered && (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Mobile || GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Paused))
         {
             if (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Paused)
             {

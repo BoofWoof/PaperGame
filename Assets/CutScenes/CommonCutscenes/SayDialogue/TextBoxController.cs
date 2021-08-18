@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class TextBoxController : MonoBehaviour
 {
+    GameControls controls;
+
     public TextAsset textfile;
     public List<NodeLinkData> choices;
     private TextMeshPro myText;
@@ -67,6 +69,21 @@ public class TextBoxController : MonoBehaviour
         public textModifiers MODIFICATION { get; }
     }
     private List<ModifiedText> modifierList = new List<ModifiedText>();
+
+    private void Awake()
+    {
+        controls = new GameControls();
+    }
+
+    private void OnEnable()
+    {
+        controls.OverworldControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.OverworldControls.Disable();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -139,8 +156,9 @@ public class TextBoxController : MonoBehaviour
             }
             else
             {
-                float moveHorizontal = Input.GetAxis("Horizontal");
-                float moveVertical = Input.GetAxis("Vertical");
+                Vector2 thumbstick_values = controls.OverworldControls.Movement.ReadValue<Vector2>();
+                float moveHorizontal = thumbstick_values[0];
+                float moveVertical = thumbstick_values[1];
                 if (moveHorizontal > 0.1)
                 {
                     MoveSelector(1, 0);
@@ -206,7 +224,7 @@ public class TextBoxController : MonoBehaviour
                 choiceBoxes.Add(choiceSpawn);
             }
         }
-        if ((Input.GetButtonDown("Fire1"))&&(stringDisp == stringLen)&&(currentLine+1<textLines.Length))
+        if ((controls.OverworldControls.MainAction.triggered)&&(stringDisp == stringLen)&&(currentLine+1<textLines.Length))
         {
             //Moves To Next Line
             currentLine++;
@@ -220,7 +238,7 @@ public class TextBoxController : MonoBehaviour
             //DISPLAY THE TEXT
             myText.text = displayedText;
         }
-        if ((Input.GetButtonDown("Fire1")) && (stringDisp == stringLen) && (currentLine + 1 == textLines.Length))
+        if ((controls.OverworldControls.MainAction.triggered) && (stringDisp == stringLen) && (currentLine + 1 == textLines.Length))
         {
             if (choices.Count > 0)
             {

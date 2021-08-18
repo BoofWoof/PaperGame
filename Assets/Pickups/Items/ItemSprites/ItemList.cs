@@ -6,6 +6,8 @@ using TMPro;
 
 public class ItemList : MonoBehaviour
 {
+    GameControls controls;
+
     //X Positions
     public float initialXOffset;
     public float itemXOffset;
@@ -36,11 +38,21 @@ public class ItemList : MonoBehaviour
     //All Items
     private List<List<GameObject>> gameObjectRow = new List<List<GameObject>>();
 
-    // Start is called before the first frame update
-    void OnEnable()
+    private void Awake()
     {
+        controls = new GameControls();
+    }
+
+    private void OnEnable()
+    {
+        controls.OverworldControls.Enable();
         clearItems();
         generateItems();
+    }
+
+    private void OnDisable()
+    {
+        controls.OverworldControls.Disable();
     }
 
     public void clearItems()
@@ -121,7 +133,7 @@ public class ItemList : MonoBehaviour
             string itemDescription = item.itemDescription;
 
             descriptionText.text = itemName + ": " + itemDescription;
-            if (Input.GetButton("Fire1"))
+            if (controls.OverworldControls.MainAction.triggered)
             {
                 if (movementDelay > 0.25)
                 {
@@ -136,8 +148,9 @@ public class ItemList : MonoBehaviour
             descriptionText.text = "Empty Pocket";
         }
 
-        float xPress = Input.GetAxis("Horizontal");
-        float yPress = Input.GetAxis("Vertical");
+        Vector2 thumbstick_values = controls.OverworldControls.Movement.ReadValue<Vector2>();
+        float xPress = thumbstick_values[0];
+        float yPress = thumbstick_values[1];
 
         movementDelay += Time.unscaledDeltaTime;
         //Debug.Log(movementDelay);
@@ -167,23 +180,6 @@ public class ItemList : MonoBehaviour
                 ycord -= 1;
                 movementDelay = 0;
             }
-        }
-
-        if (Input.GetKeyDown("d"))
-        {
-            xcord += 1;
-        }
-        if (Input.GetKeyDown("a"))
-        {
-            xcord -= 1;
-        }
-        if (Input.GetKeyDown("s"))
-        {
-            ycord += 1;
-        }
-        if (Input.GetKeyDown("w"))
-        {
-            ycord -= 1;
         }
     }
 }
