@@ -8,6 +8,10 @@ public class TextBoxController : MonoBehaviour
 {
     GameControls controls;
 
+    //TextEffects
+    public AudioClip letter_noise;
+    public AudioSource audio_source;
+
     public TextAsset textfile;
     public List<NodeLinkData> choices;
     private TextMeshPro myText;
@@ -88,6 +92,10 @@ public class TextBoxController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audio_source = gameObject.AddComponent<AudioSource>();
+        audio_source.volume = 0.2f;
+        if (letter_noise != null) audio_source.clip = letter_noise;
+
         textLines = textfile.text.Split('\n');
 
         dialogue = new GameObject("TextboxDialogue");
@@ -197,14 +205,13 @@ public class TextBoxController : MonoBehaviour
                 stringLen++;
                 //DISPLAY THE TEXT
                 myText.text = displayedText;
+                if (letter_noise != null) audio_source.Play();
             }
         }
         //Display Text Slowly End-----------------------------------------------------
 
         AnimateString();
-
-
-
+        
         if (choices != null && choiceBoxes.Count == 0 && stringDisp == stringLen)
         {
             if (choices.Count >= 2)

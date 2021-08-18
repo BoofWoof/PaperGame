@@ -137,6 +137,7 @@ public class OverworldController : MonoBehaviour
             GameObject closestCharacter = null;
             foreach (Character CharacterItem in GameDataTracker.CharacterList)
             {
+                Debug.Log(CharacterItem.CharacterName);
                 FriendlyNPCClass npcClass = CharacterItem.CharacterObject.GetComponent<FriendlyNPCClass>();
                 if (npcClass != null)
                 {

@@ -5295,6 +5295,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 332732432499658467, guid: b6d0446a0598c0147b6d29e31e1f5bf5,
         type: 3}
+      propertyPath: letter_noise
+      value: 
+      objectReference: {fileID: 8300000, guid: ac664c6576fb94342a7ba4b24cf6010d, type: 3}
+    - target: {fileID: 332732432499658467, guid: b6d0446a0598c0147b6d29e31e1f5bf5,
+        type: 3}
       propertyPath: dialogueBubble
       value: 
       objectReference: {fileID: 218867043}
@@ -5575,6 +5580,11 @@ PrefabInstance:
       propertyPath: dialogueBubble
       value: 
       objectReference: {fileID: 218867043}
+    - target: {fileID: 2852734888190904175, guid: 8f6613e785d7f8e45836236109c3337c,
+        type: 3}
+      propertyPath: m_AutoTraverseOffMeshLink
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f6613e785d7f8e45836236109c3337c, type: 3}
 --- !u!1001 &4523723916172086589
@@ -5786,7 +5796,7 @@ PrefabInstance:
     - target: {fileID: 5606296916481537114, guid: 68b174bcd725b1145accb277db49df85,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.78
+      value: -2.08
       objectReference: {fileID: 0}
     - target: {fileID: 5606296916481537114, guid: 68b174bcd725b1145accb277db49df85,
         type: 3}

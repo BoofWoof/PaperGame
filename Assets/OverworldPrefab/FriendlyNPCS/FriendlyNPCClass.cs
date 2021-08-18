@@ -9,6 +9,8 @@ using UnityEngine.AI;
 [RequireComponent(typeof(BoxCollider))]
 public class FriendlyNPCClass : MonoBehaviour
 {
+    GameControls controls;
+
     //Character Information
     public string CharacterName = "NameMeYaDingus";
     private float height;
@@ -18,6 +20,7 @@ public class FriendlyNPCClass : MonoBehaviour
     public TextAsset InputText;
     public float heightOverSpeaker = 1.3f;
     public DialogueContainer dialogue;
+    public AudioClip letter_noise;
 
     public string InputString = "You didn't give me any text ya dingus.";
     public GameObject dialogueBubble;
@@ -33,8 +36,22 @@ public class FriendlyNPCClass : MonoBehaviour
     private float rotSpeed;
     public float rotSpeedMagnitude = 360;
 
+    private void Awake()
+    {
+        controls = new GameControls();
+    }
 
-    void Awake()
+    private void OnEnable()
+    {
+        controls.OverworldControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.OverworldControls.Disable();
+    }
+
+    void Start()
     {
         if(CharacterName == "NameMeYaDingus")
         {
@@ -121,7 +138,7 @@ public class FriendlyNPCClass : MonoBehaviour
             {
                 Bubble.transform.rotation = Quaternion.identity;
             }
-            if (Input.GetButtonDown("Fire1"))
+            if (controls.OverworldControls.MainAction.triggered)
             {
                 Activated();
                 if ((Player.transform.position.x > this.transform.position.x + 0.2f))
@@ -158,6 +175,7 @@ public class FriendlyNPCClass : MonoBehaviour
             dialogueCutscene.heightOverSpeaker = heightOverSpeaker;
             dialogueCutscene.speakerName = CharacterName;
             dialogueCutscene.inputText = new TextAsset(InputString);
+            dialogueCutscene.letter_noise = letter_noise;
             CutsceneController.addCutsceneEvent(dialogueCutscene, gameObject, true, GameDataTracker.gameModeOptions.Cutscene);
         }
     }
