@@ -17,7 +17,8 @@ public class SayDialogue : CutSceneClass
     public CutsceneDeconstruct deconstructerSource;
     public List<NodeLinkData> currentLinks;
 
-    public AudioClip letter_noise;
+    public AudioClip[] letter_noises;
+    public int[] letters_per_noise_list;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +33,8 @@ public class SayDialogue : CutSceneClass
             spawnedTextBox = Instantiate<GameObject>(textbox, new Vector3(parent.transform.position.x, parent.transform.position.y + heightOverSpeaker, parent.transform.position.z + 0.2f), Quaternion.identity);
             TextBoxController tb_controller = spawnedTextBox.GetComponent<TextBoxController>();
             tb_controller.textfile = inputText;
-            tb_controller.letter_noise = letter_noise;
+            tb_controller.letter_noises = letter_noises;
+            tb_controller.letters_per_noise_list = letters_per_noise_list;
         } else
         {
             DialogueNodeRead();
@@ -59,13 +61,17 @@ public class SayDialogue : CutSceneClass
     private void DialogueNodeRead()
     {
         GameObject textbox = Resources.Load<GameObject>("TextBox");
-
-        Debug.Log(speakerName);
         
         Character findCharacter = GameDataTracker.findCharacterByName(speakerName, GameDataTracker.CharacterList);
         FriendlyNPCClass friendlyNPC = findCharacter.CharacterObject.GetComponent<FriendlyNPCClass>();
-        if (friendlyNPC != null) letter_noise = friendlyNPC.letter_noise;
-        else letter_noise = null;
+        if (friendlyNPC != null) {
+            letter_noises = friendlyNPC.letter_noises;
+            letters_per_noise_list = friendlyNPC.letters_per_noise_list;
+        }
+        else {
+            letter_noises = null;
+            letters_per_noise_list = null;
+        }
         Transform target;
         float dialogueHeight;
 
@@ -73,11 +79,13 @@ public class SayDialogue : CutSceneClass
         dialogueHeight = findCharacter.dialogueHeight;
 
         spawnedTextBox = Instantiate<GameObject>(textbox, new Vector3(target.position.x, target.position.y + dialogueHeight, target.position.z + 0.2f), Quaternion.identity);
-        spawnedTextBox.GetComponent<TextBoxController>().textfile = inputText;
-        spawnedTextBox.GetComponent<TextBoxController>().choices = currentLinks;
-        spawnedTextBox.GetComponent<TextBoxController>().speakerName = speakerName;
-        spawnedTextBox.GetComponent<TextBoxController>().scriptSource = deconstructerSource;
-        spawnedTextBox.GetComponent<TextBoxController>().letter_noise = letter_noise;
+        TextBoxController tbController = spawnedTextBox.GetComponent<TextBoxController>();
+        tbController.textfile = inputText;
+        tbController.choices = currentLinks;
+        tbController.speakerName = speakerName;
+        tbController.scriptSource = deconstructerSource;
+        tbController.letter_noises = letter_noises;
+        tbController.letters_per_noise_list = letters_per_noise_list;
     }
 
 }

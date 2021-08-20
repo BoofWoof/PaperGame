@@ -54,7 +54,6 @@ public class MoveToPosition : CutSceneClass
     {
         if (active)
         {
-            Debug.Log(agent.remainingDistance);
             if (Vector2.Distance(new Vector2(waypointPosition.x, waypointPosition.z), new Vector2(TObject.transform.position.x, TObject.transform.position.z)) < 0.1)
             {
                 if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)

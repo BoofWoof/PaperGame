@@ -7,10 +7,22 @@ using UnityEngine.AI;
 public class PartnerBaseScript : MonoBehaviour
 {
     public NavMeshAgent agent;
-    public float walkRadius;
-    public float secondsTillMove = 2;
-    public float secondsTillMoveRange = 1;
-    private float wait_count = 0;
+    public GameControls controls;
+    
+    private void Awake()
+    {
+        controls = new GameControls();
+    }
+
+    private void OnEnable()
+    {
+        controls.OverworldControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.OverworldControls.Disable();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -32,5 +44,11 @@ public class PartnerBaseScript : MonoBehaviour
         Vector3 pos_change = OverworldController.Player.transform.position - transform.position;
         if (pos_change.x > 0.2) GetComponent<SpriteFlipper>().setFacingRight();
         if (pos_change.x < -0.2) GetComponent<SpriteFlipper>().setFacingLeft();
+        if (controls.OverworldControls.PartnerAction.triggered) UseAbility();
+    }
+
+    virtual public void UseAbility()
+    {
+
     }
 }

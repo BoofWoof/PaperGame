@@ -21,9 +21,9 @@ public class OverworldController : MonoBehaviour
     public GameObject trackingCameraInput;  //What track camera to use.
     public static GameObject trackingCamera;  //Publically accessible camera.
     public GameObject[] SceneTransfers;  //Triggers that will cause a scene transfer.
-
-    //GameplayMode---------------------------------------------------
-    //-----------------------------------------------------------------
+    
+    public static DialogueContainer AreaInfo;
+    public DialogueContainer AreaInfoInput;
 
 
     private void OnEnable()
@@ -38,6 +38,7 @@ public class OverworldController : MonoBehaviour
 
     public void Awake()
     {
+        AreaInfo = AreaInfoInput;
         controls = new GameControls();
         GameDataTracker.clearCharacterList();
         PauseMenu = Instantiate(pauseMenu, Vector3.zero, Quaternion.identity);
@@ -92,12 +93,6 @@ public class OverworldController : MonoBehaviour
             Player = Instantiate(playerInput, GameDataTracker.combatStartPosition, Quaternion.identity);
             GameDataTracker.lastAreaWasCombat = false;
         }
-        //SpawnsPartner
-        Debug.Log(GameDataTracker.playerData.CurrentCompanion);
-        if (GameDataTracker.playerData.CurrentCompanion > 0)
-        {
-            SpawnPartner(GameDataTracker.playerData.CurrentCompanion);
-        }
         trackingCamera = Instantiate<GameObject>(trackingCameraInput, Player.transform.position + new Vector3(0,1,-2), Quaternion.Euler(25,0,0));
         trackingCamera.GetComponent<CameraFollow>().ObjectToTrack = Player;
         trackingCamera.GetComponent<CameraFollow>().combat = false;
@@ -112,6 +107,11 @@ public class OverworldController : MonoBehaviour
     public void Start()
     {
         GameDataTracker.spawnLastTransitionObject();
+        //SpawnsPartner
+        if (GameDataTracker.playerData.CurrentCompanion > 0)
+        {
+            SpawnPartner(GameDataTracker.playerData.CurrentCompanion);
+        }
     }
 
     //-------------------------------------------------------------------------------------------------------------------------------------------
@@ -149,7 +149,6 @@ public class OverworldController : MonoBehaviour
             GameObject closestCharacter = null;
             foreach (Character CharacterItem in GameDataTracker.CharacterList)
             {
-                Debug.Log(CharacterItem.CharacterName);
                 FriendlyNPCClass npcClass = CharacterItem.CharacterObject.GetComponent<FriendlyNPCClass>();
                 if (npcClass != null)
                 {

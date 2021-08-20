@@ -9,7 +9,11 @@ public class TextBoxController : MonoBehaviour
     GameControls controls;
 
     //TextEffects
-    public AudioClip letter_noise;
+    public AudioClip[] letter_noises;
+    public AudioClip next_letter_noise;
+    public int[] letters_per_noise_list;
+    public int next_letters_per_noise;
+    public int str_len_last_audio;
     public AudioSource audio_source;
 
     public TextAsset textfile;
@@ -94,7 +98,8 @@ public class TextBoxController : MonoBehaviour
     {
         audio_source = gameObject.AddComponent<AudioSource>();
         audio_source.volume = 0.2f;
-        if (letter_noise != null) audio_source.clip = letter_noise;
+        SampleAudioFromList(letter_noises);
+        str_len_last_audio = 0;
 
         textLines = textfile.text.Split('\n');
 
@@ -205,7 +210,15 @@ public class TextBoxController : MonoBehaviour
                 stringLen++;
                 //DISPLAY THE TEXT
                 myText.text = displayedText;
-                if (letter_noise != null && stringLen%2 == 0) audio_source.Play();
+                //AudioData
+                SampleAudioFromList(letter_noises);
+                int string_len_change = stringLen - str_len_last_audio;
+                if (next_letter_noise != null && string_len_change >= next_letters_per_noise) {
+                    str_len_last_audio = stringLen;
+                    audio_source.clip = next_letter_noise;
+                    audio_source.Play();
+                    SampleAudioFromList(letter_noises);
+                }
             }
         }
         //Display Text Slowly End-----------------------------------------------------
@@ -241,6 +254,7 @@ public class TextBoxController : MonoBehaviour
             displayedText = null;
             //RESET COUNTS
             stringLen = 0;
+            str_len_last_audio = 0;
             stringDisp = displayedTextFull.Length;
             //DISPLAY THE TEXT
             myText.text = displayedText;
@@ -263,6 +277,16 @@ public class TextBoxController : MonoBehaviour
         }
 
 
+    }
+
+    public void SampleAudioFromList(AudioClip[] audioClips)
+    {
+        if(audioClips.Length > 0)
+        {
+            int index = Random.Range(0, audioClips.Length);
+            next_letter_noise = audioClips[index];
+            next_letters_per_noise = letters_per_noise_list[index];
+        } else next_letter_noise = null;
     }
 
     void AnimateString()

@@ -65,6 +65,14 @@ public class @GameControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""PartnerAction"",
+                    ""type"": ""Button"",
+                    ""id"": ""37e361b4-6492-43c6-82fb-f71776995af0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -263,6 +271,28 @@ public class @GameControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""CycleRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""df98b39b-e376-4c3c-883e-64441ee873bb"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PartnerAction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""720d8fcc-08b4-499a-a3a0-82259946bd93"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PartnerAction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -607,6 +637,7 @@ public class @GameControls : IInputActionCollection, IDisposable
         m_OverworldControls_SecondaryAction = m_OverworldControls.FindAction("SecondaryAction", throwIfNotFound: true);
         m_OverworldControls_CycleLeft = m_OverworldControls.FindAction("CycleLeft", throwIfNotFound: true);
         m_OverworldControls_CycleRight = m_OverworldControls.FindAction("CycleRight", throwIfNotFound: true);
+        m_OverworldControls_PartnerAction = m_OverworldControls.FindAction("PartnerAction", throwIfNotFound: true);
         // CombatControls
         m_CombatControls = asset.FindActionMap("CombatControls", throwIfNotFound: true);
         m_CombatControls_MainAction = m_CombatControls.FindAction("MainAction", throwIfNotFound: true);
@@ -671,6 +702,7 @@ public class @GameControls : IInputActionCollection, IDisposable
     private readonly InputAction m_OverworldControls_SecondaryAction;
     private readonly InputAction m_OverworldControls_CycleLeft;
     private readonly InputAction m_OverworldControls_CycleRight;
+    private readonly InputAction m_OverworldControls_PartnerAction;
     public struct OverworldControlsActions
     {
         private @GameControls m_Wrapper;
@@ -681,6 +713,7 @@ public class @GameControls : IInputActionCollection, IDisposable
         public InputAction @SecondaryAction => m_Wrapper.m_OverworldControls_SecondaryAction;
         public InputAction @CycleLeft => m_Wrapper.m_OverworldControls_CycleLeft;
         public InputAction @CycleRight => m_Wrapper.m_OverworldControls_CycleRight;
+        public InputAction @PartnerAction => m_Wrapper.m_OverworldControls_PartnerAction;
         public InputActionMap Get() { return m_Wrapper.m_OverworldControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -708,6 +741,9 @@ public class @GameControls : IInputActionCollection, IDisposable
                 @CycleRight.started -= m_Wrapper.m_OverworldControlsActionsCallbackInterface.OnCycleRight;
                 @CycleRight.performed -= m_Wrapper.m_OverworldControlsActionsCallbackInterface.OnCycleRight;
                 @CycleRight.canceled -= m_Wrapper.m_OverworldControlsActionsCallbackInterface.OnCycleRight;
+                @PartnerAction.started -= m_Wrapper.m_OverworldControlsActionsCallbackInterface.OnPartnerAction;
+                @PartnerAction.performed -= m_Wrapper.m_OverworldControlsActionsCallbackInterface.OnPartnerAction;
+                @PartnerAction.canceled -= m_Wrapper.m_OverworldControlsActionsCallbackInterface.OnPartnerAction;
             }
             m_Wrapper.m_OverworldControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -730,6 +766,9 @@ public class @GameControls : IInputActionCollection, IDisposable
                 @CycleRight.started += instance.OnCycleRight;
                 @CycleRight.performed += instance.OnCycleRight;
                 @CycleRight.canceled += instance.OnCycleRight;
+                @PartnerAction.started += instance.OnPartnerAction;
+                @PartnerAction.performed += instance.OnPartnerAction;
+                @PartnerAction.canceled += instance.OnPartnerAction;
             }
         }
     }
@@ -823,6 +862,7 @@ public class @GameControls : IInputActionCollection, IDisposable
         void OnSecondaryAction(InputAction.CallbackContext context);
         void OnCycleLeft(InputAction.CallbackContext context);
         void OnCycleRight(InputAction.CallbackContext context);
+        void OnPartnerAction(InputAction.CallbackContext context);
     }
     public interface ICombatControlsActions
     {

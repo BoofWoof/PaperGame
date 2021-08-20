@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 804751d7c03844a4d8e72e8bb960ccc0, type: 3}
+  m_Name: Test1AreaDialogue
+  m_EditorClassIdentifier: 
+  StartingGUID: e758bd6a-63f5-498e-b053-8108584cf220
+  NodeLinks:
+  - BaseNodeGuid: e758bd6a-63f5-498e-b053-8108584cf220
+    PortName: Next
+    TargetNodeGuid: 3eb74186-eb40-42fe-9a31-6656f07895a1
+  - BaseNodeGuid: 3eb74186-eb40-42fe-9a31-6656f07895a1
+    PortName: Choice 0
+    TargetNodeGuid: 41af1045-0de1-4fb8-9127-e9a933461e86
+  - BaseNodeGuid: 41af1045-0de1-4fb8-9127-e9a933461e86
+    PortName: Choice 0
+    TargetNodeGuid: 6bfcf87d-57fc-4bc9-a4bd-f0d7553bda32
+  - BaseNodeGuid: 6bfcf87d-57fc-4bc9-a4bd-f0d7553bda32
+    PortName: Choice 0
+    TargetNodeGuid: e7854651-0cf8-42fe-96ea-b53058e6b9cf
+  - BaseNodeGuid: e7854651-0cf8-42fe-96ea-b53058e6b9cf
+    PortName: Choice 0
+    TargetNodeGuid: 6ca1e1c4-f10a-48ae-96d7-a646e325fe2e
+  DialogueNodeData:
+  - Guid: 3eb74186-eb40-42fe-9a31-6656f07895a1
+    DialogueText: Oh this area?  This is just a test area.
+    TargetPlayer: 
+    Position: {x: 237, y: 178}
+  - Guid: 41af1045-0de1-4fb8-9127-e9a933461e86
+    DialogueText: Just look at the pretty sprites.
+    TargetPlayer: 
+    Position: {x: 667, y: 177}
+  - Guid: 6bfcf87d-57fc-4bc9-a4bd-f0d7553bda32
+    DialogueText: But I want to do something!
+    TargetPlayer: Clip
+    Position: {x: 1059, y: 175}
+  - Guid: e7854651-0cf8-42fe-96ea-b53058e6b9cf
+    DialogueText: There is a more interactive area. Just go southwest.
+    TargetPlayer: 
+    Position: {x: 1425, y: 176}
+  - Guid: 6ca1e1c4-f10a-48ae-96d7-a646e325fe2e
+    DialogueText: Thanks!
+    TargetPlayer: Clip
+    Position: {x: 1949, y: 173}
+  AnimationTriggerNodeData: []
+  GetFlagNodeData: []
+  SetFlagNodeData: []
+  BooleanGetFlagNodeData: []
+  BooleanSetFlagNodeData: []
+  MoveToPosNodeData: []
+  ExposedProperties: []
