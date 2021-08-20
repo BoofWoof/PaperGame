@@ -69,7 +69,6 @@ public class CutsceneController
 
     public static void Update()
     {
-        //Debug.Log(CutsceneQueue.Count);
         if (CutscenesPlaying == 0 && CutsceneQueue.Count > 0)
         {
             bool keepPlaying = true;

@@ -205,7 +205,7 @@ public class TextBoxController : MonoBehaviour
                 stringLen++;
                 //DISPLAY THE TEXT
                 myText.text = displayedText;
-                if (letter_noise != null) audio_source.Play();
+                if (letter_noise != null && stringLen%2 == 0) audio_source.Play();
             }
         }
         //Display Text Slowly End-----------------------------------------------------

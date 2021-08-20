@@ -21,6 +21,17 @@ public class LevelLoaderScript : MonoBehaviour
         
     }
 
+    public void ExitLevelLoad()
+    {
+        StartCoroutine(ExitLoad());
+    }
+
+    IEnumerator ExitLoad()
+    {
+        yield return new WaitForSeconds(transitionTime/2);
+        GameDataTracker.transitioning = false;
+    }
+
     public void LoadNextLevel(string sceneName)
     {
         StartCoroutine(LoadLevel(sceneName));

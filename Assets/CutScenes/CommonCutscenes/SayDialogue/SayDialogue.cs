@@ -29,7 +29,7 @@ public class SayDialogue : CutSceneClass
         if (deconstructerSource == null)
         {
             GameObject textbox = Resources.Load<GameObject>("TextBox");
-            spawnedTextBox = Instantiate<GameObject>(textbox, new Vector3(parent.transform.position.x, parent.transform.position.y + heightOverSpeaker, parent.transform.position.z), Quaternion.identity);
+            spawnedTextBox = Instantiate<GameObject>(textbox, new Vector3(parent.transform.position.x, parent.transform.position.y + heightOverSpeaker, parent.transform.position.z + 0.2f), Quaternion.identity);
             TextBoxController tb_controller = spawnedTextBox.GetComponent<TextBoxController>();
             tb_controller.textfile = inputText;
             tb_controller.letter_noise = letter_noise;
@@ -72,7 +72,7 @@ public class SayDialogue : CutSceneClass
         target = findCharacter.CharacterObject.transform;
         dialogueHeight = findCharacter.dialogueHeight;
 
-        spawnedTextBox = Instantiate<GameObject>(textbox, new Vector3(target.position.x, target.position.y + dialogueHeight, target.position.z), Quaternion.identity);
+        spawnedTextBox = Instantiate<GameObject>(textbox, new Vector3(target.position.x, target.position.y + dialogueHeight, target.position.z + 0.2f), Quaternion.identity);
         spawnedTextBox.GetComponent<TextBoxController>().textfile = inputText;
         spawnedTextBox.GetComponent<TextBoxController>().choices = currentLinks;
         spawnedTextBox.GetComponent<TextBoxController>().speakerName = speakerName;
