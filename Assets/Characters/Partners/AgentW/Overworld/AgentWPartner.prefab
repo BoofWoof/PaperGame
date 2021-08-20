@@ -28,7 +28,7 @@ MonoBehaviour:
   CharacterName: Agent W.
   OverrideTurning: 1
   OverrideTalkRange: 1
-  heightOverSpeaker: 1.5
+  heightOverSpeaker: 0.8
   dialogue: {fileID: 0}
   letter_noises:
   - {fileID: 8300000, guid: 0a10656438204ca44ba4ed84b7af73eb, type: 3}
@@ -70,6 +70,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 3778268757999780301}
+  travelingMeshLink: 0
+  method: 2
 --- !u!1001 &8043824905276937027
 PrefabInstance:
   m_ObjectHideFlags: 0

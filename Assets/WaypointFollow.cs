@@ -3,17 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public enum OffMeshLinkMoveMethod
-{
-    Teleport,
-    Line,
-    Parabola
-}
-
 [RequireComponent (typeof (NavMeshAgent))]
 public class WaypointFollow : MonoBehaviour
 {
     public GameObject waypoint;
+    public OffMeshLinkMoveMethod method = OffMeshLinkMoveMethod.Parabola;
 
     // Update is called once per frame
     void Update()
@@ -25,7 +19,6 @@ public class WaypointFollow : MonoBehaviour
         agent.SetDestination(hit.position);
     }
 
-    public OffMeshLinkMoveMethod method = OffMeshLinkMoveMethod.Parabola;
     public AnimationCurve curve = new AnimationCurve();
     IEnumerator Start()
     {

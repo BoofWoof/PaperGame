@@ -21,7 +21,7 @@ public class FriendlyNPCClass : MonoBehaviour
     //Dialogue Info
     [Header("Dialogue Settings")]
     private GameObject Bubble;
-    public float heightOverSpeaker = 1.3f;
+    public float heightOverSpeaker = 0.8f;
     public DialogueContainer dialogue;
     public AudioClip[] letter_noises;
     public int[] letters_per_noise_list;
@@ -57,18 +57,18 @@ public class FriendlyNPCClass : MonoBehaviour
 
     void Start()
     {
-        if(CharacterName == "NameMeYaDingus")
+        height = transform.GetComponent<BoxCollider>().size.y;
+
+        if (CharacterName == "NameMeYaDingus")
         {
             print($"Name me! My ID is {this.GetInstanceID()}");
         }
         Character thisNPCCharacter = new Character();
         thisNPCCharacter.CharacterObject = gameObject;
         thisNPCCharacter.CharacterName = CharacterName;
-        thisNPCCharacter.dialogueHeight = heightOverSpeaker;
+        thisNPCCharacter.dialogueHeight = height + heightOverSpeaker;
         thisNPCCharacter.uniqueSceneID = GetInstanceID();
         GameDataTracker.CharacterList.Add(thisNPCCharacter);
-
-        height = transform.GetComponent<BoxCollider>().size.y;
 
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         agent.autoTraverseOffMeshLink = false;

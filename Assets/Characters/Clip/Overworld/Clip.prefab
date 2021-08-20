@@ -128,10 +128,11 @@ MonoBehaviour:
   CharacterName: Clip
   OverrideTurning: 1
   OverrideTalkRange: 1
-  heightOverSpeaker: 1.3
+  heightOverSpeaker: 0.2
   dialogue: {fileID: 0}
-  letter_noises: []
-  letters_per_noise_list: 
+  letter_noises:
+  - {fileID: 8300000, guid: f26e7b514e7d05e4193134186028831f, type: 3}
+  letters_per_noise_list: 02000000
   InputString: You didn't give me any text ya dingus.
   dialogueBubble: {fileID: 0}
   distanceToPlayer: 0
@@ -162,7 +163,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7422545739575675019}
   m_LocalRotation: {x: 0.6654324, y: -0.23916472, z: 0.23916472, w: 0.6654324}
-  m_LocalPosition: {x: 0.005, y: 0, z: 0.004999985}
+  m_LocalPosition: {x: 0.035, y: 0, z: 0.004999985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 104110599}
@@ -184,9 +185,12 @@ MonoBehaviour:
   m_Material: {fileID: 2100000, guid: 9f74bda222625f4488e23a94edd9fea0, type: 2}
   m_DrawDistance: 1000
   m_FadeScale: 1
+  m_StartAngleFade: 180
+  m_EndAngleFade: 180
   m_UVScale: {x: 1, y: 1}
   m_UVBias: {x: 0, y: 0}
   m_AffectsTransparency: 0
+  m_DecalLayerMask: 1
   m_Offset: {x: 0, y: 0, z: 1.7225882}
   m_Size: {x: 0.5, y: 0.35, z: 2.5}
   m_FadeFactor: 1
@@ -205,7 +209,7 @@ PrefabInstance:
     - target: {fileID: 487893742149736985, guid: ec3477589ad645a488aa7bce2079eff7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.114
+      value: 0.061
       objectReference: {fileID: 0}
     - target: {fileID: 487893742149736985, guid: ec3477589ad645a488aa7bce2079eff7,
         type: 3}
