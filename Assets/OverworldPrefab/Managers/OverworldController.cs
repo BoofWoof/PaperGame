@@ -25,6 +25,9 @@ public class OverworldController : MonoBehaviour
     public static DialogueContainer AreaInfo;
     public DialogueContainer AreaInfoInput;
 
+    //ResetMaterial
+    public Material MorganMaterial;
+
 
     private void OnEnable()
     {
@@ -38,6 +41,7 @@ public class OverworldController : MonoBehaviour
 
     public void Awake()
     {
+        MorganMaterialReset();
         AreaInfo = AreaInfoInput;
         controls = new GameControls();
         GameDataTracker.clearCharacterList();
@@ -104,6 +108,13 @@ public class OverworldController : MonoBehaviour
         Partner = Instantiate(PartnerMapper.partnerMap[PartnerID], Player.transform.position, Quaternion.identity);
     }
 
+    public static void SwapPartner(int PartnerID)
+    {
+        Vector3 partnerPosition = Partner.transform.position;
+        Partner.GetComponent<FriendlyNPCClass>().DestroySelf();
+        Partner = Instantiate(PartnerMapper.partnerMap[PartnerID], partnerPosition, Quaternion.identity);
+    }
+
     public void Start()
     {
         GameDataTracker.spawnLastTransitionObject();
@@ -114,23 +125,28 @@ public class OverworldController : MonoBehaviour
         }
     }
 
+    public static void ChangePauseState()
+    {
+        if (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Paused)
+        {
+            GameDataTracker.gameMode = GameDataTracker.gameModePre;
+            PauseMenu.SetActive(false);
+        }
+        else
+        {
+            GameDataTracker.gameModePre = GameDataTracker.gameMode;
+            GameDataTracker.gameMode = GameDataTracker.gameModeOptions.Paused;
+            PauseMenu.SetActive(true);
+        }
+    }
+
     //-------------------------------------------------------------------------------------------------------------------------------------------
     public void Update()
     {
         //Pause and unpause game. ================
         if (controls.OverworldControls.Inventory.triggered && (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Mobile || GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Paused))
         {
-            if (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Paused)
-            {
-                GameDataTracker.gameMode = GameDataTracker.gameModePre;
-                PauseMenu.SetActive(false);
-            }
-            else
-            {
-                GameDataTracker.gameModePre = GameDataTracker.gameMode;
-                GameDataTracker.gameMode = GameDataTracker.gameModeOptions.Paused;
-                PauseMenu.SetActive(true);
-            }
+            ChangePauseState();
         }
         if (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Paused)
         {
@@ -182,6 +198,12 @@ public class OverworldController : MonoBehaviour
         {
             trackingCamera.GetComponent<CameraFollow>().trackingcameraY = newY;
         }
+    }
+
+    public void MorganMaterialReset()
+    {
+        Vector4 my_pos = new Vector4(0, -1000, 0, 1);
+        MorganMaterial.SetVector("TorchPosition", my_pos);
     }
 }
 

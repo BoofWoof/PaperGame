@@ -17,6 +17,7 @@ public class PartnerBaseScript : MonoBehaviour
     public bool travelingMeshLink = false;
     public GameControls controls;
     public OffMeshLinkMoveMethod method = OffMeshLinkMoveMethod.Parabola;
+    public bool exitSpin = false;
 
     private void Awake()
     {
@@ -34,13 +35,13 @@ public class PartnerBaseScript : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    virtual public void Start()
     {
         agent.updateRotation = false;
     }
 
     // Update is called once per frame
-    void Update()
+    virtual public void Update()
     {
         if (GameDataTracker.gameMode != GameDataTracker.gameModeOptions.Cutscene)
         {
@@ -57,8 +58,12 @@ public class PartnerBaseScript : MonoBehaviour
                 StartCoroutine(Parabola(agent, 3.0f, 1.5f));
         }
         Vector3 pos_change = OverworldController.Player.transform.position - transform.position;
-        if (pos_change.x > 0.2) GetComponent<SpriteFlipper>().setFacingRight();
-        if (pos_change.x < -0.2) GetComponent<SpriteFlipper>().setFacingLeft();
+        if (exitSpin) GetComponent<SpriteFlipper>().setSpecificGoal(90);
+        else
+        {
+            if (pos_change.x > 0.2) GetComponent<SpriteFlipper>().setFacingRight();
+            if (pos_change.x < -0.2) GetComponent<SpriteFlipper>().setFacingLeft();
+        }
     }
 
     IEnumerator Parabola(NavMeshAgent agent, float height, float duration)

@@ -40,6 +40,8 @@ public class FriendlyNPCClass : MonoBehaviour
     private float rotSpeed;
     public float rotSpeedMagnitude = 360;
 
+    private Character thisNPCCharacter;
+
     private void Awake()
     {
         controls = new GameControls();
@@ -63,7 +65,7 @@ public class FriendlyNPCClass : MonoBehaviour
         {
             print($"Name me! My ID is {this.GetInstanceID()}");
         }
-        Character thisNPCCharacter = new Character();
+        thisNPCCharacter = new Character();
         thisNPCCharacter.CharacterObject = gameObject;
         thisNPCCharacter.CharacterName = CharacterName;
         thisNPCCharacter.dialogueHeight = height + heightOverSpeaker;
@@ -73,6 +75,12 @@ public class FriendlyNPCClass : MonoBehaviour
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         agent.autoTraverseOffMeshLink = false;
         agent.updateRotation = false;
+    }
+
+    public void DestroySelf()
+    {
+        GameDataTracker.CharacterList.Remove(thisNPCCharacter);
+        Destroy(gameObject);
     }
 
     // Update is called once per frame

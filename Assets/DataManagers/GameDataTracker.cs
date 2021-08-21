@@ -215,17 +215,17 @@ public class PlayerData
     public List<string> events = new List<string>();
 
     //Companion Unlock
-    public int CurrentCompanion = 1; //0:None|1:AgentW|2:Fish|3:Morgan
+    public int CurrentCompanion = 3; //0:None|1:AgentW|2:Fish|3:Morgan
     public int CompanionMaxHealth = 10;
     public int CompanionDefenseModifier = 0;
     public int CompanionAttackModifier = 0;
-    public bool Werewolf = false;
+    public bool Werewolf = true;
     public int WerewolfHealth = 10;
     public bool Fish = false;
     public int FishHealth = 10;
     public bool Android = false;
     public int AndroidHealth = 10;
-    public bool Fae = false;
+    public bool Fae = true;
     public int FaeHealth = 10;
     public bool Artist = false;
     public int ArtistHealth = 10;

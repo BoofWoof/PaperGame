@@ -23,6 +23,13 @@ public class CharacterMenuScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+    }
+
+    public void SwitchPartner(int partner_id)
+    {
+        SwitchPartner sp = ScriptableObject.CreateInstance<SwitchPartner>();
+        sp.partner_id = partner_id;
+        CutsceneController.addCutsceneEvent(sp, gameObject, true, GameDataTracker.gameModeOptions.Mobile);
+        OverworldController.ChangePauseState();
     }
 }
