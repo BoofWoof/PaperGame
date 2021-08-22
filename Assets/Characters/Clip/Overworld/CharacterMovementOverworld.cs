@@ -8,11 +8,6 @@ public class CharacterMovementOverworld : MonoBehaviour
 {
     GameControls controls;
 
-    //Character info
-    public float height;
-    public float width;
-    public float length;
-
     //Character rates.
     public float speed = 3f;
     public float gravity = -30.0f;
@@ -26,13 +21,10 @@ public class CharacterMovementOverworld : MonoBehaviour
     public GameObject sprite;
 
     //Rotation variables
-    private float rotated = 0.0f;
-    private float prev_rotated = 0.0f;
-    public float rotSpeedMagnitude = 20;
-    private float rotSpeed;
-    public float goal = 0.0f;
+    private SpriteFlipper spriteFlipper;
 
     //Stage Fall and Jump Variables
+    private float prevY;
     private Vector3 lastground;
     private bool jumped = false;
 
@@ -45,6 +37,11 @@ public class CharacterMovementOverworld : MonoBehaviour
     public bool stopOnCutscene = true;
 
     //HitscanVariables
+    private float height;
+    private float width;
+    private float length;
+    public LayerMask ignoreLayer;
+    public float maxStepSize = 0.1f;
     private int scanWidthCount = 3;
     private int scanLengthCount = 3;
     private int scanHeightCount = 3;
@@ -69,18 +66,18 @@ public class CharacterMovementOverworld : MonoBehaviour
 
     void Start()
     {
+        prevY = transform.position.y;
+        spriteFlipper = GetComponent<SpriteFlipper>();
         OverworldController.Player = gameObject;
         bc = GetComponent<BoxCollider>();
-        rb = GetComponent<Rigidbody>();
-        rotSpeed = rotSpeedMagnitude;
         spriteAnimate = sprite.GetComponent<Animator>();
 
-        width = bc.size.x - 0.05f;
-        height = bc.size.y;
-        length = bc.size.z - 0.05f;
-        scanWidthSize = width/(scanWidthCount-1);
-        scanLengthSize = length/(scanLengthCount-1);
-        scanHeightSize = height/(scanHeightCount-1);
+        width = bc.size.x;
+        height = bc.size.y - maxStepSize;
+        length = bc.size.z;
+        scanWidthSize = width/ (float)(scanWidthCount-1);
+        scanLengthSize = length/ (float)(scanLengthCount-1);
+        scanHeightSize = height/ (float)(scanHeightCount-1);
 
         groundPlayer();
         lastground = transform.position;
@@ -89,6 +86,10 @@ public class CharacterMovementOverworld : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool movingDown = false;
+        float yDelta = transform.position.y - prevY;
+        if (yDelta < 0) movingDown = true;
+        prevY = transform.position.y;
         if(GameDataTracker.gameMode != GameDataTracker.gameModeOptions.Cutscene)
         {
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
@@ -96,66 +97,67 @@ public class CharacterMovementOverworld : MonoBehaviour
         }
         //Check if grounded--------------------
         //Check at two different spots to make sure.
-        bool isGrounded = false;
+        bool hitGround = false;
         RaycastHit hit;
         RaycastHit besthit;
         float closestCast = 10000.0f;
-        float normalCast = 360.0f;
-        Physics.Raycast(transform.position + new Vector3(-width / 2, -height / 2 + 0.1f, -length / 2), -Vector3.up, out besthit);
+        //GroundScan
         for (int i = 0; i < scanWidthCount; i++)
         {
-            for(int j = 0; j < scanLengthCount; j++)
+            for (int j = 0; j < scanLengthCount; j++)
             {
-                Physics.Raycast(transform.position + new Vector3(-width/2 + i*scanWidthSize, -height/2 + 0.1f, -length/2 + j*scanLengthSize), -Vector3.up, out hit);
-                normalCast = new Vector3(hit.normal.x, 0, hit.normal.z).magnitude;
-                if ((closestCast > hit.distance) && (hit.distance > 0) && (normalCast < 0.1))
+                Vector3 rayOrgin = transform.position + new Vector3(-width / 2f + i * scanWidthSize, -height/2f + maxStepSize - 0.048f, -length / 2f + j * scanLengthSize);
+                if(Physics.Raycast(rayOrgin, -Vector3.up, out hit, 2f, ~ignoreLayer))
                 {
-                    closestCast = hit.distance;
-                    besthit = hit;
+                    Vector3 down = transform.TransformDirection(Vector3.down) * 2;
+                    Debug.DrawRay(rayOrgin, down, Color.green);
+                    int layer = hit.collider.gameObject.layer;
+                    if (layer == 6)
+                    {
+                        if (checkAppearTorches(hit.point)) continue;
+                    }
+                    //7 is the disappear layer.
+                    if (layer == 7)
+                    {
+                        if (checkDisapearTorches(hit.point)) continue;
+                    }
+                    if ((closestCast > hit.distance) && (hit.distance > 0))
+                    {
+                        closestCast = hit.distance;
+                        besthit = hit;
+                    }
                 }
             }
         }
-        if (closestCast <= 0.16f)
+        if (closestCast <= 0.2f + Mathf.Abs(yDelta))
         {
-            isGrounded = true;
+            hitGround = true;
         }
-
-        //JUMP START------------------------------
-        if (isGrounded == true)
+        //UPDATE FALL------------------------------
+        if (hitGround == true)
         {
-            groundPlayerRaycast(besthit);
-            jumped = false;
-            jump = 0;
-            lastground = transform.position;
-            spriteAnimate.SetTrigger("Land");
-            OverworldController.updateTrackingCameraY(transform.position.y);
+            if (movingDown)
+            {
+                groundPlayerRaycast(closestCast);
+                jumped = false;
+                jump = 0;
+                lastground = transform.position;
+                spriteAnimate.SetTrigger("Land");
+                OverworldController.updateTrackingCameraY(transform.position.y);
+            }
         }
         else
         {
             spriteAnimate.SetTrigger("Jump");
-            if ((rb.velocity.y < 0))
+            if (controls.OverworldControls.MainAction.phase == UnityEngine.InputSystem.InputActionPhase.Performed)
             {
-                jump = jump + (gravity * 1.5f * Time.deltaTime);
+                jump = jump + (gravity * Time.deltaTime);
             } else
             {
-                if (controls.OverworldControls.MainAction.phase == UnityEngine.InputSystem.InputActionPhase.Performed)
-                {
-                    jump = jump + (gravity * Time.deltaTime);
-                } else
-                {
-                    jump = jump + (gravity * 2.5f * Time.deltaTime);
-                };
+                jump = jump + (gravity * 2.5f * Time.deltaTime);
             }
         }
-        //POSITION RESET IF FALLEN START---------------------------
-        /*
-        if (bc.transform.position.y < -5)
-        {
-            jump = 0;
-            bc.Move(new Vector3(lastground.x - bc.transform.position.x, lastground.y - bc.transform.position.y, lastground.z - bc.transform.position.z));
-        }
-        */
-        //POSITION RESET IF FALLEN END---------------------------
+        //JUMP---------------------------------
         if (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Mobile)
         {
             if (jumped == false)
@@ -166,12 +168,6 @@ public class CharacterMovementOverworld : MonoBehaviour
                 }
             }
         }
-        if ((GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Cutscene || GameDataTracker.gameMode == GameDataTracker.gameModeOptions.MobileCutscene) && jump > 0)
-        {
-            groundPlayer();
-            isGrounded = true;
-            jump = 0;
-        }
         //MOVEMENT START---------------------------------------------------------------------------------
         if (GameDataTracker.gameMode != GameDataTracker.gameModeOptions.Cutscene)
         {
@@ -179,7 +175,7 @@ public class CharacterMovementOverworld : MonoBehaviour
             moveHorizontal = thumbstick_values[0];
             moveVertical = thumbstick_values[1];
         }
-        else if (stopOnCutscene)
+        else
         {
             moveHorizontal = 0;
             moveVertical = 0;
@@ -192,11 +188,23 @@ public class CharacterMovementOverworld : MonoBehaviour
         {
             for (int j = 0; j < scanHeightCount; j++)
             {
-                Physics.Raycast(transform.position + new Vector3(-width / 2 + i * scanWidthSize, -(height - 0.05f) / 2 + j * scanHeightSize, 0), new Vector3(0, 0, movement.z), out hit);
-                normalCast = new Vector3(hit.normal.x, 0, hit.normal.z).magnitude;
-                if ((closestCast > hit.distance) && (hit.distance > 0) && (hit.transform.tag == "Environment"))
+                Vector3 rayOrgin = transform.position + new Vector3(-width / 2f + i * scanWidthSize, -height / 2f + maxStepSize - 0.048f + j * scanHeightSize, 0);
+                if(Physics.Raycast(rayOrgin, new Vector3(0, 0, movement.z), out hit, 2f, ~ignoreLayer))
                 {
-                    closestCast = hit.distance;
+                    Debug.DrawRay(rayOrgin, new Vector3(0, 0, movement.z) * 10f, Color.red);
+                    int layer = hit.collider.gameObject.layer;
+                    //8 is the appear layer.
+                    if (layer == 6){
+                        if (checkAppearTorches(hit.point)) continue;
+                    }
+                    //7 is the disappear layer.
+                    if (layer == 7) {
+                        if (checkDisapearTorches(hit.point)) continue;
+                    } 
+                    if ((closestCast > hit.distance) && (hit.distance > 0))
+                    {
+                        closestCast = hit.distance;
+                    }
                 }
             }
         }
@@ -210,11 +218,25 @@ public class CharacterMovementOverworld : MonoBehaviour
         {
             for (int k = 0; k < scanLengthCount; k++)
             {
-                Physics.Raycast(transform.position + new Vector3(0, -(height - 0.05f) / 2 + j * scanHeightSize, -length/2 + k*scanLengthSize), new Vector3(movement.x, 0, 0), out hit);
-                normalCast = new Vector3(hit.normal.x, 0, hit.normal.z).magnitude;
-                if ((closestCast > hit.distance) && (hit.distance > 0) && (hit.transform.tag == "Environment"))
+                Vector3 rayOrgin = transform.position + new Vector3(0, -height / 2f + maxStepSize - 0.048f + j * scanHeightSize, -length / 2f + k * scanLengthSize);
+                if(Physics.Raycast(rayOrgin, new Vector3(movement.x, 0, 0), out hit, 2f, ~ignoreLayer))
                 {
-                    closestCast = hit.distance;
+                    Debug.DrawRay(rayOrgin, new Vector3(movement.x, 0, 0) * 10f, Color.blue);
+                    int layer = hit.collider.gameObject.layer;
+                    //8 is the appear layer.
+                    if (layer == 6)
+                    {
+                        if (checkAppearTorches(hit.point)) continue;
+                    }
+                    //7 is the disappear layer.
+                    if (layer == 7)
+                    {
+                        if (checkDisapearTorches(hit.point)) continue;
+                    }
+                    if ((closestCast > hit.distance) && (hit.distance > 0))
+                    {
+                        closestCast = hit.distance;
+                    }
                 }
             }
         }
@@ -225,12 +247,6 @@ public class CharacterMovementOverworld : MonoBehaviour
 
         movement += new Vector3(0, jump * Time.deltaTime, 0);
         transform.Translate(movement);
-        if(transform.position.y > (lastground.y + maxJumpHeight))
-        {
-            transform.position = new Vector3(transform.position.x, lastground.y + maxJumpHeight, transform.position.z);
-        }
-        rb.angularVelocity = Vector3.zero;
-        rb.velocity = Vector3.zero;
         transform.rotation = Quaternion.identity;
 
         if ((moveVertical != 0) || (moveHorizontal != 0))
@@ -246,46 +262,40 @@ public class CharacterMovementOverworld : MonoBehaviour
         //SetRotationGoals=================================================================================
         if ((moveHorizontal > 0))
         {
-            goal = 180;
+            spriteFlipper.setFacingRight();
         }
         if ((moveHorizontal < 0))
         {
-            goal = 0;
+            spriteFlipper.setFacingLeft();
         }
-
-        //SPRITE ROTATION START-------------------------------------------------------------------------
-        if ((goal > rotated))
-        {
-            rotSpeed = rotSpeedMagnitude * Time.deltaTime;
-            sprite.transform.Rotate(0, rotSpeed, 0);
-            rotated = rotated + rotSpeed;
-        }
-        if ((goal < rotated))
-        {
-            rotSpeed = -rotSpeedMagnitude * Time.deltaTime;
-            sprite.transform.Rotate(0, rotSpeed, 0);
-            rotated = rotated + rotSpeed;
-        }
-        if ((rotated <= 90) && (prev_rotated > 90))
-        {
-            sprite.transform.Rotate(0, -180, 0);
-        }
-        if ((rotated >= 90) && (prev_rotated < 90))
-        {
-            sprite.transform.Rotate(0, 180, 0);
-        }
-        Vector3 currentScale = sprite.transform.localScale;
-        if (rotated < 90)
-        {
-            sprite.transform.localScale = new Vector3(Mathf.Abs(currentScale.x), currentScale.y, currentScale.z);
-        }
-        if (rotated > 90)
-        {
-            sprite.transform.localScale = new Vector3(-Mathf.Abs(currentScale.x), currentScale.y, currentScale.z);
-        }
-        prev_rotated = rotated;
-        //SPRITE ROTATION END------------------------------------------------------------------
+        /*
+        */
     }
+
+    public bool checkDisapearTorches(Vector3 position)
+    {
+        foreach (MorganTorchScript torchScript in OverworldController.AllMorganTorches)
+        {
+            if (Vector3.Distance(torchScript.transform.position, position) < torchScript.LightRangeCurrent - 0.2f)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public bool checkAppearTorches(Vector3 position)
+    {
+        foreach (MorganTorchScript torchScript in OverworldController.AllMorganTorches)
+        {
+            if (Vector3.Distance(torchScript.transform.position, position) < torchScript.LightRangeCurrent - 0.2f)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void groundPlayer()
     {
         RaycastHit hit;
@@ -294,8 +304,8 @@ public class CharacterMovementOverworld : MonoBehaviour
             transform.position = hit.point + new Vector3(0, height/2 + 0.05f, 0);
         }
     }
-    public void groundPlayerRaycast(RaycastHit hit)
+    public void groundPlayerRaycast(float closestCast)
     {
-        transform.position =  new Vector3(transform.position.x, hit.point.y + height / 2 + 0.05f, transform.position.z);
+        transform.position += new Vector3(0, maxStepSize - closestCast, 0);
     }
 }

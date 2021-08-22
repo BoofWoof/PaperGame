@@ -166,11 +166,11 @@ public class FriendlyNPCClass : MonoBehaviour
                     Activated();
                     if ((Player.transform.position.x > this.transform.position.x + 0.2f))
                     {
-                        Player.GetComponent<CharacterMovementOverworld>().goal = 0;
+                        Player.GetComponent<CharacterMovementOverworld>().GetComponent<SpriteFlipper>().setFacingLeft();
                     }
                     if ((Player.transform.position.x < this.transform.position.x - 0.2f))
                     {
-                        Player.GetComponent<CharacterMovementOverworld>().goal = 180;
+                        Player.GetComponent<CharacterMovementOverworld>().GetComponent<SpriteFlipper>().setFacingRight();
                     }
                 }
             }

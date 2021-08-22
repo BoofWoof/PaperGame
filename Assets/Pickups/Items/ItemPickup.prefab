@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 650243431984795216}
   - component: {fileID: 650243431984795217}
   - component: {fileID: 8357705242988494187}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ItemPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,6 +50,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -133,7 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7039387122950420570}
   - component: {fileID: 5113192302954097977}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,9 +171,12 @@ MonoBehaviour:
   m_Material: {fileID: 2100000, guid: 9f74bda222625f4488e23a94edd9fea0, type: 2}
   m_DrawDistance: 1000
   m_FadeScale: 1
+  m_StartAngleFade: 180
+  m_EndAngleFade: 180
   m_UVScale: {x: 1, y: 1}
   m_UVBias: {x: 0, y: 0}
   m_AffectsTransparency: 0
+  m_DecalLayerMask: 1
   m_Offset: {x: 0, y: 0, z: 1.7225882}
   m_Size: {x: 0.5, y: 0.35, z: 0.64}
   m_FadeFactor: 1

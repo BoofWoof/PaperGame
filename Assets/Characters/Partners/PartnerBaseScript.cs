@@ -58,7 +58,11 @@ public class PartnerBaseScript : MonoBehaviour
                 StartCoroutine(Parabola(agent, 3.0f, 1.5f));
         }
         Vector3 pos_change = OverworldController.Player.transform.position - transform.position;
-        if (exitSpin) GetComponent<SpriteFlipper>().setSpecificGoal(90);
+        if (exitSpin)
+        {
+            CleanupAbility();
+            GetComponent<SpriteFlipper>().setSpecificGoal(90);
+        }
         else
         {
             if (pos_change.x > 0.2) GetComponent<SpriteFlipper>().setFacingRight();
@@ -89,6 +93,11 @@ public class PartnerBaseScript : MonoBehaviour
     }
 
     virtual public void UseAbility()
+    {
+
+    }
+
+    virtual public void CleanupAbility()
     {
 
     }

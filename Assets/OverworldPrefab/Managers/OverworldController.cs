@@ -24,9 +24,7 @@ public class OverworldController : MonoBehaviour
     
     public static DialogueContainer AreaInfo;
     public DialogueContainer AreaInfoInput;
-
-    //ResetMaterial
-    public Material MorganMaterial;
+    public static List<MorganTorchScript> AllMorganTorches;
 
 
     private void OnEnable()
@@ -41,6 +39,7 @@ public class OverworldController : MonoBehaviour
 
     public void Awake()
     {
+        AllMorganTorches = new List<MorganTorchScript>();
         MorganMaterialReset();
         AreaInfo = AreaInfoInput;
         controls = new GameControls();
@@ -202,8 +201,8 @@ public class OverworldController : MonoBehaviour
 
     public void MorganMaterialReset()
     {
-        Vector4 my_pos = new Vector4(0, -1000, 0, 1);
-        MorganMaterial.SetVector("TorchPosition", my_pos);
+        Shader.SetGlobalFloat("_DisappearDistance", 0);
+        Shader.SetGlobalFloat("_ExtraTorch1DisappearDistance", 0);
     }
 }
 

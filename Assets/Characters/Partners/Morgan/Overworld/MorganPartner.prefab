@@ -75,7 +75,12 @@ MonoBehaviour:
   method: 2
   exitSpin: 0
   AbilityOn: 0
-  MorganMaterial: {fileID: 2100000, guid: 0dc0cf1b93ab0604db9c0a4df461a8ef, type: 2}
+  Count: 0
+  CountPeriod: 3
+  BaseSpread: 1.5
+  SpreadVariance: 0.1
+  LightRangeMax: 2
+  LightRangeGrowthRate: 4
 --- !u!1001 &2391515441278665245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -83,6 +88,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 173625268229594918}
     m_Modifications:
+    - target: {fileID: 1085157379116848362, guid: 20ae95057e1bdc340a5a1ab436f411ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085157379354146088, guid: 20ae95057e1bdc340a5a1ab436f411ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085157379616194015, guid: 20ae95057e1bdc340a5a1ab436f411ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1085157379728176082, guid: 20ae95057e1bdc340a5a1ab436f411ec,
         type: 3}
       propertyPath: m_RootOrder
@@ -143,6 +163,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: MorganLeFei
       objectReference: {fileID: 0}
+    - target: {fileID: 1085157379728176084, guid: 20ae95057e1bdc340a5a1ab436f411ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085157380219111712, guid: 20ae95057e1bdc340a5a1ab436f411ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085157380475605921, guid: 20ae95057e1bdc340a5a1ab436f411ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085157380528708622, guid: 20ae95057e1bdc340a5a1ab436f411ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085157380773587821, guid: 20ae95057e1bdc340a5a1ab436f411ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2645331704046187132, guid: 20ae95057e1bdc340a5a1ab436f411ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20ae95057e1bdc340a5a1ab436f411ec, type: 3}
 --- !u!1 &3332415770160378313 stripped
@@ -162,6 +212,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MorganPartner
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723152792568752939, guid: f16f9acaf50dae248b32d4c255c89716,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6615351658873140009, guid: f16f9acaf50dae248b32d4c255c89716,
         type: 3}
