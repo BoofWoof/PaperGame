@@ -30,6 +30,7 @@ public class CharacterMovementOverworld : MonoBehaviour
 
     //AnimationInfo
     private Animator spriteAnimate;
+    private bool hittingWithStick = false;
 
     //MoveDirection
     public float moveHorizontal = 0;
@@ -37,6 +38,8 @@ public class CharacterMovementOverworld : MonoBehaviour
     public bool stopOnCutscene = true;
 
     //HitscanVariables
+    private Vector2 hitDirection;
+    private Vector2 lastNonZeroDirection;
     private float height;
     private float width;
     private float length;
@@ -66,6 +69,7 @@ public class CharacterMovementOverworld : MonoBehaviour
 
     void Start()
     {
+        lastNonZeroDirection = new Vector2(-1, 0);
         prevY = transform.position.y;
         spriteFlipper = GetComponent<SpriteFlipper>();
         OverworldController.Player = gameObject;
@@ -145,6 +149,12 @@ public class CharacterMovementOverworld : MonoBehaviour
                 spriteAnimate.SetTrigger("Land");
                 OverworldController.updateTrackingCameraY(transform.position.y);
             }
+            if (controls.OverworldControls.SecondaryAction.triggered)
+            {
+                hitDirection = controls.OverworldControls.Movement.ReadValue<Vector2>();
+                spriteAnimate.SetTrigger("StickHit");
+                StartCoroutine(HitWithStick(hitDirection));
+            }
         }
         else
         {
@@ -169,17 +179,18 @@ public class CharacterMovementOverworld : MonoBehaviour
             }
         }
         //MOVEMENT START---------------------------------------------------------------------------------
-        if (GameDataTracker.gameMode != GameDataTracker.gameModeOptions.Cutscene)
+        if (GameDataTracker.gameMode != GameDataTracker.gameModeOptions.Cutscene && !spriteAnimate.GetCurrentAnimatorStateInfo(0).IsName("ClipSmack"))
         {
-            Vector2 thumbstick_values = controls.OverworldControls.Movement.ReadValue<Vector2>();
-            moveHorizontal = thumbstick_values[0];
-            moveVertical = thumbstick_values[1];
+            Vector2 stickPosition = controls.OverworldControls.Movement.ReadValue<Vector2>();
+            moveHorizontal = stickPosition[0];
+            moveVertical = stickPosition[1];
         }
         else
         {
             moveHorizontal = 0;
             moveVertical = 0;
         }
+        if(moveHorizontal != 0 || moveVertical != 0) lastNonZeroDirection = new Vector2(moveHorizontal, moveVertical);
         Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
         movement = movement * Time.deltaTime * speed;
 
@@ -307,5 +318,20 @@ public class CharacterMovementOverworld : MonoBehaviour
     public void groundPlayerRaycast(float closestCast)
     {
         transform.position += new Vector3(0, maxStepSize - closestCast, 0);
+    }
+
+    IEnumerator HitWithStick(Vector2 hitDirection)
+    {
+        yield return new WaitForSeconds(0.25f);
+        if(hitDirection == Vector2.zero) hitDirection = lastNonZeroDirection;
+        if (spriteAnimate.GetCurrentAnimatorStateInfo(0).IsName("ClipSmack"))
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, new Vector3(hitDirection.x, 0, hitDirection.y), out hit, 0.75f))
+            {
+                DestructionScript dScript = hit.collider.gameObject.GetComponent<DestructionScript>();
+                if (dScript != null) dScript.BreakObject();
+            }
+        }
     }
 }

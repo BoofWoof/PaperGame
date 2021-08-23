@@ -15,6 +15,7 @@ public class MorganTorchScript : MonoBehaviour
     public float LightRangeCurrent = 0f;
     public float LightRangeGrowthRate = 2f;
     private bool SwitchingState = false;
+    public GameObject DistanceSource;
     
     private void Awake()
     {
@@ -44,7 +45,7 @@ public class MorganTorchScript : MonoBehaviour
     {
         if (controls.OverworldControls.PartnerAction.triggered && !SwitchingState)
         {
-            if(Vector3.Distance(transform.position, OverworldController.Player.transform.position) < Activation_Distance)
+            if(Vector3.Distance(DistanceSource.transform.position, OverworldController.Player.transform.position) < Activation_Distance)
             {
                 TorchOn = !TorchOn;
                 if (TorchOn)

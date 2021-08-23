@@ -595,6 +595,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneTransfer (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4394190593453130773, guid: 4d444078a614fb24fafb362ceb0f2a1f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d444078a614fb24fafb362ceb0f2a1f, type: 3}
 --- !u!1 &173857971 stripped
@@ -843,6 +848,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SceneTransfer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394190593453130773, guid: 4d444078a614fb24fafb362ceb0f2a1f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d444078a614fb24fafb362ceb0f2a1f, type: 3}

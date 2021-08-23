@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6436934994925767781}
   - component: {fileID: 6434764194775373422}
   - component: {fileID: 6100486210798427351}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: OverworldCrabCrate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,10 +69,55 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6436934994925767781}
     m_Modifications:
+    - target: {fileID: 7570738919566573570, guid: 7b458460065e1594883e2b770a9981f5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570738919648166153, guid: 7b458460065e1594883e2b770a9981f5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570738919656426543, guid: 7b458460065e1594883e2b770a9981f5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570738919840722878, guid: 7b458460065e1594883e2b770a9981f5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570738919872613629, guid: 7b458460065e1594883e2b770a9981f5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570738920455134124, guid: 7b458460065e1594883e2b770a9981f5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570738920473874157, guid: 7b458460065e1594883e2b770a9981f5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570738920479580964, guid: 7b458460065e1594883e2b770a9981f5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7570738920764068385, guid: 7b458460065e1594883e2b770a9981f5,
         type: 3}
       propertyPath: m_Name
       value: CrabCrate
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570738920764068385, guid: 7b458460065e1594883e2b770a9981f5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7570738920764068399, guid: 7b458460065e1594883e2b770a9981f5,
         type: 3}
@@ -128,6 +173,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570738920852443370, guid: 7b458460065e1594883e2b770a9981f5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570738921055184269, guid: 7b458460065e1594883e2b770a9981f5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570738921130706667, guid: 7b458460065e1594883e2b770a9981f5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570738921160760982, guid: 7b458460065e1594883e2b770a9981f5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570738921170342922, guid: 7b458460065e1594883e2b770a9981f5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b458460065e1594883e2b770a9981f5, type: 3}
