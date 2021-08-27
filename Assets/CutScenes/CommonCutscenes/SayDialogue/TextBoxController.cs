@@ -281,12 +281,16 @@ public class TextBoxController : MonoBehaviour
 
     public void SampleAudioFromList(AudioClip[] audioClips)
     {
-        if(audioClips.Length > 0)
+        if(audioClips != null)
         {
-            int index = Random.Range(0, audioClips.Length);
-            next_letter_noise = audioClips[index];
-            next_letters_per_noise = letters_per_noise_list[index];
-        } else next_letter_noise = null;
+            if (audioClips.Length > 0)
+            {
+                int index = Random.Range(0, audioClips.Length);
+                next_letter_noise = audioClips[index];
+                next_letters_per_noise = letters_per_noise_list[index];
+            }
+            else next_letter_noise = null;
+        }
     }
 
     void AnimateString()

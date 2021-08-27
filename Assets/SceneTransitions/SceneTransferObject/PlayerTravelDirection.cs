@@ -15,7 +15,7 @@ public class PlayerTravelDirection : CutSceneClass
     {
         base.Activate();
         CharacterMovementOverworld PlayerController = parent.GetComponent<CharacterMovementOverworld>();
-        PlayerController.stopOnCutscene = false;
+        PlayerController.movementLock = true;
         if (travelDirection == SceneMover.exitDirectionOptions.down)
         {
             PlayerController.moveHorizontal = 0;
@@ -52,8 +52,8 @@ public class PlayerTravelDirection : CutSceneClass
                 if (PlayerPosition.z < endPosition.z)
                 {
                     PlayerController.moveHorizontal = 0;
-                    PlayerController.moveHorizontal = 0;
-                    PlayerController.stopOnCutscene = true;
+                    PlayerController.moveVertical = 0;
+                    PlayerController.movementLock = false;
                     return true;
                 }
             }
@@ -62,8 +62,8 @@ public class PlayerTravelDirection : CutSceneClass
                 if (PlayerPosition.x < endPosition.x)
                 {
                     PlayerController.moveHorizontal = 0;
-                    PlayerController.moveHorizontal = 0;
-                    PlayerController.stopOnCutscene = true;
+                    PlayerController.moveVertical = 0;
+                    PlayerController.movementLock = false;
                     return true;
                 }
             }
@@ -72,8 +72,8 @@ public class PlayerTravelDirection : CutSceneClass
                 if (PlayerPosition.x > endPosition.x)
                 {
                     PlayerController.moveHorizontal = 0;
-                    PlayerController.moveHorizontal = 0;
-                    PlayerController.stopOnCutscene = true;
+                    PlayerController.moveVertical = 0;
+                    PlayerController.movementLock = false;
                     return true;
                 }
             }
@@ -82,8 +82,8 @@ public class PlayerTravelDirection : CutSceneClass
                 if (PlayerPosition.z > endPosition.z)
                 {
                     PlayerController.moveHorizontal = 0;
-                    PlayerController.moveHorizontal = 0;
-                    PlayerController.stopOnCutscene = true;
+                    PlayerController.moveVertical = 0;
+                    PlayerController.movementLock = false;
                     return true;
                 }
             }

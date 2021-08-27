@@ -29,17 +29,19 @@ public class CharacterMovementOverworld : MonoBehaviour
     private bool jumped = false;
 
     //AnimationInfo
-    private Animator spriteAnimate;
+    public Animator spriteAnimate;
     private bool hittingWithStick = false;
 
     //MoveDirection
     public float moveHorizontal = 0;
     public float moveVertical = 0;
-    public bool stopOnCutscene = true;
+    public bool movementLock = false;
 
     //HitscanVariables
     private Vector2 hitDirection;
+    public float explosionHitRadius = 2.0f;
     private Vector2 lastNonZeroDirection;
+    private float full_height;
     private float height;
     private float width;
     private float length;
@@ -51,6 +53,8 @@ public class CharacterMovementOverworld : MonoBehaviour
     private float scanWidthSize;
     private float scanLengthSize;
     private float scanHeightSize;
+
+    public bool DebugDisable = false;
 
     void Awake()
     {
@@ -74,14 +78,14 @@ public class CharacterMovementOverworld : MonoBehaviour
         spriteFlipper = GetComponent<SpriteFlipper>();
         OverworldController.Player = gameObject;
         bc = GetComponent<BoxCollider>();
-        spriteAnimate = sprite.GetComponent<Animator>();
 
-        width = bc.size.x;
-        height = bc.size.y - maxStepSize;
-        length = bc.size.z;
-        scanWidthSize = width/ (float)(scanWidthCount-1);
-        scanLengthSize = length/ (float)(scanLengthCount-1);
-        scanHeightSize = height/ (float)(scanHeightCount-1);
+        width = bc.bounds.size.x;
+        full_height = bc.bounds.size.y;
+        height = bc.bounds.size.y - maxStepSize;
+        length = bc.bounds.size.z;
+        scanWidthSize = width/ (float)(scanWidthCount-1f);
+        scanLengthSize = length/ (float)(scanLengthCount-1f);
+        scanHeightSize = height/ (float)(scanHeightCount-1f);
 
         groundPlayer();
         lastground = transform.position;
@@ -103,18 +107,31 @@ public class CharacterMovementOverworld : MonoBehaviour
         //Check at two different spots to make sure.
         bool hitGround = false;
         RaycastHit hit;
-        RaycastHit besthit;
+        GameObject bestObject = null;
+        Vector3 hitPoint = Vector3.zero;
+        float bestHitHeight = 0;
         float closestCast = 10000.0f;
+
+        float next_jump;
+        //Update jump and check if you will collide.
+        if (controls.OverworldControls.MainAction.phase == UnityEngine.InputSystem.InputActionPhase.Performed)
+        {
+            next_jump = jump + (gravity * Time.deltaTime);
+        }
+        else
+        {
+            next_jump = jump + (gravity * 2.5f * Time.deltaTime);
+        }
+        float maxPossibleVerticleDistance = 0.05f + maxStepSize + Time.deltaTime * Mathf.Abs(next_jump);
         //GroundScan
         for (int i = 0; i < scanWidthCount; i++)
         {
             for (int j = 0; j < scanLengthCount; j++)
             {
-                Vector3 rayOrgin = transform.position + new Vector3(-width / 2f + i * scanWidthSize, -height/2f + maxStepSize - 0.048f, -length / 2f + j * scanLengthSize);
-                if(Physics.Raycast(rayOrgin, -Vector3.up, out hit, 2f, ~ignoreLayer))
+                Vector3 rayOrgin = transform.position + new Vector3(-width / 2f + i * scanWidthSize, -full_height / 2f + maxStepSize, -length / 2f + j * scanLengthSize);
+                if(Physics.Raycast(rayOrgin, Vector3.down, out hit, maxPossibleVerticleDistance, ~ignoreLayer))
                 {
-                    Vector3 down = transform.TransformDirection(Vector3.down) * 2;
-                    Debug.DrawRay(rayOrgin, down, Color.green);
+                    Debug.DrawRay(rayOrgin, Vector3.down * maxPossibleVerticleDistance, Color.green);
                     int layer = hit.collider.gameObject.layer;
                     if (layer == 6)
                     {
@@ -128,26 +145,29 @@ public class CharacterMovementOverworld : MonoBehaviour
                     if ((closestCast > hit.distance) && (hit.distance > 0))
                     {
                         closestCast = hit.distance;
-                        besthit = hit;
+                        bestHitHeight = hit.point.y;
+                        bestObject = hit.collider.gameObject;
+                        hitPoint = hit.point;
                     }
                 }
             }
         }
-        if (closestCast <= 0.2f + Mathf.Abs(yDelta))
+        Debug.DrawRay(hitPoint, new Vector3(0, width/2f, 0), Color.red);
+        if (closestCast <= maxPossibleVerticleDistance)
         {
             hitGround = true;
         }
         //UPDATE FALL------------------------------
         if (hitGround == true)
         {
-            if (movingDown)
+            spriteAnimate.SetTrigger("Land");
+            if (movingDown && transform.parent == null)
             {
-                groundPlayerRaycast(closestCast);
+                groundPlayerRaycast(bestHitHeight);
                 jumped = false;
                 jump = 0;
                 lastground = transform.position;
-                spriteAnimate.SetTrigger("Land");
-                OverworldController.updateTrackingCameraY(transform.position.y);
+                if (bestObject.tag == "MovingObject") transform.parent = bestObject.transform;
             }
             if (controls.OverworldControls.SecondaryAction.triggered)
             {
@@ -155,17 +175,20 @@ public class CharacterMovementOverworld : MonoBehaviour
                 spriteAnimate.SetTrigger("StickHit");
                 StartCoroutine(HitWithStick(hitDirection));
             }
+            if (jump == 0)
+            {
+                if (closestCast < maxStepSize && transform.parent == null)
+                {
+                    groundPlayerRaycast(bestHitHeight);
+                }
+                OverworldController.updateTrackingCameraY(transform.position.y);
+            } 
         }
         else
         {
+            jump = next_jump;
+            transform.parent = null;
             spriteAnimate.SetTrigger("Jump");
-            if (controls.OverworldControls.MainAction.phase == UnityEngine.InputSystem.InputActionPhase.Performed)
-            {
-                jump = jump + (gravity * Time.deltaTime);
-            } else
-            {
-                jump = jump + (gravity * 2.5f * Time.deltaTime);
-            }
         }
         //JUMP---------------------------------
         if (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Mobile)
@@ -179,16 +202,19 @@ public class CharacterMovementOverworld : MonoBehaviour
             }
         }
         //MOVEMENT START---------------------------------------------------------------------------------
-        if (GameDataTracker.gameMode != GameDataTracker.gameModeOptions.Cutscene && !spriteAnimate.GetCurrentAnimatorStateInfo(0).IsName("ClipSmack"))
+        if (!movementLock)
         {
-            Vector2 stickPosition = controls.OverworldControls.Movement.ReadValue<Vector2>();
-            moveHorizontal = stickPosition[0];
-            moveVertical = stickPosition[1];
-        }
-        else
-        {
-            moveHorizontal = 0;
-            moveVertical = 0;
+            if (GameDataTracker.gameMode != GameDataTracker.gameModeOptions.Cutscene && !spriteAnimate.GetCurrentAnimatorStateInfo(0).IsName("ClipSmack"))
+            {
+                Vector2 stickPosition = controls.OverworldControls.Movement.ReadValue<Vector2>();
+                moveHorizontal = stickPosition[0];
+                moveVertical = stickPosition[1];
+            }
+            else
+            {
+                moveHorizontal = 0;
+                moveVertical = 0;
+            }
         }
         if(moveHorizontal != 0 || moveVertical != 0) lastNonZeroDirection = new Vector2(moveHorizontal, moveVertical);
         Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
@@ -199,7 +225,7 @@ public class CharacterMovementOverworld : MonoBehaviour
         {
             for (int j = 0; j < scanHeightCount; j++)
             {
-                Vector3 rayOrgin = transform.position + new Vector3(-width / 2f + i * scanWidthSize, -height / 2f + maxStepSize - 0.048f + j * scanHeightSize, 0);
+                Vector3 rayOrgin = transform.position + new Vector3(-width / 2f + i * scanWidthSize, -full_height / 2f + maxStepSize + j * scanHeightSize, 0);
                 if(Physics.Raycast(rayOrgin, new Vector3(0, 0, movement.z), out hit, 2f, ~ignoreLayer))
                 {
                     Debug.DrawRay(rayOrgin, new Vector3(0, 0, movement.z) * 10f, Color.red);
@@ -229,7 +255,7 @@ public class CharacterMovementOverworld : MonoBehaviour
         {
             for (int k = 0; k < scanLengthCount; k++)
             {
-                Vector3 rayOrgin = transform.position + new Vector3(0, -height / 2f + maxStepSize - 0.048f + j * scanHeightSize, -length / 2f + k * scanLengthSize);
+                Vector3 rayOrgin = transform.position + new Vector3(0, -full_height / 2f + maxStepSize  + j * scanHeightSize, -length / 2f + k * scanLengthSize);
                 if(Physics.Raycast(rayOrgin, new Vector3(movement.x, 0, 0), out hit, 2f, ~ignoreLayer))
                 {
                     Debug.DrawRay(rayOrgin, new Vector3(movement.x, 0, 0) * 10f, Color.blue);
@@ -310,14 +336,16 @@ public class CharacterMovementOverworld : MonoBehaviour
     public void groundPlayer()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, -Vector3.up, out hit))
+        if (Physics.Raycast(transform.position, -Vector3.up, out hit, 3f, ~ignoreLayer))
         {
-            transform.position = hit.point + new Vector3(0, height/2 + 0.05f, 0);
+            transform.position = new Vector3(transform.position.x, hit.point.y + full_height / 2f, transform.position.z);
+            prevY = transform.position.y;
         }
     }
-    public void groundPlayerRaycast(float closestCast)
+    public void groundPlayerRaycast(float bestHitHeight)
     {
-        transform.position += new Vector3(0, maxStepSize - closestCast, 0);
+        transform.position = new Vector3(transform.position.x, bestHitHeight + full_height / 2f, transform.position.z);
+        prevY = transform.position.y;
     }
 
     IEnumerator HitWithStick(Vector2 hitDirection)
@@ -327,11 +355,35 @@ public class CharacterMovementOverworld : MonoBehaviour
         if (spriteAnimate.GetCurrentAnimatorStateInfo(0).IsName("ClipSmack"))
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, new Vector3(hitDirection.x, 0, hitDirection.y), out hit, 0.75f))
+            if (Physics.Raycast(transform.position, new Vector3(hitDirection.x, 0, hitDirection.y), out hit, 0.75f, ~ignoreLayer))
             {
                 DestructionScript dScript = hit.collider.gameObject.GetComponent<DestructionScript>();
-                if (dScript != null) dScript.BreakObject();
+                if (dScript != null)
+                {
+                    bool validHit = true;
+                    int layer = hit.collider.gameObject.layer;
+                    //8 is the appear layer.
+                    if (layer == 6)
+                    {
+                        if (checkAppearTorches(hit.point)) validHit = false;
+                    }
+                    //7 is the disappear layer.
+                    if (layer == 7)
+                    {
+                        if (checkDisapearTorches(hit.point)) validHit = false;
+                    }
+                    if (validHit)
+                    {
+                        dScript.BreakObject();
+                    }
+                }
             }
+        }
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionHitRadius);
+        foreach (Collider hit in colliders)
+        {
+            Rigidbody rb = hit.GetComponent<Rigidbody>();
+            if (rb != null) rb.AddExplosionForce(100.0f, transform.position, explosionHitRadius, 0.5f);
         }
     }
 }

@@ -67,12 +67,12 @@ public class OverworldController : MonoBehaviour
                         }
                         else if (entranceDirection == SceneMover.exitDirectionOptions.left)
                         {
-                            pm.endPosition = Player.transform.position + new Vector3(-2, 0, 0);
+                            pm.endPosition = Player.transform.position + new Vector3(2, 0, 0);
                             pm.travelDirection = SceneMover.exitDirectionOptions.right;
                         }
                         else if (entranceDirection == SceneMover.exitDirectionOptions.right)
                         {
-                            pm.endPosition = Player.transform.position + new Vector3(2, 0, 0);
+                            pm.endPosition = Player.transform.position + new Vector3(-2, 0, 0);
                             pm.travelDirection = SceneMover.exitDirectionOptions.left;
                         }
                         else if (entranceDirection == SceneMover.exitDirectionOptions.down)
@@ -203,6 +203,8 @@ public class OverworldController : MonoBehaviour
     {
         Shader.SetGlobalFloat("_DisappearDistance", 0);
         Shader.SetGlobalFloat("_ExtraTorch1DisappearDistance", 0);
+        Shader.SetGlobalFloat("_ExtraTorch2DisappearDistance", 0);
+        Shader.SetGlobalFloat("_ExtraTorch3DisappearDistance", 0);
     }
 }
 

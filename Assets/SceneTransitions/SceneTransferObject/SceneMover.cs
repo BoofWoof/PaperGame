@@ -28,8 +28,6 @@ public class SceneMover : MonoBehaviour
             ChangeScenesCutscene s = ScriptableObject.CreateInstance<ChangeScenesCutscene>();
             s.nextSceneName = sceneName;
             CutsceneController.addCutsceneEvent(s, OverworldController.Player, true, GameDataTracker.gameModeOptions.Cutscene);
-
-
         }
     }
 

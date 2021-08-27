@@ -29,14 +29,19 @@ public class BasicStickCutscene : CutSceneClass
     public GameObject target;
     public GameObject stickTimerPrefab;
     private GameObject stickTimer;
+    private GameControls controls;
+
     override public bool Activate()
     {
+        controls = new GameControls();
+        controls.CombatControls.Enable();
         return true;
     }
 
     // Update is called once per frame
     override public bool Update()
     {
+        float horizontalPosition = controls.CombatControls.Movement_Clip.ReadValue<Vector2>()[0];
         if (phase == 0)
         {
             if (stickTimer == null)
@@ -46,7 +51,7 @@ public class BasicStickCutscene : CutSceneClass
                 stickTimer.transform.localScale = new Vector3(2, 2, 1);
                 stickTimer.GetComponent<Animator>().speed = 0;
             }
-            if (Input.GetAxis("Horizontal") < -0.3f)
+            if (horizontalPosition < -0.3f)
             {
                 stickTimer.GetComponent<Animator>().speed = 2;
                 parent.GetComponent<FighterClass>().animator.SetTrigger("HoldStickHit");
@@ -56,7 +61,7 @@ public class BasicStickCutscene : CutSceneClass
         if (phase == 1)
         {
             count += Time.deltaTime;
-            if (Input.GetAxis("Horizontal") > -0.1f || count >= 1.1f)
+            if (horizontalPosition > -0.1f || count >= 1.1f)
             {
                 if (count > 0.9f && count < 1.1f)
                 {

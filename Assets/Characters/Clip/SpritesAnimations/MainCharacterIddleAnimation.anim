@@ -65,7 +65,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: ChipIdle/ChipBody/ChipHead
+    path: ChipBody/ChipHead
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -117,7 +117,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: ChipIdle/ChipBody/ChipHead/ChipHair
+    path: ChipBody/ChipHead/ChipHair
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -169,7 +169,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: ChipIdle/ChipBody/ChipHead/ChipLeftEar
+    path: ChipBody/ChipHead/ChipLeftEar
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -257,7 +257,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: ChipIdle/ChipBody/ChipHead/ChipRightEar
+    path: ChipBody/ChipHead/ChipRightEar
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -309,7 +309,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: ChipIdle/ChipBody/ChipLeftArm
+    path: ChipBody/ChipLeftArm
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -361,7 +361,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: ChipIdle/ChipBody/ChipLeftFoot
+    path: ChipBody/ChipLeftFoot
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -413,7 +413,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: ChipIdle/ChipBody/ChipRightArm
+    path: ChipBody/ChipRightArm
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -465,7 +465,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: ChipIdle/ChipBody/ChipRightFoot
+    path: ChipBody/ChipRightFoot
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -517,7 +517,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: ChipIdle/ChipBody/ChipStick
+    path: ChipBody/ChipStick
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves: []
@@ -530,63 +530,63 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 1638569065
+      path: 2360021664
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 349957149
+      path: 2571556539
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1949103436
+      path: 47113619
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3321237234
+      path: 3555468199
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3528286926
+      path: 1458421943
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1115394661
+      path: 1797716831
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1901129010
+      path: 1477280776
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 4141035997
+      path: 821474566
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2192209187
+      path: 1627328177
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -666,7 +666,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: ChipIdle/ChipBody/ChipHead
+    path: ChipBody/ChipHead
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -721,7 +721,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: ChipIdle/ChipBody/ChipHead
+    path: ChipBody/ChipHead
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -776,7 +776,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: ChipIdle/ChipBody/ChipHead
+    path: ChipBody/ChipHead
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -831,7 +831,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: ChipIdle/ChipBody/ChipHead/ChipHair
+    path: ChipBody/ChipHead/ChipHair
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -886,7 +886,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: ChipIdle/ChipBody/ChipHead/ChipHair
+    path: ChipBody/ChipHead/ChipHair
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -941,7 +941,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: ChipIdle/ChipBody/ChipHead/ChipHair
+    path: ChipBody/ChipHead/ChipHair
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -996,7 +996,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: ChipIdle/ChipBody/ChipHead/ChipLeftEar
+    path: ChipBody/ChipHead/ChipLeftEar
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1051,7 +1051,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: ChipIdle/ChipBody/ChipHead/ChipLeftEar
+    path: ChipBody/ChipHead/ChipLeftEar
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1106,7 +1106,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: ChipIdle/ChipBody/ChipHead/ChipLeftEar
+    path: ChipBody/ChipHead/ChipLeftEar
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1197,7 +1197,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: ChipIdle/ChipBody/ChipHead/ChipRightEar
+    path: ChipBody/ChipHead/ChipRightEar
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1288,7 +1288,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: ChipIdle/ChipBody/ChipHead/ChipRightEar
+    path: ChipBody/ChipHead/ChipRightEar
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1379,7 +1379,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: ChipIdle/ChipBody/ChipHead/ChipRightEar
+    path: ChipBody/ChipHead/ChipRightEar
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1434,7 +1434,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: ChipIdle/ChipBody/ChipLeftArm
+    path: ChipBody/ChipLeftArm
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1489,7 +1489,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: ChipIdle/ChipBody/ChipLeftArm
+    path: ChipBody/ChipLeftArm
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1544,7 +1544,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: ChipIdle/ChipBody/ChipLeftArm
+    path: ChipBody/ChipLeftArm
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1599,7 +1599,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: ChipIdle/ChipBody/ChipLeftFoot
+    path: ChipBody/ChipLeftFoot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1654,7 +1654,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: ChipIdle/ChipBody/ChipLeftFoot
+    path: ChipBody/ChipLeftFoot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1709,7 +1709,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: ChipIdle/ChipBody/ChipLeftFoot
+    path: ChipBody/ChipLeftFoot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1764,7 +1764,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: ChipIdle/ChipBody/ChipRightArm
+    path: ChipBody/ChipRightArm
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1819,7 +1819,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: ChipIdle/ChipBody/ChipRightArm
+    path: ChipBody/ChipRightArm
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1874,7 +1874,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: ChipIdle/ChipBody/ChipRightArm
+    path: ChipBody/ChipRightArm
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1929,7 +1929,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: ChipIdle/ChipBody/ChipRightFoot
+    path: ChipBody/ChipRightFoot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1984,7 +1984,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: ChipIdle/ChipBody/ChipRightFoot
+    path: ChipBody/ChipRightFoot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2039,7 +2039,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: ChipIdle/ChipBody/ChipRightFoot
+    path: ChipBody/ChipRightFoot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2094,7 +2094,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: ChipIdle/ChipBody/ChipStick
+    path: ChipBody/ChipStick
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2149,7 +2149,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: ChipIdle/ChipBody/ChipStick
+    path: ChipBody/ChipStick
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2204,7 +2204,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: ChipIdle/ChipBody/ChipStick
+    path: ChipBody/ChipStick
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves:
@@ -2215,7 +2215,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: ChipIdle/ChipBody/ChipLeftArm
+    path: ChipBody/ChipHead/ChipRightEar
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2225,7 +2225,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: ChipIdle/ChipBody/ChipLeftArm
+    path: ChipBody/ChipHead/ChipRightEar
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2235,7 +2235,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: ChipIdle/ChipBody/ChipLeftArm
+    path: ChipBody/ChipHead/ChipRightEar
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2245,7 +2245,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: ChipIdle/ChipBody/ChipHead/ChipLeftEar
+    path: ChipBody/ChipHead/ChipHair
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2255,7 +2255,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: ChipIdle/ChipBody/ChipHead/ChipLeftEar
+    path: ChipBody/ChipHead/ChipHair
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2265,7 +2265,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: ChipIdle/ChipBody/ChipHead/ChipLeftEar
+    path: ChipBody/ChipHead/ChipHair
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2275,7 +2275,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: ChipIdle/ChipBody/ChipHead/ChipHair
+    path: ChipBody/ChipHead
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2285,7 +2285,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: ChipIdle/ChipBody/ChipHead/ChipHair
+    path: ChipBody/ChipHead
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2295,7 +2295,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: ChipIdle/ChipBody/ChipHead/ChipHair
+    path: ChipBody/ChipHead
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2305,7 +2305,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: ChipIdle/ChipBody/ChipHead
+    path: ChipBody/ChipRightFoot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2315,7 +2315,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: ChipIdle/ChipBody/ChipHead
+    path: ChipBody/ChipRightFoot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2325,7 +2325,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: ChipIdle/ChipBody/ChipHead
+    path: ChipBody/ChipRightFoot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2335,7 +2335,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: ChipIdle/ChipBody/ChipRightFoot
+    path: ChipBody/ChipRightArm
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2345,7 +2345,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: ChipIdle/ChipBody/ChipRightFoot
+    path: ChipBody/ChipRightArm
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2355,7 +2355,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: ChipIdle/ChipBody/ChipRightFoot
+    path: ChipBody/ChipRightArm
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2365,7 +2365,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: ChipIdle/ChipBody/ChipRightArm
+    path: ChipBody/ChipLeftFoot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2375,7 +2375,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: ChipIdle/ChipBody/ChipRightArm
+    path: ChipBody/ChipLeftFoot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2385,7 +2385,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: ChipIdle/ChipBody/ChipRightArm
+    path: ChipBody/ChipLeftFoot
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2395,7 +2395,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: ChipIdle/ChipBody/ChipHead/ChipRightEar
+    path: ChipBody/ChipHead/ChipLeftEar
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2405,7 +2405,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: ChipIdle/ChipBody/ChipHead/ChipRightEar
+    path: ChipBody/ChipHead/ChipLeftEar
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2415,7 +2415,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: ChipIdle/ChipBody/ChipHead/ChipRightEar
+    path: ChipBody/ChipHead/ChipLeftEar
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2425,7 +2425,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: ChipIdle/ChipBody/ChipLeftFoot
+    path: ChipBody/ChipLeftArm
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2435,7 +2435,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: ChipIdle/ChipBody/ChipLeftFoot
+    path: ChipBody/ChipLeftArm
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2445,7 +2445,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: ChipIdle/ChipBody/ChipLeftFoot
+    path: ChipBody/ChipLeftArm
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2455,7 +2455,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: ChipIdle/ChipBody/ChipStick
+    path: ChipBody/ChipStick
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2465,7 +2465,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: ChipIdle/ChipBody/ChipStick
+    path: ChipBody/ChipStick
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2475,7 +2475,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: ChipIdle/ChipBody/ChipStick
+    path: ChipBody/ChipStick
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0

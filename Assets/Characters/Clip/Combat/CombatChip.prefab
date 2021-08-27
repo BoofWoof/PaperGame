@@ -83,7 +83,6 @@ MonoBehaviour:
   MaxJumpHeight: 1
   LastMoveSpeed: 0
   objectReady: 0
-  CharacterName: Clip
   characterPosition: 0
   SelectionWheel: {fileID: 2257321630957254045, guid: 6fe8dd55b8074c24d9ad4c099e59d986,
     type: 3}
@@ -106,7 +105,7 @@ MonoBehaviour:
   Paralyzed: 0
   Dead: 0
   displayHealth: 0
-  animator: {fileID: 1223123888393074001}
+  animator: {fileID: 4909318420915015187}
   inspectionInfo: {fileID: 0}
   moveContainer: {fileID: 0}
   attack: {fileID: 0}
@@ -125,6 +124,7 @@ MonoBehaviour:
   useAnimatedTurn: 0
   startsLeft: 1
   sprite: {fileID: 9076703385369671237}
+  rotated: 0
   rotSpeedMagnitude: 500
   goal: 0
 --- !u!1001 &3454153379849346462
@@ -213,9 +213,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3454153379849346462}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1223123888393074001 stripped
+--- !u!95 &4909318420915015187 stripped
 Animator:
-  m_CorrespondingSourceObject: {fileID: 4546091905747003599, guid: ec3477589ad645a488aa7bce2079eff7,
+  m_CorrespondingSourceObject: {fileID: 7768420346218763149, guid: ec3477589ad645a488aa7bce2079eff7,
     type: 3}
   m_PrefabInstance: {fileID: 3454153379849346462}
   m_PrefabAsset: {fileID: 0}

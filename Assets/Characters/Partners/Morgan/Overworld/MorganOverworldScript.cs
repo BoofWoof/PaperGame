@@ -15,6 +15,9 @@ public class MorganOverworldScript : PartnerBaseScript
     public float LightRangeGrowthRate = 4f;
     private bool SwitchingState = false;
 
+    public GameObject ExpansionBubblePrefab;
+    private GameObject ExpansionBubble;
+
     public override void Start()
     {
         base.Start();
@@ -60,10 +63,12 @@ public class MorganOverworldScript : PartnerBaseScript
 
     IEnumerator GrowTorchSize()
     {
+        ExpansionBubble = Instantiate(ExpansionBubblePrefab, OverworldController.Player.transform.position, Quaternion.identity);
         SwitchingState = true;
         while (LightRangeCurrent < LightRangeMax)
         {
             LightRangeCurrent += LightRangeGrowthRate * Time.deltaTime;
+            ExpansionBubble.transform.localScale = Vector3.one * LightRangeCurrent * 2;
             Shader.SetGlobalFloat("_DisappearDistance", LightRangeCurrent);
             yield return 0;
         }
@@ -78,11 +83,13 @@ public class MorganOverworldScript : PartnerBaseScript
         while (LightRangeCurrent > 0)
         {
             LightRangeCurrent -= LightRangeGrowthRate * Time.deltaTime;
+            ExpansionBubble.transform.localScale = Vector3.one * LightRangeCurrent * 2;
             Shader.SetGlobalFloat("_DisappearDistance", LightRangeCurrent);
             yield return 0;
         }
         LightRangeCurrent = 0;
         Shader.SetGlobalFloat("_DisappearDistance", LightRangeCurrent);
         SwitchingState = false;
+        Destroy(ExpansionBubble);
     }
 }

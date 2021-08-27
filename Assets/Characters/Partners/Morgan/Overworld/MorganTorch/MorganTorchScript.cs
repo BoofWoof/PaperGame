@@ -16,6 +16,14 @@ public class MorganTorchScript : MonoBehaviour
     public float LightRangeGrowthRate = 2f;
     private bool SwitchingState = false;
     public GameObject DistanceSource;
+
+    //TorchIDs
+    public int TorchNumber;
+    private string TorchDistanceName;
+    private string TorchPositionName;
+
+    public GameObject ExpansionBubblePrefab;
+    private GameObject ExpansionBubble;
     
     private void Awake()
     {
@@ -35,14 +43,18 @@ public class MorganTorchScript : MonoBehaviour
     private void Start()
     {
         OverworldController.AllMorganTorches.Add(this);
+        TorchNumber = OverworldController.AllMorganTorches.Count;
+        TorchDistanceName = "_ExtraTorch" + TorchNumber.ToString() + "DisappearDistance";
+        TorchPositionName = "_ExtraTorch" + TorchNumber.ToString() + "Position";
         VFXSystem.Stop();
         TorchLight.intensity = 0;
-        Shader.SetGlobalFloat("_ExtraTorch1DisappearDistance", 0f);
+        Shader.SetGlobalFloat(TorchDistanceName, 0f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        Shader.SetGlobalVector(TorchPositionName, transform.position);
         if (controls.OverworldControls.PartnerAction.triggered && !SwitchingState)
         {
             if(Vector3.Distance(DistanceSource.transform.position, OverworldController.Player.transform.position) < Activation_Distance)
@@ -52,7 +64,6 @@ public class MorganTorchScript : MonoBehaviour
                 {
                     VFXSystem.Play();
                     TorchLight.intensity = LightIntensityOn;
-                    Shader.SetGlobalVector("_ExtraTorch1Position", transform.position);
                     StartCoroutine(GrowTorchSize());
                 } else
                 {
@@ -66,15 +77,19 @@ public class MorganTorchScript : MonoBehaviour
 
     IEnumerator GrowTorchSize()
     {
+        ExpansionBubble = Instantiate(ExpansionBubblePrefab, transform.position, Quaternion.identity);
+        ExpansionBubble.transform.parent = transform;
         SwitchingState = true;
         while (LightRangeCurrent < LightRangeMax)
         {
             LightRangeCurrent += LightRangeGrowthRate * Time.deltaTime;
-            Shader.SetGlobalFloat("_ExtraTorch1DisappearDistance", LightRangeCurrent);
+            //Dividing by localscale is a rough way of scaling the ring.  Better solution recommended.
+            ExpansionBubble.transform.localScale = Vector3.one * LightRangeCurrent * 2 / transform.localScale.x;
+            Shader.SetGlobalFloat(TorchDistanceName, LightRangeCurrent);
             yield return 0;
         }
         LightRangeCurrent = LightRangeMax;
-        Shader.SetGlobalFloat("_ExtraTorch1DisappearDistance", LightRangeCurrent);
+        Shader.SetGlobalFloat(TorchDistanceName, LightRangeCurrent);
         SwitchingState = false;
     }
 
@@ -84,11 +99,13 @@ public class MorganTorchScript : MonoBehaviour
         while (LightRangeCurrent > 0)
         {
             LightRangeCurrent -= LightRangeGrowthRate * Time.deltaTime;
-            Shader.SetGlobalFloat("_ExtraTorch1DisappearDistance", LightRangeCurrent);
+            ExpansionBubble.transform.localScale = Vector3.one * LightRangeCurrent * 2;
+            Shader.SetGlobalFloat(TorchDistanceName, LightRangeCurrent);
             yield return 0;
         }
         LightRangeCurrent = 0;
-        Shader.SetGlobalFloat("_ExtraTorch1DisappearDistance", LightRangeCurrent);
+        Shader.SetGlobalFloat(TorchDistanceName, LightRangeCurrent);
         SwitchingState = false;
+        Destroy(ExpansionBubble);
     }
 }

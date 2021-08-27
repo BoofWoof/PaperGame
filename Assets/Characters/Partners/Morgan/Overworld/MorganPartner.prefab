@@ -81,6 +81,8 @@ MonoBehaviour:
   SpreadVariance: 0.1
   LightRangeMax: 2
   LightRangeGrowthRate: 4
+  ExpansionBubblePrefab: {fileID: 4126538646641124865, guid: b03f739e43a02ad4ca582d9b9c64470c,
+    type: 3}
 --- !u!1001 &2391515441278665245
 PrefabInstance:
   m_ObjectHideFlags: 0
