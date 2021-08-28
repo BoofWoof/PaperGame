@@ -5,11 +5,12 @@ using UnityEditor;
 using UnityEngine.UI;
 using System.Linq;
 using System;
+using UnityEngine.InputSystem;
 
 public class GridCrafter : GridManager
 {
     public int defaultBlock;
-
+    
     [Header("UI Info")]
     //UI Stuff
     public GameObject tileMenu;
@@ -30,9 +31,13 @@ public class GridCrafter : GridManager
     private Vector2Int selectionPos = new Vector2Int(0, 0);
     List<GameObject> decalProjectors = new List<GameObject>();
 
+    private GameControls control;
+
     // Start is called before the first frame update
     void Start()
     {
+        control = new GameControls();
+        control.MapCraftControls.Enable();
         tileMenu.SetActive(false);
 
         extraInfoList = new List<ExtraInfo>();
@@ -55,7 +60,7 @@ public class GridCrafter : GridManager
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && extraInfoManagerMenu == null)
+        if (control.MapCraftControls.EditMenu.triggered && extraInfoManagerMenu == null)
         {
             if (tileMenu.active)
             {
@@ -67,27 +72,27 @@ public class GridCrafter : GridManager
         }
         if (!tileMenu.active && extraInfoManagerMenu == null)
         {
-            if (Input.GetKey("a"))
+            if (control.MapCraftControls.MoveLeft.phase == InputActionPhase.Started)
             {
                 cameraPos.x -= cameraSpeed * Time.deltaTime;
             }
-            if (Input.GetKey("d"))
+            if (control.MapCraftControls.MoveRight.phase == InputActionPhase.Started)
             {
                 cameraPos.x += cameraSpeed * Time.deltaTime;
             }
-            if (Input.GetKey("s"))
+            if (control.MapCraftControls.MoveDown.phase == InputActionPhase.Started)
             {
                 cameraPos.z -= cameraSpeed * Time.deltaTime;
             }
-            if (Input.GetKey("w"))
+            if (control.MapCraftControls.MoveUp.phase == InputActionPhase.Started)
             {
                 cameraPos.z += cameraSpeed * Time.deltaTime;
             }
-            if (Input.GetKey("q"))
+            if (control.MapCraftControls.ZoomOut.phase == InputActionPhase.Started)
             {
                 cameraPos.y -= cameraSpeed * Time.deltaTime;
             }
-            if (Input.GetKey("e"))
+            if (control.MapCraftControls.ZoomIn.phase == InputActionPhase.Started)
             {
                 cameraPos.y += cameraSpeed * Time.deltaTime;
             }
@@ -169,7 +174,7 @@ public class GridCrafter : GridManager
 
     Vector2Int BlockAtMouse()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100))
         {
@@ -184,12 +189,12 @@ public class GridCrafter : GridManager
 
     void PlaceOnGrid(GameObject[,] Grid, GameObject PlaceObject, bool ReplaceExisting, GameObject DeletionReplacement, int objectID)
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+        if (control.MapCraftControls.LeftClick.triggered || control.MapCraftControls.RightClick.triggered)
         {
             Vector2Int grid_pos = BlockAtMouse();
             if(grid_pos != new Vector2Int(-1, -1))
             {
-                if (Input.GetMouseButtonDown(0))
+                if (control.MapCraftControls.LeftClick.triggered)
                 {
                     GameObject currentObject = Grid[grid_pos.x, grid_pos.y];
                     if (!(currentObject is null))
@@ -205,7 +210,7 @@ public class GridCrafter : GridManager
                         CreateObject(Grid, grid_pos, PlaceObject, objectID);
                     }
                 }
-                if (Input.GetMouseButtonDown(1))
+                if (control.MapCraftControls.RightClick.triggered)
                 {
                     GameObject currentObject = Grid[grid_pos.x, grid_pos.y];
                     if (!(currentObject is null))
@@ -258,11 +263,11 @@ public class GridCrafter : GridManager
     void MoveBlocksHeight()
     {
 
-        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+        if (control.MapCraftControls.LeftClick.triggered || control.MapCraftControls.RightClick.triggered)
         {
             Vector2Int grid_pos = BlockAtMouse();
             if (grid_pos != new Vector2Int(-1, -1)) { 
-                if (Input.GetMouseButtonDown(0))
+                if (control.MapCraftControls.LeftClick.triggered)
                 {
                     ChangeBlockHeight(grid_pos, 1);
                     for (int y = grid_pos.y + 1; y < mapShape.y; y++)
@@ -274,7 +279,7 @@ public class GridCrafter : GridManager
                         }
                     }
                 }
-                if (Input.GetMouseButtonDown(1))
+                if (control.MapCraftControls.RightClick.triggered)
                 {
                     ChangeBlockHeight(grid_pos, -1);
                     for (int y = grid_pos.y - 1; y >= 0; y--)

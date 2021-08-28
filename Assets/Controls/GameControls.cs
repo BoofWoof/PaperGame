@@ -625,6 +625,185 @@ public class @GameControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""MapCraftControls"",
+            ""id"": ""01e8e0b2-34a9-4690-b4f7-21f30481cff0"",
+            ""actions"": [
+                {
+                    ""name"": ""EditMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""b86751aa-2460-4dfd-80cd-10cc27f5f6b4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""MoveLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""47580734-c37c-48d3-98f8-ac6129753174"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""MoveRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""9f7fb4c9-d9be-4831-9826-912a50f7c8c0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""MoveDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""67102652-a4b4-4731-a2b6-15debeed5b0e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""MoveUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""1c9ec086-7da4-47c0-be42-1cc2bd05c0c7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ZoomIn"",
+                    ""type"": ""Button"",
+                    ""id"": ""b54e9773-2336-4843-b9de-f8fed683c3be"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ZoomOut"",
+                    ""type"": ""Button"",
+                    ""id"": ""2e508521-ceb3-462e-9cdc-df38ed3f4c92"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""LeftClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""2562281f-275b-42d9-b473-60c8d3b4b216"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RightClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""ea338a60-b8e0-4ee1-b42a-48c4252adb47"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""3d235a22-e81b-43b4-a646-960034262bbf"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EditMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c45330d6-c0bd-4db4-a099-b987c0bc28c2"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e74e8409-8c2b-45be-b2e3-71b01a0aa701"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""902e9a0d-815c-42f3-8b73-a89452f59ee1"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""61df02d9-aba1-4bf3-9c7e-561b70c63bd2"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""11526543-c2c7-49e0-81fc-7669341a22e2"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ZoomIn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""47a5331a-83f4-47ee-befe-6f03b69f98da"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ZoomOut"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6d691e5f-a716-4f11-a1dd-e7ee13c248ef"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""888e93fc-1360-4856-9c6e-d4c0c2255424"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -647,6 +826,17 @@ public class @GameControls : IInputActionCollection, IDisposable
         m_CombatControls_Block_Clip = m_CombatControls.FindAction("Block_Clip", throwIfNotFound: true);
         m_CombatControls_Block_Partner = m_CombatControls.FindAction("Block_Partner", throwIfNotFound: true);
         m_CombatControls_Movement_Partner = m_CombatControls.FindAction("Movement_Partner", throwIfNotFound: true);
+        // MapCraftControls
+        m_MapCraftControls = asset.FindActionMap("MapCraftControls", throwIfNotFound: true);
+        m_MapCraftControls_EditMenu = m_MapCraftControls.FindAction("EditMenu", throwIfNotFound: true);
+        m_MapCraftControls_MoveLeft = m_MapCraftControls.FindAction("MoveLeft", throwIfNotFound: true);
+        m_MapCraftControls_MoveRight = m_MapCraftControls.FindAction("MoveRight", throwIfNotFound: true);
+        m_MapCraftControls_MoveDown = m_MapCraftControls.FindAction("MoveDown", throwIfNotFound: true);
+        m_MapCraftControls_MoveUp = m_MapCraftControls.FindAction("MoveUp", throwIfNotFound: true);
+        m_MapCraftControls_ZoomIn = m_MapCraftControls.FindAction("ZoomIn", throwIfNotFound: true);
+        m_MapCraftControls_ZoomOut = m_MapCraftControls.FindAction("ZoomOut", throwIfNotFound: true);
+        m_MapCraftControls_LeftClick = m_MapCraftControls.FindAction("LeftClick", throwIfNotFound: true);
+        m_MapCraftControls_RightClick = m_MapCraftControls.FindAction("RightClick", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -854,6 +1044,103 @@ public class @GameControls : IInputActionCollection, IDisposable
         }
     }
     public CombatControlsActions @CombatControls => new CombatControlsActions(this);
+
+    // MapCraftControls
+    private readonly InputActionMap m_MapCraftControls;
+    private IMapCraftControlsActions m_MapCraftControlsActionsCallbackInterface;
+    private readonly InputAction m_MapCraftControls_EditMenu;
+    private readonly InputAction m_MapCraftControls_MoveLeft;
+    private readonly InputAction m_MapCraftControls_MoveRight;
+    private readonly InputAction m_MapCraftControls_MoveDown;
+    private readonly InputAction m_MapCraftControls_MoveUp;
+    private readonly InputAction m_MapCraftControls_ZoomIn;
+    private readonly InputAction m_MapCraftControls_ZoomOut;
+    private readonly InputAction m_MapCraftControls_LeftClick;
+    private readonly InputAction m_MapCraftControls_RightClick;
+    public struct MapCraftControlsActions
+    {
+        private @GameControls m_Wrapper;
+        public MapCraftControlsActions(@GameControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @EditMenu => m_Wrapper.m_MapCraftControls_EditMenu;
+        public InputAction @MoveLeft => m_Wrapper.m_MapCraftControls_MoveLeft;
+        public InputAction @MoveRight => m_Wrapper.m_MapCraftControls_MoveRight;
+        public InputAction @MoveDown => m_Wrapper.m_MapCraftControls_MoveDown;
+        public InputAction @MoveUp => m_Wrapper.m_MapCraftControls_MoveUp;
+        public InputAction @ZoomIn => m_Wrapper.m_MapCraftControls_ZoomIn;
+        public InputAction @ZoomOut => m_Wrapper.m_MapCraftControls_ZoomOut;
+        public InputAction @LeftClick => m_Wrapper.m_MapCraftControls_LeftClick;
+        public InputAction @RightClick => m_Wrapper.m_MapCraftControls_RightClick;
+        public InputActionMap Get() { return m_Wrapper.m_MapCraftControls; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MapCraftControlsActions set) { return set.Get(); }
+        public void SetCallbacks(IMapCraftControlsActions instance)
+        {
+            if (m_Wrapper.m_MapCraftControlsActionsCallbackInterface != null)
+            {
+                @EditMenu.started -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnEditMenu;
+                @EditMenu.performed -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnEditMenu;
+                @EditMenu.canceled -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnEditMenu;
+                @MoveLeft.started -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnMoveLeft;
+                @MoveLeft.performed -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnMoveLeft;
+                @MoveLeft.canceled -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnMoveLeft;
+                @MoveRight.started -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnMoveRight;
+                @MoveRight.performed -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnMoveRight;
+                @MoveRight.canceled -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnMoveRight;
+                @MoveDown.started -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnMoveDown;
+                @MoveDown.performed -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnMoveDown;
+                @MoveDown.canceled -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnMoveDown;
+                @MoveUp.started -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnMoveUp;
+                @MoveUp.performed -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnMoveUp;
+                @MoveUp.canceled -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnMoveUp;
+                @ZoomIn.started -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnZoomIn;
+                @ZoomIn.performed -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnZoomIn;
+                @ZoomIn.canceled -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnZoomIn;
+                @ZoomOut.started -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnZoomOut;
+                @ZoomOut.performed -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnZoomOut;
+                @ZoomOut.canceled -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnZoomOut;
+                @LeftClick.started -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnLeftClick;
+                @LeftClick.performed -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnLeftClick;
+                @LeftClick.canceled -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnLeftClick;
+                @RightClick.started -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnRightClick;
+                @RightClick.performed -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnRightClick;
+                @RightClick.canceled -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnRightClick;
+            }
+            m_Wrapper.m_MapCraftControlsActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @EditMenu.started += instance.OnEditMenu;
+                @EditMenu.performed += instance.OnEditMenu;
+                @EditMenu.canceled += instance.OnEditMenu;
+                @MoveLeft.started += instance.OnMoveLeft;
+                @MoveLeft.performed += instance.OnMoveLeft;
+                @MoveLeft.canceled += instance.OnMoveLeft;
+                @MoveRight.started += instance.OnMoveRight;
+                @MoveRight.performed += instance.OnMoveRight;
+                @MoveRight.canceled += instance.OnMoveRight;
+                @MoveDown.started += instance.OnMoveDown;
+                @MoveDown.performed += instance.OnMoveDown;
+                @MoveDown.canceled += instance.OnMoveDown;
+                @MoveUp.started += instance.OnMoveUp;
+                @MoveUp.performed += instance.OnMoveUp;
+                @MoveUp.canceled += instance.OnMoveUp;
+                @ZoomIn.started += instance.OnZoomIn;
+                @ZoomIn.performed += instance.OnZoomIn;
+                @ZoomIn.canceled += instance.OnZoomIn;
+                @ZoomOut.started += instance.OnZoomOut;
+                @ZoomOut.performed += instance.OnZoomOut;
+                @ZoomOut.canceled += instance.OnZoomOut;
+                @LeftClick.started += instance.OnLeftClick;
+                @LeftClick.performed += instance.OnLeftClick;
+                @LeftClick.canceled += instance.OnLeftClick;
+                @RightClick.started += instance.OnRightClick;
+                @RightClick.performed += instance.OnRightClick;
+                @RightClick.canceled += instance.OnRightClick;
+            }
+        }
+    }
+    public MapCraftControlsActions @MapCraftControls => new MapCraftControlsActions(this);
     public interface IOverworldControlsActions
     {
         void OnMainAction(InputAction.CallbackContext context);
@@ -873,5 +1160,17 @@ public class @GameControls : IInputActionCollection, IDisposable
         void OnBlock_Clip(InputAction.CallbackContext context);
         void OnBlock_Partner(InputAction.CallbackContext context);
         void OnMovement_Partner(InputAction.CallbackContext context);
+    }
+    public interface IMapCraftControlsActions
+    {
+        void OnEditMenu(InputAction.CallbackContext context);
+        void OnMoveLeft(InputAction.CallbackContext context);
+        void OnMoveRight(InputAction.CallbackContext context);
+        void OnMoveDown(InputAction.CallbackContext context);
+        void OnMoveUp(InputAction.CallbackContext context);
+        void OnZoomIn(InputAction.CallbackContext context);
+        void OnZoomOut(InputAction.CallbackContext context);
+        void OnLeftClick(InputAction.CallbackContext context);
+        void OnRightClick(InputAction.CallbackContext context);
     }
 }
