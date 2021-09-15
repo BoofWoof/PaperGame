@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6436934994925767781}
   - component: {fileID: 6434764194775373422}
   - component: {fileID: 6100486210798427351}
+  - component: {fileID: 5542999827786849528}
   m_Layer: 3
   m_Name: OverworldCrabCrate
   m_TagString: Untagged
@@ -62,6 +63,24 @@ MonoBehaviour:
   combatEncounter: {fileID: 11400000, guid: 20647610bab46284ba6fedb275101d50, type: 2}
   cutsceneTrigger: {fileID: 0}
   UniqueSceneID: -1
+--- !u!114 &5542999827786849528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134079040270856812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff437bc951ee2014990891a19e339741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useAnimatedTurn: 1
+  startsLeft: 1
+  sprite: {fileID: 0}
+  rotated: 0
+  rotSpeedMagnitude: 360
+  goal: 0
 --- !u!1001 &2406493860026114965
 PrefabInstance:
   m_ObjectHideFlags: 0

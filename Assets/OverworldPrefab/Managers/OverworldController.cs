@@ -96,7 +96,7 @@ public class OverworldController : MonoBehaviour
             Player = Instantiate(playerInput, GameDataTracker.combatStartPosition, Quaternion.identity);
             GameDataTracker.lastAreaWasCombat = false;
         }
-        trackingCamera = Instantiate<GameObject>(trackingCameraInput, Player.transform.position + new Vector3(0,1,-2), Quaternion.Euler(25,0,0));
+        trackingCamera = Instantiate<GameObject>(trackingCameraInput, Player.transform.position + new Vector3(0,1,-2), Quaternion.Euler(25f,0,0));
         trackingCamera.GetComponent<CameraFollow>().ObjectToTrack = Player;
         trackingCamera.GetComponent<CameraFollow>().combat = false;
         updateTrackingCameraY(Player.transform.position.y);

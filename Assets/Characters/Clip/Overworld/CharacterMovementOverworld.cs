@@ -284,7 +284,6 @@ public class CharacterMovementOverworld : MonoBehaviour
 
         movement += new Vector3(0, jump * Time.deltaTime, 0);
         transform.Translate(movement);
-        transform.rotation = Quaternion.identity;
 
         if ((moveVertical != 0) || (moveHorizontal != 0))
         {

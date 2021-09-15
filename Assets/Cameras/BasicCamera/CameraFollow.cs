@@ -25,16 +25,14 @@ public class CameraFollow : MonoBehaviour
         Vector3 objectPosition = ObjectToTrack.transform.position;
         Vector3 cameraPosition = gameObject.transform.position;
         Vector3 cameraGoal = gameObject.transform.position;
-        //CAMERA GOAL DIALOGUE START-----------------------------------------------
         if (combat)
         {
-            cameraGoal = new Vector3(objectPosition.x + dialogueOffsetMultiplier * offset.x, objectPosition.y + dialogueOffsetMultiplier * offset.y, objectPosition.z + dialogueOffsetMultiplier * offset.z);
+            objectPosition.y = trackingcameraY;
         }
-        else
-        {
-            cameraGoal = new Vector3(objectPosition.x + dialogueOffsetMultiplier * offset.x, trackingcameraY + dialogueOffsetMultiplier * offset.y, objectPosition.z + dialogueOffsetMultiplier * offset.z);
-        }
+        //CAMERA GOAL DIALOGUE START-----------------------------------------------
+        cameraGoal = objectPosition + Quaternion.AngleAxis(GameDataTracker.CameraHeading, Vector3.up) * new Vector3(dialogueOffsetMultiplier * offset.x,  + dialogueOffsetMultiplier * offset.y, dialogueOffsetMultiplier * offset.z);
         
         gameObject.transform.position = Vector3.MoveTowards(cameraPosition,cameraGoal, speed*Time.deltaTime);
+        gameObject.transform.rotation = Quaternion.Euler(25f, GameDataTracker.CameraHeading, gameObject.transform.rotation.z);
     }
 }

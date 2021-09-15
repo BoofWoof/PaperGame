@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 650243431984795216}
   - component: {fileID: 650243431984795217}
   - component: {fileID: 8357705242988494187}
+  - component: {fileID: -6163234040477123979}
   m_Layer: 3
   m_Name: ItemPickup
   m_TagString: Untagged
@@ -124,6 +125,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa51e8794b5870a48b6a13eab1969c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6163234040477123979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650243431984795223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff437bc951ee2014990891a19e339741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useAnimatedTurn: 1
+  startsLeft: 1
+  sprite: {fileID: 0}
+  rotated: 0
+  rotSpeedMagnitude: 360
+  goal: 0
 --- !u!1 &4929258400412023129
 GameObject:
   m_ObjectHideFlags: 0

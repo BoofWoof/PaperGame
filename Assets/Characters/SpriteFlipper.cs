@@ -51,6 +51,7 @@ public class SpriteFlipper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.rotation = Quaternion.Euler(0, GameDataTracker.CameraHeading, 0);
         if (!useAnimatedTurn)
         {
             ForceUpdate();
@@ -72,14 +73,13 @@ public class SpriteFlipper : MonoBehaviour
             rotated = rotated + rotSpeed;
             if (rotated < goal) rotated = goal;
         }
-        if (rotated > 90) sprite.transform.rotation = Quaternion.Euler(0, 180 + rotated, 0);
-        else sprite.transform.rotation = Quaternion.Euler(0, rotated, 0);
+        if (rotated > 90) sprite.transform.localRotation = Quaternion.Euler(0, 180 + rotated, 0);
+        else sprite.transform.localRotation = Quaternion.Euler(0, rotated, 0);
         Vector3 currentScale = sprite.transform.localScale;
-        if (rotated < 90)
+        if ((rotated < 90))
         {
             sprite.transform.localScale = new Vector3(Mathf.Abs(currentScale.x), currentScale.y, currentScale.z);
-        }
-        if (rotated > 90)
+        } else
         {
             sprite.transform.localScale = new Vector3(-Mathf.Abs(currentScale.x), currentScale.y, currentScale.z);
         }

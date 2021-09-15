@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 875270075823037111}
   - component: {fileID: 875270075823037105}
   - component: {fileID: 875270075823037110}
+  - component: {fileID: -6704069698720670409}
   m_Layer: 3
   m_Name: BadgePickup
   m_TagString: Untagged
@@ -124,6 +125,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BadgeID: 0
+--- !u!114 &-6704069698720670409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875270075823037104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff437bc951ee2014990891a19e339741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useAnimatedTurn: 1
+  startsLeft: 1
+  sprite: {fileID: 0}
+  rotated: 0
+  rotSpeedMagnitude: 360
+  goal: 0
 --- !u!1 &4653426090862155815
 GameObject:
   m_ObjectHideFlags: 0

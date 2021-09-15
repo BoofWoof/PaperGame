@@ -73,6 +73,14 @@ public class @GameControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""SecondaryMovement"",
+                    ""type"": ""Value"",
+                    ""id"": ""1469cfd2-3281-47cb-9cdd-a1f2f8c9f522"",
+                    ""expectedControlType"": ""Stick"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -295,6 +303,72 @@ public class @GameControls : IInputActionCollection, IDisposable
                     ""action"": ""PartnerAction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4475b1a3-e52b-4a9f-be9d-2c4b597a0d07"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondaryMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""7dc152c1-2076-483f-974d-406eac2ba69d"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondaryMovement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""b6bb04f6-a1f4-4bed-a2a9-0477845c15fe"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondaryMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""20d66495-6424-4040-8e9b-26b64b19ca4a"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondaryMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""ea4aa610-c1c7-4bb4-acc7-e2c3f3b864d6"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondaryMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""82c39563-cb85-43a8-b158-1342f20fdc67"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondaryMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -817,6 +891,7 @@ public class @GameControls : IInputActionCollection, IDisposable
         m_OverworldControls_CycleLeft = m_OverworldControls.FindAction("CycleLeft", throwIfNotFound: true);
         m_OverworldControls_CycleRight = m_OverworldControls.FindAction("CycleRight", throwIfNotFound: true);
         m_OverworldControls_PartnerAction = m_OverworldControls.FindAction("PartnerAction", throwIfNotFound: true);
+        m_OverworldControls_SecondaryMovement = m_OverworldControls.FindAction("SecondaryMovement", throwIfNotFound: true);
         // CombatControls
         m_CombatControls = asset.FindActionMap("CombatControls", throwIfNotFound: true);
         m_CombatControls_MainAction = m_CombatControls.FindAction("MainAction", throwIfNotFound: true);
@@ -893,6 +968,7 @@ public class @GameControls : IInputActionCollection, IDisposable
     private readonly InputAction m_OverworldControls_CycleLeft;
     private readonly InputAction m_OverworldControls_CycleRight;
     private readonly InputAction m_OverworldControls_PartnerAction;
+    private readonly InputAction m_OverworldControls_SecondaryMovement;
     public struct OverworldControlsActions
     {
         private @GameControls m_Wrapper;
@@ -904,6 +980,7 @@ public class @GameControls : IInputActionCollection, IDisposable
         public InputAction @CycleLeft => m_Wrapper.m_OverworldControls_CycleLeft;
         public InputAction @CycleRight => m_Wrapper.m_OverworldControls_CycleRight;
         public InputAction @PartnerAction => m_Wrapper.m_OverworldControls_PartnerAction;
+        public InputAction @SecondaryMovement => m_Wrapper.m_OverworldControls_SecondaryMovement;
         public InputActionMap Get() { return m_Wrapper.m_OverworldControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -934,6 +1011,9 @@ public class @GameControls : IInputActionCollection, IDisposable
                 @PartnerAction.started -= m_Wrapper.m_OverworldControlsActionsCallbackInterface.OnPartnerAction;
                 @PartnerAction.performed -= m_Wrapper.m_OverworldControlsActionsCallbackInterface.OnPartnerAction;
                 @PartnerAction.canceled -= m_Wrapper.m_OverworldControlsActionsCallbackInterface.OnPartnerAction;
+                @SecondaryMovement.started -= m_Wrapper.m_OverworldControlsActionsCallbackInterface.OnSecondaryMovement;
+                @SecondaryMovement.performed -= m_Wrapper.m_OverworldControlsActionsCallbackInterface.OnSecondaryMovement;
+                @SecondaryMovement.canceled -= m_Wrapper.m_OverworldControlsActionsCallbackInterface.OnSecondaryMovement;
             }
             m_Wrapper.m_OverworldControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -959,6 +1039,9 @@ public class @GameControls : IInputActionCollection, IDisposable
                 @PartnerAction.started += instance.OnPartnerAction;
                 @PartnerAction.performed += instance.OnPartnerAction;
                 @PartnerAction.canceled += instance.OnPartnerAction;
+                @SecondaryMovement.started += instance.OnSecondaryMovement;
+                @SecondaryMovement.performed += instance.OnSecondaryMovement;
+                @SecondaryMovement.canceled += instance.OnSecondaryMovement;
             }
         }
     }
@@ -1150,6 +1233,7 @@ public class @GameControls : IInputActionCollection, IDisposable
         void OnCycleLeft(InputAction.CallbackContext context);
         void OnCycleRight(InputAction.CallbackContext context);
         void OnPartnerAction(InputAction.CallbackContext context);
+        void OnSecondaryMovement(InputAction.CallbackContext context);
     }
     public interface ICombatControlsActions
     {
