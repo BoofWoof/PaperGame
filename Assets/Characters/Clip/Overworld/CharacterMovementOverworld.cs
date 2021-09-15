@@ -123,12 +123,15 @@ public class CharacterMovementOverworld : MonoBehaviour
             next_jump = jump + (gravity * 2.5f * Time.deltaTime);
         }
         float maxPossibleVerticleDistance = 0.05f + maxStepSize + Time.deltaTime * Mathf.Abs(next_jump);
+
+        //Rotation
+        Quaternion rayRotation = Quaternion.AngleAxis(GameDataTracker.CameraHeading, Vector3.up);
         //GroundScan
         for (int i = 0; i < scanWidthCount; i++)
         {
             for (int j = 0; j < scanLengthCount; j++)
             {
-                Vector3 rayOrgin = transform.position + new Vector3(-width / 2f + i * scanWidthSize, -full_height / 2f + maxStepSize, -length / 2f + j * scanLengthSize);
+                Vector3 rayOrgin = transform.position + rayRotation * new Vector3(-width / 2f + i * scanWidthSize, -full_height / 2f + maxStepSize, -length / 2f + j * scanLengthSize);
                 if(Physics.Raycast(rayOrgin, Vector3.down, out hit, maxPossibleVerticleDistance, ~ignoreLayer))
                 {
                     Debug.DrawRay(rayOrgin, Vector3.down * maxPossibleVerticleDistance, Color.green);
@@ -225,10 +228,10 @@ public class CharacterMovementOverworld : MonoBehaviour
         {
             for (int j = 0; j < scanHeightCount; j++)
             {
-                Vector3 rayOrgin = transform.position + new Vector3(-width / 2f + i * scanWidthSize, -full_height / 2f + maxStepSize + j * scanHeightSize, 0);
-                if(Physics.Raycast(rayOrgin, new Vector3(0, 0, movement.z), out hit, 2f, ~ignoreLayer))
+                Vector3 rayOrgin = transform.position + rayRotation * new Vector3(-width / 2f + i * scanWidthSize, -full_height / 2f + maxStepSize + j * scanHeightSize, 0);
+                if(Physics.Raycast(rayOrgin, rayRotation * new Vector3(0, 0, movement.z), out hit, 2f, ~ignoreLayer))
                 {
-                    Debug.DrawRay(rayOrgin, new Vector3(0, 0, movement.z) * 10f, Color.red);
+                    Debug.DrawRay(rayOrgin, rayRotation * new Vector3(0, 0, movement.z) * 10f, Color.red);
                     int layer = hit.collider.gameObject.layer;
                     //8 is the appear layer.
                     if (layer == 6){
@@ -255,10 +258,10 @@ public class CharacterMovementOverworld : MonoBehaviour
         {
             for (int k = 0; k < scanLengthCount; k++)
             {
-                Vector3 rayOrgin = transform.position + new Vector3(0, -full_height / 2f + maxStepSize  + j * scanHeightSize, -length / 2f + k * scanLengthSize);
-                if(Physics.Raycast(rayOrgin, new Vector3(movement.x, 0, 0), out hit, 2f, ~ignoreLayer))
+                Vector3 rayOrgin = transform.position + rayRotation * new Vector3(0, -full_height / 2f + maxStepSize  + j * scanHeightSize, -length / 2f + k * scanLengthSize);
+                if(Physics.Raycast(rayOrgin, rayRotation * new Vector3(movement.x, 0, 0), out hit, 2f, ~ignoreLayer))
                 {
-                    Debug.DrawRay(rayOrgin, new Vector3(movement.x, 0, 0) * 10f, Color.blue);
+                    Debug.DrawRay(rayOrgin, rayRotation * new Vector3(movement.x, 0, 0) * 10f, Color.red);
                     int layer = hit.collider.gameObject.layer;
                     //8 is the appear layer.
                     if (layer == 6)

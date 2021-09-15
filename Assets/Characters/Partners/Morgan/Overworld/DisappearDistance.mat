@@ -41,7 +41,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_0e17949082094de5987619b17e0b4476: 0.39
+    - Vector1_0e17949082094de5987619b17e0b4476: 0.73
     - Vector1_231350577a4b4a76a8c33a9b204ff886: 1.37
     - Vector1_285b2c33068b4397a542c90f1a8bdf3e: 0.1
     - Vector1_3895d8c845c844acbe91bfc5399e9293: 3.75
@@ -97,6 +97,7 @@ Material:
     m_Colors:
     - Color_04e3ba68bfa34b38a3da97e2faf5b27a: {r: 0.39289236, g: 0.15141797, b: 0.41509426,
         a: 0}
+    - Color_1874ddacfb964beaa65851b56ccef280: {r: 0, g: 4, b: 2.745098, a: 0}
     - TorchPosition: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
