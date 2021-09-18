@@ -97,17 +97,6 @@ public class @GameControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""4cc43a30-8d18-43a4-b88a-0bd9b803b1a1"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MainAction"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""f808bee5-74f7-466a-82f0-e1e54b58dcad"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",

@@ -15,7 +15,7 @@ public class GameDataTracker : MonoBehaviour
     public static string saveFileName = null;
 
     //Current Mode
-    public enum gameModeOptions { Mobile, Cutscene, MobileCutscene, DialogueReady, Paused };
+    public enum gameModeOptions { Mobile, Cutscene, MobileCutscene, DialogueReady, Paused, AbilityFreeze};
     public static gameModeOptions gameMode = gameModeOptions.Mobile;
     public static gameModeOptions gameModePre = gameModeOptions.Mobile;
 

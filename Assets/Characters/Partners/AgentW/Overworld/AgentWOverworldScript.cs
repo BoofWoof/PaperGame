@@ -11,6 +11,9 @@ public class AgentWOverworldScript : PartnerBaseScript
         {
             CutsceneDeconstruct complexCutscene = ScriptableObject.CreateInstance<CutsceneDeconstruct>();
             complexCutscene.Deconstruct(AreaInfo, GetComponent<FriendlyNPCClass>().CharacterName, gameObject);
+        } else
+        {
+            Debug.Log("No info for this area.");
         }
     }
 }

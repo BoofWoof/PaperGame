@@ -207,7 +207,7 @@ public class CharacterMovementOverworld : MonoBehaviour
         //MOVEMENT START---------------------------------------------------------------------------------
         if (!movementLock)
         {
-            if (GameDataTracker.gameMode != GameDataTracker.gameModeOptions.Cutscene && !spriteAnimate.GetCurrentAnimatorStateInfo(0).IsName("ClipSmack"))
+            if (GameDataTracker.gameMode != GameDataTracker.gameModeOptions.Cutscene && GameDataTracker.gameMode != GameDataTracker.gameModeOptions.AbilityFreeze)
             {
                 Vector2 stickPosition = controls.OverworldControls.Movement.ReadValue<Vector2>();
                 moveHorizontal = stickPosition[0];
@@ -352,40 +352,47 @@ public class CharacterMovementOverworld : MonoBehaviour
 
     IEnumerator HitWithStick(Vector2 hitDirection)
     {
-        yield return new WaitForSeconds(0.25f);
-        if(hitDirection == Vector2.zero) hitDirection = lastNonZeroDirection;
-        if (spriteAnimate.GetCurrentAnimatorStateInfo(0).IsName("ClipSmack"))
+        if(GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Mobile)
         {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, new Vector3(hitDirection.x, 0, hitDirection.y), out hit, 0.75f, ~ignoreLayer))
+            GameDataTracker.gameModePre = GameDataTracker.gameMode;
+            GameDataTracker.gameMode = GameDataTracker.gameModeOptions.AbilityFreeze;
+            yield return new WaitForSeconds(0.25f);
+            if (hitDirection == Vector2.zero) hitDirection = lastNonZeroDirection;
+            if (spriteAnimate.GetCurrentAnimatorStateInfo(0).IsName("ClipSmack"))
             {
-                DestructionScript dScript = hit.collider.gameObject.GetComponent<DestructionScript>();
-                if (dScript != null)
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, new Vector3(hitDirection.x, 0, hitDirection.y), out hit, 0.75f, ~ignoreLayer))
                 {
-                    bool validHit = true;
-                    int layer = hit.collider.gameObject.layer;
-                    //8 is the appear layer.
-                    if (layer == 6)
+                    DestructionScript dScript = hit.collider.gameObject.GetComponent<DestructionScript>();
+                    if (dScript != null)
                     {
-                        if (checkAppearTorches(hit.point)) validHit = false;
-                    }
-                    //7 is the disappear layer.
-                    if (layer == 7)
-                    {
-                        if (checkDisapearTorches(hit.point)) validHit = false;
-                    }
-                    if (validHit)
-                    {
-                        dScript.BreakObject();
+                        bool validHit = true;
+                        int layer = hit.collider.gameObject.layer;
+                        //8 is the appear layer.
+                        if (layer == 6)
+                        {
+                            if (checkAppearTorches(hit.point)) validHit = false;
+                        }
+                        //7 is the disappear layer.
+                        if (layer == 7)
+                        {
+                            if (checkDisapearTorches(hit.point)) validHit = false;
+                        }
+                        if (validHit)
+                        {
+                            dScript.BreakObject();
+                        }
                     }
                 }
             }
-        }
-        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionHitRadius);
-        foreach (Collider hit in colliders)
-        {
-            Rigidbody rb = hit.GetComponent<Rigidbody>();
-            if (rb != null) rb.AddExplosionForce(100.0f, transform.position, explosionHitRadius, 0.5f);
+            Collider[] colliders = Physics.OverlapSphere(transform.position, explosionHitRadius);
+            foreach (Collider hit in colliders)
+            {
+                Rigidbody rb = hit.GetComponent<Rigidbody>();
+                if (rb != null) rb.AddExplosionForce(100.0f, transform.position, explosionHitRadius, 0.5f);
+            }
+            yield return new WaitForSeconds(0.25f);
+            if (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.AbilityFreeze) GameDataTracker.gameMode = GameDataTracker.gameModePre;
         }
     }
 }

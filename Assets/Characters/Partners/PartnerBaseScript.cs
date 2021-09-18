@@ -19,17 +19,19 @@ public class PartnerBaseScript : MonoBehaviour
     public OffMeshLinkMoveMethod method = OffMeshLinkMoveMethod.Parabola;
     public bool exitSpin = false;
 
+    private bool partnerAbilityTriggered = false;
+
     private void Awake()
     {
         controls = new GameControls();
     }
 
-    private void OnEnable()
+    virtual public void OnEnable()
     {
         controls.OverworldControls.Enable();
     }
 
-    private void OnDisable()
+    virtual public void OnDisable()
     {
         controls.OverworldControls.Disable();
     }
@@ -47,6 +49,8 @@ public class PartnerBaseScript : MonoBehaviour
         {
             agent.SetDestination(OverworldController.Player.transform.position);
             if (controls.OverworldControls.PartnerAction.triggered) UseAbility();
+            if (controls.OverworldControls.PartnerAction.phase == UnityEngine.InputSystem.InputActionPhase.Started) HoldAbility();
+            else NoAbility();
         }
         else
         {
@@ -93,6 +97,25 @@ public class PartnerBaseScript : MonoBehaviour
     }
 
     virtual public void UseAbility()
+    {
+        partnerAbilityTriggered = true;
+    }
+
+    virtual public void HoldAbility()
+    {
+
+    }
+
+    virtual public void NoAbility()
+    {
+        if (partnerAbilityTriggered)
+        {
+            partnerAbilityTriggered = false;
+            AbilityReleased();
+        }
+    }
+
+    virtual public void AbilityReleased()
     {
 
     }

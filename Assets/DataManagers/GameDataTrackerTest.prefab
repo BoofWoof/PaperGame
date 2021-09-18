@@ -110,5 +110,5 @@ MonoBehaviour:
   partnerInput:
   - {fileID: 0}
   - {fileID: 8667378107896584655, guid: 0b22fb1e47ae3184bb77b76cbd341e46, type: 3}
-  - {fileID: 0}
+  - {fileID: 8667378107896584655, guid: 4abcfade1a3f9bc4cbf8d4cab7c8f33d, type: 3}
   - {fileID: 8667378107896584655, guid: b4e37467c9b86454c9e38070f695a9b4, type: 3}

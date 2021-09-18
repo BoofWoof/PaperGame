@@ -1,0 +1,5 @@
+I thought it would be good to leave some credit here if someone in the future sees this code.  This world painting code is largely gathered from mixandjam on their github.
+
+https://github.com/mixandjam/Splatoon-Ink/blob/187b1fae6b4fcafe322839ea359ffae4c1ffa282/Assets/Shaders/ExtendIslands.shader
+
+Thank you so much for all your lessons online.  Especially with this because it took forever to figure out how things were working even with the code and tutorial! I can not imagine how long it would have taken me without it.
