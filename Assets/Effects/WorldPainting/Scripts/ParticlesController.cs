@@ -21,7 +21,6 @@ public class ParticlesController : MonoBehaviour
     {
         part = GetComponent<ParticleSystem>();
         collisionEvents = new List<ParticleCollisionEvent>();
-        RandomizePaintColor();
         //var pr = part.GetComponent<ParticleSystemRenderer>();
         //Color c = new Color(pr.material.color.r, pr.material.color.g, pr.material.color.b, .8f);
         //paintColor = c;
@@ -52,6 +51,11 @@ public class ParticlesController : MonoBehaviour
     public void RandomizePaintColor()
     {
         nextPaintColor = Random.ColorHSV(0f, 1f, 1f, 1f, 1f, 1f);
+    }
+
+    public void NextPaintColor(Color nextColor)
+    {
+        nextPaintColor = nextColor;
     }
 
     void OnParticleCollision(GameObject other)

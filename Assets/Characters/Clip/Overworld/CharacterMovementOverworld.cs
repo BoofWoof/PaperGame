@@ -91,6 +91,12 @@ public class CharacterMovementOverworld : MonoBehaviour
         lastground = transform.position;
     }
 
+    public void ForceJump(float force)
+    {
+        jump = force;
+        jumped = true;
+    }
+
     // Update is called once per frame
     void Update()
     {

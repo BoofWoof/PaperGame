@@ -32,6 +32,10 @@ MonoBehaviour:
   particleGunPrefab: {fileID: 4961086725771802153, guid: 485ba77decffd924080eb00f6a226797,
     type: 3}
   holdLengthThreshold: 0.3
+  abilityColors:
+  - {r: 0.54500395, g: 0.8113208, b: 0.29595345, a: 1}
+  - {r: 0.35686278, g: 0.70322794, b: 1, a: 1}
+  - {r: 0.8962264, g: 0.37765506, b: 0.38772705, a: 1}
 --- !u!114 &1159664823039213116
 MonoBehaviour:
   m_ObjectHideFlags: 0

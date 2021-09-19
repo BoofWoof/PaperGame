@@ -12,18 +12,95 @@ public class ArtistOverworldScript : PartnerBaseScript
     private float currentShotVerticalAngle = -20f;
     private float holdLength = 0;
 
+    public Color[] abilityColors;
+    private int currentColorIndex = 0;
+
     public override void OnEnable()
     {
         base.OnEnable();
         particleGun = Instantiate(particleGunPrefab, OverworldController.Player.transform.position, OverworldController.Player.transform.rotation);
         particleGun.transform.parent = OverworldController.Player.transform;
         particleGun.GetComponent<ParticleSystem>().Stop();
+        particleGun.GetComponent<ParticlesController>().paintColor = abilityColors[currentColorIndex];
+        particleGun.GetComponent<ParticlesController>().nextPaintColor = abilityColors[currentColorIndex];
     }
 
     public override void OnDisable()
     {
         base.OnDisable();
         Destroy(particleGun);
+    }
+
+    public override void Start()
+    {
+        base.Start();
+        particleGun.GetComponent<ParticlesController>().paintColor = abilityColors[currentColorIndex];
+        particleGun.GetComponent<ParticlesController>().nextPaintColor = abilityColors[currentColorIndex];
+    }
+
+    public override void Update()
+    {
+        base.Update();
+        Vector3 rayOrgin = OverworldController.Player.transform.position;
+        RaycastHit hit;
+        int currentPaintFloor = -1;
+        if (Physics.Raycast(rayOrgin, Vector3.down, out hit, 0.6f))
+        {
+            Paintable paintableScript = hit.collider.gameObject.GetComponent<Paintable>();
+            if (paintableScript != null)
+            {
+                RenderTexture maskTexture = paintableScript.getExtend();
+                Vector2 hitCoordinate = hit.textureCoord;
+
+                RenderTexture singlePixelTexture = new RenderTexture(1, 1, 0);
+                Graphics.CopyTexture(
+                    maskTexture, 
+                    0,
+                    0,
+                    (int)(hitCoordinate.x * 1024),
+                    (int)(hitCoordinate.y * 1024),
+                    1,
+                    1,
+                    singlePixelTexture,
+                    0,
+                    0,
+                    0,
+                    0
+                    );
+                RenderTexture.active = singlePixelTexture;
+
+                Texture2D tex = new Texture2D(1, 1, TextureFormat.RGBA32, false);
+
+                tex.ReadPixels(new Rect(0, 0, 1, 1), 0, 0);
+                Color underPixel = tex.GetPixel(0,0);
+                
+                RenderTexture.active = null;
+                singlePixelTexture.Release();
+
+                if (underPixel.a > 0.2f)
+                {
+                    Vector3 underPixelVector = new Vector3(underPixel.r, underPixel.g, underPixel.b);
+                    float smallestDistance = 10000;
+                    int colorIdx = 0;
+                    foreach (Color abilityColor in abilityColors)
+                    {
+                        Vector3 abilityColorVector = new Vector3(abilityColor.r, abilityColor.g, abilityColor.b);
+                        float colorDistance = Vector3.Distance(underPixelVector, abilityColorVector);
+                        if (colorDistance < smallestDistance)
+                        {
+                            smallestDistance = colorDistance;
+                            currentPaintFloor = colorIdx;
+                        }
+                        colorIdx += 1;
+                    }
+                }
+            }
+        }
+        Debug.Log(currentPaintFloor);
+        if(currentPaintFloor == 1)
+        {
+            OverworldController.Player.GetComponent<CharacterMovementOverworld>().ForceJump(20);
+        }
     }
 
     public override void UseAbility()
@@ -94,7 +171,9 @@ public class ArtistOverworldScript : PartnerBaseScript
         base.AbilityReleased();
         if (holdLength <= holdLengthThreshold)
         {
-            particleGun.GetComponent<ParticlesController>().RandomizePaintColor();
+            currentColorIndex += 1;
+            if (currentColorIndex >= abilityColors.Length) currentColorIndex = 0;
+            particleGun.GetComponent<ParticlesController>().NextPaintColor(abilityColors[currentColorIndex]);
         }
         particleGun.GetComponent<ParticlesController>().StopEmitter();
         if (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.AbilityFreeze) GameDataTracker.gameMode = GameDataTracker.gameModePre;
