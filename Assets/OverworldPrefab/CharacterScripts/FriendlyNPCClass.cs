@@ -103,7 +103,7 @@ public class FriendlyNPCClass : MonoBehaviour
         if (!OverrideTurning)
         {
             //Face Player If Near
-            if ((distanceToPlayer < 1) && ((GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Mobile) || (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.DialogueReady)))
+            if ((distanceToPlayer < 1) && ((GameDataTracker.cutsceneMode == GameDataTracker.cutsceneModeOptions.Mobile) || GameDataTracker.dialogueReady))
             {
                 //SetRotationGoals=================================================================================
                 if ((Player.transform.position.x > this.transform.position.x + 0.2f))
@@ -149,7 +149,7 @@ public class FriendlyNPCClass : MonoBehaviour
     {
         if (!OverrideTalkRange)
         {
-            if (readyForDialogue && ((GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Mobile) || (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.DialogueReady)))
+            if (readyForDialogue && ((GameDataTracker.cutsceneMode == GameDataTracker.cutsceneModeOptions.Mobile) || GameDataTracker.dialogueReady))
             {
                 if (Bubble == null)
                 {
@@ -201,7 +201,7 @@ public class FriendlyNPCClass : MonoBehaviour
             dialogueCutscene.inputText = new TextAsset(InputString);
             dialogueCutscene.letter_noises = letter_noises;
             dialogueCutscene.letters_per_noise_list = letters_per_noise_list;
-            CutsceneController.addCutsceneEvent(dialogueCutscene, gameObject, true, GameDataTracker.gameModeOptions.Cutscene);
+            CutsceneController.addCutsceneEvent(dialogueCutscene, gameObject, true, GameDataTracker.cutsceneModeOptions.Cutscene);
         }
     }
 }

@@ -57,7 +57,7 @@ public class EnemyNPCClass : MonoBehaviour
                 GameDataTracker.combatScene = combatEncounter;
                 GameDataTracker.cutsceneTrigger = cutsceneTrigger;
                 s.nextSceneName = "CombatExecution";
-                CutsceneController.addCutsceneEvent(s, OverworldController.Player, true, GameDataTracker.gameModeOptions.Cutscene);
+                CutsceneController.addCutsceneEvent(s, OverworldController.Player, true, GameDataTracker.cutsceneModeOptions.Cutscene);
             }
         }
     }

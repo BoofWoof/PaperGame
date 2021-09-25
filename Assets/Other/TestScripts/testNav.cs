@@ -20,7 +20,7 @@ public class testNav : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameDataTracker.gameMode != GameDataTracker.gameModeOptions.Cutscene)
+        if (GameDataTracker.cutsceneMode != GameDataTracker.cutsceneModeOptions.Cutscene)
         {
             if (agent.remainingDistance < 0.01 * walkRadius)
             {

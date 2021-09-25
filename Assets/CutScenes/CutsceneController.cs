@@ -10,7 +10,7 @@ public class CutSceneEvent
     public bool Wait;
     public GameObject CameraFocus;
     public Vector3 CameraOffset;
-    public GameDataTracker.gameModeOptions GameMode;
+    public GameDataTracker.cutsceneModeOptions CutsceneMode;
 }
 
 public class CutsceneController
@@ -20,48 +20,48 @@ public class CutsceneController
     public static int CutscenesPlaying = 0;
 
     //WAYS TO ADD CUTSCENE EVENTS-----------------------------------------------------------------------
-    public static void addCutsceneEvent(CutSceneClass CutsceneEventInput, GameObject CutsceneTargetInput, bool WaitInput, GameDataTracker.gameModeOptions GameModeInput, GameObject CameraFocusInput, Vector3 CameraOffsetInput)
+    public static void addCutsceneEvent(CutSceneClass CutsceneEventInput, GameObject CutsceneTargetInput, bool WaitInput, GameDataTracker.cutsceneModeOptions CutsceneModeInput, GameObject CameraFocusInput, Vector3 CameraOffsetInput)
     {
         CutSceneEvent newEvent = new CutSceneEvent();
         newEvent.CutsceneEvent = CutsceneEventInput;
         newEvent.CutsceneTarget = CutsceneTargetInput;
         newEvent.Wait = WaitInput;
-        newEvent.GameMode = GameModeInput;
+        newEvent.CutsceneMode = CutsceneModeInput;
         newEvent.CameraFocus = CameraFocusInput;
         newEvent.CameraOffset = CameraOffsetInput;
         CutsceneQueue.Add(newEvent);
     }
 
-    public static void addCutsceneEvent(CutSceneClass CutsceneEventInput, GameObject CutsceneTargetInput, bool WaitInput, GameDataTracker.gameModeOptions GameModeInput)
+    public static void addCutsceneEvent(CutSceneClass CutsceneEventInput, GameObject CutsceneTargetInput, bool WaitInput, GameDataTracker.cutsceneModeOptions CutsceneModeInput)
     {
         CutSceneEvent newEvent = new CutSceneEvent();
         newEvent.CutsceneEvent = CutsceneEventInput;
         newEvent.CutsceneTarget = CutsceneTargetInput;
         newEvent.Wait = WaitInput;
-        newEvent.GameMode = GameModeInput;
+        newEvent.CutsceneMode = CutsceneModeInput;
         newEvent.CameraFocus = null;
         newEvent.CameraOffset = Vector3.zero;
         CutsceneQueue.Add(newEvent);
     }
-    public static void addCutsceneEventFront(CutSceneClass CutsceneEventInput, GameObject CutsceneTargetInput, bool WaitInput, GameDataTracker.gameModeOptions GameModeInput, GameObject CameraFocusInput, Vector3 CameraOffsetInput)
+    public static void addCutsceneEventFront(CutSceneClass CutsceneEventInput, GameObject CutsceneTargetInput, bool WaitInput, GameDataTracker.cutsceneModeOptions CutsceneModeInput, GameObject CameraFocusInput, Vector3 CameraOffsetInput)
     {
         CutSceneEvent newEvent = new CutSceneEvent();
         newEvent.CutsceneEvent = CutsceneEventInput;
         newEvent.CutsceneTarget = CutsceneTargetInput;
         newEvent.Wait = WaitInput;
-        newEvent.GameMode = GameModeInput;
+        newEvent.CutsceneMode = CutsceneModeInput;
         newEvent.CameraFocus = CameraFocusInput;
         newEvent.CameraOffset = CameraOffsetInput;
         CutsceneQueue.Insert(0, newEvent);
     }
 
-    public static void addCutsceneEventFront(CutSceneClass CutsceneEventInput, GameObject CutsceneTargetInput, bool WaitInput, GameDataTracker.gameModeOptions GameModeInput)
+    public static void addCutsceneEventFront(CutSceneClass CutsceneEventInput, GameObject CutsceneTargetInput, bool WaitInput, GameDataTracker.cutsceneModeOptions CutsceneModeInput)
     {
         CutSceneEvent newEvent = new CutSceneEvent();
         newEvent.CutsceneEvent = CutsceneEventInput;
         newEvent.CutsceneTarget = CutsceneTargetInput;
         newEvent.Wait = WaitInput;
-        newEvent.GameMode = GameModeInput;
+        newEvent.CutsceneMode = CutsceneModeInput;
         newEvent.CameraFocus = null;
         newEvent.CameraOffset = Vector3.zero;
         CutsceneQueue.Insert(0, newEvent);
@@ -81,7 +81,7 @@ public class CutsceneController
                 {
                     keepPlaying = false;
                 }
-                GameDataTracker.gameMode = eventInitiation.GameMode;
+                GameDataTracker.cutsceneMode = eventInitiation.CutsceneMode;
                 if (keep) {
                     CutsceneActive.Add(eventInitiation);
                     CutscenesPlaying++;
@@ -89,9 +89,9 @@ public class CutsceneController
                 CutsceneQueue.Remove(eventInitiation);
             }
         }
-        if (CutscenesPlaying == 0 && CutsceneQueue.Count == 0 && (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.MobileCutscene || GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Cutscene) && !GameDataTracker.transitioning)
+        if (CutscenesPlaying == 0 && CutsceneQueue.Count == 0 && GameDataTracker.cutsceneMode != GameDataTracker.cutsceneModeOptions.Mobile && !GameDataTracker.transitioning)
         {
-            GameDataTracker.gameMode = GameDataTracker.gameModeOptions.Mobile;
+            GameDataTracker.cutsceneMode = GameDataTracker.cutsceneModeOptions.Mobile;
         }
         for (int i = CutsceneActive.Count; i > 0; i--)
         {

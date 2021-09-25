@@ -67,7 +67,7 @@ public class PauseMenuScript : MonoBehaviour
     {
         GameDataTracker.deadEnemyIDs.Clear();
         GameDataTracker.previousArea = null;
-        GameDataTracker.gameMode = GameDataTracker.gameModeOptions.Mobile;
+        GameDataTracker.cutsceneMode = GameDataTracker.cutsceneModeOptions.Mobile;
 
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }

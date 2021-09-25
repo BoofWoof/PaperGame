@@ -16,18 +16,18 @@ public class SceneMover : MonoBehaviour
 
     private void OnTriggerEnter(Collider trig)
     {
-        if (trig.CompareTag("Player") && GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Mobile)
+        if (trig.CompareTag("Player") && GameDataTracker.cutsceneMode == GameDataTracker.cutsceneModeOptions.Mobile)
         {
             GameDataTracker.deadEnemyIDs.Clear();
 
             PlayerTravelDirection m = ScriptableObject.CreateInstance<PlayerTravelDirection>();
             m.endPosition = transform.position;
             m.travelDirection = exitDirection;
-            CutsceneController.addCutsceneEvent(m, OverworldController.Player, true, GameDataTracker.gameModeOptions.Cutscene);
+            CutsceneController.addCutsceneEvent(m, OverworldController.Player, true, GameDataTracker.cutsceneModeOptions.Cutscene);
 
             ChangeScenesCutscene s = ScriptableObject.CreateInstance<ChangeScenesCutscene>();
             s.nextSceneName = sceneName;
-            CutsceneController.addCutsceneEvent(s, OverworldController.Player, true, GameDataTracker.gameModeOptions.Cutscene);
+            CutsceneController.addCutsceneEvent(s, OverworldController.Player, true, GameDataTracker.cutsceneModeOptions.Cutscene);
         }
     }
 

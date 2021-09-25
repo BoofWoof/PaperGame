@@ -29,7 +29,7 @@ public class CharacterMenuScript : MonoBehaviour
     {
         SwitchPartner sp = ScriptableObject.CreateInstance<SwitchPartner>();
         sp.partner_id = partner_id;
-        CutsceneController.addCutsceneEvent(sp, gameObject, true, GameDataTracker.gameModeOptions.Mobile);
+        CutsceneController.addCutsceneEvent(sp, gameObject, true, GameDataTracker.cutsceneModeOptions.Mobile);
         OverworldController.ChangePauseState();
     }
 }

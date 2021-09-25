@@ -45,7 +45,7 @@ public class PartnerBaseScript : MonoBehaviour
     // Update is called once per frame
     virtual public void Update()
     {
-        if (GameDataTracker.gameMode != GameDataTracker.gameModeOptions.Cutscene)
+        if (GameDataTracker.cutsceneMode != GameDataTracker.cutsceneModeOptions.Cutscene)
         {
             agent.SetDestination(OverworldController.Player.transform.position);
             if (controls.OverworldControls.PartnerAction.triggered) UseAbility();

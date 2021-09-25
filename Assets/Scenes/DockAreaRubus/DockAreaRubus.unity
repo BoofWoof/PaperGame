@@ -5095,6 +5095,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 332732432499658467, guid: b6d0446a0598c0147b6d29e31e1f5bf5,
         type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 375f8c81165087342bbc99f9175c68f8,
+        type: 2}
+    - target: {fileID: 332732432499658467, guid: b6d0446a0598c0147b6d29e31e1f5bf5,
+        type: 3}
       propertyPath: letter_noise
       value: 
       objectReference: {fileID: 8300000, guid: f26e7b514e7d05e4193134186028831f, type: 3}

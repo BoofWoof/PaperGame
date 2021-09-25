@@ -14,7 +14,7 @@ public class CutsceneTrigger : MonoBehaviour
         
         dialogueCutscene.heightOverSpeaker = targetInfo.CharacterHeight + 0.5f;
         dialogueCutscene.speakerName = targetInfo.name;
-        CutsceneController.addCutsceneEvent(dialogueCutscene, target, true, GameDataTracker.gameModeOptions.Cutscene);
+        CutsceneController.addCutsceneEvent(dialogueCutscene, target, true, GameDataTracker.cutsceneModeOptions.Cutscene);
     }
 
     public void onTurnStart(int turn, TurnManager.turnPhases turnPhase)

@@ -49,8 +49,8 @@ MonoBehaviour:
   nextPaintColor: {r: 0, g: 0, b: 0, a: 0}
   minRadius: 0.7
   maxRadius: 1.5
-  strength: 0.3
-  hardness: 0.05
+  strength: 0.8
+  hardness: 0.3
   waitingToStart: 0
 --- !u!198 &4961086725771802155
 ParticleSystem:

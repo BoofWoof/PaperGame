@@ -57,7 +57,7 @@ public class OverworldController : MonoBehaviour
                     {
                         Player = Instantiate(playerInput, sceneTransfer.transform.position, Quaternion.identity);
 
-                        GameDataTracker.gameMode = GameDataTracker.gameModeOptions.Cutscene;
+                        GameDataTracker.cutsceneMode = GameDataTracker.cutsceneModeOptions.Cutscene;
                         PlayerTravelDirection pm = ScriptableObject.CreateInstance<PlayerTravelDirection>();
                         SceneMover.exitDirectionOptions entranceDirection = sceneTransfer.GetComponent<SceneMover>().exitDirection;
                         if (entranceDirection == SceneMover.exitDirectionOptions.up)
@@ -80,7 +80,7 @@ public class OverworldController : MonoBehaviour
                             pm.endPosition = Player.transform.position + new Vector3(0, 0, 2);
                             pm.travelDirection = SceneMover.exitDirectionOptions.up;
                         }
-                        CutsceneController.addCutsceneEvent(pm, Player, true, GameDataTracker.gameModeOptions.Cutscene);
+                        CutsceneController.addCutsceneEvent(pm, Player, true, GameDataTracker.cutsceneModeOptions.Cutscene);
                     }
                 }
             }
@@ -126,15 +126,14 @@ public class OverworldController : MonoBehaviour
 
     public static void ChangePauseState()
     {
-        if (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Paused)
+        if (GameDataTracker.pauseActive)
         {
-            GameDataTracker.gameMode = GameDataTracker.gameModePre;
+            GameDataTracker.pauseActive = false;
             PauseMenu.SetActive(false);
         }
         else
         {
-            GameDataTracker.gameModePre = GameDataTracker.gameMode;
-            GameDataTracker.gameMode = GameDataTracker.gameModeOptions.Paused;
+            GameDataTracker.pauseActive = true;
             PauseMenu.SetActive(true);
         }
     }
@@ -143,11 +142,11 @@ public class OverworldController : MonoBehaviour
     public void Update()
     {
         //Pause and unpause game. ================
-        if (controls.OverworldControls.Inventory.triggered && (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Mobile || GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Paused))
+        if (controls.OverworldControls.Inventory.triggered && (GameDataTracker.cutsceneMode == GameDataTracker.cutsceneModeOptions.Mobile))
         {
             ChangePauseState();
         }
-        if (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Paused)
+        if (GameDataTracker.pauseActive)
         {
             Time.timeScale = 0.0f;
         }
@@ -157,9 +156,8 @@ public class OverworldController : MonoBehaviour
         }
         //=========================================
         //Check if any dialogue is available.
-        if ((GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Mobile) || (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.DialogueReady))
+        if (GameDataTracker.cutsceneMode == GameDataTracker.cutsceneModeOptions.Mobile)
         {
-            GameDataTracker.gameMode = GameDataTracker.gameModeOptions.Mobile;
             float closestCharacterDistance = 100;
             GameObject closestCharacter = null;
             foreach (Character CharacterItem in GameDataTracker.CharacterList)
@@ -186,8 +184,14 @@ public class OverworldController : MonoBehaviour
             if (closestCharacterDistance < 1)
             {
                 closestCharacter.GetComponent<FriendlyNPCClass>().readyForDialogue = true;
-                GameDataTracker.gameMode = GameDataTracker.gameModeOptions.DialogueReady;
+                GameDataTracker.dialogueReady = true;
+            } else
+            {
+                GameDataTracker.dialogueReady = false;
             }
+        } else
+        {
+            GameDataTracker.dialogueReady = false;
         }
     }
 

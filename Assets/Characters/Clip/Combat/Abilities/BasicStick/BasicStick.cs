@@ -17,7 +17,7 @@ public class BasicStick : moveTemplate
         basicStick.target = target;
         basicStick.power = character.GetComponent<FighterClass>().Power;
         basicStick.stickTimerPrefab = stickTimer;
-        CutsceneController.addCutsceneEvent(basicStick, character, true, GameDataTracker.gameModeOptions.Cutscene);
+        CutsceneController.addCutsceneEvent(basicStick, character, true, GameDataTracker.cutsceneModeOptions.Cutscene);
     }
 }
 

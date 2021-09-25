@@ -104,7 +104,7 @@ public class CharacterMovementOverworld : MonoBehaviour
         float yDelta = transform.position.y - prevY;
         if (yDelta < 0) movingDown = true;
         prevY = transform.position.y;
-        if(GameDataTracker.gameMode != GameDataTracker.gameModeOptions.Cutscene)
+        if(GameDataTracker.cutsceneMode != GameDataTracker.cutsceneModeOptions.Cutscene)
         {
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
             agent.enabled = false;
@@ -200,7 +200,7 @@ public class CharacterMovementOverworld : MonoBehaviour
             spriteAnimate.SetTrigger("Jump");
         }
         //JUMP---------------------------------
-        if (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Mobile)
+        if (GameDataTracker.cutsceneMode == GameDataTracker.cutsceneModeOptions.Mobile)
         {
             if (jumped == false)
             {
@@ -213,7 +213,7 @@ public class CharacterMovementOverworld : MonoBehaviour
         //MOVEMENT START---------------------------------------------------------------------------------
         if (!movementLock)
         {
-            if (GameDataTracker.gameMode != GameDataTracker.gameModeOptions.Cutscene && GameDataTracker.gameMode != GameDataTracker.gameModeOptions.AbilityFreeze)
+            if (GameDataTracker.cutsceneMode != GameDataTracker.cutsceneModeOptions.Cutscene && !GameDataTracker.stickActive && !GameDataTracker.paintgunActive)
             {
                 Vector2 stickPosition = controls.OverworldControls.Movement.ReadValue<Vector2>();
                 moveHorizontal = stickPosition[0];
@@ -358,10 +358,9 @@ public class CharacterMovementOverworld : MonoBehaviour
 
     IEnumerator HitWithStick(Vector2 hitDirection)
     {
-        if(GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Mobile)
+        if(GameDataTracker.cutsceneMode == GameDataTracker.cutsceneModeOptions.Mobile)
         {
-            GameDataTracker.gameModePre = GameDataTracker.gameMode;
-            GameDataTracker.gameMode = GameDataTracker.gameModeOptions.AbilityFreeze;
+            GameDataTracker.stickActive = true;
             yield return new WaitForSeconds(0.25f);
             if (hitDirection == Vector2.zero) hitDirection = lastNonZeroDirection;
             if (spriteAnimate.GetCurrentAnimatorStateInfo(0).IsName("ClipSmack"))
@@ -398,7 +397,7 @@ public class CharacterMovementOverworld : MonoBehaviour
                 if (rb != null) rb.AddExplosionForce(100.0f, transform.position, explosionHitRadius, 0.5f);
             }
             yield return new WaitForSeconds(0.25f);
-            if (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.AbilityFreeze) GameDataTracker.gameMode = GameDataTracker.gameModePre;
+            GameDataTracker.stickActive = false;
         }
     }
 }

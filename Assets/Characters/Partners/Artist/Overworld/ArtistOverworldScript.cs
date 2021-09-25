@@ -77,7 +77,7 @@ public class ArtistOverworldScript : PartnerBaseScript
                 RenderTexture.active = null;
                 singlePixelTexture.Release();
 
-                if (underPixel.a > 0.2f)
+                if (underPixel.a > 0.8f)
                 {
                     Vector3 underPixelVector = new Vector3(underPixel.r, underPixel.g, underPixel.b);
                     float smallestDistance = 10000;
@@ -107,10 +107,9 @@ public class ArtistOverworldScript : PartnerBaseScript
     {
         base.UseAbility();
         holdLength = 0;
-        if (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.Mobile)
+        if (GameDataTracker.cutsceneMode == GameDataTracker.cutsceneModeOptions.Mobile)
         {
-            GameDataTracker.gameModePre = GameDataTracker.gameMode;
-            GameDataTracker.gameMode = GameDataTracker.gameModeOptions.AbilityFreeze;
+            GameDataTracker.paintgunActive = true;
             currentShotVerticalAngle = -20f;
             if (OverworldController.Player.GetComponent<SpriteFlipper>().goal > 90)
             {
@@ -176,7 +175,7 @@ public class ArtistOverworldScript : PartnerBaseScript
             particleGun.GetComponent<ParticlesController>().NextPaintColor(abilityColors[currentColorIndex]);
         }
         particleGun.GetComponent<ParticlesController>().StopEmitter();
-        if (GameDataTracker.gameMode == GameDataTracker.gameModeOptions.AbilityFreeze) GameDataTracker.gameMode = GameDataTracker.gameModePre;
+        GameDataTracker.paintgunActive = false;
         holdLength = 0;
     }
 }
