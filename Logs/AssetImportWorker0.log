@@ -15,11 +15,11 @@ C:/Users/Usuario/Documents/Clip'sAdventuresInFantasyIsland/PaperGame
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-52249
+63347
 Successfully changed project path to: C:/Users/Usuario/Documents/Clip'sAdventuresInFantasyIsland/PaperGame
 C:/Users/Usuario/Documents/Clip'sAdventuresInFantasyIsland/PaperGame
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 115.52 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 114.19 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.16f1 (049d6eca3c44)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.16f1/Editor/Data/Resources/UnitySubsystems
@@ -36,37 +36,37 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.16f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.16f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.16f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56268
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56384
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.16f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001564 seconds.
+Registered in 0.001579 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 106.50 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 108.30 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.914 seconds
+- Completed reload, in  0.911 seconds
 Domain Reload Profiling:
-	ReloadAssembly (914ms)
+	ReloadAssembly (912ms)
 		BeginReloadAssembly (39ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (386ms)
-			LoadAssemblies (38ms)
+		EndReloadAssembly (394ms)
+			LoadAssemblies (37ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (113ms)
+			SetupTypeCache (116ms)
 			ReleaseScriptCaches (0ms)
 			RebuildScriptCaches (24ms)
-			SetupLoadedEditorAssemblies (194ms)
+			SetupLoadedEditorAssemblies (198ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (3ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (107ms)
+				RefreshPlugins (108ms)
 				BeforeProcessingInitializeOnLoad (6ms)
-				ProcessInitializeOnLoadAttributes (58ms)
+				ProcessInitializeOnLoadAttributes (59ms)
 				ProcessInitializeOnLoadMethodAttributes (21ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
@@ -74,35 +74,35 @@ Domain Reload Profiling:
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.006800 seconds.
+Registered in 0.006142 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 118.10 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 117.31 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
 - Completed reload, in  1.421 seconds
 Domain Reload Profiling:
 	ReloadAssembly (1422ms)
-		BeginReloadAssembly (113ms)
+		BeginReloadAssembly (114ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (17ms)
-		EndReloadAssembly (1252ms)
-			LoadAssemblies (82ms)
+		EndReloadAssembly (1255ms)
+			LoadAssemblies (83ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (317ms)
+			SetupTypeCache (320ms)
 			ReleaseScriptCaches (1ms)
 			RebuildScriptCaches (75ms)
 			SetupLoadedEditorAssemblies (673ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (3ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (118ms)
-				BeforeProcessingInitializeOnLoad (111ms)
-				ProcessInitializeOnLoadAttributes (300ms)
-				ProcessInitializeOnLoadMethodAttributes (136ms)
+				RefreshPlugins (117ms)
+				BeforeProcessingInitializeOnLoad (107ms)
+				ProcessInitializeOnLoadAttributes (302ms)
+				ProcessInitializeOnLoadMethodAttributes (138ms)
 				AfterProcessingInitializeOnLoad (5ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
@@ -112,14 +112,14 @@ Platform modules already initialized, skipping
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 2.11 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.46 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 5804 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 345.0 MB.
-System memory in use after: 345.1 MB.
+System memory in use before: 345.1 MB.
+System memory in use after: 345.2 MB.
 
 Unloading 67 unused Assets to reduce memory usage. Loaded Objects now: 6223.
-Total: 9.075400 ms (FindLiveObjects: 1.088200 ms CreateObjectMapping: 0.219600 ms MarkObjects: 7.468100 ms  DeleteObjects: 0.297500 ms)
+Total: 7.475800 ms (FindLiveObjects: 0.588400 ms CreateObjectMapping: 0.163800 ms MarkObjects: 6.516000 ms  DeleteObjects: 0.206000 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -133,184 +133,576 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/VFX_Proyects/InkParticle/InkProyectile.png
-  artifactKey: Guid(439bbca053ca2cb46b73fe9b7f5d5b5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/VFX_Proyects/InkParticle/InkProyectile.png using Guid(439bbca053ca2cb46b73fe9b7f5d5b5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc973ec79f90ede64d09481d635d96ad') in 0.088713 seconds 
-  Import took 0.099118 seconds .
+  path: Assets/Characters/NPCs/Beach/AngelGod/AngelDeity Animation.anim
+  artifactKey: Guid(54e67f5a418ee884f9b0a6e016ed7925) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/AngelDeity Animation.anim using Guid(54e67f5a418ee884f9b0a6e016ed7925) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36490cc13f009a4cc9afa865bb577f29') in 0.035423 seconds 
+  Import took 0.043376 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 50.458453 seconds.
-  path: Assets/Characters/NewSpriteShader.mat
-  artifactKey: Guid(74d0179e28c9be947b9feb0fdfee7b73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NewSpriteShader.mat using Guid(74d0179e28c9be947b9feb0fdfee7b73) Importer(815301076,1909f56bfc062723c751e8b465ee728b) Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
- -> (artifact id: 'cd4e7bfe5c7a2ae7af6138eaa82095f7') in 1.190383 seconds 
-  Import took 1.200453 seconds .
+  Time since last request: 0.000189 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/AngelDeity_0.controller
+  artifactKey: Guid(384538cf70eed044d993b5c65c46372a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/AngelDeity_0.controller using Guid(384538cf70eed044d993b5c65c46372a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd16c0bd9364318937bbe2e0c42335a65') in 0.007906 seconds 
+  Import took 0.014992 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000187 seconds.
-  path: Assets/Characters/SpeechBubbleSprite.prefab
-  artifactKey: Guid(9f4707ddedfc56b45a1ac474d852f311) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/SpeechBubbleSprite.prefab using Guid(9f4707ddedfc56b45a1ac474d852f311) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6fd4ccc306d44bc7216be9da243d94f8') in 0.044452 seconds 
-  Import took 0.052177 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.145457 seconds.
-  path: Assets/Characters/NPCs
-  artifactKey: Guid(6ffd67c5600dfef4da94797ae342a07c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs using Guid(6ffd67c5600dfef4da94797ae342a07c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '539d4ee66805fa6f6232a2ad3bd374c9') in 0.005271 seconds 
-  Import took 0.013119 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000351 seconds.
-  path: Assets/Characters/NPCs
-  artifactKey: Guid(6ffd67c5600dfef4da94797ae342a07c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs using Guid(6ffd67c5600dfef4da94797ae342a07c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '539d4ee66805fa6f6232a2ad3bd374c9') in 0.001720 seconds 
-  Import took 0.008192 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.468861 seconds.
-  path: Assets/Characters/NPCs/Undecided
-  artifactKey: Guid(27ca35a4c18d09244b5cf8b17fc0521b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs/Undecided using Guid(27ca35a4c18d09244b5cf8b17fc0521b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '88254cbf03b5d018bdd0277c88ea1157') in 0.006019 seconds 
-  Import took 0.014373 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.259455 seconds.
-  path: Assets/Characters/NPCs/Undecided/RubberHoseBunny
-  artifactKey: Guid(7b235a0944e03ab47b7b601f8ad57bea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs/Undecided/RubberHoseBunny using Guid(7b235a0944e03ab47b7b601f8ad57bea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ecf44a4e4e97f4435af2e2b7616e704') in 0.006606 seconds 
-  Import took 0.014925 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.041363 seconds.
-  path: Assets/Characters/NPCs/Undecided/RubberHoseBunny/Bun.png
-  artifactKey: Guid(7120e2ed49461d04e87235ce7ebc1d9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs/Undecided/RubberHoseBunny/Bun.png using Guid(7120e2ed49461d04e87235ce7ebc1d9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4bc465f5ec2bf5bc28e2d0ff7a7a5f0') in 0.197430 seconds 
-  Import took 0.206171 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.760179 seconds.
-  path: Assets/Characters/NPCs/Circus
-  artifactKey: Guid(fbee0590f4eb5fd4cb9770124d8ca6da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs/Circus using Guid(fbee0590f4eb5fd4cb9770124d8ca6da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62c33edcecc5c4522ae4603b5fbdf0ea') in 0.008049 seconds 
-  Import took 0.016061 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.018911 seconds.
-  path: Assets/Characters/NPCs/Beach
-  artifactKey: Guid(7ff24fda7d21c6b419d43c350d77d621) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs/Beach using Guid(7ff24fda7d21c6b419d43c350d77d621) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a04312baa7998b3e6fe7daf31b1d36f6') in 0.005321 seconds 
-  Import took 0.013694 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 8.518023 seconds.
-  path: Assets/Characters/NPCs/Beach/AngelGod
-  artifactKey: Guid(c3ffe85135d4f6b4da52a513ff92add2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs/Beach/AngelGod using Guid(c3ffe85135d4f6b4da52a513ff92add2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27a762aa15524cd72aa2d13164711f27') in 0.005629 seconds 
-  Import took 0.013998 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000320 seconds.
-  path: Assets/Characters/NPCs/Beach/AngelGod
-  artifactKey: Guid(c3ffe85135d4f6b4da52a513ff92add2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs/Beach/AngelGod using Guid(c3ffe85135d4f6b4da52a513ff92add2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27a762aa15524cd72aa2d13164711f27') in 0.001855 seconds 
-  Import took 0.010126 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 14.801226 seconds.
+  Time since last request: 10.416528 seconds.
   path: Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab
   artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6493a17c13564a2945f38d9bfc4199c') in 0.008402 seconds 
-  Import took 0.016731 seconds .
+Start importing Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6791287e83a7c4be04fb7af07e05006') in 0.017327 seconds 
+  Import took 0.025633 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000838 seconds.
-  path: Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab
+  Time since last request: 29.990646 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
   artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6493a17c13564a2945f38d9bfc4199c') in 0.005235 seconds 
-  Import took 0.013493 seconds .
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03004463ef09f012bbcc4e64ec3d4584') in 0.009084 seconds 
+  Import took 0.017362 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 49.233633 seconds.
+  Time since last request: 16.235042 seconds.
   path: Assets/Characters/NPCs/Beach/AngelGod/AngelDeity.png
   artifactKey: Guid(6b397178ba6409a4ab1c2b3088e9a4de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs/Beach/AngelGod/AngelDeity.png using Guid(6b397178ba6409a4ab1c2b3088e9a4de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ffa86e37a9b5b95230f55a8ee3d2688') in 0.012577 seconds 
-  Import took 0.021410 seconds .
+Start importing Assets/Characters/NPCs/Beach/AngelGod/AngelDeity.png using Guid(6b397178ba6409a4ab1c2b3088e9a4de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf4edd7c643c695ffa77c389b40f7aa6') in 0.051288 seconds 
+  Import took 0.059427 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 11.076693 seconds.
+  Time since last request: 13.914359 seconds.
   path: Assets/Characters/NPCs/Beach/AngelGod/AngelDeity.png
   artifactKey: Guid(6b397178ba6409a4ab1c2b3088e9a4de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs/Beach/AngelGod/AngelDeity.png using Guid(6b397178ba6409a4ab1c2b3088e9a4de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43b5fe9e0185172cb9150cb412ce3d27') in 0.014353 seconds 
-  Import took 0.023136 seconds .
+Start importing Assets/Characters/NPCs/Beach/AngelGod/AngelDeity.png using Guid(6b397178ba6409a4ab1c2b3088e9a4de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '359ca7e697014e835840ced225521052') in 0.038037 seconds 
+  Import took 0.047361 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 38.580406 seconds.
+  Time since last request: 120.126502 seconds.
   path: Assets/Characters/NPCs/Beach/AngelGod/AngelDeity.png
   artifactKey: Guid(6b397178ba6409a4ab1c2b3088e9a4de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs/Beach/AngelGod/AngelDeity.png using Guid(6b397178ba6409a4ab1c2b3088e9a4de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f8e71832fe4b3afcced8045805670db') in 0.056625 seconds 
-  Import took 0.065026 seconds .
+Start importing Assets/Characters/NPCs/Beach/AngelGod/AngelDeity.png using Guid(6b397178ba6409a4ab1c2b3088e9a4de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db0adf31ca075ac34ebfb8053e765490') in 0.143855 seconds 
+  Import took 0.153445 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 12.648355 seconds.
-  path: Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab
-  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2e1a59e9124821f5bb489246f1abedb') in 0.031274 seconds 
-  Import took 0.039924 seconds .
+  Time since last request: 123.743980 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/AngelDeity.png
+  artifactKey: Guid(6b397178ba6409a4ab1c2b3088e9a4de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/AngelDeity.png using Guid(6b397178ba6409a4ab1c2b3088e9a4de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8576709931b4dc4369aac0d09611758') in 0.118703 seconds 
+  Import took 0.127928 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 15.455461 seconds.
-  path: Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab
+  Time since last request: 5.062971 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
   artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b105a066de92dced677338f1a52fc4b') in 0.031116 seconds 
-  Import took 0.039905 seconds .
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+ -> (artifact id: 'ec99210aa1c615eddcd2c29d9204a215') in 1.166598 seconds 
+  Import took 1.177195 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1.977252 seconds.
-  path: Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab
+  Time since last request: 2.448493 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
   artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8b6d13e811f33bb7b518f71785fd457') in 0.028591 seconds 
-  Import took 0.037253 seconds .
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af035a2b2933494f333ac8507d502ac8') in 0.038704 seconds 
+  Import took 0.048303 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 20.930296 seconds.
-  path: Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab
+  Time since last request: 2.163670 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
   artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (AngelDeity_0) you have used is not valid. Animations will not play
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08af0f0daf7c9693a80bea5a3729e398') in 0.033736 seconds 
+  Import took 0.043060 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.253767 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f2dd8b79e0394a39855a8cb62280d5c') in 0.041206 seconds 
+  Import took 0.050873 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.572490 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '859ae328e4ec26a2423257592484873f') in 0.038569 seconds 
+  Import took 0.048927 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.554961 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c13ec4544902ebb4b7a6166cb1f605ef') in 0.036865 seconds 
+  Import took 0.046280 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.374603 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1cfff2fe617d357fb8906948374243a2') in 0.037192 seconds 
+  Import took 0.046607 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.572641 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bce5efa9dd26b97668e4537e08072274') in 0.036762 seconds 
+  Import took 0.046619 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.364400 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c162e4bc93e866a63f7cb26bd236e5bd') in 0.036388 seconds 
+  Import took 0.045788 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.001065 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ebdbf2ba774274cf8229255037397acd') in 0.037109 seconds 
+  Import took 0.046906 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.977879 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '850f3b865c717742ba84ac8cd7cde0dd') in 0.037341 seconds 
+  Import took 0.046760 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.362958 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f7f7d868d27463cf91a23aa7b441a79') in 0.036824 seconds 
+  Import took 0.046210 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.989755 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e2a24ebb0935347000de3354394c922') in 0.036940 seconds 
+  Import took 0.046396 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.788404 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd85949ca15aa363feeb1784496af3aa') in 0.036357 seconds 
+  Import took 0.045806 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.009354 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e7fae833c9784b682c0161661a6dc32') in 0.038414 seconds 
+  Import took 0.047804 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.388261 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b77a210bceeb38aaf05bf4f06bdf5d53') in 0.037275 seconds 
+  Import took 0.046780 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.818681 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a979d84a52f51e423d37e2b37b004db5') in 0.037010 seconds 
+  Import took 0.046784 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.675607 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd392c7ae41005a3cc0c8d2d9c7cafd4f') in 0.036130 seconds 
+  Import took 0.046003 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.971973 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d01d9b0f1009e17194393b3f1f08dfe') in 0.037079 seconds 
+  Import took 0.047258 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.974872 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c60b10cb11916a1224edc03e806b1a38') in 0.040354 seconds 
+  Import took 0.049858 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.199443 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d871642e43a1d598c298510f1ce6b8f') in 0.036494 seconds 
+  Import took 0.046260 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 39.099195 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/AngelDeity.png
+  artifactKey: Guid(6b397178ba6409a4ab1c2b3088e9a4de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/AngelDeity.png using Guid(6b397178ba6409a4ab1c2b3088e9a4de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7332257344a0accc5d12accef339ed5') in 0.113368 seconds 
+  Import took 0.122537 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.010036 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba037e029ae72f0f0c935fd31aab4833') in 0.038179 seconds 
+  Import took 0.047573 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.557332 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '397e057fc10f6780866c3e91467ba519') in 0.037834 seconds 
+  Import took 0.047356 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.971971 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4788478cbc3a66a4be11edfce29b9d14') in 0.038115 seconds 
+  Import took 0.047701 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.761585 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27a9c65b080ec3fdca65fdfe0a870125') in 0.038331 seconds 
+  Import took 0.047807 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.774559 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e31d8a7306b9954d760e3d091ba1d79') in 0.038309 seconds 
+  Import took 0.047740 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.048807 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94a3b2c6cf3e673c6997ab7c259898d2') in 0.039053 seconds 
+  Import took 0.048684 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.201582 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf9f1b95189d2425c77b4369e8f1148a') in 0.034665 seconds 
+  Import took 0.044471 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.646495 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d2e1568b4c789c096b7a386ef4c9814') in 0.037268 seconds 
+  Import took 0.046689 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.166726 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '402d5e2183d180c76c367219fba7eb86') in 0.037713 seconds 
+  Import took 0.047318 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.995857 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3252d66ea2c6defd2c06738ae3e44f77') in 0.037759 seconds 
+  Import took 0.047276 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.989831 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46ec4cbcecd33e3a351c0882e73516a0') in 0.041366 seconds 
+  Import took 0.051195 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.560280 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6460c22ab4211d6938d14456ecb16a9c') in 0.038308 seconds 
+  Import took 0.047845 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.778500 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4893a082a28f8894a86a9edbcbe28e74') in 0.034120 seconds 
+  Import took 0.043752 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.972818 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6216023840ad92701efc190e807d1f1c') in 0.036716 seconds 
+  Import took 0.046187 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.165912 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8da9e632244726ee219d049f59ee11f6') in 0.037555 seconds 
+  Import took 0.047253 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.761650 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b2d7a54211a6a3d0fea09ed09804a06') in 0.037078 seconds 
+  Import took 0.047087 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.377446 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b090d1f4038b29bf2525b8682322fc4') in 0.037541 seconds 
+  Import took 0.047173 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.969203 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eedc773f80486f571017b8c93459a3b3') in 0.040211 seconds 
+  Import took 0.050201 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.365804 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fbf291623f8b4c434f53cd85169fe25e') in 0.040014 seconds 
+  Import took 0.050111 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.769122 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '776f605bcddfdbaf349346cc95608782') in 0.039171 seconds 
+  Import took 0.048955 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.606536 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9affc4283bdbb9e287727fb1f0e1838') in 0.043550 seconds 
+  Import took 0.053111 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.582951 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '262fa1f8d052952eafb5c35d1014c6fe') in 0.038041 seconds 
+  Import took 0.048537 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.840074 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '017d246a0bc03dbc1c06abe2414c98f2') in 0.042269 seconds 
+  Import took 0.052264 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.640202 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0682e8c2a17591adcff245d0bb2d53fa') in 0.038858 seconds 
+  Import took 0.048567 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.838226 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7457cea6817c85e727bbfe575189642') in 0.037634 seconds 
+  Import took 0.047287 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.579660 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a472e6c23082effcd5340e117e889af') in 0.038549 seconds 
+  Import took 0.048760 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.029480 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '507c69b2ea0e4912f1d109d6bcc6cb26') in 0.048156 seconds 
+  Import took 0.058129 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.158016 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69c4315ab6dd0237e198e0e6647c648a') in 0.040768 seconds 
+  Import took 0.050828 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.975844 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '038de67d08d29e84f691f57dee711fec') in 0.037900 seconds 
+  Import took 0.047906 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.558292 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa879584f46490b13f7234082f0e636a') in 0.045022 seconds 
+  Import took 0.055238 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.959490 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d2113c13cd5e84ddc3d5ae8e554029f') in 0.036297 seconds 
+  Import took 0.046380 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.589045 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb0993d33d3be827c0b662146121e663') in 0.038317 seconds 
+  Import took 0.048607 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.164869 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01f49c8400423841841902e3b1867793') in 0.034414 seconds 
+  Import took 0.044337 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.819909 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5511feb1f719b590ad3dc6e5d99b78a') in 0.037161 seconds 
+  Import took 0.046962 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.479901 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e6b4a3ee1942e3dd2142b25e85f8655') in 0.034111 seconds 
+  Import took 0.044655 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.733746 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b56c745204a856f2c37385242e51d9d') in 0.034064 seconds 
+  Import took 0.043921 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.876253 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd29840f61f15009c3ddb5cadfc4af77e') in 0.034656 seconds 
+  Import took 0.044770 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.604842 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '09f8eea9980cea8b488dcacdaf1a2ece') in 0.034521 seconds 
+  Import took 0.044462 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.725611 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9694cedb544a44869b2abde81451147') in 0.035352 seconds 
+  Import took 0.045280 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.619234 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
 UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
@@ -323,7 +715,7 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 
 [C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
 
-The Animator Controller (AngelDeity_0) you have used is not valid. Animations will not play
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
 UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
@@ -335,71 +727,23 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 
 [C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
 
- -> (artifact id: 'ede1c2724ec506436b4ba6435b4ea7d1') in 0.034836 seconds 
-  Import took 0.043524 seconds .
+ -> (artifact id: '6b486ee7e60a90f19f1e33f3679b7e80') in 0.041734 seconds 
+  Import took 0.051687 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 44.797712 seconds.
-  path: Assets/Characters/Partners/AgentW/AgentWSpriteSheet/AgentWSpriteSheet.png
-  artifactKey: Guid(33fe5849a900f5645bc91de89a446110) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/Partners/AgentW/AgentWSpriteSheet/AgentWSpriteSheet.png using Guid(33fe5849a900f5645bc91de89a446110) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e8db7648f4ea12935997ea05d7224d0') in 0.141540 seconds 
-  Import took 0.150053 seconds .
+  Time since last request: 962.647817 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/AngelDeity.png
+  artifactKey: Guid(6b397178ba6409a4ab1c2b3088e9a4de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/AngelDeity.png using Guid(6b397178ba6409a4ab1c2b3088e9a4de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b88a85050cd7f573a6366d5f98a4795') in 0.110177 seconds 
+  Import took 0.120613 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000178 seconds.
-  path: Assets/CombatPrefabs/Abilities/CommonIcons/AttackMenuIndicator.png
-  artifactKey: Guid(b12885c6c5dc4df45ac652168a64cf81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/CombatPrefabs/Abilities/CommonIcons/AttackMenuIndicator.png using Guid(b12885c6c5dc4df45ac652168a64cf81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b9d40fc4c7eec49ebb535838d88a49e') in 0.017176 seconds 
-  Import took 0.025758 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000203 seconds.
-  path: Assets/Characters/Partners/Targeters/AgentWChoiceIndicator.png
-  artifactKey: Guid(f9cc4576dbe68fa4abb5903fdbefc36a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/Partners/Targeters/AgentWChoiceIndicator.png using Guid(f9cc4576dbe68fa4abb5903fdbefc36a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77145054a93a2c54fa46d8b0280a33fe') in 0.020757 seconds 
-  Import took 0.029780 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000207 seconds.
-  path: Assets/Characters/Partners/AgentW/Allergies/AgentWAllergicSpriteSheet.png
-  artifactKey: Guid(e2c757fe9748c804bbcc5d0674677326) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/Partners/AgentW/Allergies/AgentWAllergicSpriteSheet.png using Guid(e2c757fe9748c804bbcc5d0674677326) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3cd6b6bfd8bb56bc9ec72f0e0046fce2') in 0.192715 seconds 
-  Import took 0.201352 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000152 seconds.
-  path: Assets/SceneTransitions/HowffsmawCombatTransition/ScreenTransitionHowffsmawSpriteSheet.png
-  artifactKey: Guid(913de8bb46d10b6409613be3b9bc5b74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/SceneTransitions/HowffsmawCombatTransition/ScreenTransitionHowffsmawSpriteSheet.png using Guid(913de8bb46d10b6409613be3b9bc5b74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f139cd83eb096f2b85aef0e46a4d0d0') in 0.226777 seconds 
-  Import took 0.235391 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000173 seconds.
-  path: Assets/GameUI/PauseMenu/BadgePage.png
-  artifactKey: Guid(76c86d0916d1b424a8391b5d158fd918) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameUI/PauseMenu/BadgePage.png using Guid(76c86d0916d1b424a8391b5d158fd918) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6094d02ba5593e6f7e9aba05a4b5a9e8') in 0.020670 seconds 
-  Import took 0.028813 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000186 seconds.
-  path: Assets/Characters/Partners/Targeters/ArtsyChoiceIndicaator.png
-  artifactKey: Guid(f1bf00665e0f5b64998fe8ec85d1d354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/Partners/Targeters/ArtsyChoiceIndicaator.png using Guid(f1bf00665e0f5b64998fe8ec85d1d354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '523e2981639488278322f5d114b360de') in 0.017051 seconds 
-  Import took 0.024665 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 184.322680 seconds.
-  path: Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab
+  Time since last request: 214.300044 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
   artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (AngelDeity_0) you have used is not valid. Animations will not play
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
 UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
@@ -412,7 +756,7 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 
 [C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
 
-The Animator Controller (AngelDeity_0) you have used is not valid. Animations will not play
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
 UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
@@ -424,15 +768,15 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 
 [C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
 
- -> (artifact id: 'ef09ecb2b792877383247d270fb361a0') in 0.034412 seconds 
-  Import took 0.043434 seconds .
+ -> (artifact id: '598750b5dc4cb218535efc6fe9d65958') in 0.245839 seconds 
+  Import took 0.256930 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 5.664541 seconds.
-  path: Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab
+  Time since last request: 7.704133 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
   artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (AngelDeity_0) you have used is not valid. Animations will not play
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
 UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
@@ -445,7 +789,7 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 
 [C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
 
-The Animator Controller (AngelDeity_0) you have used is not valid. Animations will not play
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
 UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
@@ -457,15 +801,15 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 
 [C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
 
- -> (artifact id: '7a15f6a6b6dd995d5dc8f8ce3535bdee') in 0.028036 seconds 
-  Import took 0.037993 seconds .
+ -> (artifact id: '70cb09f33e6f052aae5223c7c8a88ed4') in 0.035001 seconds 
+  Import took 0.044881 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1.780345 seconds.
-  path: Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab
+  Time since last request: 1.618469 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
   artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (AngelDeity_0) you have used is not valid. Animations will not play
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
 UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
@@ -478,7 +822,7 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 
 [C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
 
-The Animator Controller (AngelDeity_0) you have used is not valid. Animations will not play
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
 UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
@@ -490,15 +834,15 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 
 [C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
 
- -> (artifact id: '0b5e2decc7d258cb8b1075959fcccae9') in 0.032113 seconds 
-  Import took 0.040664 seconds .
+ -> (artifact id: '35412854e6c945f8cfbdb90096fd1901') in 0.036394 seconds 
+  Import took 0.046439 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1.972341 seconds.
-  path: Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab
+  Time since last request: 455.313069 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
   artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (AngelDeity_0) you have used is not valid. Animations will not play
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
 UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
@@ -511,7 +855,7 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 
 [C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
 
-The Animator Controller (AngelDeity_0) you have used is not valid. Animations will not play
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
 UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
@@ -523,15 +867,15 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 
 [C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
 
- -> (artifact id: 'd597a977c274afdfb47a9114a38ad96a') in 0.030720 seconds 
-  Import took 0.039716 seconds .
+ -> (artifact id: '8a888e2cabc8a3b6e1a4b8ce28ca7b8e') in 0.043069 seconds 
+  Import took 0.053966 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.969559 seconds.
-  path: Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab
+  Time since last request: 22.962361 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
   artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (AngelDeity_0) you have used is not valid. Animations will not play
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
 UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
@@ -544,7 +888,7 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 
 [C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
 
-The Animator Controller (AngelDeity_0) you have used is not valid. Animations will not play
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
 UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
@@ -556,15 +900,15 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 
 [C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
 
- -> (artifact id: '487052ac9357fa6f674f0e6e44cef5a6') in 0.032137 seconds 
-  Import took 0.040792 seconds .
+ -> (artifact id: '143bd5ddcc9361f002946bf1bc9c78dd') in 0.045415 seconds 
+  Import took 0.055547 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1.367356 seconds.
-  path: Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab
+  Time since last request: 1.383617 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
   artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (AngelDeity_0) you have used is not valid. Animations will not play
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
 UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
@@ -577,7 +921,7 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 
 [C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
 
-The Animator Controller (AngelDeity_0) you have used is not valid. Animations will not play
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
 UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
@@ -589,15 +933,15 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 
 [C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
 
- -> (artifact id: 'bdadc0c374f81f8e7fbb7d0499b91055') in 0.037371 seconds 
-  Import took 0.046075 seconds .
+ -> (artifact id: '79bca8b80cc0d2f21dde7669f9afc822') in 0.040994 seconds 
+  Import took 0.050984 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 6.209981 seconds.
-  path: Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab
+  Time since last request: 0.761841 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
   artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (AngelDeity_0) you have used is not valid. Animations will not play
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
 UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
@@ -610,7 +954,7 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 
 [C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
 
-The Animator Controller (AngelDeity_0) you have used is not valid. Animations will not play
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
 UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
@@ -622,15 +966,15 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 
 [C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
 
- -> (artifact id: '291d74373f43335fab4f9cd5179f39ac') in 0.032191 seconds 
-  Import took 0.041226 seconds .
+ -> (artifact id: 'b6467d18141677a7f72470cf928bdf1c') in 0.087109 seconds 
+  Import took 0.097473 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 2.773524 seconds.
-  path: Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab
+  Time since last request: 2.925234 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
   artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (AngelDeity_0) you have used is not valid. Animations will not play
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
 UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
@@ -643,7 +987,7 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 
 [C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
 
-The Animator Controller (AngelDeity_0) you have used is not valid. Animations will not play
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
 UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
@@ -655,15 +999,15 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 
 [C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
 
- -> (artifact id: 'ef8c3f5061257fe52757ed39100e6a43') in 0.028648 seconds 
-  Import took 0.037312 seconds .
+ -> (artifact id: 'c70f14c1a0cdba5e1af1eb2c2465fc91') in 0.039328 seconds 
+  Import took 0.049191 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 11.258638 seconds.
-  path: Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab
+  Time since last request: 1.764705 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
   artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/NPCs/Beach/AngelGod/GameObject.prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (AngelDeity_0) you have used is not valid. Animations will not play
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
 UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
@@ -676,7 +1020,7 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 
 [C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
 
-The Animator Controller (AngelDeity_0) you have used is not valid. Animations will not play
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
 UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
@@ -688,7 +1032,691 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 
 [C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
 
- -> (artifact id: '2e2f92d2b0c1213a51174aca01979e23') in 0.029836 seconds 
-  Import took 0.038693 seconds .
+ -> (artifact id: '7dcc47ee483e76fdd4c51780c0f999a6') in 0.038906 seconds 
+  Import took 0.048857 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.244296 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+ -> (artifact id: '09ea93c945bb07fa35f04f61e23d722c') in 0.038624 seconds 
+  Import took 0.048918 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.983432 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+ -> (artifact id: '69b265a87d8c6a36069b318f79f55bf1') in 0.038592 seconds 
+  Import took 0.048635 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.566481 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+ -> (artifact id: '46a18028284c3b481e32bf5bb6dfae00') in 0.038391 seconds 
+  Import took 0.048211 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.359518 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+ -> (artifact id: '77ab1c87719e748a3b423ff5ef49d0ff') in 0.039887 seconds 
+  Import took 0.049822 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.961335 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+ -> (artifact id: '0ed627c9c3d80950ea30727c27dd0e31') in 0.038978 seconds 
+  Import took 0.049449 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.214635 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+ -> (artifact id: '50bd17731ced64a5db3fa9a41e0c9ef6') in 0.039062 seconds 
+  Import took 0.048874 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.967692 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+ -> (artifact id: '0344e0f9eb9685c6309a356a57ea9352') in 0.039175 seconds 
+  Import took 0.049197 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.360906 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+ -> (artifact id: '2f721b970cc64dee25d3725125482e82') in 0.039093 seconds 
+  Import took 0.049230 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.957687 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+ -> (artifact id: '2eba47457292f64c1bd43514659dc36a') in 0.040560 seconds 
+  Import took 0.050619 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.569148 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+ -> (artifact id: 'd29a48c8e1befabbdd4e0e48016fc637') in 0.041203 seconds 
+  Import took 0.051899 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.570674 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+ -> (artifact id: '222fd8b2037b2273c8c8c2b6f1da24e8') in 0.042230 seconds 
+  Import took 0.052679 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.792889 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+ -> (artifact id: 'd2c1426a9a6d473db558a49f05acad29') in 0.052238 seconds 
+  Import took 0.063058 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.749375 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+ -> (artifact id: '71a9f31008764ed6d5ea3d2dd261b675') in 0.050125 seconds 
+  Import took 0.061224 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.375832 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+ -> (artifact id: '26f0f0bf7eb727207a9d5868aa3ac11f') in 0.038536 seconds 
+  Import took 0.049251 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.676594 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+ -> (artifact id: '061b098bc700350d7426b6897c5ff912') in 0.039711 seconds 
+  Import took 0.049861 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.106508 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+ -> (artifact id: 'bfadc55070e938ae38bbb3e929f04dc8') in 0.043216 seconds 
+  Import took 0.053684 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 21.480194 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+ -> (artifact id: '3279451c4622dd44824cb1e44d6c864f') in 0.042904 seconds 
+  Import took 0.052968 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.078887 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.548 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1548ms)
+		BeginReloadAssembly (224ms)
+			ExecutionOrderSort (1ms)
+			DisableScriptedObjects (38ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (59ms)
+		EndReloadAssembly (1270ms)
+			LoadAssemblies (88ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (347ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (82ms)
+			SetupLoadedEditorAssemblies (491ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (136ms)
+				ProcessInitializeOnLoadAttributes (312ms)
+				ProcessInitializeOnLoadMethodAttributes (30ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.44 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5423 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 332.6 MB.
+System memory in use after: 332.7 MB.
+
+Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 6424.
+Total: 7.643900 ms (FindLiveObjects: 0.609200 ms CreateObjectMapping: 0.148400 ms MarkObjects: 6.706700 ms  DeleteObjects: 0.178400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 115.504283 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+ -> (artifact id: '8d7107a511fe4bbf3fbdb93c36a5de89') in 0.573270 seconds 
+  Import took 0.583056 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 28.550702 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:Internal_InstantiateRemoveAllNonAnimationComponentsSingle (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateRemoveAllNonAnimationComponents (UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+The Animator Controller (Dei (AngelDeity)) you have used is not valid. Animations will not play
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.EditorUtility:InitInstantiatedPreviewRecursive (UnityEngine.GameObject)
+UnityEditor.EditorUtility:InstantiateForAnimatorPreview (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:UpdateGameObject (UnityEngine.Object)
+UnityEditor.GameObjectInspector/PreviewData:.ctor (UnityEngine.Object)
+UnityEditor.GameObjectInspector:GetPreviewData ()
+UnityEditor.GameObjectInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules/Animation/Director/AnimatorControllerPlayable.cpp line 333]
+
+ -> (artifact id: 'bd888489db873f1a932ddc82d5ca2b4a') in 0.053753 seconds 
+  Import took 0.063706 seconds .
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

@@ -4,22 +4,49 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -6166099923979718185
-    second: AngelDeity_0
+    second: AngelDeity_Glitch1
   - first:
       213: -6399663938897915960
-    second: AngelDeity_1
+    second: AngelDeity_Glitch2
   - first:
       213: 6038703141383347931
-    second: AngelDeity_2
+    second: AngelDeity_Glitch3
   - first:
       213: -3251120998850918090
-    second: AngelDeity_3
+    second: AngelDeity_EyeHalo
   - first:
       213: 4716925192105054968
-    second: AngelDeity_4
+    second: AngelDeity_DeiBody
   - first:
       213: 8407229414573964361
-    second: AngelDeity_5
+    second: AngelDeity_DeiBodyGlitch1
+  - first:
+      213: -5585195514540910123
+    second: AngelDeity_DeiBodyGlitch2
+  - first:
+      213: -1054504657965934468
+    second: AngelDeity_DeiBodyGlitch3
+  - first:
+      213: 6331500637820768291
+    second: AngelDeity_HaloSpikeL
+  - first:
+      213: -9165262593533197213
+    second: AngelDeity_HaloSpikeM
+  - first:
+      213: -89786477289825932
+    second: AngelDeity_HaloSpikeS
+  - first:
+      213: 1979014058383292029
+    second: AngelDeity_RightWing
+  - first:
+      213: -8894448300337707419
+    second: AngelDeity_LefWing
+  - first:
+      213: 4235913654320730640
+    second: AngelDeity_LeftWingS
+  - first:
+      213: 2992364953358438675
+    second: AngelDeity_RightWingS
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,15 +136,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AngelDeity_0
+      name: AngelDeity_Glitch1
       rect:
         serializedVersion: 2
-        x: 31
-        y: 111
-        width: 508
-        height: 802
-      alignment: 9
-      pivot: {x: 0.4793742, y: 0.37196538}
+        x: 42
+        y: 1113
+        width: 584
+        height: 914
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -130,15 +157,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AngelDeity_1
+      name: AngelDeity_Glitch2
       rect:
         serializedVersion: 2
-        x: 574
-        y: 111
-        width: 532
-        height: 802
-      alignment: 9
-      pivot: {x: 0.4566702, y: 0.36673945}
+        x: 686
+        y: 1159
+        width: 580
+        height: 877
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -151,15 +178,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AngelDeity_2
+      name: AngelDeity_Glitch3
       rect:
         serializedVersion: 2
-        x: 1118
-        y: 111
-        width: 533
-        height: 802
-      alignment: 9
-      pivot: {x: 0.5000005, y: 0.36935237}
+        x: 1320
+        y: 1213
+        width: 604
+        height: 863
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -172,15 +199,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AngelDeity_3
+      name: AngelDeity_EyeHalo
       rect:
         serializedVersion: 2
-        x: 1667
-        y: 0
-        width: 585
-        height: 921
-      alignment: 9
-      pivot: {x: 0.49283624, y: 0.40443575}
+        x: 28
+        y: 821
+        width: 298
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -193,15 +220,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AngelDeity_4
+      name: AngelDeity_DeiBody
       rect:
         serializedVersion: 2
-        x: 2312
-        y: 0
-        width: 580
-        height: 921
-      alignment: 9
-      pivot: {x: 0.5, y: 0.37713167}
+        x: 364
+        y: 376
+        width: 289
+        height: 619
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -214,15 +241,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AngelDeity_5
+      name: AngelDeity_DeiBodyGlitch1
       rect:
         serializedVersion: 2
-        x: 2946
-        y: 0
-        width: 604
-        height: 921
+        x: 765
+        y: 175
+        width: 531
+        height: 801
       alignment: 9
-      pivot: {x: 0.5000004, y: 0.4021604}
+      pivot: {x: 0.45811608, y: 0.6110629}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -234,10 +261,199 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: AngelDeity_DeiBodyGlitch2
+      rect:
+        serializedVersion: 2
+        x: 1308
+        y: 175
+        width: 531
+        height: 801
+      alignment: 9
+      pivot: {x: 0.5046534, y: 0.6110629}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d91faa65466d72b0800000000000000
+      internalID: -5585195514540910123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AngelDeity_DeiBodyGlitch3
+      rect:
+        serializedVersion: 2
+        x: 1917
+        y: 209
+        width: 438
+        height: 766
+      alignment: 9
+      pivot: {x: 0.488716, y: 0.58710325}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7812ffb995ad51f0800000000000000
+      internalID: -1054504657965934468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AngelDeity_HaloSpikeL
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 465
+        width: 57
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 320577cc8420ed750800000000000000
+      internalID: 6331500637820768291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AngelDeity_HaloSpikeM
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 498
+        width: 45
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36447471b327ec080800000000000000
+      internalID: -9165262593533197213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AngelDeity_HaloSpikeS
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 533
+        width: 37
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4799183bca301cef0800000000000000
+      internalID: -89786477289825932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AngelDeity_RightWing
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 103
+        width: 122
+        height: 278
+      alignment: 9
+      pivot: {x: 0.93479264, y: 0.97702014}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d76b0730dced67b10800000000000000
+      internalID: 1979014058383292029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AngelDeity_LefWing
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 103
+        width: 127
+        height: 279
+      alignment: 9
+      pivot: {x: 0.05912072, y: 0.98059183}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5664b494562909480800000000000000
+      internalID: -8894448300337707419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AngelDeity_LeftWingS
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 266
+        width: 196
+        height: 91
+      alignment: 9
+      pivot: {x: 0.018868582, y: 0.3056976}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0129309960df8ca30800000000000000
+      internalID: 4235913654320730640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AngelDeity_RightWingS
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 136
+        width: 195
+        height: 92
+      alignment: 9
+      pivot: {x: 0.976042, y: 0.32382485}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31112432214078920800000000000000
+      internalID: 2992364953358438675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: defd560b48ebb8247ad04df5ca24b340
+    spriteID: 0a145f4e7aa123544aaea18190414f82
     internalID: 0
     vertices: []
     indices: 
