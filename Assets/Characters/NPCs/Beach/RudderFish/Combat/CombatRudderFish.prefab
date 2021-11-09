@@ -1,0 +1,206 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7392942089371060633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4614533083162089211}
+  - component: {fileID: -6788904852698556003}
+  - component: {fileID: 3528022716236817427}
+  - component: {fileID: -8003200180741871601}
+  m_Layer: 0
+  m_Name: CombatRudderFish
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4614533083162089211
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7392942089371060633}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4169565295405149467}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-6788904852698556003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7392942089371060633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cacc32315800057498435d53266b9fdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves:
+  - {fileID: 8867142412832685942, guid: 595bfe193b2c9ca46950e97c9e8bbdb5, type: 3}
+  sprites: []
+--- !u!114 &3528022716236817427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7392942089371060633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd67e239ac09cb46a0eaddcc4849d0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: RudderFish
+  pos: {x: 0, y: 0}
+  prevPos: {x: 0, y: 0}
+  extra_pos: []
+  TileSize: {x: 1, y: 1}
+  objectID: 0
+  move: {fileID: 0}
+  Pushable: 0
+  Passable: 0
+  CanWalk: 1
+  CanFly: 0
+  CanSwim: 0
+  MaxJumpHeight: 0
+  LastMoveSpeed: 0
+  objectReady: 0
+  characterPosition: 0
+  SelectionWheel: {fileID: 0}
+  characterSelector: {fileID: 0}
+  characterSelectorFloor: {fileID: 0}
+  characterSelectorMaterial: {fileID: 0}
+  friendly: 0
+  HPMax: 2
+  HP: 2
+  Power: 1
+  Defense: 0
+  PushStrength: 0
+  WalkSpeed: 2
+  JumpSpeed: 1
+  SwimSpeed: 0.5
+  CharacterHeight: 1.8
+  CharacterWidth: 1
+  Paralyzed: 0
+  Dead: 0
+  displayHealth: 0
+  animator: {fileID: 1281583118477230472}
+  inspectionInfo: {fileID: 11400000, guid: eb9013404c8d7fe46a991a09032028e6, type: 2}
+  moveContainer: {fileID: 0}
+  attack: {fileID: 0}
+--- !u!114 &-8003200180741871601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7392942089371060633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff437bc951ee2014990891a19e339741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useAnimatedTurn: 0
+  startsLeft: 1
+  sprite: {fileID: 5467935060114296311}
+  rotated: 0
+  rotSpeedMagnitude: 500
+  goal: 0
+--- !u!1001 &7234886884379394895
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4614533083162089211}
+    m_Modifications:
+    - target: {fileID: 3424278046211133112, guid: a822577ce98c9ab41b274b19a5dc79fb,
+        type: 3}
+      propertyPath: m_Name
+      value: RudderFish
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753779591757344340, guid: a822577ce98c9ab41b274b19a5dc79fb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753779591757344340, guid: a822577ce98c9ab41b274b19a5dc79fb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753779591757344340, guid: a822577ce98c9ab41b274b19a5dc79fb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.369
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753779591757344340, guid: a822577ce98c9ab41b274b19a5dc79fb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.058
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753779591757344340, guid: a822577ce98c9ab41b274b19a5dc79fb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753779591757344340, guid: a822577ce98c9ab41b274b19a5dc79fb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753779591757344340, guid: a822577ce98c9ab41b274b19a5dc79fb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753779591757344340, guid: a822577ce98c9ab41b274b19a5dc79fb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753779591757344340, guid: a822577ce98c9ab41b274b19a5dc79fb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753779591757344340, guid: a822577ce98c9ab41b274b19a5dc79fb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753779591757344340, guid: a822577ce98c9ab41b274b19a5dc79fb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a822577ce98c9ab41b274b19a5dc79fb, type: 3}
+--- !u!1 &5467935060114296311 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3424278046211133112, guid: a822577ce98c9ab41b274b19a5dc79fb,
+    type: 3}
+  m_PrefabInstance: {fileID: 7234886884379394895}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4169565295405149467 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6753779591757344340, guid: a822577ce98c9ab41b274b19a5dc79fb,
+    type: 3}
+  m_PrefabInstance: {fileID: 7234886884379394895}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1281583118477230472 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8479823193981846215, guid: a822577ce98c9ab41b274b19a5dc79fb,
+    type: 3}
+  m_PrefabInstance: {fileID: 7234886884379394895}
+  m_PrefabAsset: {fileID: 0}

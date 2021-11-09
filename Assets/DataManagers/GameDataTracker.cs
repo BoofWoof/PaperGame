@@ -44,14 +44,9 @@ public class GameDataTracker : MonoBehaviour
     //CharacterInfo
     public static List<Character> CharacterList = new List<Character>();
     //public static List<Character> EnemyList;
-
-    public static float CameraHeading = 0;
-    private GameControls gameControl;
     
     void Awake()
     {
-        gameControl = new GameControls();
-        gameControl.OverworldControls.Enable();
         //MAKES THIS OBJECT PERSIST IN EVERY SCENE
         if (DataTracker == null)
         {
@@ -66,10 +61,6 @@ public class GameDataTracker : MonoBehaviour
 
     private void Update()
     {
-        float horizontal = gameControl.OverworldControls.SecondaryMovement.ReadValue<Vector2>()[0];
-        CameraHeading += horizontal * Time.deltaTime * 90f;
-        if (CameraHeading < 0) CameraHeading += 360f;
-        if (CameraHeading > 360) CameraHeading -= 360f;
     }
 
     private void Start()

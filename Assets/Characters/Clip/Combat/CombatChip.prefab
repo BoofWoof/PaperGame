@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6641931711775295794}
   - component: {fileID: 5391522270132581256}
-  - component: {fileID: 2840594021099690927}
   - component: {fileID: 5417170948199010875}
+  - component: {fileID: 4989304239026019571}
   m_Layer: 0
   m_Name: CombatChip
   m_TagString: Untagged
@@ -56,59 +56,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 633f5d050a9669045be4293d84d95bde, type: 3}
   - {fileID: 21300000, guid: 8e4655b18fb00a644866decb93edb239, type: 3}
   - {fileID: 4329165281125716019, guid: 3acdf8266c4709b499da10632eb7b197, type: 3}
---- !u!114 &2840594021099690927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6641931711775295757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbd67e239ac09cb46a0eaddcc4849d0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Clip
-  pos: {x: 0, y: 0}
-  prevPos: {x: 0, y: 0}
-  extra_pos: []
-  TileSize: {x: 1, y: 1}
-  objectID: 0
-  move: {fileID: 0}
-  Pushable: 0
-  Passable: 0
-  CanWalk: 1
-  CanFly: 0
-  CanSwim: 0
-  MaxJumpHeight: 1
-  LastMoveSpeed: 0
-  objectReady: 0
-  characterPosition: 0
-  SelectionWheel: {fileID: 2257321630957254045, guid: 6fe8dd55b8074c24d9ad4c099e59d986,
-    type: 3}
-  characterSelector: {fileID: 21300000, guid: b09b2ffa7ffd8cd46b0edd41900f039f, type: 3}
-  characterSelectorFloor: {fileID: 21300000, guid: 9178c1352920fca42885602eafdcbef3,
-    type: 3}
-  characterSelectorMaterial: {fileID: 2100000, guid: 74d0179e28c9be947b9feb0fdfee7b73,
-    type: 2}
-  friendly: 1
-  HPMax: 20
-  HP: 20
-  Power: 2
-  Defense: 0
-  PushStrength: 1
-  WalkSpeed: 5
-  JumpSpeed: 2
-  SwimSpeed: 1
-  CharacterHeight: 1.8
-  CharacterWidth: 1
-  Paralyzed: 0
-  Dead: 0
-  displayHealth: 0
-  animator: {fileID: 4909318420915015187}
-  inspectionInfo: {fileID: 0}
-  moveContainer: {fileID: 0}
-  attack: {fileID: 0}
 --- !u!114 &5417170948199010875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,6 +74,59 @@ MonoBehaviour:
   rotated: 0
   rotSpeedMagnitude: 500
   goal: 0
+--- !u!114 &4989304239026019571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6641931711775295757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a26af28d32b58c649b84e00104f975aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Clip
+  pos: {x: 0, y: 0}
+  prevPos: {x: 0, y: 0}
+  extra_pos: []
+  TileSize: {x: 1, y: 1}
+  objectID: 0
+  move: {fileID: 0}
+  Pushable: 0
+  Passable: 0
+  CanWalk: 1
+  CanFly: 0
+  CanSwim: 0
+  MaxJumpHeight: 1
+  LastMoveSpeed: 0
+  objectReady: 0
+  characterPosition: 0
+  friendly: 1
+  HPMax: 20
+  HP: 20
+  Power: 2
+  Defense: 0
+  PushStrength: 1
+  WalkSpeed: 5
+  JumpSpeed: 2
+  SwimSpeed: 1
+  CharacterHeight: 1.8
+  CharacterWidth: 1
+  Paralyzed: 0
+  Dead: 0
+  displayHealth: 0
+  animator: {fileID: 4909318420915015187}
+  inspectionInfo: {fileID: 0}
+  moveContainer: {fileID: 0}
+  attack: {fileID: 0}
+  SelectionWheel: {fileID: 2257321630957254045, guid: 6fe8dd55b8074c24d9ad4c099e59d986,
+    type: 3}
+  characterSelector: {fileID: 21300000, guid: b09b2ffa7ffd8cd46b0edd41900f039f, type: 3}
+  characterSelectorFloor: {fileID: 21300000, guid: 9178c1352920fca42885602eafdcbef3,
+    type: 3}
+  characterSelectorMaterial: {fileID: 2100000, guid: 74d0179e28c9be947b9feb0fdfee7b73,
+    type: 2}
 --- !u!1001 &3454153379849346462
 PrefabInstance:
   m_ObjectHideFlags: 0

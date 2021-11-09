@@ -13,9 +13,9 @@ public class CombatObject : GridObject
     public bool CanSwim = false;
     public int MaxJumpHeight = 0;
 
-    public float LastMoveSpeed = 0;
+    [HideInInspector] public float LastMoveSpeed = 0;
 
-    public bool objectReady = false;
+    [HideInInspector] public bool objectReady = false;
     private Vector3 finalPosition;
     private float dropHeight = 7f;
     private float startDropTime = 0.5f;
@@ -39,8 +39,11 @@ public class CombatObject : GridObject
                 {
                     currentDropTime = 0;
                     objectReady = true;
+                    transform.position = finalPosition;
+                } else
+                {
+                    transform.position = finalPosition + new Vector3(0, dropHeight * Mathf.Pow(currentDropTime / startDropTime, 2) * Mathf.Abs(Mathf.Cos(0.75f * 2 * Mathf.PI * (1 - currentDropTime / startDropTime))), 0);
                 }
-                transform.position = finalPosition + new Vector3(0, dropHeight * Mathf.Pow(currentDropTime / startDropTime, 2) * Mathf.Abs(Mathf.Cos(0.75f * 2 * Mathf.PI * (1 - currentDropTime / startDropTime))), 0);
             }
         }
     }

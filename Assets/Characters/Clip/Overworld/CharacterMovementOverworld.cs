@@ -131,7 +131,7 @@ public class CharacterMovementOverworld : MonoBehaviour
         float maxPossibleVerticleDistance = 0.05f + maxStepSize + Time.deltaTime * Mathf.Abs(next_jump);
 
         //Rotation
-        Quaternion rayRotation = Quaternion.AngleAxis(GameDataTracker.CameraHeading, Vector3.up);
+        Quaternion rayRotation = Quaternion.AngleAxis(OverworldController.CameraHeading, Vector3.up);
         //GroundScan
         for (int i = 0; i < scanWidthCount; i++)
         {

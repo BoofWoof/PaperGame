@@ -54,7 +54,7 @@ public class BattleMenu : ScriptableObject
         spriteObjects = new GameObject[moveCount];
         centerPoint = new Vector3(characterTarget.transform.position.x - characterWidth, characterTarget.transform.position.y + characterHeight + 0.3f, characterTarget.transform.position.z - 0.2f);
 
-        selectionWheel = Instantiate(characterTarget.GetComponent<FighterClass>().SelectionWheel, centerPoint, Quaternion.identity);
+        selectionWheel = Instantiate(characterTarget.GetComponent<PlayerFighter>().SelectionWheel, centerPoint, Quaternion.identity);
         selectionText = selectionWheel.GetComponent<TextMeshPro>();
         selectionText.text = movesList[goalRotation % moveCount].GetComponent<moveTemplate>().name;
 

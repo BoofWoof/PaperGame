@@ -26,12 +26,6 @@ public class FighterClass : CombatObject
 
     public CharacterPosition characterPosition;
 
-    [Header("Selection UI")]
-    public GameObject SelectionWheel;
-    public Sprite characterSelector;
-    public Sprite characterSelectorFloor;
-    public Material characterSelectorMaterial;
-
     [Header("Character Stats")]
     public bool friendly = false;
     
@@ -194,37 +188,44 @@ public class FighterClass : CombatObject
         AStar router = ScriptableObject.CreateInstance<AStar>();
         //Get Move
         moveTemplate move = GetMove();
-        //Get Goals
-        List<GameObject> possibleTargets = combatExecutor.getTargets(move.targetType);
-        if (combatExecutor.Clip.GetComponent<FighterClass>().Dead)
+        if(move.targetType != moveTemplate.TargetType.None)
         {
-            possibleTargets.Remove(combatExecutor.Clip);
-        }
-        if (combatExecutor.Partner != null)
-        {
-            if (combatExecutor.Partner.GetComponent<FighterClass>().Dead)
+            //Get Goals
+            List<GameObject> possibleTargets = combatExecutor.getTargets(move.targetType);
+            if (combatExecutor.Clip.GetComponent<FighterClass>().Dead)
             {
-                possibleTargets.Remove(combatExecutor.Partner);
+                possibleTargets.Remove(combatExecutor.Clip);
             }
-        }
-        List<Vector2Int> goalPos = new List<Vector2Int>();
-        List<GameObject> goalObjects = new List<GameObject>();
-        move.character = gameObject;
-        (goalPos, goalObjects) = move.findGoals(possibleTargets);
-        (Vector2Int newPos, FighterClass.CharacterPosition moveType, bool atGoal) = router.GetNextTile(
-            this,
-            pos,
-            goalPos
-            );
-        if (atGoal)
+            if (combatExecutor.Partner != null)
+            {
+                if (combatExecutor.Partner.GetComponent<FighterClass>().Dead)
+                {
+                    possibleTargets.Remove(combatExecutor.Partner);
+                }
+            }
+            List<Vector2Int> goalPos = new List<Vector2Int>();
+            List<GameObject> goalObjects = new List<GameObject>();
+            move.character = gameObject;
+            (goalPos, goalObjects) = move.findGoals(possibleTargets);
+            (Vector2Int newPos, FighterClass.CharacterPosition moveType, bool atGoal) = router.GetNextTile(
+                this,
+                pos,
+                goalPos
+                );
+            if (atGoal)
+            {
+                List<GameObject> selectedTargets = new List<GameObject>();
+                selectedTargets.Add(goalObjects[router.finalGoalIdx]);
+                move.Activate(selectedTargets);
+            }
+            else
+            {
+                MoveCharacter((newPos.x - pos.x), (newPos.y - pos.y));
+            }
+        } else
         {
-            List<GameObject> selectedTargets = new List<GameObject>();
-            selectedTargets.Add(goalObjects[router.finalGoalIdx]);
-            move.Activate(selectedTargets);
-        }
-        else
-        {
-            MoveCharacter((newPos.x - pos.x), (newPos.y - pos.y));
+            move.character = gameObject;
+            move.Activate(new List<GameObject>());
         }
     }
 

@@ -30,9 +30,9 @@ public class CameraFollow : MonoBehaviour
             objectPosition.y = trackingcameraY;
         }
         //CAMERA GOAL DIALOGUE START-----------------------------------------------
-        cameraGoal = objectPosition + Quaternion.AngleAxis(GameDataTracker.CameraHeading, Vector3.up) * new Vector3(dialogueOffsetMultiplier * offset.x,  + dialogueOffsetMultiplier * offset.y, dialogueOffsetMultiplier * offset.z);
+        cameraGoal = objectPosition + Quaternion.AngleAxis(OverworldController.CameraHeading, Vector3.up) * new Vector3(dialogueOffsetMultiplier * offset.x,  + dialogueOffsetMultiplier * offset.y, dialogueOffsetMultiplier * offset.z);
         
         gameObject.transform.position = Vector3.MoveTowards(cameraPosition,cameraGoal, speed*Time.deltaTime);
-        gameObject.transform.rotation = Quaternion.Euler(25f, GameDataTracker.CameraHeading, gameObject.transform.rotation.z);
+        gameObject.transform.rotation = Quaternion.Euler(25f, OverworldController.CameraHeading, gameObject.transform.rotation.z);
     }
 }

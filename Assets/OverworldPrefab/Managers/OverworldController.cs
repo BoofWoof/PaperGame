@@ -26,6 +26,7 @@ public class OverworldController : MonoBehaviour
     public DialogueContainer AreaInfoInput;
     public static List<MorganTorchScript> AllMorganTorches;
 
+    public static float CameraHeading = 0;
 
     private void OnEnable()
     {
@@ -158,6 +159,11 @@ public class OverworldController : MonoBehaviour
         //Check if any dialogue is available.
         if (GameDataTracker.cutsceneMode == GameDataTracker.cutsceneModeOptions.Mobile)
         {
+            float horizontal = controls.OverworldControls.SecondaryMovement.ReadValue<Vector2>()[0];
+            CameraHeading += horizontal * Time.deltaTime * 90f;
+            if (CameraHeading < 0) CameraHeading += 360f;
+            if (CameraHeading > 360) CameraHeading -= 360f;
+
             float closestCharacterDistance = 100;
             GameObject closestCharacter = null;
             foreach (Character CharacterItem in GameDataTracker.CharacterList)

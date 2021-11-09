@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4467085992706049251}
   - component: {fileID: 8217436041696046323}
   - component: {fileID: 8209011160241472541}
+  - component: {fileID: 6960353964913659006}
   m_Layer: 0
   m_Name: CombatAgentW
   m_TagString: Untagged
@@ -82,13 +83,6 @@ MonoBehaviour:
   LastMoveSpeed: 0
   objectReady: 0
   characterPosition: 0
-  SelectionWheel: {fileID: 2257321630957254045, guid: 6fe8dd55b8074c24d9ad4c099e59d986,
-    type: 3}
-  characterSelector: {fileID: 21300000, guid: f9cc4576dbe68fa4abb5903fdbefc36a, type: 3}
-  characterSelectorFloor: {fileID: 21300000, guid: fcde9fd2e6eca1d4eb47274cc85ac229,
-    type: 3}
-  characterSelectorMaterial: {fileID: 2100000, guid: 74d0179e28c9be947b9feb0fdfee7b73,
-    type: 2}
   friendly: 1
   HPMax: 25
   HP: 20
@@ -122,8 +116,62 @@ MonoBehaviour:
   useAnimatedTurn: 0
   startsLeft: 1
   sprite: {fileID: 1126625915845239298}
+  rotated: 0
   rotSpeedMagnitude: 500
   goal: 0
+--- !u!114 &6960353964913659006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8536509292922604207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a26af28d32b58c649b84e00104f975aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Agent W
+  pos: {x: 0, y: 0}
+  prevPos: {x: 0, y: 0}
+  extra_pos: []
+  TileSize: {x: 1, y: 1}
+  objectID: 0
+  move: {fileID: 0}
+  Pushable: 0
+  Passable: 0
+  CanWalk: 1
+  CanFly: 0
+  CanSwim: 0
+  MaxJumpHeight: 1
+  LastMoveSpeed: 0
+  objectReady: 0
+  characterPosition: 0
+  friendly: 1
+  HPMax: 20
+  HP: 20
+  Power: 2
+  Defense: 0
+  PushStrength: 1
+  WalkSpeed: 3
+  JumpSpeed: 2
+  SwimSpeed: 1
+  CharacterHeight: 2
+  CharacterWidth: 1
+  Paralyzed: 0
+  Dead: 0
+  displayHealth: 0
+  animator: {fileID: 1126625915845239296}
+  inspectionInfo: {fileID: 0}
+  moveContainer: {fileID: 0}
+  attack: {fileID: 0}
+  SelectionWheel: {fileID: 2257321630957254045, guid: 6fe8dd55b8074c24d9ad4c099e59d986,
+    type: 3}
+  characterSelector: {fileID: 21300000, guid: f9cc4576dbe68fa4abb5903fdbefc36a, type: 3}
+  characterSelectorFloor: {fileID: 21300000, guid: fcde9fd2e6eca1d4eb47274cc85ac229,
+    type: 3}
+  characterSelectorMaterial: {fileID: 2100000, guid: 74d0179e28c9be947b9feb0fdfee7b73,
+    type: 2}
 --- !u!1001 &4787050541107353177
 PrefabInstance:
   m_ObjectHideFlags: 0

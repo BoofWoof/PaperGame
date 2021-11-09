@@ -59,6 +59,7 @@ public class CombatExecutor : GridManager
     // Start is called before the first frame update
     void Start()
     {
+        OverworldController.CameraHeading = 0;
         if (!(GameDataTracker.combatScene is null))
         {
             _containerCache = GameDataTracker.combatScene;
@@ -568,9 +569,9 @@ public class CombatExecutor : GridManager
             List<GameObject> potentialTargets = getTargets(targetType);
             targeter.potentialTargets = selectedMove.targetFilter(potentialTargets);
             targeter.targetQuantity = selectedMove.targetQuantity;
-            targeter.targeterSprite = selectedMove.character.GetComponent<FighterClass>().characterSelector;
-            targeter.targeterSpriteFloor = selectedMove.character.GetComponent<FighterClass>().characterSelectorFloor;
-            targeter.targeterSpriteMaterial = selectedMove.character.GetComponent<FighterClass>().characterSelectorMaterial;
+            targeter.targeterSprite = selectedMove.character.GetComponent<PlayerFighter>().characterSelector;
+            targeter.targeterSpriteFloor = selectedMove.character.GetComponent<PlayerFighter>().characterSelectorFloor;
+            targeter.targeterSpriteMaterial = selectedMove.character.GetComponent<PlayerFighter>().characterSelectorMaterial;
             targeter.Activate();
         }
         else
