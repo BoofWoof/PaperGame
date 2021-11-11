@@ -64,6 +64,15 @@ public class TurnManager : ScriptableObject
         return turnQueue[0];
     }
 
+    private bool requiredEnemiesDead()
+    {
+        foreach (GameObject enemy in GameDataTracker.combatExecutor.EnemyList)
+        {
+            if (enemy.GetComponent<FighterClass>().MustBeat) return false;
+        }
+        return true;
+    }
+
     public turnPhases NextTurn()
     {
         if (GameDataTracker.combatExecutor.Clip.GetComponent<FighterClass>().Dead &&
@@ -73,7 +82,7 @@ public class TurnManager : ScriptableObject
             SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
             return turnPhases.GameOver;
         }
-        if (GameDataTracker.combatExecutor.EnemyList.Count == 0 && goalType == 0)
+        if (requiredEnemiesDead() && goalType == 0)
         {
             SceneManager.LoadScene(GameDataTracker.previousArea);
             return turnPhases.GameOver;

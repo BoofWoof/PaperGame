@@ -102,7 +102,6 @@ public class CrateLaunchScript : CutSceneClass
                 jumpTo.Activate();
                 cutscene = jumpTo;
             }
-            characterGrid[(int)EndPos.x, (int)EndPos.y] = parent;
             source.AddObjectToGrid(EndPos);
             cutscenePhase++;
         }

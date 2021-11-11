@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 174.75798, g: 355.52405, b: 334.3319, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4393,7 +4393,7 @@ PrefabInstance:
         type: 3}
       propertyPath: combatEncounter
       value: 
-      objectReference: {fileID: 11400000, guid: 03e67fee269710e49bbb4df5fd4e8cf0,
+      objectReference: {fileID: 11400000, guid: 7ba13f368a563c842a39ccfeae8e419a,
         type: 2}
     - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
         type: 3}
@@ -4468,7 +4468,7 @@ PrefabInstance:
         type: 3}
       propertyPath: combatEncounter
       value: 
-      objectReference: {fileID: 11400000, guid: 254b65f4efcbb234e803a22928e20d3c,
+      objectReference: {fileID: 11400000, guid: 62a9ceff4e2d35f41831f8f9aaf2ec5c,
         type: 2}
     - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
         type: 3}

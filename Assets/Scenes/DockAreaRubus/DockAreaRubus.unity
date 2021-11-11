@@ -5378,9 +5378,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2852734888190904174, guid: 8f6613e785d7f8e45836236109c3337c,
         type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 4d25c8fcc2aa51d4ca90972303782c25,
+        type: 2}
+    - target: {fileID: 2852734888190904174, guid: 8f6613e785d7f8e45836236109c3337c,
+        type: 3}
       propertyPath: dialogueBubble
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1260794312910748544, guid: 9f4707ddedfc56b45a1ac474d852f311,
+        type: 3}
     - target: {fileID: 2852734888190904175, guid: 8f6613e785d7f8e45836236109c3337c,
         type: 3}
       propertyPath: m_AutoTraverseOffMeshLink

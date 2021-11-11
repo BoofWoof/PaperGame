@@ -25,7 +25,7 @@ public class CombatObject : GridObject
     {
         finalPosition = transform.position;
         currentDropTime = startDropTime;
-        transform.position = finalPosition + new Vector3(0, 100f, 0);
+        transform.position = finalPosition + new Vector3(0, 50f, 0);
     }
 
     public virtual void Update()
@@ -35,7 +35,7 @@ public class CombatObject : GridObject
             if (checkTileIsReady())
             {
                 currentDropTime -= Time.deltaTime;
-                if(currentDropTime < 0)
+                if (currentDropTime < 0)
                 {
                     currentDropTime = 0;
                     objectReady = true;
@@ -104,10 +104,11 @@ public class CombatObject : GridObject
         
         foreach (Vector2Int potentialGridOccupation in potentialGridOccupations)
         {
-            if (!BattleMapProcesses.isThisOnTheGrid(EndPos)) return false;
-            if (!BattleMapProcesses.CanIMoveToTile(EndPos, this)) return false;
+            if (!BattleMapProcesses.isThisOnTheGrid(potentialGridOccupation)) return false;
+            if (!BattleMapProcesses.CanIMoveToTile(potentialGridOccupation, this)) return false;
             if (CombatExecutor.gridHeight[pos.x, pos.y] < CombatExecutor.gridHeight[potentialGridOccupation.x, potentialGridOccupation.y]) return false;
         }
+        Debug.Log("AAAAAA");
         if (BattleMapProcesses.isTileEmpty(potentialGridOccupations, gameObject))
         {
             return true;

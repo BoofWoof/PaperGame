@@ -6,6 +6,7 @@ public class SpriteFlipper : MonoBehaviour
 {
     public bool useAnimatedTurn = false;
     public bool startsLeft = true;
+    public bool targetLeft = true;
     public GameObject sprite;
 
     //Rotation variables
@@ -13,8 +14,7 @@ public class SpriteFlipper : MonoBehaviour
     public float rotSpeedMagnitude = 360;
     private float rotSpeed;
     [HideInInspector]public float goal = 0.0f;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
     }
@@ -32,21 +32,30 @@ public class SpriteFlipper : MonoBehaviour
     public void setFacingRight()
     {
         goal = 180;
+        targetLeft = false;
     }
 
     public void setFacingRightInstant()
     {
         goal = 180;
         rotated = 180;
+        targetLeft = false;
     }
     public void setFacingLeft()
     {
         goal = 0;
+        targetLeft = true;
     }
     public void setFacingLeftInstant()
     {
         goal = 0;
         rotated = 0;
+        targetLeft = true;
+    }
+    public void flip()
+    {
+        if (targetLeft) setFacingRight();
+        else setFacingLeft();
     }
     // Update is called once per frame
     void Update()

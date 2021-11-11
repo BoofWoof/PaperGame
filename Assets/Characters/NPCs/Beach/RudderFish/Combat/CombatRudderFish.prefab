@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moves:
-  - {fileID: 8867142412832685942, guid: 595bfe193b2c9ca46950e97c9e8bbdb5, type: 3}
+  - {fileID: 8867142412832685942, guid: 6378894f63207d540b4b4e9b9d3f6335, type: 3}
   sprites: []
 --- !u!114 &3528022716236817427
 MonoBehaviour:
@@ -77,10 +77,6 @@ MonoBehaviour:
   LastMoveSpeed: 0
   objectReady: 0
   characterPosition: 0
-  SelectionWheel: {fileID: 0}
-  characterSelector: {fileID: 0}
-  characterSelectorFloor: {fileID: 0}
-  characterSelectorMaterial: {fileID: 0}
   friendly: 0
   HPMax: 2
   HP: 2
@@ -92,6 +88,7 @@ MonoBehaviour:
   SwimSpeed: 0.5
   CharacterHeight: 1.8
   CharacterWidth: 1
+  MustBeat: 0
   Paralyzed: 0
   Dead: 0
   displayHealth: 0

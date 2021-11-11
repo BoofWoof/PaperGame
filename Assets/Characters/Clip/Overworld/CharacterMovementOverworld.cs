@@ -200,7 +200,7 @@ public class CharacterMovementOverworld : MonoBehaviour
             spriteAnimate.SetTrigger("Jump");
         }
         //JUMP---------------------------------
-        if (GameDataTracker.cutsceneMode == GameDataTracker.cutsceneModeOptions.Mobile)
+        if (GameDataTracker.cutsceneMode == GameDataTracker.cutsceneModeOptions.Mobile && GameDataTracker.dialogueReady == false)
         {
             if (jumped == false)
             {

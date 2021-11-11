@@ -41,6 +41,8 @@ public class FighterClass : CombatObject
     public float CharacterHeight = 1.0f;
     public float CharacterWidth = 1.0f;
 
+    public bool MustBeat = true;
+
     [Header("Status Effects")]
     public bool Paralyzed = false;
     public bool Dead = false;

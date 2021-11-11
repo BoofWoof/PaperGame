@@ -19,8 +19,7 @@ public class RollAttackScript : CutSceneClass
 {
     private int cutscenePhase = 0;
     public FighterClass source;
-    private CombatExecutor combatData;
-    JumpToLocation cutscene;
+    CutSceneClass cutscene;
 
     Vector3 blockOffset;
     Vector2Int EndPos;
@@ -29,21 +28,27 @@ public class RollAttackScript : CutSceneClass
 
     public override bool Activate()
     {
-        combatData = GameDataTracker.combatExecutor;
         blockOffset = CombatExecutor.blockOffset;
         gridHeight = CombatExecutor.gridHeight;
         characterGrid = CombatExecutor.characterGrid;
         source = parent.GetComponent<FighterClass>();
-        EndPos = BattleMapProcesses.findNearestTileFullyFitsObject(source.TileSize, target.pos);
 
-        source.RemoveObjectFromGrid();
-        
-        JumpToLocation jumpTo = ScriptableObject.CreateInstance<JumpToLocation>();
-        jumpTo.endPosition = GridManager.GridToPosition(EndPos, source.TileSize);
-        jumpTo.parent = parent;
-        jumpTo.heightOverHighestCharacter = 2.5f;
-        jumpTo.speed = source.JumpSpeed;
-        cutscene = jumpTo;
+        //source.RemoveObjectFromGrid();
+        Vector3 currentPosition = GridManager.GridToPosition(source.pos, source.TileSize);
+        MoveToLocation moveTo = ScriptableObject.CreateInstance<MoveToLocation>();
+        if (parent.GetComponent<SpriteFlipper>().targetLeft)
+        {
+            EndPos = source.pos + new Vector2Int(-1, 0);
+            moveTo.endPosition = currentPosition - new Vector3(GridManager.blockOffset.x/2f, 0, 0);
+        }
+        else
+        {
+            EndPos = source.pos + new Vector2Int(1, 0);
+            moveTo.endPosition = currentPosition + new Vector3(GridManager.blockOffset.x / 2f, 0, 0);
+        }
+        moveTo.parent = parent;
+        moveTo.speed = source.WalkSpeed;
+        cutscene = moveTo;
         return true;
     }
 
@@ -53,7 +58,6 @@ public class RollAttackScript : CutSceneClass
         {
             cutscene.Activate();
             cutscenePhase++;
-            source.animator.SetTrigger("CrateAttack");
         }
         if (cutscenePhase == 1)
         {
@@ -66,59 +70,54 @@ public class RollAttackScript : CutSceneClass
         }
         if (cutscenePhase == 2)
         {
-            List<Vector2Int> potentialGridOccupations = source.PotentialGridOccupation(EndPos);
-            bool landingEmpty = BattleMapProcesses.isTileEmpty(potentialGridOccupations, source.gameObject);
-            if (landingEmpty)
+            bool rollAllowed = false;
+            if (BattleMapProcesses.isThisOnTheGrid(EndPos))
             {
-                source.Stun(1);
-                source.LightWeight(1);
-                parent.transform.position = GridManager.GridToPosition(EndPos, source.TileSize);
+                List<Vector2Int> potentialGridOccupations = source.PotentialGridOccupation(EndPos);
+                bool landingEmpty = BattleMapProcesses.isTileEmpty(potentialGridOccupations, source.gameObject);
+                if (landingEmpty && BattleMapProcesses.CanIMoveToTile(EndPos, source))
+                {
+                    rollAllowed = true;
+                }
+            }
+            if (rollAllowed)
+            {
+                MoveToLocation moveTo = ScriptableObject.CreateInstance<MoveToLocation>();
+                moveTo.endPosition = GridManager.GridToPosition(EndPos, source.TileSize);
+                moveTo.parent = parent;
+                moveTo.speed = source.WalkSpeed;
+                cutscene = moveTo;
+
+                source.RemoveObjectFromGrid();
+                source.AddObjectToGrid(EndPos);
             } else
             {
-                if (BattleMapProcesses.doesObjectOverlapTargets(potentialGridOccupations, target))
-                {
-                    target.postBufferAttackEffect(source.Power, FighterClass.attackType.Normal, FighterClass.statusEffects.None, FighterClass.attackLocation.Ground, parent);
-                }
-            }
-            if(!landingEmpty || !CombatExecutor.LevelFloor(EndPos, source.TileSize))
-            {
-                List<Vector2Int> possibleLocations;
-                if (!landingEmpty)
-                {
-                    possibleLocations = BattleMapProcesses.FindNearestTileNoCharacter(EndPos, 3, source.gameObject);
-                    source.animator.SetTrigger("Land");
-                } else
-                {
-                    possibleLocations = BattleMapProcesses.FindNearestTileNoCharacter(EndPos, 1, source.gameObject);
-                }
-                int locationIndex = Random.Range(0, possibleLocations.Count);
-                EndPos = possibleLocations[locationIndex];
-
+                parent.GetComponent<SpriteFlipper>().flip();
                 JumpToLocation jumpTo = ScriptableObject.CreateInstance<JumpToLocation>();
+                jumpTo.endPosition = GridManager.GridToPosition(source.pos, source.TileSize);
                 jumpTo.parent = parent;
-                jumpTo.speed = source.JumpSpeed * 1.5f;
-                jumpTo.heightOverHighestCharacter = 1;
-                jumpTo.endPosition = GridManager.GridToPosition(EndPos, source.TileSize);
-                jumpTo.Activate();
+                jumpTo.heightOverHighestCharacter = 0.5f;
+                jumpTo.speed = source.JumpSpeed;
                 cutscene = jumpTo;
+
+                if (BattleMapProcesses.isThisOnTheGrid(EndPos))
+                {
+                    if(characterGrid[EndPos.x, EndPos.y] != null)
+                    {
+                        target = characterGrid[EndPos.x, EndPos.y].GetComponent<FighterClass>();
+                        if (target.objectID <= 10) target.postBufferAttackEffect(source.Power, FighterClass.attackType.Normal, FighterClass.statusEffects.None, FighterClass.attackLocation.Ground, parent);
+                    }
+                }
             }
-            characterGrid[(int)EndPos.x, (int)EndPos.y] = parent;
-            source.AddObjectToGrid(EndPos);
+            cutscene.Activate();
             cutscenePhase++;
         }
         if (cutscenePhase == 3)
         {
-            if (!(cutscene is null))
+            if (cutscene.Update())
             {
-                bool done = cutscene.Update();
-                if (done)
-                {
-                    cutscene = null;
-                    cutscenePhase++;
-                    return true;
-                }
-            } else
-            {
+                cutscene = null;
+                cutscenePhase++;
                 return true;
             }
         }
