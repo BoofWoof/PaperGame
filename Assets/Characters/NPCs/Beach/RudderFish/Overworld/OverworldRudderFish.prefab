@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de02794e5c8d7c4c87384b6fa723363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterName: CrabCrate
+  CharacterName: RudderFish
   combatEncounter: {fileID: 11400000, guid: 62a9ceff4e2d35f41831f8f9aaf2ec5c, type: 2}
   cutsceneTrigger: {fileID: 0}
   UniqueSceneID: -1
@@ -77,6 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useAnimatedTurn: 0
   startsLeft: 1
+  targetLeft: 1
   sprite: {fileID: 238180925663517902}
   rotated: 0
   rotSpeedMagnitude: 360
