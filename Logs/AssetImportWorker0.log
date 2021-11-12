@@ -1,6 +1,10 @@
 Using pre-set license
 Built from '2020.3/staging' branch; Version is '2020.3.16f1 (049d6eca3c44) revision 302446'; Using compiler version '192528614'; Build Type 'Release'
+<<<<<<< Updated upstream
 OS: 'Windows 10 Home; OS build 19043.1348; Version 2009; 64bit' Language: 'en' Physical Memory: 32446 MB
+=======
+OS: 'Windows 10 Pro; OS build 19042.1288; Version 2009; 64bit' Language: 'es' Physical Memory: 16297 MB
+>>>>>>> Stashed changes
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
  COMMAND LINE ARGUMENTS:
@@ -15,11 +19,19 @@ C:/Users/Garrett/Documents/PaperPractice/PaperGame
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
+<<<<<<< Updated upstream
 55660
 Successfully changed project path to: C:/Users/Garrett/Documents/PaperPractice/PaperGame
 C:/Users/Garrett/Documents/PaperPractice/PaperGame
 Using Asset Import Pipeline V2.
 Refreshing native plugins compatible for Editor in 149.94 ms, found 2 plugins.
+=======
+50532
+Successfully changed project path to: C:/Users/Usuario/Documents/Clip'sAdventuresInFantasyIsland/PaperGame
+C:/Users/Usuario/Documents/Clip'sAdventuresInFantasyIsland/PaperGame
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 111.55 ms, found 2 plugins.
+>>>>>>> Stashed changes
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.16f1 (049d6eca3c44)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.16f1/Editor/Data/Resources/UnitySubsystems
@@ -36,6 +48,7 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.16f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.16f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.16f1/Editor/Data/MonoBleedingEdge/etc'
+<<<<<<< Updated upstream
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56536
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
@@ -49,11 +62,27 @@ Mono: successfully reloaded assembly
 Domain Reload Profiling:
 	ReloadAssembly (1357ms)
 		BeginReloadAssembly (54ms)
+=======
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56212
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.16f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001525 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 104.23 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.917 seconds
+Domain Reload Profiling:
+	ReloadAssembly (917ms)
+		BeginReloadAssembly (39ms)
+>>>>>>> Stashed changes
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
+<<<<<<< Updated upstream
 		EndReloadAssembly (684ms)
 			LoadAssemblies (51ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
@@ -61,19 +90,36 @@ Domain Reload Profiling:
 			ReleaseScriptCaches (0ms)
 			RebuildScriptCaches (41ms)
 			SetupLoadedEditorAssemblies (301ms)
+=======
+		EndReloadAssembly (384ms)
+			LoadAssemblies (37ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (114ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (23ms)
+			SetupLoadedEditorAssemblies (192ms)
+>>>>>>> Stashed changes
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
+<<<<<<< Updated upstream
 				RefreshPlugins (167ms)
 				BeforeProcessingInitializeOnLoad (19ms)
 				ProcessInitializeOnLoadAttributes (80ms)
 				ProcessInitializeOnLoadMethodAttributes (30ms)
+=======
+				RefreshPlugins (104ms)
+				BeforeProcessingInitializeOnLoad (6ms)
+				ProcessInitializeOnLoadAttributes (58ms)
+				ProcessInitializeOnLoadMethodAttributes (21ms)
+>>>>>>> Stashed changes
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
+<<<<<<< Updated upstream
 Registered in 0.008507 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
@@ -84,10 +130,23 @@ Mono: successfully reloaded assembly
 Domain Reload Profiling:
 	ReloadAssembly (2132ms)
 		BeginReloadAssembly (162ms)
+=======
+Registered in 0.006280 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 133.35 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.468 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1468ms)
+		BeginReloadAssembly (112ms)
+>>>>>>> Stashed changes
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
+<<<<<<< Updated upstream
 			CreateAndSetChildDomain (27ms)
 		EndReloadAssembly (1892ms)
 			LoadAssemblies (119ms)
@@ -104,6 +163,24 @@ Domain Reload Profiling:
 				ProcessInitializeOnLoadAttributes (381ms)
 				ProcessInitializeOnLoadMethodAttributes (176ms)
 				AfterProcessingInitializeOnLoad (8ms)
+=======
+			CreateAndSetChildDomain (16ms)
+		EndReloadAssembly (1304ms)
+			LoadAssemblies (81ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (321ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (74ms)
+			SetupLoadedEditorAssemblies (714ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (133ms)
+				BeforeProcessingInitializeOnLoad (119ms)
+				ProcessInitializeOnLoadAttributes (319ms)
+				ProcessInitializeOnLoadMethodAttributes (135ms)
+				AfterProcessingInitializeOnLoad (5ms)
+>>>>>>> Stashed changes
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (6ms)
@@ -111,6 +188,7 @@ Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+<<<<<<< Updated upstream
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.10 seconds
 Refreshing native plugins compatible for Editor in 2.55 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
@@ -120,6 +198,17 @@ System memory in use after: 279.1 MB.
 
 Unloading 66 unused Assets to reduce memory usage. Loaded Objects now: 6237.
 Total: 16.272800 ms (FindLiveObjects: 1.369400 ms CreateObjectMapping: 0.791300 ms MarkObjects: 13.828200 ms  DeleteObjects: 0.281700 ms)
+=======
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 1.36 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5805 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 346.5 MB.
+System memory in use after: 346.5 MB.
+
+Unloading 67 unused Assets to reduce memory usage. Loaded Objects now: 6225.
+Total: 7.286700 ms (FindLiveObjects: 0.597100 ms CreateObjectMapping: 0.148300 ms MarkObjects: 6.300400 ms  DeleteObjects: 0.239200 ms)
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -133,6 +222,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
+<<<<<<< Updated upstream
   path: Assets/Characters/Clip/Overworld/CharacterMovementOverworld.cs
   artifactKey: Guid(3312c86b2eaf3c445a5e20bda393d3ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Characters/Clip/Overworld/CharacterMovementOverworld.cs using Guid(3312c86b2eaf3c445a5e20bda393d3ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c6f0f88032da09d1feab762e43aba6a') in 0.055179 seconds 
@@ -298,6 +388,20 @@ System memory in use after: 252.6 MB.
 
 Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 6243.
 Total: 27.393200 ms (FindLiveObjects: 1.115200 ms CreateObjectMapping: 0.790500 ms MarkObjects: 25.161700 ms  DeleteObjects: 0.321400 ms)
+=======
+  path: Assets/Characters/NPCs/Beach/AngelGod/AngelDeity.png
+  artifactKey: Guid(6b397178ba6409a4ab1c2b3088e9a4de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/AngelDeity.png using Guid(6b397178ba6409a4ab1c2b3088e9a4de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b2e06bffd857ac82ccb406ad8f3d5c9') in 0.172387 seconds 
+  Import took 0.181081 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 77.432154 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/AngelDeity.png
+  artifactKey: Guid(6b397178ba6409a4ab1c2b3088e9a4de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/AngelDeity.png using Guid(6b397178ba6409a4ab1c2b3088e9a4de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86b656238c67de90ed5d22a90c495d1d') in 0.116682 seconds 
+  Import took 0.126669 seconds .
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -310,6 +414,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+<<<<<<< Updated upstream
 Received Prepare
 Registering precompiled user dll's ...
 Registered in 0.007556 seconds.
@@ -469,6 +574,37 @@ System memory in use after: 252.6 MB.
 
 Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 6249.
 Total: 14.931900 ms (FindLiveObjects: 0.973800 ms CreateObjectMapping: 0.705000 ms MarkObjects: 12.894000 ms  DeleteObjects: 0.356300 ms)
+=======
+Received Import Request.
+  Time since last request: 76.105734 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/AngelDeity.png
+  artifactKey: Guid(6b397178ba6409a4ab1c2b3088e9a4de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/AngelDeity.png using Guid(6b397178ba6409a4ab1c2b3088e9a4de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eee94c0e79c25d117a8d3726871b405c') in 0.118004 seconds 
+  Import took 0.127317 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 89.829970 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b) Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+ -> (artifact id: '0625b8c6e483101c2bd9805e6c7672ae') in 1.119179 seconds 
+  Import took 1.129867 seconds .
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -481,6 +617,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+<<<<<<< Updated upstream
 Received Prepare
 Registering precompiled user dll's ...
 Registered in 0.011727 seconds.
@@ -526,6 +663,22 @@ System memory in use after: 252.6 MB.
 
 Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 6251.
 Total: 19.587800 ms (FindLiveObjects: 1.149900 ms CreateObjectMapping: 1.035500 ms MarkObjects: 16.799400 ms  DeleteObjects: 0.600000 ms)
+=======
+Received Import Request.
+  Time since last request: 4.289602 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '859b1669478aa38047dad449b24645b1') in 0.039163 seconds 
+  Import took 0.048479 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.392945 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e64258aa00b7c2ffd039354ad0e699ac') in 0.041503 seconds 
+  Import took 0.050738 seconds .
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -538,6 +691,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+<<<<<<< Updated upstream
 Received Prepare
 Registering precompiled user dll's ...
 Registered in 0.007642 seconds.
@@ -583,6 +737,22 @@ System memory in use after: 252.6 MB.
 
 Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 6253.
 Total: 15.367700 ms (FindLiveObjects: 0.948900 ms CreateObjectMapping: 0.532600 ms MarkObjects: 13.643500 ms  DeleteObjects: 0.240100 ms)
+=======
+Received Import Request.
+  Time since last request: 796.531422 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/AngelCube.fbx
+  artifactKey: Guid(b0a10191a1d3b9b4b9c50b7c0aead54a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/AngelCube.fbx using Guid(b0a10191a1d3b9b4b9c50b7c0aead54a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1ff9f3c7d37dfcb6effc83de4311c52') in 4.441121 seconds 
+  Import took 4.450645 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000172 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/AngelCube.fbx
+  artifactKey: Guid(b0a10191a1d3b9b4b9c50b7c0aead54a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/AngelCube.fbx using Guid(b0a10191a1d3b9b4b9c50b7c0aead54a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1ff9f3c7d37dfcb6effc83de4311c52') in 0.045126 seconds 
+  Import took 0.052974 seconds .
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -2239,6 +2409,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
+<<<<<<< Updated upstream
   Time since last request: 580.284695 seconds.
   path: Assets/Characters/Partners/AgentW/Combat/CombatAgentW.prefab
   artifactKey: Guid(ce23875c6ded9e34192f094161f164bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
@@ -2291,6 +2462,13 @@ System memory in use after: 262.5 MB.
 
 Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 6752.
 Total: 19.756300 ms (FindLiveObjects: 1.199400 ms CreateObjectMapping: 0.850100 ms MarkObjects: 17.322600 ms  DeleteObjects: 0.381000 ms)
+=======
+  Time since last request: 0.000186 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28c314336b55e98088122b9c30f0b266') in 0.040837 seconds 
+  Import took 0.049292 seconds .
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -2303,6 +2481,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+<<<<<<< Updated upstream
 Received Prepare
 Registering precompiled user dll's ...
 Registered in 0.008110 seconds.
@@ -2348,6 +2527,22 @@ System memory in use after: 262.5 MB.
 
 Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 6754.
 Total: 20.196400 ms (FindLiveObjects: 1.252000 ms CreateObjectMapping: 0.887500 ms MarkObjects: 17.711500 ms  DeleteObjects: 0.342500 ms)
+=======
+Received Import Request.
+  Time since last request: 2.647553 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07b09d4b3c686510dcf01a89d9acf863') in 0.040117 seconds 
+  Import took 0.050853 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.146524 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '609977c1aaafcd6ea8dc8218bf5487b9') in 0.049841 seconds 
+  Import took 0.060222 seconds .
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -2360,6 +2555,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+<<<<<<< Updated upstream
 Received Prepare
 Registering precompiled user dll's ...
 Registered in 0.007428 seconds.
@@ -2405,6 +2601,22 @@ System memory in use after: 262.5 MB.
 
 Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 6756.
 Total: 21.334900 ms (FindLiveObjects: 1.237000 ms CreateObjectMapping: 0.893800 ms MarkObjects: 18.701000 ms  DeleteObjects: 0.497700 ms)
+=======
+Received Import Request.
+  Time since last request: 4.825121 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e98280f2186c4829d763ce82452f1f4f') in 0.039714 seconds 
+  Import took 0.050147 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.193938 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/AngelCube.fbx
+  artifactKey: Guid(b0a10191a1d3b9b4b9c50b7c0aead54a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/AngelCube.fbx using Guid(b0a10191a1d3b9b4b9c50b7c0aead54a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '680b1c0cf14c03d1352ada08521bf17b') in 0.052507 seconds 
+  Import took 0.061327 seconds .
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -2417,6 +2629,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+<<<<<<< Updated upstream
 Received Prepare
 Registering precompiled user dll's ...
 Registered in 0.018637 seconds.
@@ -2730,6 +2943,14 @@ System memory in use after: 262.9 MB.
 
 Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 6901.
 Total: 9.770800 ms (FindLiveObjects: 0.811500 ms CreateObjectMapping: 0.431600 ms MarkObjects: 8.272300 ms  DeleteObjects: 0.254100 ms)
+=======
+Received Import Request.
+  Time since last request: 0.000186 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/AngelCube.png
+  artifactKey: Guid(3edfe3f93f0c2164abacbc74ac822d08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/AngelCube.png using Guid(3edfe3f93f0c2164abacbc74ac822d08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1527c199cb081a722b8de5df3f9cac53') in 0.009720 seconds 
+  Import took 0.018035 seconds .
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -2742,6 +2963,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+<<<<<<< Updated upstream
 Received Prepare
 Registering precompiled user dll's ...
 Registered in 0.007786 seconds.
@@ -2787,6 +3009,14 @@ System memory in use after: 262.9 MB.
 
 Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 6903.
 Total: 20.154900 ms (FindLiveObjects: 1.325200 ms CreateObjectMapping: 0.856900 ms MarkObjects: 17.577100 ms  DeleteObjects: 0.392500 ms)
+=======
+Received Import Request.
+  Time since last request: 0.000191 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eaf0c951087220cb4a18a1a34b4eb44d') in 0.037860 seconds 
+  Import took 0.046440 seconds .
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -2800,6 +3030,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
+<<<<<<< Updated upstream
   Time since last request: 560.679462 seconds.
   path: Assets/Characters/NPCs/Beach/RudderFish/Combat/CombatRudderFish.prefab
   artifactKey: Guid(f585b396b68a9bd42abdedc1383b6f88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
@@ -2860,6 +3091,37 @@ System memory in use after: 263.3 MB.
 
 Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 7040.
 Total: 20.750200 ms (FindLiveObjects: 1.357400 ms CreateObjectMapping: 0.883900 ms MarkObjects: 18.142900 ms  DeleteObjects: 0.363500 ms)
+=======
+  Time since last request: 0.001216 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eaf0c951087220cb4a18a1a34b4eb44d') in 0.038328 seconds 
+  Import took 0.047378 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.225117 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca32124f8a3e3fc67b413310c4c1b2b0') in 0.040211 seconds 
+  Import took 0.050398 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.805193 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '680db153c35145a5520ed845015928ba') in 0.043034 seconds 
+  Import took 0.052657 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.002121 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3a720010ea92acf316654d269ed57dd') in 0.039851 seconds 
+  Import took 0.049836 seconds .
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -2872,6 +3134,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+<<<<<<< Updated upstream
 Received Prepare
 Registering precompiled user dll's ...
 Registered in 0.007409 seconds.
@@ -2917,6 +3180,22 @@ System memory in use after: 263.3 MB.
 
 Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 7042.
 Total: 16.611200 ms (FindLiveObjects: 0.971700 ms CreateObjectMapping: 0.577800 ms MarkObjects: 14.550000 ms  DeleteObjects: 0.508600 ms)
+=======
+Received Import Request.
+  Time since last request: 0.761945 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f04bc3944ef3bd7bf63dc5731459dd3c') in 0.042874 seconds 
+  Import took 0.052684 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.380873 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34d168fa37ac9e07193aec478987ee1e') in 0.069118 seconds 
+  Import took 0.081196 seconds .
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -2929,6 +3208,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+<<<<<<< Updated upstream
 Received Prepare
 Registering precompiled user dll's ...
 Registered in 0.008602 seconds.
@@ -2974,6 +3254,22 @@ System memory in use after: 263.3 MB.
 
 Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 7044.
 Total: 15.875000 ms (FindLiveObjects: 1.268000 ms CreateObjectMapping: 0.763800 ms MarkObjects: 13.504700 ms  DeleteObjects: 0.334900 ms)
+=======
+Received Import Request.
+  Time since last request: 1.941809 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44365004101e00c6ad9f185f1b4e54f3') in 0.043286 seconds 
+  Import took 0.053056 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.987729 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e51700120214ff13621132eaa1cecc6e') in 0.038316 seconds 
+  Import took 0.049052 seconds .
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -2987,6 +3283,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
+<<<<<<< Updated upstream
   Time since last request: 2104.734027 seconds.
   path: Assets/Characters/NPCs/Beach/CrateCrab/Combat/CombatCrabCrateBig.prefab
   artifactKey: Guid(f0d2a8d70d208314196a987c31e65b48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
@@ -3055,6 +3352,45 @@ System memory in use after: 263.6 MB.
 
 Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 7181.
 Total: 19.247900 ms (FindLiveObjects: 1.401500 ms CreateObjectMapping: 1.121200 ms MarkObjects: 16.107700 ms  DeleteObjects: 0.613900 ms)
+=======
+  Time since last request: 2.970432 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bea4c30d238baf42ec8ca79c1792daba') in 0.039565 seconds 
+  Import took 0.049909 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.006938 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bea4c30d238baf42ec8ca79c1792daba') in 0.037530 seconds 
+  Import took 0.047602 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.323706 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '170616002a36b2d3eaf36281a08e961f') in 0.041583 seconds 
+  Import took 0.051283 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.554388 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b33f8dc0ab4d59b9d1670947039bc40') in 0.044268 seconds 
+  Import took 0.054003 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.766660 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c00ce5ae49c70509d4772d25834505a') in 0.041295 seconds 
+  Import took 0.050960 seconds .
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -3068,6 +3404,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
+<<<<<<< Updated upstream
   Time since last request: 443.545161 seconds.
   path: Assets/Characters/NPCs/Beach/CrateCrab/Combat/Abilities/CrateLaunch.cs
   artifactKey: Guid(7ef9aec935869114199302871bb995aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
@@ -3120,6 +3457,29 @@ System memory in use after: 263.7 MB.
 
 Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 7183.
 Total: 23.692800 ms (FindLiveObjects: 1.330000 ms CreateObjectMapping: 0.826500 ms MarkObjects: 21.030300 ms  DeleteObjects: 0.502700 ms)
+=======
+  Time since last request: 13.081258 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5890649354e873881ee25b91508d6e79') in 0.040436 seconds 
+  Import took 0.050090 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.189383 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9ffa867beb70184cf365dc3864c0f1d') in 0.041208 seconds 
+  Import took 0.051062 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.440991 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1ec17626bcc6e5088482a4e3c061a74') in 0.038108 seconds 
+  Import took 0.049560 seconds .
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -3132,6 +3492,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+<<<<<<< Updated upstream
 Received Prepare
 Registering precompiled user dll's ...
 Registered in 0.007623 seconds.
@@ -3177,6 +3538,22 @@ System memory in use after: 263.7 MB.
 
 Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 7185.
 Total: 22.359500 ms (FindLiveObjects: 1.327100 ms CreateObjectMapping: 0.807900 ms MarkObjects: 19.835900 ms  DeleteObjects: 0.385600 ms)
+=======
+Received Import Request.
+  Time since last request: 32.530503 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '356a37d7af1db4f4eef9065c3bca0fde') in 0.041733 seconds 
+  Import took 0.052324 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.372991 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e119936145ea80d636afc1dbd3bf142d') in 0.038996 seconds 
+  Import took 0.049211 seconds .
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -3189,6 +3566,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+<<<<<<< Updated upstream
 Received Prepare
 Registering precompiled user dll's ...
 Registered in 0.007790 seconds.
@@ -3234,6 +3612,22 @@ System memory in use after: 263.7 MB.
 
 Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 7187.
 Total: 21.830900 ms (FindLiveObjects: 1.348700 ms CreateObjectMapping: 0.841000 ms MarkObjects: 19.241200 ms  DeleteObjects: 0.396100 ms)
+=======
+Received Import Request.
+  Time since last request: 4.390665 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '41d269d970010cf410f2af23c93f58fe') in 0.039103 seconds 
+  Import took 0.048931 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.381509 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '298da67875d25cfb3728cc7b21eee3b4') in 0.038644 seconds 
+  Import took 0.048412 seconds .
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -3246,6 +3640,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+<<<<<<< Updated upstream
 Received Prepare
 Registering precompiled user dll's ...
 Registered in 0.008004 seconds.
@@ -3291,6 +3686,22 @@ System memory in use after: 263.7 MB.
 
 Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 7189.
 Total: 23.014300 ms (FindLiveObjects: 1.599200 ms CreateObjectMapping: 0.974500 ms MarkObjects: 19.929700 ms  DeleteObjects: 0.506900 ms)
+=======
+Received Import Request.
+  Time since last request: 0.962471 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8f77d6cb04103106353d2b1179c63bf') in 0.039324 seconds 
+  Import took 0.049014 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.762586 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5cdd5bb72de356cc92162b3dc906f6d0') in 0.040330 seconds 
+  Import took 0.050267 seconds .
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -3304,6 +3715,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
+<<<<<<< Updated upstream
   Time since last request: 303.210974 seconds.
   path: Assets/Characters/NPCs/Beach/RudderFish/Combat/CombatRudderFish.prefab
   artifactKey: Guid(f585b396b68a9bd42abdedc1383b6f88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
@@ -3356,6 +3768,29 @@ System memory in use after: 264.0 MB.
 
 Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 7326.
 Total: 14.354500 ms (FindLiveObjects: 0.995600 ms CreateObjectMapping: 0.584100 ms MarkObjects: 12.489400 ms  DeleteObjects: 0.283100 ms)
+=======
+  Time since last request: 0.969811 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '988d028788c26fcd90e870fbe8a177e7') in 0.040116 seconds 
+  Import took 0.049945 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.559504 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56cc6d3f1318cbcab04ac867881298b3') in 0.041429 seconds 
+  Import took 0.051189 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.231309 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc44da9b491478dce23d151622ca9510') in 0.045082 seconds 
+  Import took 0.055135 seconds .
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -3368,6 +3803,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+<<<<<<< Updated upstream
 Received Prepare
 Registering precompiled user dll's ...
 Registered in 0.007442 seconds.
@@ -3413,6 +3849,22 @@ System memory in use after: 264.0 MB.
 
 Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 7328.
 Total: 22.555800 ms (FindLiveObjects: 1.423100 ms CreateObjectMapping: 0.865000 ms MarkObjects: 19.566000 ms  DeleteObjects: 0.696800 ms)
+=======
+Received Import Request.
+  Time since last request: 9.067996 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '808a6f599d1a2bec8b50f56557afbdca') in 0.040425 seconds 
+  Import took 0.050235 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.779107 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee20bce7bdf164d3fbe266f462e45b62') in 0.047370 seconds 
+  Import took 0.058230 seconds .
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -3425,6 +3877,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+<<<<<<< Updated upstream
 Received Prepare
 Registering precompiled user dll's ...
 Registered in 0.007569 seconds.
@@ -3470,6 +3923,22 @@ System memory in use after: 264.0 MB.
 
 Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 7330.
 Total: 21.938800 ms (FindLiveObjects: 1.381800 ms CreateObjectMapping: 0.878700 ms MarkObjects: 19.298200 ms  DeleteObjects: 0.376900 ms)
+=======
+Received Import Request.
+  Time since last request: 2.571487 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '121ecf46eb67c77b04233489a9e23da3') in 0.044599 seconds 
+  Import took 0.054491 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.369697 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1262b0266e61e331a60c8a59020a6aa') in 0.040402 seconds 
+  Import took 0.051618 seconds .
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -3482,6 +3951,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+<<<<<<< Updated upstream
 Received Prepare
 Registering precompiled user dll's ...
 Registered in 0.009090 seconds.
@@ -3527,6 +3997,22 @@ System memory in use after: 264.0 MB.
 
 Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 7332.
 Total: 21.257000 ms (FindLiveObjects: 1.382600 ms CreateObjectMapping: 0.825200 ms MarkObjects: 18.510600 ms  DeleteObjects: 0.534700 ms)
+=======
+Received Import Request.
+  Time since last request: 3.566279 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '09cd4eada85d41ea1fb28f34e5224b51') in 0.043606 seconds 
+  Import took 0.053588 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.471845 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a184955d9669f69024e2c8fccffe28e') in 0.040467 seconds 
+  Import took 0.050556 seconds .
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -3539,6 +4025,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+<<<<<<< Updated upstream
 Received Prepare
 Registering precompiled user dll's ...
 Registered in 0.007535 seconds.
@@ -4260,10 +4747,19 @@ Received Import Request.
   artifactKey: Guid(01a2ea9c05f78e945a19c0f623485eec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Characters/NPCs/Beach/RudderFish/RudderFish.controller using Guid(01a2ea9c05f78e945a19c0f623485eec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be507e6fe01da78ece45dc749259551a') in 0.010063 seconds 
   Import took 0.021567 seconds .
+=======
+Received Import Request.
+  Time since last request: 449.446487 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2dfbd970148f34e2a58dc4f2e591ccf3') in 0.039825 seconds 
+  Import took 0.052071 seconds .
+>>>>>>> Stashed changes
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
+<<<<<<< Updated upstream
 Registered in 0.008309 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
@@ -4274,10 +4770,23 @@ Mono: successfully reloaded assembly
 Domain Reload Profiling:
 	ReloadAssembly (1675ms)
 		BeginReloadAssembly (178ms)
+=======
+Registered in 0.006599 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.63 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.391 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1392ms)
+		BeginReloadAssembly (192ms)
+>>>>>>> Stashed changes
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (29ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
+<<<<<<< Updated upstream
 			CreateAndSetChildDomain (62ms)
 		EndReloadAssembly (1431ms)
 			LoadAssemblies (100ms)
@@ -4286,10 +4795,21 @@ Domain Reload Profiling:
 			ReleaseScriptCaches (4ms)
 			RebuildScriptCaches (91ms)
 			SetupLoadedEditorAssemblies (571ms)
+=======
+			CreateAndSetChildDomain (53ms)
+		EndReloadAssembly (1145ms)
+			LoadAssemblies (83ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (322ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (77ms)
+			SetupLoadedEditorAssemblies (460ms)
+>>>>>>> Stashed changes
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (5ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (2ms)
+<<<<<<< Updated upstream
 				BeforeProcessingInitializeOnLoad (151ms)
 				ProcessInitializeOnLoadAttributes (370ms)
 				ProcessInitializeOnLoadMethodAttributes (38ms)
@@ -4307,6 +4827,25 @@ System memory in use after: 265.0 MB.
 
 Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 7626.
 Total: 11.800000 ms (FindLiveObjects: 0.922800 ms CreateObjectMapping: 0.453600 ms MarkObjects: 10.157200 ms  DeleteObjects: 0.264900 ms)
+=======
+				BeforeProcessingInitializeOnLoad (116ms)
+				ProcessInitializeOnLoadAttributes (302ms)
+				ProcessInitializeOnLoadMethodAttributes (30ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.48 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5423 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 333.3 MB.
+System memory in use after: 333.4 MB.
+
+Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 6474.
+Total: 7.051900 ms (FindLiveObjects: 0.584100 ms CreateObjectMapping: 0.149700 ms MarkObjects: 6.092100 ms  DeleteObjects: 0.224200 ms)
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -4318,3 +4857,31 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+<<<<<<< Updated upstream
+=======
+========================================================================
+Received Import Request.
+  Time since last request: 1537.026592 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Materials
+  artifactKey: Guid(a3072c5e89926894aaa4c814e17df3d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Materials using Guid(a3072c5e89926894aaa4c814e17df3d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75807d988b04b18e15f8a73c7650edb2') in 0.012615 seconds 
+  Import took 0.023313 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 61.490073 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2044922b63c5ec1711aff65f5f5fe4ff') in 0.588527 seconds 
+  Import took 0.598521 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.783771 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab
+  artifactKey: Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Dei (AngelDeity).prefab using Guid(7945da2e7acb794409101628a12b7364) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '894a7f67fc951f867d80ec3bcf072126') in 0.058850 seconds 
+  Import took 0.068901 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+>>>>>>> Stashed changes
