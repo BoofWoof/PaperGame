@@ -47,6 +47,24 @@ TextureImporter:
   - first:
       213: 2992364953358438675
     second: AngelDeity_RightWingS
+  - first:
+      213: -6974696677152741054
+    second: AngelDeity_CubeFace
+  - first:
+      213: -7664079536703706968
+    second: AngelDeity_CubeHalo
+  - first:
+      213: -7642173108747082776
+    second: AngelDeity_CubeFading
+  - first:
+      213: -7062462858905415856
+    second: AngelDeity_HandSnapped
+  - first:
+      213: 8747389369325666399
+    second: AngelDeity_HandClosed
+  - first:
+      213: -3046352053068307676
+    second: AngelDeity_SnapParticles
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -446,6 +464,132 @@ TextureImporter:
       bones: []
       spriteID: 31112432214078920800000000000000
       internalID: 2992364953358438675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AngelDeity_CubeFace
+      rect:
+        serializedVersion: 2
+        x: 1982
+        y: 1219
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 249a63e5356e43f90800000000000000
+      internalID: -6974696677152741054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AngelDeity_CubeHalo
+      rect:
+        serializedVersion: 2
+        x: 2105
+        y: 1196
+        width: 130
+        height: 123
+      alignment: 9
+      pivot: {x: 0.4889085, y: 0.4882773}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a86f647448b3a590800000000000000
+      internalID: -7664079536703706968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AngelDeity_CubeFading
+      rect:
+        serializedVersion: 2
+        x: 2286
+        y: 1204
+        width: 71
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e3661d2c0c81f590800000000000000
+      internalID: -7642173108747082776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AngelDeity_HandSnapped
+      rect:
+        serializedVersion: 2
+        x: 2077
+        y: 1771
+        width: 144
+        height: 108
+      alignment: 9
+      pivot: {x: 0.8455861, y: 0.77751666}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05f8d87c2771dfd90800000000000000
+      internalID: -7062462858905415856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AngelDeity_HandClosed
+      rect:
+        serializedVersion: 2
+        x: 2239
+        y: 1753
+        width: 90
+        height: 126
+      alignment: 9
+      pivot: {x: 0.66336805, y: 0.8231463}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f504fa62948f46970800000000000000
+      internalID: 8747389369325666399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AngelDeity_SnapParticles
+      rect:
+        serializedVersion: 2
+        x: 2001
+        y: 1773
+        width: 62
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 423e410b2fe29b5d0800000000000000
+      internalID: -3046352053068307676
       vertices: []
       indices: 
       edges: []
