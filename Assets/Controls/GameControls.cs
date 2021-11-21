@@ -764,6 +764,14 @@ public class @GameControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""CutsceneClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""5fa811df-2ff3-4a98-afc5-ed4bbc9b3437"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -865,6 +873,17 @@ public class @GameControls : IInputActionCollection, IDisposable
                     ""action"": ""RightClick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""03d8224a-5ad7-4e51-9352-7158173886c3"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CutsceneClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -901,6 +920,7 @@ public class @GameControls : IInputActionCollection, IDisposable
         m_MapCraftControls_ZoomOut = m_MapCraftControls.FindAction("ZoomOut", throwIfNotFound: true);
         m_MapCraftControls_LeftClick = m_MapCraftControls.FindAction("LeftClick", throwIfNotFound: true);
         m_MapCraftControls_RightClick = m_MapCraftControls.FindAction("RightClick", throwIfNotFound: true);
+        m_MapCraftControls_CutsceneClick = m_MapCraftControls.FindAction("CutsceneClick", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1129,6 +1149,7 @@ public class @GameControls : IInputActionCollection, IDisposable
     private readonly InputAction m_MapCraftControls_ZoomOut;
     private readonly InputAction m_MapCraftControls_LeftClick;
     private readonly InputAction m_MapCraftControls_RightClick;
+    private readonly InputAction m_MapCraftControls_CutsceneClick;
     public struct MapCraftControlsActions
     {
         private @GameControls m_Wrapper;
@@ -1142,6 +1163,7 @@ public class @GameControls : IInputActionCollection, IDisposable
         public InputAction @ZoomOut => m_Wrapper.m_MapCraftControls_ZoomOut;
         public InputAction @LeftClick => m_Wrapper.m_MapCraftControls_LeftClick;
         public InputAction @RightClick => m_Wrapper.m_MapCraftControls_RightClick;
+        public InputAction @CutsceneClick => m_Wrapper.m_MapCraftControls_CutsceneClick;
         public InputActionMap Get() { return m_Wrapper.m_MapCraftControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1178,6 +1200,9 @@ public class @GameControls : IInputActionCollection, IDisposable
                 @RightClick.started -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnRightClick;
                 @RightClick.performed -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnRightClick;
                 @RightClick.canceled -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnRightClick;
+                @CutsceneClick.started -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnCutsceneClick;
+                @CutsceneClick.performed -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnCutsceneClick;
+                @CutsceneClick.canceled -= m_Wrapper.m_MapCraftControlsActionsCallbackInterface.OnCutsceneClick;
             }
             m_Wrapper.m_MapCraftControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -1209,6 +1234,9 @@ public class @GameControls : IInputActionCollection, IDisposable
                 @RightClick.started += instance.OnRightClick;
                 @RightClick.performed += instance.OnRightClick;
                 @RightClick.canceled += instance.OnRightClick;
+                @CutsceneClick.started += instance.OnCutsceneClick;
+                @CutsceneClick.performed += instance.OnCutsceneClick;
+                @CutsceneClick.canceled += instance.OnCutsceneClick;
             }
         }
     }
@@ -1245,5 +1273,6 @@ public class @GameControls : IInputActionCollection, IDisposable
         void OnZoomOut(InputAction.CallbackContext context);
         void OnLeftClick(InputAction.CallbackContext context);
         void OnRightClick(InputAction.CallbackContext context);
+        void OnCutsceneClick(InputAction.CallbackContext context);
     }
 }

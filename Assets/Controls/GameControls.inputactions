@@ -751,6 +751,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "CutsceneClick",
+                    "type": "Button",
+                    "id": "5fa811df-2ff3-4a98-afc5-ed4bbc9b3437",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -850,6 +858,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "RightClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "03d8224a-5ad7-4e51-9352-7158173886c3",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CutsceneClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

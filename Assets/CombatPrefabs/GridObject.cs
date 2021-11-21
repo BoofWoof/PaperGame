@@ -75,4 +75,9 @@ public class GridObject : MonoBehaviour
         }
         return potentialGridOccupation;
     }
+    
+    public List<Vector2Int> currentGridOccupation()
+    {
+        return PotentialGridOccupation(pos);
+    }
 }

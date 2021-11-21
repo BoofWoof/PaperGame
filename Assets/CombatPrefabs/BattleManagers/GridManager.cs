@@ -30,18 +30,35 @@ public class GridManager : MonoBehaviour
     public static List<GoalBlock> goalBlockList;
     public static int[,] gridHeight;
     public float maxBlockHeight = -100;
-    public List<ExtraInfo> extraInfoList;
 
     [Header("Puzzle Info")]
-    public bool puzzleMode = false;
-    public bool doublePuzzleMode = false;
-    public bool turnTie = false;
+    public static bool puzzleMode = false;
+    public static bool doublePuzzleMode = false;
+    public static bool turnTie = false;
 
     static public Vector3 GridToPosition(Vector2Int gridPos, Vector2 gridSize)
     {
         Vector3 bottomLeftPos = new Vector3(gridPos.x * blockOffset.x, gridHeight[gridPos.x, gridPos.y] * blockOffset.z, gridPos.y * blockOffset.y);
         Vector3 topRightPos = new Vector3((gridPos.x + gridSize.x - 1) * blockOffset.x, gridHeight[gridPos.x, gridPos.y] * blockOffset.z, (gridPos.y + gridSize.y - 1) * blockOffset.y);
         return (bottomLeftPos + topRightPos)/2 + new Vector3(blockOffset.x / 2, 0, blockOffset.y / 2);
+    }
+
+    static public List<GameObject> GetAllObjectExcept(List<Vector2Int> exclusion_blocks)
+    {
+        List<GameObject> AllObjectsExcept = new List<GameObject>();
+        for (int x = 0; x < mapShape.x; x++)
+        {
+            for (int y = 0; y < mapShape.y; y++)
+            {
+                if (!exclusion_blocks.Contains(new Vector2Int(x, y)))
+                {
+                    AllObjectsExcept.Add(blockGrid[x, y]);
+                    if (characterGrid[x, y] != null) AllObjectsExcept.Add(characterGrid[x, y]);
+                    if (objectGrid[x, y] != null) AllObjectsExcept.Add(objectGrid[x, y]);
+                }
+            }
+        }
+        return AllObjectsExcept;
     }
 
     public void CreateObject(GameObject[,] grid, Vector2Int grid_pos, GameObject target_object, int objectID)

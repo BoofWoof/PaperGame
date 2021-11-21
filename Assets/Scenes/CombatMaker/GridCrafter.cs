@@ -13,23 +13,23 @@ public class GridCrafter : GridManager
     
     [Header("UI Info")]
     //UI Stuff
-    public GameObject tileMenu;
-    private int tileType = 1;
-    private int selectedCharacter = 0;
-    private int selectedObject = 0;
-    private string editMode = "Height";
-
-    //Saving
-    public GameObject saveNameTextField;
-    public GameObject extraInfoManagerMenuPrefab;
-    public GameObject extraInfoManagerMenu = null;
+    public static int tileType = 1;
+    public static int selectedCharacter = 0;
+    public static int selectedObject = 0;
+    public static string editMode = "Height";
 
     [Header("SelectionIndicator")]
     public Material rangeIndicator;
     public Material rangeErrorIndicator;
-    private Vector2Int selectionRange = new Vector2Int(1, 1);
-    private Vector2Int selectionPos = new Vector2Int(0, 0);
+    public static Vector2Int selectionRange = new Vector2Int(1, 1);
+    public static Vector2Int selectionPos = new Vector2Int(0, 0);
     List<GameObject> decalProjectors = new List<GameObject>();
+
+    [Header("CutsceneMenus")]
+    public static bool MenuOpen = false;
+    public GameObject Canvas;
+    public GameObject CutsceneMainMenu;
+    public GameObject LevelEditor;
 
     private GameControls control;
 
@@ -38,9 +38,6 @@ public class GridCrafter : GridManager
     {
         control = new GameControls();
         control.MapCraftControls.Enable();
-        tileMenu.SetActive(false);
-
-        extraInfoList = new List<ExtraInfo>();
 
         blockGrid = new GameObject[mapShape.x, mapShape.y];
         characterGrid = new GameObject[mapShape.x, mapShape.y];
@@ -60,17 +57,7 @@ public class GridCrafter : GridManager
     // Update is called once per frame
     void Update()
     {
-        if (control.MapCraftControls.EditMenu.triggered && extraInfoManagerMenu == null)
-        {
-            if (tileMenu.active)
-            {
-                tileMenu.SetActive(false);
-            } else
-            {
-                tileMenu.SetActive(true);
-            }
-        }
-        if (!tileMenu.active && extraInfoManagerMenu == null)
+        if (!MenuOpen)
         {
             if (control.MapCraftControls.MoveLeft.phase == InputActionPhase.Started)
             {
@@ -97,32 +84,56 @@ public class GridCrafter : GridManager
                 cameraPos.y += cameraSpeed * Time.deltaTime;
             }
             HoverDisplay();
-            if (editMode == "Height")
+            if (control.MapCraftControls.EditMenu.triggered)
             {
-                MoveBlocksHeight();
+                AddLevelEditorMenu();
             }
-            if (editMode == "Type")
+            else if (control.MapCraftControls.CutsceneClick.phase == InputActionPhase.Started)
             {
-                ChangeBlock();
-            }
-            if (editMode == "Character")
+                AddCutscene();
+            } else
             {
-                PlaceCharacter();
-            }
-            if (editMode == "Object")
-            {
-                PlaceObject();
+                if (editMode == "Height")
+                {
+                    MoveBlocksHeight();
+                }
+                if (editMode == "Tile")
+                {
+                    ChangeBlock();
+                }
+                if (editMode == "Character")
+                {
+                    PlaceCharacter();
+                }
+                if (editMode == "Object")
+                {
+                    PlaceObject();
+                }
             }
         }
         combatCamera.transform.position = new Vector3((mapShape.x - 1) * blockOffset.x / 2 + cameraPos.x, cameraHeight + cameraPos.y, cameraOffset + cameraPos.z);
         combatCamera.transform.eulerAngles = new Vector3(cameraAngle, 0, 0);
     }
 
-    public void MakeExtraInfoMenu()
+    public void AddLevelEditorMenu()
     {
-        tileMenu.SetActive(false);
-        extraInfoManagerMenu = Instantiate(extraInfoManagerMenuPrefab);
-        extraInfoManagerMenu.GetComponent<ExtraInfoMangerScript>().menuSource = this;
+        GameObject levelEditorMenu = Instantiate(LevelEditor);
+        levelEditorMenu.GetComponent<LevelEditorScript>().SourceScript = this;
+        levelEditorMenu.transform.SetParent(Canvas.transform);
+    }
+
+    public void AddCutscene()
+    {
+        Vector2Int grid_pos = BlockAtMouse();
+        if (grid_pos != new Vector2Int(-1, -1))
+        {
+            if (control.MapCraftControls.LeftClick.triggered)
+            {
+                GameObject cutsceneMainMenu = Instantiate(CutsceneMainMenu);
+                cutsceneMainMenu.GetComponent<ObjectSelectionScript>().targetBlock = grid_pos;
+                cutsceneMainMenu.transform.SetParent(Canvas.transform);
+            }
+        }
     }
 
     public void HoverDisplay()
@@ -143,33 +154,6 @@ public class GridCrafter : GridManager
                 }
             }
         }
-    }
-
-    public void SetTileType(int tileTypeInput)
-    {
-        tileType = tileTypeInput;
-        selectionRange = new Vector2Int(1, 1);
-    }
-
-    public void SetCharacterIndex(int characterTypeInput)
-    {
-        selectedCharacter = characterTypeInput;
-        selectionRange = CombatMapper.characterMap[selectedCharacter].GetComponent<FighterClass>().TileSize;
-    }
-
-    public void SetObjectIndex(int objectTypeInput)
-    {
-        selectedObject = objectTypeInput;
-        selectionRange = new Vector2Int(1, 1);
-    }
-
-    public void SetEditMode(string editModeInput)
-    {
-        if(editModeInput == "Height")
-        {
-            selectionRange = new Vector2Int(1, 1);
-        }
-        editMode = editModeInput;
     }
 
     Vector2Int BlockAtMouse()
@@ -262,7 +246,6 @@ public class GridCrafter : GridManager
 
     void MoveBlocksHeight()
     {
-
         if (control.MapCraftControls.LeftClick.triggered || control.MapCraftControls.RightClick.triggered)
         {
             Vector2Int grid_pos = BlockAtMouse();
@@ -423,24 +406,6 @@ public class GridCrafter : GridManager
         UpdatePositions();
     }
 
-    public void TurnTieToggle()
-    {
-        turnTie = !turnTie;
-        Debug.Log(turnTie);
-    }
-
-    public void PuzzleModeToggle()
-    {
-        puzzleMode = !puzzleMode;
-        Debug.Log(puzzleMode);
-    }
-
-    public void DoublePuzzleModeToggle()
-    {
-        doublePuzzleMode = !doublePuzzleMode;
-        Debug.Log(doublePuzzleMode);
-    }
-
     public void AddLeft()
     {
         AddMap(1, 0, 0, 0);
@@ -461,18 +426,16 @@ public class GridCrafter : GridManager
         AddMap(0, 0, 0, 1);
     }
 
-    public void LoadFromName()
+    public void LoadFromName(string filename)
     {
         Clear();
-        string filename = saveNameTextField.GetComponent<InputField>().text;
         CombatContainer _containerCache = Resources.Load<CombatContainer>(filename);
         Load(_containerCache);
     }
 
 #if UNITY_EDITOR
-    public void Save()
+    public void Save(string filename)
     {
-        string filename = saveNameTextField.GetComponent<InputField>().text;
         CombatContainer combatContainer = ScriptableObject.CreateInstance<CombatContainer>();
 
         //Save Grid Height

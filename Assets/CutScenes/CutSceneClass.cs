@@ -21,9 +21,16 @@ public class CutSceneClass : ScriptableObject
         return false;
     }
 
+    // Return true if it needs to go through deactivation work.
+    public virtual bool Deactivate()
+    {
+        return false;
+    }
+
     // Return True When Done
     public virtual bool Update()
     {
         return false;
     }
+
 }
