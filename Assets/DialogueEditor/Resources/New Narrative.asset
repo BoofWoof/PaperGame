@@ -105,6 +105,7 @@ MonoBehaviour:
     DialogueText: You're not supposed to be here.
     TargetPlayer: 
     Position: {x: 843, y: 499}
+  AnimationTriggerNodeData: []
   GetFlagNodeData:
   - Guid: df7063a6-0783-49f3-95ac-25ba9a012b02
     FlagName: Food
@@ -134,4 +135,6 @@ MonoBehaviour:
     FlagName: FavoriteFood
     FlagBool: 0
     Position: {x: 1699, y: 64}
+  MoveToPosNodeData: []
   ExposedProperties: []
+  Note: The Ice Cream Cutscene

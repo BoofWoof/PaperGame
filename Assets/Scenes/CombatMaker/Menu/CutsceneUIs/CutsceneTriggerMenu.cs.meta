@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 10dd92cd9fca71d40855f0b9ddf5f550
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - SourceMenu: {instanceID: 0}
+  - FileBrowser: {fileID: 2163351594015473941, guid: 6876882002436cf4884474b3d9d2e88d,
+      type: 3}
+  - FilePathText: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -62,6 +62,8 @@ public class ObjectSelectionScript: MonoBehaviour
     {
         GameObject levelEditorMenu = Instantiate(CharacterCutscene);
         levelEditorMenu.GetComponent<CharacterCutscenesScript>().SourceObject = gameObject;
+        levelEditorMenu.GetComponent<CharacterCutscenesScript>().TargetCharacters = new List<GridObject> {
+            GridCrafter.characterGrid[targetBlock.x, targetBlock.y].GetComponent<GridObject>()};
         levelEditorMenu.transform.SetParent(transform.parent);
         gameObject.SetActive(false);
     }

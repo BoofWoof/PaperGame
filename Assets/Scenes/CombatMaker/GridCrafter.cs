@@ -87,10 +87,12 @@ public class GridCrafter : GridManager
             if (control.MapCraftControls.EditMenu.triggered)
             {
                 AddLevelEditorMenu();
+                BlockRangeDisplay.ClearDisplay(decalProjectors);
             }
             else if (control.MapCraftControls.CutsceneClick.phase == InputActionPhase.Started)
             {
                 AddCutscene();
+                BlockRangeDisplay.ClearDisplay(decalProjectors);
             } else
             {
                 if (editMode == "Height")
@@ -156,7 +158,7 @@ public class GridCrafter : GridManager
         }
     }
 
-    Vector2Int BlockAtMouse()
+    public static Vector2Int BlockAtMouse()
     {
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         RaycastHit hit;
@@ -165,10 +167,14 @@ public class GridCrafter : GridManager
             GridObject blockHit = hit.transform.gameObject.GetComponent<GridObject>();
             if (blockHit != null)
             {
+                if (blockHit.pos.x >= mapShape.x) blockHit.pos.x = mapShape.x - 1;
+                if (blockHit.pos.x < 0) blockHit.pos.x = 0;
+                if (blockHit.pos.y >= mapShape.y) blockHit.pos.y = mapShape.y - 1;
+                if (blockHit.pos.y < 0) blockHit.pos.y = 0;
                 return blockHit.pos;
             }
         }
-        return new Vector2Int(-1, -1);
+        return new Vector2Int(0, 0);
     }
 
     void PlaceOnGrid(GameObject[,] Grid, GameObject PlaceObject, bool ReplaceExisting, GameObject DeletionReplacement, int objectID)
