@@ -10,9 +10,10 @@ using UnityEngine.InputSystem;
 public class GridCrafter : GridManager
 {
     public int defaultBlock;
-    
+
     [Header("UI Info")]
     //UI Stuff
+    public static CutsceneDataManagerScript CutsceneDataManager = new CutsceneDataManagerScript();
     public static int tileType = 1;
     public static int selectedCharacter = 0;
     public static int selectedObject = 0;

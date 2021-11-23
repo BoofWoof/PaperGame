@@ -8,6 +8,9 @@ using TMPro;
 //THIS IS THE CLASS ANY COMBAT CHARACTER USES
 public class FighterClass : CombatObject
 {
+    //CutsceneContainers
+    [HideInInspector] public List<LowHealthTriggerInfo> LowHealthTriggers = new List<LowHealthTriggerInfo>();
+
     //DAMAGE AND EFFECT TYPES-----------------------
     public enum attackType { Normal, Fire, Heal, LifeSteal, GuaranteedDamage };
     public enum statusEffects { None, Defending, Stunned, Pushable};

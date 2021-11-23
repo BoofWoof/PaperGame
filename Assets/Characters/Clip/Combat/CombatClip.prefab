@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5417170948199010875}
   - component: {fileID: 4989304239026019571}
   m_Layer: 0
-  m_Name: CombatChip
+  m_Name: CombatClip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,6 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useAnimatedTurn: 0
   startsLeft: 1
+  targetLeft: 1
   sprite: {fileID: 9076703385369671237}
   rotated: 0
   rotSpeedMagnitude: 500
@@ -86,12 +87,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a26af28d32b58c649b84e00104f975aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Clip
+  Name: Clip
   pos: {x: 0, y: 0}
   prevPos: {x: 0, y: 0}
   extra_pos: []
   TileSize: {x: 1, y: 1}
   objectID: 0
+  Note: The main character.  He is so cute.
   move: {fileID: 0}
   Pushable: 0
   Passable: 0
@@ -101,6 +103,7 @@ MonoBehaviour:
   MaxJumpHeight: 1
   LastMoveSpeed: 0
   objectReady: 0
+  LowHealthTriggers: []
   characterPosition: 0
   friendly: 1
   HPMax: 20
@@ -113,6 +116,7 @@ MonoBehaviour:
   SwimSpeed: 1
   CharacterHeight: 1.8
   CharacterWidth: 1
+  MustBeat: 1
   Paralyzed: 0
   Dead: 0
   displayHealth: 0

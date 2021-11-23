@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class GridObject : MonoBehaviour
 {
-    public string name = "No Name";
+    public string Name = "No Name";
     [HideInInspector] public Vector2Int pos;
     [HideInInspector] public Vector2Int prevPos;
     [HideInInspector] public List<Vector2Int> extra_pos = new List<Vector2Int>();
     [HideInInspector] public Vector2Int TileSize = new Vector2Int(1, 1);
     [HideInInspector] public GameObject[,] ContainingGrid = null;
     [HideInInspector] public int objectID;
+    public string Note = "";
     // Start is called before the first frame update
     void Start()
     {

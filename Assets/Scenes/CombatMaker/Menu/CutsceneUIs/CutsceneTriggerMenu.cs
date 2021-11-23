@@ -3,15 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/*
+Things to do when adding new trigger.
+Make new UI.
+Make info saver.
+Update viewer.
+Update updater.
+*/
+
 public class CutsceneTriggerMenu : MonoBehaviour
 {
     public GameObject SourceMenu;
     public GameObject FileBrowser;
 
     public List<GridObject> TargetCharacters;
+    public int TriggerLimit;
 
     public string CutscenePath = "";
     public GameObject FilePathText;
+
+    public TMP_InputField LabelInput;
 
     private void Start()
     {
@@ -37,5 +48,12 @@ public class CutsceneTriggerMenu : MonoBehaviour
     {
         CutscenePath = pathName;
         FilePathText.GetComponent<TextMeshProUGUI>().SetText(CutscenePath);
+    }
+
+    public void CloseChain()
+    {
+        SourceMenu.SetActive(true);
+        SourceMenu.GetComponent<CharacterCutscenesScript>().CloseChain();
+        Close();
     }
 }

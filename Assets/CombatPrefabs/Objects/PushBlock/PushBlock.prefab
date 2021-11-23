@@ -44,12 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b15206dcab105242aff8aacf16812b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: PushCrate
+  Name: Push Block
   pos: {x: 0, y: 0}
   prevPos: {x: 0, y: 0}
   extra_pos: []
   TileSize: {x: 1, y: 1}
   objectID: 0
+  Note: 
   move: {fileID: 0}
   Pushable: 1
   Passable: 0

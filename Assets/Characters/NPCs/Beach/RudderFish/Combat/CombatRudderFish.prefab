@@ -61,12 +61,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd67e239ac09cb46a0eaddcc4849d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: RudderFish
+  Name: Rudder Fish
   pos: {x: 0, y: 0}
   prevPos: {x: 0, y: 0}
   extra_pos: []
   TileSize: {x: 1, y: 1}
   objectID: 0
+  Note: 
   move: {fileID: 0}
   Pushable: 0
   Passable: 0
@@ -76,6 +77,7 @@ MonoBehaviour:
   MaxJumpHeight: 0
   LastMoveSpeed: 0
   objectReady: 0
+  LowHealthTriggers: []
   characterPosition: 0
   friendly: 0
   HPMax: 2
@@ -110,6 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useAnimatedTurn: 0
   startsLeft: 1
+  targetLeft: 1
   sprite: {fileID: 5467935060114296311}
   rotated: 0
   rotSpeedMagnitude: 500

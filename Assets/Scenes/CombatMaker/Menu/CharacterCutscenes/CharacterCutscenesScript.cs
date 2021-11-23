@@ -1,26 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class CharacterCutscenesScript : MonoBehaviour
 {
-    public GameObject SourceObject;
+    public GameObject SourceMenu;
 
     public GameObject AddMoreTargetsMenu;
     public GameObject AddLowHealthTriggerMenu;
 
     public List<GridObject> TargetCharacters;
+    public Slider TriggerLimitSlider;
+    public TextMeshProUGUI TriggerLimitText;
 
     private void Start()
     {
-        transform.SetParent(SourceObject.transform.parent);
+        transform.SetParent(SourceMenu.transform.parent);
         GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
+    }
+
+    private void Update()
+    {
+        if(TriggerLimitSlider.value == 0)
+        {
+            TriggerLimitText.SetText("Trigger Limit: Inf");
+        } else
+        {
+            TriggerLimitText.SetText($"Trigger Limit: {TriggerLimitSlider.value}");
+        }
     }
 
     public void Close()
     {
-        SourceObject.SetActive(true);
+        SourceMenu.SetActive(true);
         Destroy(gameObject);
+    }
+
+    public void CloseChain()
+    {
+        SourceMenu.SetActive(true);
+        SourceMenu.GetComponent<ObjectSelectionScript>().Close();
+        Close();
     }
 
     public void AddMoreCharacters()
@@ -38,6 +60,7 @@ public class CharacterCutscenesScript : MonoBehaviour
         GameObject AddCharactersMenu = Instantiate(AddLowHealthTriggerMenu);
         AddCharactersMenu.GetComponent<LowHealthTriggerScript>().SourceMenu = gameObject;
         AddCharactersMenu.GetComponent<LowHealthTriggerScript>().TargetCharacters = TargetCharacters;
+        AddCharactersMenu.GetComponent<LowHealthTriggerScript>().TriggerLimit = (int)TriggerLimitSlider.value;
 
         gameObject.SetActive(false);
     }

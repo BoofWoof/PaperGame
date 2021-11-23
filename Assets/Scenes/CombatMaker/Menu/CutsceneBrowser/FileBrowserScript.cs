@@ -73,7 +73,7 @@ public class FileBrowserScript : MonoBehaviour
             Destroy(SelectableItems[idx]);
         }
         SelectableItems = new List<GameObject>();
-}
+    }
 
     private void UpdateList()
     {

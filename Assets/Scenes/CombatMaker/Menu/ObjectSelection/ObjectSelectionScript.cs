@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ObjectSelectionScript: MonoBehaviour
+public class ObjectSelectionScript: MenuBaseScript
 {
     public Button Character, CharacterView;
     public Button Object, ObjectView;
@@ -12,13 +12,16 @@ public class ObjectSelectionScript: MonoBehaviour
     public Vector2Int targetBlock = new Vector2Int(0, 0);
 
     public GameObject CharacterCutscene;
+    public GameObject CharacterViewer;
     public GameObject ObjectCutscene;
+    public GameObject ObjectViewer;
     public GameObject TileCutscene;
+    public GameObject TileViewer;
     // Start is called before the first frame update
 
-    private void Start()
+    public override void Start()
     {
-        GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
+        base.Start();
         GridCrafter.MenuOpen = true;
         if (GridCrafter.characterGrid[targetBlock.x, targetBlock.y] == null)
         {
@@ -52,19 +55,27 @@ public class ObjectSelectionScript: MonoBehaviour
         }
     }
 
-    public void Close()
+    public override void Close()
     {
         GridCrafter.MenuOpen = false;
-        Destroy(gameObject);
+        base.Close();
     }
 
     public void OpenCharacterCutscene()
     {
         GameObject levelEditorMenu = Instantiate(CharacterCutscene);
-        levelEditorMenu.GetComponent<CharacterCutscenesScript>().SourceObject = gameObject;
+        levelEditorMenu.GetComponent<CharacterCutscenesScript>().SourceMenu = gameObject;
         levelEditorMenu.GetComponent<CharacterCutscenesScript>().TargetCharacters = new List<GridObject> {
             GridCrafter.characterGrid[targetBlock.x, targetBlock.y].GetComponent<GridObject>()};
         levelEditorMenu.transform.SetParent(transform.parent);
+        gameObject.SetActive(false);
+    }
+
+    public void ViewCharacter()
+    {
+        GameObject characterViewMenu = Instantiate(CharacterViewer);
+        characterViewMenu.GetComponent<CharacterViewMenuScript>().SourceMenu = gameObject;
+        characterViewMenu.GetComponent<CharacterViewMenuScript>().SelectedCharacter = GridCrafter.characterGrid[targetBlock.x, targetBlock.y].GetComponent<FighterClass>();
         gameObject.SetActive(false);
     }
 }
