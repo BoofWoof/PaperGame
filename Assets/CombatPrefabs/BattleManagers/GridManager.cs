@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GridManager : MonoBehaviour
 {
+    public static CutsceneTriggerManagerScript CutsceneDataManager = new CutsceneTriggerManagerScript();
     [Header("Shape")]
     public static Vector2Int mapShape = new Vector2Int(7, 5);
     public static Vector3 blockOffset = new Vector3(1.2f, 1.2f, 0.4f);
@@ -211,6 +212,8 @@ public class GridManager : MonoBehaviour
         puzzleMode = _containerCache.puzzleMode;
         doublePuzzleMode = _containerCache.doublePuzzleMode;
         turnTie = _containerCache.turnTie;
+
+        CutsceneDataManager.LoadTriggers(_containerCache.saveTriggerLists);
         UpdatePositions();
     }
 

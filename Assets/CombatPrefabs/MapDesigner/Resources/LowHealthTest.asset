@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a58164fa21b6b247a3ded9862bec765, type: 3}
+  m_Name: LowHealthTest
+  m_EditorClassIdentifier: 
+  blockGrid: 0500000001000000010000000100000000000000050000000100000001000000010000000100000005000000010000000100000001000000010000000500000002000000020000000200000001000000050000000100000001000000010000000100000005000000010000000100000001000000010000000500000001000000010000000100000000000000
+  characterGrid: ffffffffffffffffffffffffffffffffffffffffffffffff00000000ffffffffffffffffffffffff0d000000ffffffff01000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0b000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  objectGrid: 00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000ffffffffffffffff00000000ffffffff
+  gridHeight: feffffff01000000010000000100000001000000feffffff00000000000000000100000001000000feffffffffffffffffffffffffffffff01000000feffffffffffffffffffffffffffffff01000000feffffffffffffffffffffffffffffff01000000feffffff00000000000000000000000000000000feffffff00000000000000000000000000000000
+  mapShape: {x: 7, y: 5}
+  puzzleMode: 0
+  doublePuzzleMode: 0
+  turnTie: 0
+  saveTriggerLists:
+    LowHealthTriggerList:
+    - CutscenePath: StarBonk
+      Label: OwRudder
+      TriggerLimit: 1
+      GridLayer: Character
+      TargetPositions:
+      - {x: 2, y: 0}
+      TriggerValue: 1

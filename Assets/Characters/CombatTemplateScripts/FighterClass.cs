@@ -274,6 +274,7 @@ public class FighterClass : CombatObject
 
     public void postBufferAttackEffect(int amount, attackType type, statusEffects effects, attackLocation location, GameObject source)
     {
+        int healthBeforeDamage = HP;
         //CALLS THE METHODS FOR EACH ATTACK TYPE AND STATUS EFFECT.  
         //IMMUNITY AND SPECIAL EFFECTS TO DIFFERENT TYPES CAN BE MADE BY OVERRIDING THE VIRTUAL METHODS.
         if (type == attackType.Normal)
@@ -298,6 +299,19 @@ public class FighterClass : CombatObject
         if (HP <= 0)
         {
             death();
+            return;
+        }
+
+        foreach(LowHealthTriggerInfo lowHealthTrigger in LowHealthTriggers)
+        {
+            if(HP <= lowHealthTrigger.TriggerValue && lowHealthTrigger.TriggerValue < healthBeforeDamage)
+            {
+                if (CombatExecutor.CutsceneDataManager.TriggerATrigger(lowHealthTrigger.Label))
+                {
+                    GameDataTracker.combatExecutor.cutsceneDeconstruct = ScriptableObject.CreateInstance<CutsceneDeconstruct>();
+                    GameDataTracker.combatExecutor.cutsceneDeconstruct.Deconstruct(Resources.Load<DialogueContainer>(lowHealthTrigger.CutscenePath), name, gameObject);
+                }
+            }
         }
     }
 

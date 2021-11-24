@@ -13,4 +13,6 @@ public class CombatContainer : ScriptableObject
     public bool puzzleMode = false;
     public bool doublePuzzleMode = false;
     public bool turnTie = false;
+
+    public SaveTriggerLists saveTriggerLists = new SaveTriggerLists();
 }

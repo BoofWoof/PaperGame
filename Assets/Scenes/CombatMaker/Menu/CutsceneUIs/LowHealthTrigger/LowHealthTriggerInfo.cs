@@ -7,5 +7,4 @@ using System;
 public class LowHealthTriggerInfo: CutsceneTriggerInfo
 {
     public int TriggerValue;
-    public List<Vector2Int> TargetPositions;
 }

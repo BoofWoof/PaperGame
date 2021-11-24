@@ -80,8 +80,8 @@ MonoBehaviour:
   LowHealthTriggers: []
   characterPosition: 0
   friendly: 0
-  HPMax: 2
-  HP: 2
+  HPMax: 3
+  HP: 3
   Power: 1
   Defense: 0
   PushStrength: 0

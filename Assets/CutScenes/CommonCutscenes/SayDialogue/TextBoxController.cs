@@ -272,6 +272,10 @@ public class TextBoxController : MonoBehaviour
                     scriptSource.nextGUID = choices[(int)activeChoice.x + (int)activeChoice.y * 2].TargetNodeGuid;
                     scriptSource.Update();
                 }
+            } else
+            {
+                scriptSource.currentGUID = string.Empty;
+                scriptSource.Update();
             }
             Destroy(gameObject);
         }

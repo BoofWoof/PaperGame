@@ -396,7 +396,7 @@ public class CombatExecutor : GridManager
         //Check deconstructor.
         if(!(cutsceneDeconstruct is null))
         {
-            if (cutsceneDeconstruct.done)
+            if (cutsceneDeconstruct.CheckIfDone())
             {
                 Destroy(cutsceneDeconstruct);
                 cutsceneDeconstruct = null;

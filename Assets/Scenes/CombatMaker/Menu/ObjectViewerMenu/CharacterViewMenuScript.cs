@@ -31,6 +31,11 @@ public class CharacterViewMenuScript : MenuBaseScript
         UpdateCutsceneList();
     }
 
+    public void OnEnable()
+    {
+        UpdateCutsceneList();
+    }
+
     private void ClearList()
     {
         for (int idx = 0; idx < TriggerList.Count; idx++)
@@ -42,15 +47,17 @@ public class CharacterViewMenuScript : MenuBaseScript
 
     public void UpdateCutsceneList()
     {
-        foreach ((string label, CombatTriggerType triggerType) in GridCrafter.CutsceneDataManager.TriggersContainingObject(SelectedCharacter))
+        ClearList();
+        foreach ((string label, string triggerType) in GridCrafter.CutsceneDataManager.TriggersContainingObject(SelectedCharacter))
         {
             GameObject triggerInfoItem = Instantiate(CutsceneViewItem);
             triggerInfoItem.GetComponent<CutsceneViewItemScript>().UpdateDisplayData(
                 label,
-                triggerType.ToString(),
+                triggerType,
                 GridCrafter.CutsceneDataManager.GetTargetCount(label),
                 GridCrafter.CutsceneDataManager.GetTrigger(label).TriggerLimit
                 );
+            triggerInfoItem.GetComponent<CutsceneViewItemScript>().SourceMenu = this;
             triggerInfoItem.transform.SetParent(ContentScreen.transform);
 
             TriggerList.Add(triggerInfoItem);

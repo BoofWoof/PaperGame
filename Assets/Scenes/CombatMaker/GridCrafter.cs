@@ -13,7 +13,6 @@ public class GridCrafter : GridManager
 
     [Header("UI Info")]
     //UI Stuff
-    public static CutsceneDataManagerScript CutsceneDataManager = new CutsceneDataManagerScript();
     public static int tileType = 1;
     public static int selectedCharacter = 0;
     public static int selectedObject = 0;
@@ -463,6 +462,9 @@ public class GridCrafter : GridManager
         combatContainer.puzzleMode = puzzleMode;
         combatContainer.doublePuzzleMode = doublePuzzleMode;
         combatContainer.turnTie = turnTie;
+
+        //Cutscene Triggers
+        combatContainer.saveTriggerLists = CutsceneDataManager.SaveTriggers();
 
         AssetDatabase.CreateAsset(combatContainer, $"Assets/CombatPrefabs/MapDesigner/Resources/{filename}.asset");
         AssetDatabase.SaveAssets();

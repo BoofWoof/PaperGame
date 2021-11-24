@@ -6,13 +6,13 @@ using UnityEngine;
 public class CutsceneDeconstruct: ScriptableObject
 {
     DialogueContainer DialogueInput;
-    string currentGUID;
+    public string currentGUID;
     public string nextGUID = string.Empty;
 
     GameObject cutsceneSource;
     //Needed For Dialogue
     private string speakerName;
-    bool textboxWait = false;
+    public bool textboxWait = false;
     private GameObject spawnedTextBox;
 
     public bool done = false;
@@ -30,10 +30,10 @@ public class CutsceneDeconstruct: ScriptableObject
 
     public bool Update()
     {
+        textboxWait = false;
         if (!string.IsNullOrEmpty(nextGUID))
         {
             currentGUID = nextGUID;
-            textboxWait = false;
         }
         nextGUID = string.Empty;
         return GraphDeconstruct(DialogueInput);
@@ -173,6 +173,15 @@ public class CutsceneDeconstruct: ScriptableObject
         if(!textboxWait && string.IsNullOrEmpty(currentGUID))
         {
             done = true;
+            return true;
+        }
+        return false;
+    }
+
+    public bool CheckIfDone()
+    {
+        if (!textboxWait && string.IsNullOrEmpty(currentGUID))
+        {
             return true;
         }
         return false;
