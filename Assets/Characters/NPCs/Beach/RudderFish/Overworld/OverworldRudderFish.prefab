@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de02794e5c8d7c4c87384b6fa723363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterName: RudderFish
+  ObjectInfo: {fileID: 467583832523112757}
   combatEncounter: {fileID: 11400000, guid: 62a9ceff4e2d35f41831f8f9aaf2ec5c, type: 2}
   cutsceneTrigger: {fileID: 0}
   UniqueSceneID: -1
@@ -199,6 +199,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3227755985727115894}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &467583832523112757 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -6145588357781630141, guid: a822577ce98c9ab41b274b19a5dc79fb,
+    type: 3}
+  m_PrefabInstance: {fileID: 3227755985727115894}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238180925663517902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1cf38ad32a79943bd609884e32bad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8350580438177361300 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6856856180640514018, guid: a822577ce98c9ab41b274b19a5dc79fb,

@@ -65,8 +65,8 @@ public class SayDialogue : CutSceneClass
         Character findCharacter = GameDataTracker.findCharacterByName(speakerName, GameDataTracker.CharacterList);
         FriendlyNPCClass friendlyNPC = findCharacter.CharacterObject.GetComponent<FriendlyNPCClass>();
         if (friendlyNPC != null) {
-            letter_noises = friendlyNPC.letter_noises;
-            letters_per_noise_list = friendlyNPC.letters_per_noise_list;
+            letter_noises = friendlyNPC.ObjectInfo.LetterNoises;
+            letters_per_noise_list = friendlyNPC.ObjectInfo.LetterNoisesPerList;
         }
         else {
             letter_noises = null;
@@ -76,7 +76,7 @@ public class SayDialogue : CutSceneClass
         float dialogueHeight;
 
         target = findCharacter.CharacterObject.transform;
-        dialogueHeight = findCharacter.dialogueHeight;
+        dialogueHeight = findCharacter.ObjectInfo.GetDialogueHeightOverSpeaker();
 
         spawnedTextBox = Instantiate<GameObject>(textbox, new Vector3(target.position.x, target.position.y + dialogueHeight, target.position.z + 0.2f), Quaternion.identity);
         TextBoxController tbController = spawnedTextBox.GetComponent<TextBoxController>();

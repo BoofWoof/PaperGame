@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 804751d7c03844a4d8e72e8bb960ccc0, type: 3}
+  m_Name: PushObject
+  m_EditorClassIdentifier: 
+  StartingGUID: dd6c2161-c2f5-47bd-8d0c-77808f1bc7a8
+  NodeLinks:
+  - BaseNodeGuid: dd6c2161-c2f5-47bd-8d0c-77808f1bc7a8
+    PortName: Next
+    TargetNodeGuid: 971592d5-e3f1-4f15-86b0-0ffb1f383e4b
+  DialogueNodeData:
+  - Guid: 971592d5-e3f1-4f15-86b0-0ffb1f383e4b
+    DialogueText: Hey!  Don't move my stuff!
+    TargetPlayer: Best Fish
+    Position: {x: 396, y: 194.66667}
+  AnimationTriggerNodeData: []
+  GetFlagNodeData: []
+  SetFlagNodeData: []
+  BooleanGetFlagNodeData: []
+  BooleanSetFlagNodeData: []
+  MoveToPosNodeData: []
+  ExposedProperties: []
+  Note: 

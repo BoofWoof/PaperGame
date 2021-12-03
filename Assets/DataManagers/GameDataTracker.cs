@@ -160,37 +160,25 @@ public class GameDataTracker : MonoBehaviour
     
     public static Character findCharacterByName(string Name, List<Character> charList)
     {
-        Character foundCharacter = new Character();
-        foundCharacter.CharacterName = "NoNamesLikeThat";
-        foundCharacter.CharacterObject = null;
-        foundCharacter.dialogueHeight = -1;
-        foundCharacter.uniqueSceneID = -1;
         foreach (Character charItem in charList)
         {
-            if (charItem.CharacterName == Name)
+            if (charItem.ObjectInfo.ObjectName == Name)
             {
-                foundCharacter = charItem;
-                return (foundCharacter);
+                return charItem;
             }
         }
-        return (foundCharacter);
+        return charList[0];
     }
     public static Character findCharacterUniqueSceneID(int ID, List<Character> charList)
     {
-        Character foundCharacter = new Character();
-        foundCharacter.CharacterName = "NoNamesLikeThat";
-        foundCharacter.CharacterObject = null;
-        foundCharacter.dialogueHeight = -1;
-        foundCharacter.uniqueSceneID = -1;
         foreach (Character charItem in charList)
         {
             if (charItem.uniqueSceneID == ID)
             {
-                foundCharacter = charItem;
-                return (foundCharacter);
+                return charItem;
             }
         }
-        return (foundCharacter);
+        return charList[0];
     }
 
 }
@@ -198,8 +186,7 @@ public class GameDataTracker : MonoBehaviour
 public class Character
 {
     public GameObject CharacterObject;
-    public string CharacterName;
-    public float dialogueHeight;
+    public ObjectInfoScript ObjectInfo;
     public float uniqueSceneID;
 }
 

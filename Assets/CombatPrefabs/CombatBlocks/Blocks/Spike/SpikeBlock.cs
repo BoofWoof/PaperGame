@@ -11,6 +11,7 @@ public class SpikeBlock : BlockTemplate
 
     public override void TileEntered(FighterClass target)
     {
+        base.TileEntered(target);
         target.postBufferAttackEffect(1, FighterClass.attackType.Normal, FighterClass.statusEffects.None, FighterClass.attackLocation.Ground, gameObject);
     }
 }

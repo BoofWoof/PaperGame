@@ -24,12 +24,18 @@ public class MenuBaseScript : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void CloseChain()
+    public void CloseChain(int layers = 1)
     {
         if(SourceMenu != null)
         {
             SourceMenu.SetActive(true);
-            SourceMenu.GetComponent<MenuBaseScript>().Close();
+            if (layers <= 1)
+            {
+                SourceMenu.GetComponent<MenuBaseScript>().Close();
+            } else
+            {
+                SourceMenu.GetComponent<MenuBaseScript>().CloseChain(layers-1);
+            }
         }
         Close();
     }

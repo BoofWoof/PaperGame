@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1844626905170148658}
   - component: {fileID: 6246359591295821250}
   - component: {fileID: -7791217940838650249}
+  - component: {fileID: -7430081109335309128}
   m_Layer: 0
   m_Name: CombatDockEmpty
   m_TagString: Untagged
@@ -58,12 +59,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b930972a9332194083e1003f2d3be19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Ice
+  ObjectInfo: {fileID: -7430081109335309128}
   pos: {x: 0, y: 0}
   prevPos: {x: 0, y: 0}
   extra_pos: []
   TileSize: {x: 1, y: 1}
   objectID: 0
+  PlayerEnterTriggers: []
   GoalTile: 0
   Walkable: 1
   Flyable: 1
@@ -75,6 +77,28 @@ MonoBehaviour:
   SwimCost: 1
   tileVariations: []
   tileWeights: []
+  finalPosition: {x: 0, y: 0, z: 0}
+  tileReady: 0
+--- !u!114 &-7430081109335309128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8026495554112446182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1cf38ad32a79943bd609884e32bad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectName: Dock
+  ObjectNote: 
+  ObjectHeight: 1
+  ObjectWidth: 1
+  TextHeightOverObject: 0.5
+  FlatObject: 1
+  LetterNoises: []
+  LetterNoisesPerList: 
 --- !u!1001 &6783674810880033200
 PrefabInstance:
   m_ObjectHideFlags: 0

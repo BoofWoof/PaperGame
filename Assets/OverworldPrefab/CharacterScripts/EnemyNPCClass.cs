@@ -8,7 +8,7 @@ public class EnemyNPCClass : MonoBehaviour
 {
     //CharactersName
     private GameObject Player;
-    public string CharacterName = "NameMeYaDingus";
+    public ObjectInfoScript ObjectInfo;
 
     [Header("Combat Encounter Info")]
     public CombatContainer combatEncounter;
@@ -31,13 +31,9 @@ public class EnemyNPCClass : MonoBehaviour
         }
         else
         {
-            if (UniqueSceneID == -1)
-            {
-                print("Give " + CharacterName + " an ID ya nerd.");
-            }
             Character thisNPCCharacter = new Character();
             thisNPCCharacter.CharacterObject = gameObject;
-            thisNPCCharacter.CharacterName = CharacterName;
+            thisNPCCharacter.ObjectInfo = ObjectInfo;
             thisNPCCharacter.uniqueSceneID = UniqueSceneID;
             GameDataTracker.CharacterList.Add(thisNPCCharacter);
         }

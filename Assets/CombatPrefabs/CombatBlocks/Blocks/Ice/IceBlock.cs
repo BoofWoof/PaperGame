@@ -6,6 +6,7 @@ public class IceBlock : BlockTemplate
 {
     public override void TileEntered(FighterClass enteredCharacter)
     {
+        base.TileEntered(enteredCharacter);
         SlideObject(enteredCharacter);
     }
 

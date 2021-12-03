@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5827373949711716621}
   - component: {fileID: 1528233754137299829}
+  - component: {fileID: 8535897356588178790}
   m_Layer: 0
   m_Name: PushBlock
   m_TagString: Untagged
@@ -44,22 +45,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b15206dcab105242aff8aacf16812b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Push Block
+  ObjectInfo: {fileID: 8535897356588178790}
   pos: {x: 0, y: 0}
   prevPos: {x: 0, y: 0}
   extra_pos: []
   TileSize: {x: 1, y: 1}
   objectID: 0
-  Note: 
+  PushObjectTriggers: []
   move: {fileID: 0}
   Pushable: 1
   Passable: 0
+  Targetable: 1
   CanWalk: 1
   CanFly: 0
   CanSwim: 0
   MaxJumpHeight: 0
   LastMoveSpeed: 0
   objectReady: 0
+--- !u!114 &8535897356588178790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386772379045415104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1cf38ad32a79943bd609884e32bad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectName: Push Block
+  ObjectNote: 
+  ObjectHeight: 1
+  ObjectWidth: 1
+  TextHeightOverObject: 0.5
+  FlatObject: 1
+  LetterNoises: []
+  LetterNoisesPerList: 
 --- !u!1001 &857558070597238887
 PrefabInstance:
   m_ObjectHideFlags: 0

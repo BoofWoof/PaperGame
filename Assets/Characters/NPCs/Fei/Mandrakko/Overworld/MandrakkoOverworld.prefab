@@ -82,19 +82,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d84a75fed2a654ab8881dba8a494ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterName: Mandrakko
-  OverrideTurning: 0
-  OverrideTalkRange: 0
-  heightOverSpeaker: 1.18
+  ObjectInfo: {fileID: 5670273447308275385}
   dialogue: {fileID: 11400000, guid: 375f8c81165087342bbc99f9175c68f8, type: 2}
-  letter_noises: []
-  letters_per_noise_list: 
-  InputString: 
   dialogueBubble: {fileID: 1260794312910748544, guid: 9f4707ddedfc56b45a1ac474d852f311,
     type: 3}
   distanceToPlayer: 0
   readyForDialogue: 0
-  rotSpeedMagnitude: 360
 --- !u!114 &2852734888190904173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,3 +179,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1652904186830693573}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5670273447308275385 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6359241217631259260, guid: 29085697d8de9f7498ac22fc39c48deb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1652904186830693573}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1cf38ad32a79943bd609884e32bad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

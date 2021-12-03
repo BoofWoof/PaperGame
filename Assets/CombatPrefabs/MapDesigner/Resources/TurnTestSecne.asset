@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a58164fa21b6b247a3ded9862bec765, type: 3}
+  m_Name: TurnTestSecne
+  m_EditorClassIdentifier: 
+  blockGrid: 0100000001000000010000000500000005000000050000000500000005000000010000000100000001000000
+  characterGrid: 01000000ffffffff00000000ffffffffffffffffffffffffffffffffffffffff0b000000ffffffff0b000000
+  objectGrid: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  gridHeight: 0100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  mapShape: {x: 11, y: 1}
+  puzzleMode: 0
+  doublePuzzleMode: 0
+  turnTie: 0
+  saveTriggerLists:
+    LowHealthTriggerList: []
+    PushObjectTriggerList: []
+    PlayerEnterTriggerList: []
+    TurnsPassedTriggerList:
+    - CutscenePath: TurnTest/D1
+      Label: Start
+      TriggerLimit: 1
+      GridLayer: Tile
+      TargetPositions: []
+      Turns: 0
+    - CutscenePath: TurnTest/D2
+      Label: SecondTurn
+      TriggerLimit: 1
+      GridLayer: Tile
+      TargetPositions: []
+      Turns: 1
+    - CutscenePath: TurnTest/D3
+      Label: Final
+      TriggerLimit: 1
+      GridLayer: Tile
+      TargetPositions: []
+      Turns: -1
+    RenameObjectTriggerList: []

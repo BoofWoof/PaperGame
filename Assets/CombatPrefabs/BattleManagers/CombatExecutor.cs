@@ -9,8 +9,8 @@ public class CombatExecutor : GridManager
 
     [Header("Loading")]
     public CombatContainer _containerCache;
-    public CutsceneTrigger cutsceneTrigger;
     public CutsceneDeconstruct cutsceneDeconstruct;
+    public List<(DialogueContainer, string, GameObject)> DialogueContainerList = new List<(DialogueContainer, string, GameObject)>();
 
     //Menu Info
     private List<BattleMenu> currentMenu = new List<BattleMenu>();
@@ -64,10 +64,6 @@ public class CombatExecutor : GridManager
         {
             _containerCache = GameDataTracker.combatScene;
         }
-        if (!(GameDataTracker.cutsceneTrigger is null))
-        {
-            cutsceneTrigger = GameDataTracker.cutsceneTrigger;
-        }
 
         AbilityDescription.SetActive(false);
         TimerContainer.SetActive(false);
@@ -94,110 +90,143 @@ public class CombatExecutor : GridManager
         {
             currentTurn = turnManager.GoodGuysFirst();
         }
-
         //Set Camera Position
         SetCameraToWorld();
-        if (!(cutsceneTrigger is null))
-        {
-            cutsceneTrigger.onCombatStart();
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (DialogueContainerList.Count > 0)
+        {
+            turnTimeLeft = 0;
+        }
         UpdateHealth();
         if (startGameWait > 0)
         {
             startGameWait -= Time.deltaTime;
         } else
         {
-            if (noCutscenes())
+            if (currentTurn == TurnManager.turnPhases.Cutscene)
             {
-                if (currentTurn == TurnManager.turnPhases.ClipTurnStart)
-                {
-                    PlayerTurnStart(Clip);
-                    return;
-                }
-                if (currentTurn == TurnManager.turnPhases.ClipTurn)
-                {
-                    if (selectedMove is null)
-                    {
-                        PlayerTurn(Clip);
-                    }
-                    else
-                    {
-                        Targeting();
-                    }
-                    return;
-                }
-                if (currentTurn == TurnManager.turnPhases.ClipTurnEnd)
-                {
-                    PlayerTurnEnd(Clip);
-                    return;
-                }
-                if (currentTurn == TurnManager.turnPhases.PartnerTurnStart)
-                {
-                    PlayerTurnStart(Partner);
-                    return;
-                }
-                if (currentTurn == TurnManager.turnPhases.PartnerTurn)
-                {
-                    if (selectedMove is null)
-                    {
-                        PlayerTurn(Partner);
-                    }
-                    else
-                    {
-                        Targeting();
-                    }
-                    return;
-                }
-                if (currentTurn == TurnManager.turnPhases.PartnerTurnEnd)
-                {
-                    PlayerTurnEnd(Partner);
-                    return;
-                }
-                if (currentTurn == TurnManager.turnPhases.EnemyTurnStart)
-                {
-                    EnemyTurnStart();
-                    return;
-                }
-                if (currentTurn == TurnManager.turnPhases.EnemyTurn)
-                {
-                    EnemyTurn();
-                    return;
-                }
-                if (currentTurn == TurnManager.turnPhases.EnemyTurnEnd)
-                {
-                    EnemyTurnEnd();
-                    return;
-                }
-
-                if (currentTurn == TurnManager.turnPhases.PuzzleTurn)
-                {
-                    PuzzleTurn();
-                }
-
-                if (currentTurn == TurnManager.turnPhases.TurnTiePlayerStart)
-                {
-                    TurnTiePlayerStart();
-                }
-                if (currentTurn == TurnManager.turnPhases.TurnTiePlayerWait)
-                {
-                    TurnTiePlayerWait();
-                }
-                if (currentTurn == TurnManager.turnPhases.TurnTieEnemyStart)
-                {
-                    TurnTieEnemyStart();
-                }
-                if (currentTurn == TurnManager.turnPhases.TurnTieEnemyWait)
-                {
-                    TurnTieEnemyWait();
-                }
-            } else
+                Cutscene();
+                return;
+            }
+            if (currentTurn == TurnManager.turnPhases.ClipTurnStart)
             {
+                PlayerTurnStart(Clip);
+                return;
+            }
+            if (currentTurn == TurnManager.turnPhases.ClipTurn)
+            {
+                if (selectedMove is null)
+                {
+                    PlayerTurn(Clip);
+                }
+                else
+                {
+                    Targeting();
+                }
+                return;
+            }
+            if (currentTurn == TurnManager.turnPhases.ClipTurnEnd)
+            {
+                PlayerTurnEnd(Clip);
+                return;
+            }
+            if (currentTurn == TurnManager.turnPhases.PartnerTurnStart)
+            {
+                PlayerTurnStart(Partner);
+                return;
+            }
+            if (currentTurn == TurnManager.turnPhases.PartnerTurn)
+            {
+                if (selectedMove is null)
+                {
+                    PlayerTurn(Partner);
+                }
+                else
+                {
+                    Targeting();
+                }
+                return;
+            }
+            if (currentTurn == TurnManager.turnPhases.PartnerTurnEnd)
+            {
+                PlayerTurnEnd(Partner);
+                return;
+            }
+            if (currentTurn == TurnManager.turnPhases.EnemyTurnStart)
+            {
+                EnemyTurnStart();
+                return;
+            }
+            if (currentTurn == TurnManager.turnPhases.EnemyTurn)
+            {
+                EnemyTurn();
+                return;
+            }
+            if (currentTurn == TurnManager.turnPhases.EnemyTurnEnd)
+            {
+                EnemyTurnEnd();
+                return;
+            }
 
+            if (currentTurn == TurnManager.turnPhases.PuzzleTurn)
+            {
+                PuzzleTurn();
+            }
+
+            if (currentTurn == TurnManager.turnPhases.TurnTiePlayerStart)
+            {
+                TurnTiePlayerStart();
+            }
+            if (currentTurn == TurnManager.turnPhases.TurnTiePlayerWait)
+            {
+                TurnTiePlayerWait();
+            }
+            if (currentTurn == TurnManager.turnPhases.TurnTieEnemyStart)
+            {
+                TurnTieEnemyStart();
+            }
+            if (currentTurn == TurnManager.turnPhases.TurnTieEnemyWait)
+            {
+                TurnTieEnemyWait();
+            }
+        } 
+    }
+
+    public void AddCutsceneToQueue(DialogueContainer newDialogueContainer, string name, GameObject source)
+    {
+        DialogueContainerList.Add((newDialogueContainer, name, source));
+    }
+
+    void Cutscene()
+    {
+        Debug.Log("A");
+        if (!(cutsceneDeconstruct is null))
+        {
+            Debug.Log("B");
+            if (cutsceneDeconstruct.CheckIfDone())
+            {
+                Destroy(cutsceneDeconstruct);
+                cutsceneDeconstruct = null;
+            }
+        } else
+        {
+            Debug.Log("C");
+            if (DialogueContainerList.Count > 0)
+            {
+                Debug.Log("D");
+                (DialogueContainer dialogueContainer, string sourceName, GameObject sourceObject) = DialogueContainerList[0];
+                DialogueContainerList.RemoveAt(0);
+                GameDataTracker.combatExecutor.cutsceneDeconstruct = ScriptableObject.CreateInstance<CutsceneDeconstruct>();
+                GameDataTracker.combatExecutor.cutsceneDeconstruct.Deconstruct(dialogueContainer, sourceName, sourceObject);
+            }
+            else
+            {
+                Debug.Log("E");
+                currentTurn = turnManager.NextTurn();
             }
         }
     }
@@ -391,20 +420,6 @@ public class CombatExecutor : GridManager
         }
     }
 
-    private bool noCutscenes()
-    {
-        //Check deconstructor.
-        if(!(cutsceneDeconstruct is null))
-        {
-            if (cutsceneDeconstruct.CheckIfDone())
-            {
-                Destroy(cutsceneDeconstruct);
-                cutsceneDeconstruct = null;
-            }
-        }
-        return CutsceneController.noCutscenes() && (cutsceneDeconstruct is null);
-    }
-
     void PlayerTurnStart(GameObject Player)
     {
         FighterClass playerInfo = Player.GetComponent<FighterClass>();
@@ -494,11 +509,11 @@ public class CombatExecutor : GridManager
         if (turnTimeLeft > 0)
         {
             turnTimeLeft -= Time.deltaTime;
-            TimerBar.transform.localScale = new Vector3(turnTimeLeft / turnLength, 1, 1);
         } else
         {
             turnTimeLeft = 0;
         }
+        TimerBar.transform.localScale = new Vector3(turnTimeLeft / turnLength, 1, 1);
 
         bool allEnemyMoveDone = true;
         for (int enemyIdx = 0; enemyIdx < EnemyList.Count; enemyIdx++)

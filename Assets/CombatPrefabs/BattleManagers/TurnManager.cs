@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class TurnManager : ScriptableObject
 {
     public enum turnPhases{
+        Cutscene,
         ClipTurnStart,
         ClipTurn,
         ClipTurnEnd,
@@ -23,6 +24,8 @@ public class TurnManager : ScriptableObject
         TurnTieEnemyStart,
         TurnTieEnemyWait,
     }
+
+    private turnPhases FirstTurn;
 
     public int turnCount = 0;
 
@@ -75,6 +78,18 @@ public class TurnManager : ScriptableObject
 
     public turnPhases NextTurn()
     {
+        foreach (TurnsPassedTriggerInfo turnsPassedTrigger in CombatExecutor.CutsceneDataManager.TurnsPassedTriggers)
+        {
+            if (turnsPassedTrigger.Turns == turnCount)
+            {
+                if (CombatExecutor.CutsceneDataManager.TriggerATrigger(turnsPassedTrigger.Label))
+                {
+                    GameDataTracker.combatExecutor.AddCutsceneToQueue(Resources.Load<DialogueContainer>(turnsPassedTrigger.CutscenePath), name, null);
+                }
+            }
+        }
+
+        if (GameDataTracker.combatExecutor.DialogueContainerList.Count > 0) return turnPhases.Cutscene;
         if (GameDataTracker.combatExecutor.Clip.GetComponent<FighterClass>().Dead &&
             GameDataTracker.combatExecutor.Partner.GetComponent<FighterClass>().Dead)
         {
@@ -84,6 +99,7 @@ public class TurnManager : ScriptableObject
         }
         if (requiredEnemiesDead() && goalType == 0)
         {
+            if (CombatEndDialogue()) return turnPhases.Cutscene;
             SceneManager.LoadScene(GameDataTracker.previousArea);
             return turnPhases.GameOver;
         }
@@ -93,6 +109,7 @@ public class TurnManager : ScriptableObject
             {
                 if (goalBlock.active == true)
                 {
+                    if (CombatEndDialogue()) return turnPhases.Cutscene;
                     SceneManager.LoadScene(GameDataTracker.previousArea);
                     return turnPhases.GameOver;
                 }
@@ -111,6 +128,7 @@ public class TurnManager : ScriptableObject
             }
             if (allActive)
             {
+                if (CombatEndDialogue()) return turnPhases.Cutscene;
                 SceneManager.LoadScene(GameDataTracker.previousArea);
                 return turnPhases.GameOver;
             }
@@ -126,6 +144,22 @@ public class TurnManager : ScriptableObject
         }
         Debug.Log(turnQueue[0]);
         return turnQueue[0];
+    }
+
+    bool CombatEndDialogue()
+    {
+        foreach (TurnsPassedTriggerInfo turnsPassedTrigger in CombatExecutor.CutsceneDataManager.TurnsPassedTriggers)
+        {
+            if (turnsPassedTrigger.Turns == -1)
+            {
+                if (CombatExecutor.CutsceneDataManager.TriggerATrigger(turnsPassedTrigger.Label))
+                {
+                    GameDataTracker.combatExecutor.AddCutsceneToQueue(Resources.Load<DialogueContainer>(turnsPassedTrigger.CutscenePath), name, null);
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
 }

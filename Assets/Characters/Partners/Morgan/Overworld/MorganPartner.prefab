@@ -25,21 +25,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d84a75fed2a654ab8881dba8a494ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterName: Agent W.
-  OverrideTurning: 1
-  OverrideTalkRange: 1
-  heightOverSpeaker: 0.8
+  ObjectInfo: {fileID: 3008199412482206988}
   dialogue: {fileID: 0}
-  letter_noises:
-  - {fileID: 8300000, guid: 0a10656438204ca44ba4ed84b7af73eb, type: 3}
-  - {fileID: 8300000, guid: 156a0220afb4f6d458c063a677e636a2, type: 3}
-  letters_per_noise_list: 0200000003000000
-  InputString: You didn't give me any text ya dingus.
   dialogueBubble: {fileID: 1260794312910748544, guid: 9f4707ddedfc56b45a1ac474d852f311,
     type: 3}
   distanceToPlayer: 0
   readyForDialogue: 0
-  rotSpeedMagnitude: 360
 --- !u!114 &4003997593482137197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useAnimatedTurn: 0
   startsLeft: 0
+  targetLeft: 1
   sprite: {fileID: 3332415770160378313}
   rotated: 0
   rotSpeedMagnitude: 900
@@ -203,6 +195,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2391515441278665245}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3008199412482206988 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 616742404242583313, guid: 20ae95057e1bdc340a5a1ab436f411ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 2391515441278665245}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3332415770160378313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1cf38ad32a79943bd609884e32bad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8043824906475156196
 PrefabInstance:
   m_ObjectHideFlags: 0

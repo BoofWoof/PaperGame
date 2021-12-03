@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class CombatObject : GridObject
 {
+    //CutsceneLists
+    [HideInInspector] public List<PushObjectTriggerInfo> PushObjectTriggers = new List<PushObjectTriggerInfo>();
+
     [HideInInspector] public CutSceneClass move;
     public bool Pushable = false;
     public bool Passable = false;
+    public bool Targetable = true;
 
     public bool CanWalk = true;
     public bool CanFly = false;
@@ -14,8 +18,8 @@ public class CombatObject : GridObject
     public int MaxJumpHeight = 0;
 
     [HideInInspector] public float LastMoveSpeed = 0;
-
     [HideInInspector] public bool objectReady = false;
+
     private Vector3 finalPosition;
     private float dropHeight = 7f;
     private float startDropTime = 0.5f;
@@ -96,6 +100,19 @@ public class CombatObject : GridObject
 
     public virtual bool PushObjectCheck(int HorChange, int VerChange, float Speed, int pushStrength, bool overridePushability = false)
     {
+        foreach (PushObjectTriggerInfo pushObjectTrigger in PushObjectTriggers)
+        {
+            if (pushObjectTrigger.Left && HorChange < 0 ||
+                pushObjectTrigger.Right && HorChange > 0 ||
+                pushObjectTrigger.Down && VerChange < 0 ||
+                pushObjectTrigger.Up && VerChange > 0)
+            {
+                if (CombatExecutor.CutsceneDataManager.TriggerATrigger(pushObjectTrigger.Label))
+                {
+                    GameDataTracker.combatExecutor.AddCutsceneToQueue(Resources.Load<DialogueContainer>(pushObjectTrigger.CutscenePath), name, gameObject);
+                }
+            }
+        }
         if (pushStrength < 0) return false;
         if (!Pushable && !overridePushability) return false;
 
@@ -108,7 +125,6 @@ public class CombatObject : GridObject
             if (!BattleMapProcesses.CanIMoveToTile(potentialGridOccupation, this)) return false;
             if (CombatExecutor.gridHeight[pos.x, pos.y] < CombatExecutor.gridHeight[potentialGridOccupation.x, potentialGridOccupation.y]) return false;
         }
-        Debug.Log("AAAAAA");
         if (BattleMapProcesses.isTileEmpty(potentialGridOccupations, gameObject))
         {
             return true;

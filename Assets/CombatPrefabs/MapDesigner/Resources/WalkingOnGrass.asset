@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a58164fa21b6b247a3ded9862bec765, type: 3}
+  m_Name: WalkingOnGrass
+  m_EditorClassIdentifier: 
+  blockGrid: 050000000500000005000000050000000500000005000000050000000500000005000000050000000500000005000000050000000200000002000000020000000100000001000000050000000500000005000000010000000100000001000000050000000200000002000000020000000100000001000000050000000500000005000000050000000500000005000000050000000500000005000000050000000500000005000000
+  characterGrid: ffffffffffffffffffffffff01000000ffffffffffffffffffffffffffffffffffffffffffffffff00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0b000000ffffffffffffffffffffffffffffffff0b000000ffffffffffffffff
+  objectGrid: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000ffffffffffffffffffffffffffffffff0000000000000000ffffffffffffffffffffffffffffffff0000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  gridHeight: 010000000100000001000000020000000200000002000000010000000100000001000000020000000200000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000100000001000000020000000200000002000000010000000100000001000000020000000200000002000000
+  mapShape: {x: 7, y: 6}
+  puzzleMode: 0
+  doublePuzzleMode: 0
+  turnTie: 0
+  saveTriggerLists:
+    LowHealthTriggerList: []
+    PushObjectTriggerList: []
+    PlayerEnterTriggerList:
+    - CutscenePath: WalkingOnGrass
+      Label: WalkingOnGrass
+      TriggerLimit: 1
+      GridLayer: Tile
+      TargetPositions:
+      - {x: 3, y: 3}
+      Clip: 1
+      Partner: 0
+    RenameObjectTriggerList: []

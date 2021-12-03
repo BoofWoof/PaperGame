@@ -8,7 +8,7 @@ using TMPro;
 //THIS IS THE CLASS ANY COMBAT CHARACTER USES
 public class FighterClass : CombatObject
 {
-    //CutsceneContainers
+    //CutsceneLists
     [HideInInspector] public List<LowHealthTriggerInfo> LowHealthTriggers = new List<LowHealthTriggerInfo>();
 
     //DAMAGE AND EFFECT TYPES-----------------------
@@ -70,8 +70,7 @@ public class FighterClass : CombatObject
     {
         Character thisNPCCharacter = new Character();
         thisNPCCharacter.CharacterObject = gameObject;
-        thisNPCCharacter.CharacterName = name;
-        thisNPCCharacter.dialogueHeight = CharacterHeight;
+        thisNPCCharacter.ObjectInfo = ObjectInfo;
         thisNPCCharacter.uniqueSceneID = GetInstanceID();
         GameDataTracker.CharacterList.Add(thisNPCCharacter);
         moveContainer = GetComponent<movesetContainer>();
@@ -308,8 +307,7 @@ public class FighterClass : CombatObject
             {
                 if (CombatExecutor.CutsceneDataManager.TriggerATrigger(lowHealthTrigger.Label))
                 {
-                    GameDataTracker.combatExecutor.cutsceneDeconstruct = ScriptableObject.CreateInstance<CutsceneDeconstruct>();
-                    GameDataTracker.combatExecutor.cutsceneDeconstruct.Deconstruct(Resources.Load<DialogueContainer>(lowHealthTrigger.CutscenePath), name, gameObject);
+                    GameDataTracker.combatExecutor.AddCutsceneToQueue(Resources.Load<DialogueContainer>(lowHealthTrigger.CutscenePath), name, gameObject);
                 }
             }
         }

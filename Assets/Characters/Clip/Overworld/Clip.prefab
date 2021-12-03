@@ -58,12 +58,13 @@ MonoBehaviour:
   spriteAnimate: {fileID: 8153344902050083832}
   moveHorizontal: 0
   moveVertical: 0
-  stopOnCutscene: 1
+  movementLock: 0
   explosionHitRadius: 2
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 8
   maxStepSize: 0.25
+  DebugDisable: 0
 --- !u!65 &4588247435204376514
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -111,19 +112,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d84a75fed2a654ab8881dba8a494ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterName: Clip
+  ObjectInfo: {fileID: 7196453240780273410}
   OverrideTurning: 1
   OverrideTalkRange: 1
-  heightOverSpeaker: 0.2
   dialogue: {fileID: 0}
-  letter_noises:
-  - {fileID: 8300000, guid: f26e7b514e7d05e4193134186028831f, type: 3}
-  letters_per_noise_list: 02000000
   InputString: You didn't give me any text ya dingus.
   dialogueBubble: {fileID: 0}
   distanceToPlayer: 0
   readyForDialogue: 0
-  rotSpeedMagnitude: 360
 --- !u!114 &4726249365191413283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useAnimatedTurn: 0
   startsLeft: 1
+  targetLeft: 1
   sprite: {fileID: 5256251937599212462}
   rotated: 0
   rotSpeedMagnitude: 360
@@ -360,6 +357,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1938947902317961333}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7196453240780273410 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -489072942369728649, guid: ec3477589ad645a488aa7bce2079eff7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1938947902317961333}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5256251937599212462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1cf38ad32a79943bd609884e32bad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &8153344902050083832 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 7768420346218763149, guid: ec3477589ad645a488aa7bce2079eff7,

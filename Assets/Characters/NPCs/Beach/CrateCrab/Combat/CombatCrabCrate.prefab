@@ -61,16 +61,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd67e239ac09cb46a0eaddcc4849d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Crate Crab
+  ObjectInfo: {fileID: 8147264434564924108}
   pos: {x: 0, y: 0}
   prevPos: {x: 0, y: 0}
   extra_pos: []
   TileSize: {x: 1, y: 1}
   objectID: 0
-  Note: 
+  PushObjectTriggers: []
   move: {fileID: 0}
   Pushable: 0
   Passable: 0
+  Targetable: 1
   CanWalk: 1
   CanFly: 0
   CanSwim: 0
@@ -198,6 +199,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8895257735848139136}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8147264434564924108 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 748345336169012044, guid: 7b458460065e1594883e2b770a9981f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 8895257735848139136}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324875398338300833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1cf38ad32a79943bd609884e32bad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &5426241112016105082 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3476686839531780090, guid: 7b458460065e1594883e2b770a9981f5,

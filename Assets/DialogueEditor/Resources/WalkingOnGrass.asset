@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 804751d7c03844a4d8e72e8bb960ccc0, type: 3}
+  m_Name: WalkingOnGrass
+  m_EditorClassIdentifier: 
+  StartingGUID: 3dffcdc3-f70d-49a4-ad82-2cb7b5ef4620
+  NodeLinks:
+  - BaseNodeGuid: 3dffcdc3-f70d-49a4-ad82-2cb7b5ef4620
+    PortName: Next
+    TargetNodeGuid: 2b2695e1-0804-44de-8f52-0c01e33eac4d
+  - BaseNodeGuid: 2b2695e1-0804-44de-8f52-0c01e33eac4d
+    PortName: Choice 0
+    TargetNodeGuid: f1820898-e59c-41a6-a69a-8ab2a537fc8e
+  DialogueNodeData:
+  - Guid: 2b2695e1-0804-44de-8f52-0c01e33eac4d
+    DialogueText: Grass feels so lovely.
+    TargetPlayer: Clip
+    Position: {x: 382, y: 204}
+  - Guid: f1820898-e59c-41a6-a69a-8ab2a537fc8e
+    DialogueText: CRUNCH CRUNCH CRUNCH
+    TargetPlayer: Clip
+    Position: {x: 796, y: 200}
+  AnimationTriggerNodeData: []
+  GetFlagNodeData: []
+  SetFlagNodeData: []
+  BooleanGetFlagNodeData: []
+  BooleanSetFlagNodeData: []
+  MoveToPosNodeData: []
+  ExposedProperties: []
+  Note: 

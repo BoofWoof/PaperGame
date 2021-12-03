@@ -13,6 +13,10 @@ public class CutsceneTriggerManagerScript
     public Dictionary<string, int> TriggerCount = new Dictionary<string, int>();
 
     public List<CutsceneTriggerInfo> LowHealthTriggers = new List<CutsceneTriggerInfo>();
+    public List<CutsceneTriggerInfo> PushObjectTriggers = new List<CutsceneTriggerInfo>();
+    public List<CutsceneTriggerInfo> PlayerEnterTriggers = new List<CutsceneTriggerInfo>();
+    public List<CutsceneTriggerInfo> TurnsPassedTriggers = new List<CutsceneTriggerInfo>();
+    public List<CutsceneTriggerInfo> RenameObjectTriggers = new List<CutsceneTriggerInfo>();
 
     public bool TriggerATrigger(string label)
     {
@@ -28,14 +32,76 @@ public class CutsceneTriggerManagerScript
         return false;
     }
 
+    public void AddRenameObjectTrigger(RenameObjectInfo trigger, List<GridObject> targetObjects)
+    {
+        if (CutsceneCollection.ContainsKey(trigger.Label))
+        {
+            RemoveTrigger(trigger.Label);
+        }
+        foreach (CombatObject targetObject in targetObjects)
+        {
+            targetObject.ObjectInfo.ObjectName = trigger.Label;
+        }
+        CutsceneCollection.Add(trigger.Label, (RenameObjectTriggers, RenameObjectTriggers.Count, targetObjects));
+        RenameObjectTriggers.Add(trigger);
+    }
+
     public void AddLowHealthTrigger(LowHealthTriggerInfo trigger, List<GridObject> targetCharacters)
     {
+        if (CutsceneCollection.ContainsKey(trigger.Label))
+        {
+            RemoveTrigger(trigger.Label);
+            TriggerCount.Remove(trigger.Label);
+        }
         foreach (FighterClass targetCharacter in targetCharacters)
         {
             targetCharacter.LowHealthTriggers.Add(trigger);
         }
         CutsceneCollection.Add(trigger.Label, (LowHealthTriggers, LowHealthTriggers.Count, targetCharacters));
         LowHealthTriggers.Add(trigger);
+        TriggerCount.Add(trigger.Label, 0);
+    }
+
+    public void AddPushObjectTrigger(PushObjectTriggerInfo trigger, List<GridObject> targetObjects)
+    {
+        if (CutsceneCollection.ContainsKey(trigger.Label))
+        {
+            RemoveTrigger(trigger.Label);
+            TriggerCount.Remove(trigger.Label);
+        }
+        foreach (CombatObject targetObject in targetObjects)
+        {
+            targetObject.PushObjectTriggers.Add(trigger);
+        }
+        CutsceneCollection.Add(trigger.Label, (PushObjectTriggers, PushObjectTriggers.Count, targetObjects));
+        PushObjectTriggers.Add(trigger);
+        TriggerCount.Add(trigger.Label, 0);
+    }
+
+    public void AddPlayerEnterTrigger(PlayerEnterTriggerInfo trigger, List<GridObject> targetTiles)
+    {
+        if (CutsceneCollection.ContainsKey(trigger.Label))
+        {
+            RemoveTrigger(trigger.Label);
+            TriggerCount.Remove(trigger.Label);
+        }
+        foreach (BlockTemplate targetTile in targetTiles)
+        {
+            targetTile.PlayerEnterTriggers.Add(trigger);
+        }
+        CutsceneCollection.Add(trigger.Label, (PlayerEnterTriggers, PlayerEnterTriggers.Count, targetTiles));
+        PlayerEnterTriggers.Add(trigger);
+        TriggerCount.Add(trigger.Label, 0);
+    }
+
+    public void AddTurnsPassedTrigger(TurnsPassedTriggerInfo trigger)
+    {
+        if (CutsceneCollection.ContainsKey(trigger.Label))
+        {
+            RemoveTrigger(trigger.Label);
+        }
+        CutsceneCollection.Add(trigger.Label, (TurnsPassedTriggers, TurnsPassedTriggers.Count, null));
+        TurnsPassedTriggers.Add(trigger);
         TriggerCount.Add(trigger.Label, 0);
     }
 
@@ -62,13 +128,15 @@ public class CutsceneTriggerManagerScript
     public int GetTargetCount(string label)
     {
         (List<CutsceneTriggerInfo> triggerList, int triggerIdx, List<GridObject> targetList) = CutsceneCollection[label];
-        if(!RemoveNullFromList(label)) return -1;
+        if (targetList == null) return -1;
+        if (!RemoveNullFromList(label)) return -1;
         return targetList.Count;
     }
 
     public bool RemoveNullFromList(string label)
     {
         (List<CutsceneTriggerInfo> triggerList, int triggerIdx, List<GridObject> targetList) = CutsceneCollection[label];
+        if (targetList == null) return true;
         targetList.RemoveAll(trigger => trigger == null);
         if(targetList.Count == 0)
         {
@@ -101,6 +169,10 @@ public class CutsceneTriggerManagerScript
         foreach (string key in CutsceneCollection.Keys)
         {
             (List<CutsceneTriggerInfo> triggerList, int triggerIdx, List<GridObject> targetCharacters) = CutsceneCollection[key];
+            if (targetCharacters == null) {
+                cutsceneLabels.Add((key, triggerList[0].GetType().ToString()));
+                continue;
+            } 
             if (targetCharacters.Contains(searchObject)) cutsceneLabels.Add((key, triggerList[0].GetType().ToString()));
         }
         return cutsceneLabels;
@@ -113,6 +185,7 @@ public class CutsceneTriggerManagerScript
             if(!RemoveNullFromList(label)) continue;
             List<Vector2Int> targetPos = new List<Vector2Int>();
             (List<CutsceneTriggerInfo> triggerList, int triggerIdx, List<GridObject> targetGridObjects) = CutsceneCollection[label];
+            if (targetGridObjects == null) continue;
             foreach (GridObject targetGridObject in targetGridObjects)
             {
                 targetPos.Add(targetGridObject.pos);
@@ -150,6 +223,22 @@ public class CutsceneTriggerManagerScript
         {
             datacache.LowHealthTriggerList.Add(lowHealthTrigger);
         }
+        foreach (PushObjectTriggerInfo pushObjectTrigger in PushObjectTriggers)
+        {
+            datacache.PushObjectTriggerList.Add(pushObjectTrigger);
+        }
+        foreach (PlayerEnterTriggerInfo playerEnterTrigger in PlayerEnterTriggers)
+        {
+            datacache.PlayerEnterTriggerList.Add(playerEnterTrigger);
+        }
+        foreach (TurnsPassedTriggerInfo turnsPassedObjectTrigger in TurnsPassedTriggers)
+        {
+            datacache.TurnsPassedTriggerList.Add(turnsPassedObjectTrigger);
+        }
+        foreach (RenameObjectInfo renameObjectTrigger in RenameObjectTriggers)
+        {
+            datacache.RenameObjectTriggerList.Add(renameObjectTrigger);
+        }
         return datacache;
     }
 
@@ -158,6 +247,22 @@ public class CutsceneTriggerManagerScript
         foreach (CutsceneTriggerInfo lowHealthTrigger in datacache.LowHealthTriggerList)
         {
             AddLowHealthTrigger((LowHealthTriggerInfo)lowHealthTrigger, GetCharactersAtPos(lowHealthTrigger.TargetPositions, lowHealthTrigger.GridLayer));
+        }
+        foreach (CutsceneTriggerInfo pushObjectTrigger in datacache.PushObjectTriggerList)
+        {
+            AddPushObjectTrigger((PushObjectTriggerInfo)pushObjectTrigger, GetCharactersAtPos(pushObjectTrigger.TargetPositions, pushObjectTrigger.GridLayer));
+        }
+        foreach (CutsceneTriggerInfo playerEnterTrigger in datacache.PlayerEnterTriggerList)
+        {
+            AddPlayerEnterTrigger((PlayerEnterTriggerInfo)playerEnterTrigger, GetCharactersAtPos(playerEnterTrigger.TargetPositions, playerEnterTrigger.GridLayer));
+        }
+        foreach (CutsceneTriggerInfo turnsPassedTrigger in datacache.TurnsPassedTriggerList)
+        {
+            AddTurnsPassedTrigger((TurnsPassedTriggerInfo)turnsPassedTrigger);
+        }
+        foreach (CutsceneTriggerInfo renameObjectTrigger in datacache.RenameObjectTriggerList)
+        {
+            AddRenameObjectTrigger((RenameObjectInfo)renameObjectTrigger, GetCharactersAtPos(renameObjectTrigger.TargetPositions, renameObjectTrigger.GridLayer));
         }
     }
 }

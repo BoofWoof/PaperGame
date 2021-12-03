@@ -106,6 +106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5606296916481537114}
   - component: {fileID: 5606296916481537113}
+  - component: {fileID: 4760735783734631610}
   m_Layer: 0
   m_Name: AgentW
   m_TagString: Untagged
@@ -147,6 +148,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4760735783734631610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5606296916481537115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1cf38ad32a79943bd609884e32bad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectName: Agent W
+  ObjectNote: 
+  ObjectHeight: 1
+  ObjectWidth: 1
+  TextHeightOverObject: 0.5
+  FlatObject: 1
+  LetterNoises:
+  - {fileID: 8300000, guid: 0a10656438204ca44ba4ed84b7af73eb, type: 3}
+  - {fileID: 8300000, guid: 156a0220afb4f6d458c063a677e636a2, type: 3}
+  LetterNoisesPerList: 0200000002000000
 --- !u!1 &5606296916559416691
 GameObject:
   m_ObjectHideFlags: 0

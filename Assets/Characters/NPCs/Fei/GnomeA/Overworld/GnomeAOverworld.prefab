@@ -81,17 +81,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d84a75fed2a654ab8881dba8a494ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterName: Gnome
-  heightOverSpeaker: 1.3
+  ObjectInfo: {fileID: 273553387178246680}
   dialogue: {fileID: 11400000, guid: 4d25c8fcc2aa51d4ca90972303782c25, type: 2}
-  letter_noises: []
-  letters_per_noise_list: 
-  InputString: You didn't give me any text ya dingus.
   dialogueBubble: {fileID: 1260794312910748544, guid: 9f4707ddedfc56b45a1ac474d852f311,
     type: 3}
   distanceToPlayer: 0
   readyForDialogue: 0
-  rotSpeedMagnitude: 360
 --- !u!1001 &7991769559331655961
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -167,3 +162,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7991769559331655961}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &273553387178246680 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7864308909780177665, guid: dd956f509a89cef4f945bb4601bef18f,
+    type: 3}
+  m_PrefabInstance: {fileID: 7991769559331655961}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1cf38ad32a79943bd609884e32bad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -12,129 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 804751d7c03844a4d8e72e8bb960ccc0, type: 3}
   m_Name: New Narrative
   m_EditorClassIdentifier: 
-  StartingGUID: 0748c8d6-7c72-444e-ac18-3037c59b5949
+  StartingGUID: d4f51045-8d44-48a4-b4ac-af07f413ed3f
   NodeLinks:
-  - BaseNodeGuid: 0748c8d6-7c72-444e-ac18-3037c59b5949
+  - BaseNodeGuid: d4f51045-8d44-48a4-b4ac-af07f413ed3f
     PortName: Next
-    TargetNodeGuid: df7063a6-0783-49f3-95ac-25ba9a012b02
-  - BaseNodeGuid: 3a8b5ae7-774e-4a67-b4b8-e10dd02435e0
-    PortName: Ice Cream
-    TargetNodeGuid: 27da018a-fc62-4cb2-bfb1-ea8f769faded
-  - BaseNodeGuid: 3a8b5ae7-774e-4a67-b4b8-e10dd02435e0
-    PortName: Pizza
-    TargetNodeGuid: 42fdab6c-4416-44e5-96a7-3c93018ef637
-  - BaseNodeGuid: b7da4e38-c2e4-4362-acaa-09bb9f0125c6
-    PortName: Yes
-    TargetNodeGuid: 7e20536f-af7c-4744-bef1-062d5ea937d2
-  - BaseNodeGuid: b7da4e38-c2e4-4362-acaa-09bb9f0125c6
-    PortName: No
-    TargetNodeGuid: fb533c37-7a0f-4469-9004-f503cfdce38d
-  - BaseNodeGuid: 27da018a-fc62-4cb2-bfb1-ea8f769faded
-    PortName: Next
-    TargetNodeGuid: b7da4e38-c2e4-4362-acaa-09bb9f0125c6
-  - BaseNodeGuid: 42fdab6c-4416-44e5-96a7-3c93018ef637
-    PortName: Next
-    TargetNodeGuid: b7da4e38-c2e4-4362-acaa-09bb9f0125c6
-  - BaseNodeGuid: df7063a6-0783-49f3-95ac-25ba9a012b02
-    PortName: Other
-    TargetNodeGuid: 3a8b5ae7-774e-4a67-b4b8-e10dd02435e0
-  - BaseNodeGuid: df7063a6-0783-49f3-95ac-25ba9a012b02
-    PortName: IceCream
-    TargetNodeGuid: bf640d77-f011-44a5-8e9d-0feeff1bd22e
-  - BaseNodeGuid: df7063a6-0783-49f3-95ac-25ba9a012b02
-    PortName: Pizza
-    TargetNodeGuid: 10ebfa3b-2ec6-43ef-b1d1-598ac44bd328
-  - BaseNodeGuid: 7e20536f-af7c-4744-bef1-062d5ea937d2
-    PortName: Next
-    TargetNodeGuid: 6ca1383d-8477-4414-ae8f-62e374cb672d
-  - BaseNodeGuid: fb533c37-7a0f-4469-9004-f503cfdce38d
-    PortName: Next
-    TargetNodeGuid: 5a92ae70-3ff3-44aa-8b20-ea164c1717a5
-  - BaseNodeGuid: 10ebfa3b-2ec6-43ef-b1d1-598ac44bd328
-    PortName: True
-    TargetNodeGuid: 54dd1fa2-a7f2-4fab-923c-32269514500f
-  - BaseNodeGuid: 10ebfa3b-2ec6-43ef-b1d1-598ac44bd328
-    PortName: False
-    TargetNodeGuid: 76045d2b-2031-4f6b-b07f-58cd989ac471
-  - BaseNodeGuid: 10ebfa3b-2ec6-43ef-b1d1-598ac44bd328
-    PortName: Other
-    TargetNodeGuid: 263c4681-87cf-47bc-98af-471535824c48
-  - BaseNodeGuid: bf640d77-f011-44a5-8e9d-0feeff1bd22e
-    PortName: True
-    TargetNodeGuid: 62d35806-8902-40eb-9b7b-d4562ac9d926
-  - BaseNodeGuid: bf640d77-f011-44a5-8e9d-0feeff1bd22e
-    PortName: False
-    TargetNodeGuid: e2d64428-4dc6-40ec-a059-e8d5b53f92f5
-  - BaseNodeGuid: bf640d77-f011-44a5-8e9d-0feeff1bd22e
-    PortName: Other
-    TargetNodeGuid: 263c4681-87cf-47bc-98af-471535824c48
+    TargetNodeGuid: 69a5661f-9a3f-4504-af5f-d318fda05a47
   DialogueNodeData:
-  - Guid: 3a8b5ae7-774e-4a67-b4b8-e10dd02435e0
-    DialogueText: Do you prefer ice cream or pizza?
-    TargetPlayer: 
-    Position: {x: 553, y: -19}
-  - Guid: b7da4e38-c2e4-4362-acaa-09bb9f0125c6
-    DialogueText: Is that your favorite?
-    TargetPlayer: 
-    Position: {x: 1334, y: -35}
-  - Guid: 6ca1383d-8477-4414-ae8f-62e374cb672d
-    DialogueText: Here, have some!
-    TargetPlayer: 
-    Position: {x: 2022, y: -106}
-  - Guid: 5a92ae70-3ff3-44aa-8b20-ea164c1717a5
-    DialogueText: I'm not sharing if it's not your favorite.
-    TargetPlayer: 
-    Position: {x: 1991, y: 65}
-  - Guid: 76045d2b-2031-4f6b-b07f-58cd989ac471
-    DialogueText: I'm not sharing my pizza with you if it is not your favorite.
-    TargetPlayer: 
-    Position: {x: 1124, y: 784}
-  - Guid: 54dd1fa2-a7f2-4fab-923c-32269514500f
-    DialogueText: I hope you like your pizza.
-    TargetPlayer: 
-    Position: {x: 1126, y: 648}
-  - Guid: e2d64428-4dc6-40ec-a059-e8d5b53f92f5
-    DialogueText: I'm not sharing my ice cream with you if it is not your favorite.
-    TargetPlayer: 
-    Position: {x: 1161, y: 355}
-  - Guid: 62d35806-8902-40eb-9b7b-d4562ac9d926
-    DialogueText: I hope you like your ice cream.
-    TargetPlayer: 
-    Position: {x: 1186, y: 170}
-  - Guid: 263c4681-87cf-47bc-98af-471535824c48
-    DialogueText: You're not supposed to be here.
-    TargetPlayer: 
-    Position: {x: 843, y: 499}
+  - Guid: 69a5661f-9a3f-4504-af5f-d318fda05a47
+    DialogueText: Why must we fight?
+    TargetPlayer: Clip
+    Position: {x: 276.66666, y: 183.33334}
   AnimationTriggerNodeData: []
-  GetFlagNodeData:
-  - Guid: df7063a6-0783-49f3-95ac-25ba9a012b02
-    FlagName: Food
-    Position: {x: 263, y: 214}
-  SetFlagNodeData:
-  - Guid: 27da018a-fc62-4cb2-bfb1-ea8f769faded
-    FlagName: Food
-    FlagTag: IceCream
-    Position: {x: 1010, y: -126}
-  - Guid: 42fdab6c-4416-44e5-96a7-3c93018ef637
-    FlagName: Food
-    FlagTag: Pizza
-    Position: {x: 1018, y: 51}
-  BooleanGetFlagNodeData:
-  - Guid: 10ebfa3b-2ec6-43ef-b1d1-598ac44bd328
-    FlagName: FavoriteFood
-    Position: {x: 494, y: 591}
-  - Guid: bf640d77-f011-44a5-8e9d-0feeff1bd22e
-    FlagName: FavoriteFood
-    Position: {x: 521, y: 393}
-  BooleanSetFlagNodeData:
-  - Guid: 7e20536f-af7c-4744-bef1-062d5ea937d2
-    FlagName: FavoriteFood
-    FlagBool: 1
-    Position: {x: 1694, y: -107}
-  - Guid: fb533c37-7a0f-4469-9004-f503cfdce38d
-    FlagName: FavoriteFood
-    FlagBool: 0
-    Position: {x: 1699, y: 64}
+  GetFlagNodeData: []
+  SetFlagNodeData: []
+  BooleanGetFlagNodeData: []
+  BooleanSetFlagNodeData: []
   MoveToPosNodeData: []
   ExposedProperties: []
-  Note: The Ice Cream Cutscene
+  Note: 

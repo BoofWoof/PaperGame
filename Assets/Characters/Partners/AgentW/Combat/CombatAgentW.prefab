@@ -68,6 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useAnimatedTurn: 0
   startsLeft: 1
+  targetLeft: 1
   sprite: {fileID: 1126625915845239298}
   rotated: 0
   rotSpeedMagnitude: 500
@@ -84,21 +85,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a26af28d32b58c649b84e00104f975aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Agent W
+  ObjectInfo: {fileID: 35609756294302435}
   pos: {x: 0, y: 0}
   prevPos: {x: 0, y: 0}
   extra_pos: []
   TileSize: {x: 1, y: 1}
   objectID: 0
+  PushObjectTriggers: []
   move: {fileID: 0}
   Pushable: 0
   Passable: 0
+  Targetable: 1
   CanWalk: 1
   CanFly: 0
   CanSwim: 0
   MaxJumpHeight: 1
   LastMoveSpeed: 0
   objectReady: 0
+  LowHealthTriggers: []
   characterPosition: 0
   friendly: 1
   HPMax: 20
@@ -111,6 +115,7 @@ MonoBehaviour:
   SwimSpeed: 1
   CharacterHeight: 2
   CharacterWidth: 1
+  MustBeat: 1
   Paralyzed: 0
   Dead: 0
   displayHealth: 0
@@ -212,3 +217,15 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 4787050541107353177}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &35609756294302435 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4760735783734631610, guid: 68b174bcd725b1145accb277db49df85,
+    type: 3}
+  m_PrefabInstance: {fileID: 4787050541107353177}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126625915845239298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1cf38ad32a79943bd609884e32bad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

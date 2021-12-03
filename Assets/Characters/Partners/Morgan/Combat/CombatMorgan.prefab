@@ -64,33 +64,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd67e239ac09cb46a0eaddcc4849d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ObjectInfo: {fileID: 886961444087023042}
   pos: {x: 0, y: 0}
-  move: {fileID: 0}
   prevPos: {x: 0, y: 0}
+  extra_pos: []
+  TileSize: {x: 1, y: 1}
+  objectID: 0
+  PushObjectTriggers: []
+  move: {fileID: 0}
   Pushable: 0
-  CharacterName: Morgan
+  Passable: 0
+  Targetable: 1
+  CanWalk: 1
+  CanFly: 0
+  CanSwim: 0
+  MaxJumpHeight: 1
+  LastMoveSpeed: 0
+  objectReady: 0
+  LowHealthTriggers: []
   characterPosition: 0
-  SelectionWheel: {fileID: 2257321630957254045, guid: 6fe8dd55b8074c24d9ad4c099e59d986,
-    type: 3}
-  characterSelector: {fileID: 21300000, guid: d4be11df34fee224f9d5c9a52ebc89ab, type: 3}
-  characterSelectorFloor: {fileID: 21300000, guid: 621059488cdb170418b5cd66ad6452d8,
-    type: 3}
-  characterSelectorMaterial: {fileID: 2100000, guid: 74d0179e28c9be947b9feb0fdfee7b73,
-    type: 2}
   friendly: 1
   HPMax: 25
   HP: 20
   Power: 2
   Defense: 0
+  PushStrength: 1
   WalkSpeed: 3
   JumpSpeed: 2
   SwimSpeed: 1
-  MaxJumpHeight: 1
-  CanWalk: 1
-  CanFly: 0
-  CanSwim: 0
   CharacterHeight: 1.5
   CharacterWidth: 1
+  MustBeat: 1
   Paralyzed: 0
   Dead: 0
   displayHealth: 0
@@ -112,7 +116,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useAnimatedTurn: 0
   startsLeft: 1
+  targetLeft: 1
   sprite: {fileID: 850975451825150215}
+  rotated: 0
   rotSpeedMagnitude: 500
   goal: 0
 --- !u!1001 &342279383283329747
@@ -202,3 +208,15 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 342279383283329747}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &886961444087023042 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 616742404242583313, guid: 20ae95057e1bdc340a5a1ab436f411ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 342279383283329747}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850975451825150215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1cf38ad32a79943bd609884e32bad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

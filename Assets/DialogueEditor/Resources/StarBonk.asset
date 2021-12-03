@@ -20,15 +20,29 @@ MonoBehaviour:
   - BaseNodeGuid: c6528ee8-2809-45d9-a64b-317a4c854007
     PortName: Choice 0
     TargetNodeGuid: 000ce7e7-43ad-4511-a199-042f91882149
+  - BaseNodeGuid: 000ce7e7-43ad-4511-a199-042f91882149
+    PortName: Get Rekt
+    TargetNodeGuid: dc3212f3-591f-421d-9b46-bea28044b2b6
+  - BaseNodeGuid: 000ce7e7-43ad-4511-a199-042f91882149
+    PortName: My Bad Bro
+    TargetNodeGuid: f6b3c17c-c603-4bd1-babd-9e0fa78cb1bd
   DialogueNodeData:
   - Guid: c6528ee8-2809-45d9-a64b-317a4c854007
     DialogueText: Ow, that hurt!
     TargetPlayer: 
     Position: {x: 381.33334, y: 216}
+  - Guid: dc3212f3-591f-421d-9b46-bea28044b2b6
+    DialogueText: Cute Kobolds are my only remaining joy.
+    TargetPlayer: 
+    Position: {x: 1273.3334, y: 258.66666}
   - Guid: 000ce7e7-43ad-4511-a199-042f91882149
     DialogueText: Why would your hurt me.  I was just chilling!
     TargetPlayer: 
-    Position: {x: 741.3333, y: 208.66667}
+    Position: {x: 692.6667, y: 291.3333}
+  - Guid: f6b3c17c-c603-4bd1-babd-9e0fa78cb1bd
+    DialogueText: I forgive you. uwu
+    TargetPlayer: 
+    Position: {x: 1276.6666, y: 409.3333}
   AnimationTriggerNodeData: []
   GetFlagNodeData: []
   SetFlagNodeData: []

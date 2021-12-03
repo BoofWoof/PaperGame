@@ -8,6 +8,7 @@ public class GoalBlock : BlockTemplate
 
     public override void TileEntered(FighterClass enteredCharacter)
     {
+        base.TileEntered(enteredCharacter);
         if (enteredCharacter.objectID <= 10)
         {
             active = true;

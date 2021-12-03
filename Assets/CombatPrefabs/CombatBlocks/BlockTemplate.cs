@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BlockTemplate : GridObject
 {
+    public List<PlayerEnterTriggerInfo> PlayerEnterTriggers = new List<PlayerEnterTriggerInfo>();
+
     [Header("PuzzleSettings")]
     public bool GoalTile = false;
 
@@ -76,7 +78,16 @@ public class BlockTemplate : GridObject
 
     public virtual void TileEntered(FighterClass enteredCharacter)
     {
-
+        foreach (PlayerEnterTriggerInfo playerEnterTrigger in PlayerEnterTriggers)
+        {
+            if (enteredCharacter.objectID == 0 && playerEnterTrigger.Clip || (enteredCharacter.objectID <= 10 && enteredCharacter.objectID > 0 && playerEnterTrigger.Partner))
+            {
+                if (CombatExecutor.CutsceneDataManager.TriggerATrigger(playerEnterTrigger.Label))
+                {
+                    GameDataTracker.combatExecutor.AddCutsceneToQueue(Resources.Load<DialogueContainer>(playerEnterTrigger.CutscenePath), name, gameObject);
+                }
+            }
+        }
     }
 
     public virtual void EndTurnOn(FighterClass enteredCharacter)

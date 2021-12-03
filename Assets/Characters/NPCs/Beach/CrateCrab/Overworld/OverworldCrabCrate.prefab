@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de02794e5c8d7c4c87384b6fa723363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterName: CrabCrate
+  ObjectInfo: {fileID: 3100514437609519321}
   combatEncounter: {fileID: 11400000, guid: 20647610bab46284ba6fedb275101d50, type: 2}
   cutsceneTrigger: {fileID: 0}
   UniqueSceneID: -1
@@ -77,6 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useAnimatedTurn: 1
   startsLeft: 1
+  targetLeft: 1
   sprite: {fileID: 0}
   rotated: 0
   rotSpeedMagnitude: 360
@@ -226,3 +227,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2406493860026114965}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3100514437609519321 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 748345336169012044, guid: 7b458460065e1594883e2b770a9981f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 2406493860026114965}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1cf38ad32a79943bd609884e32bad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

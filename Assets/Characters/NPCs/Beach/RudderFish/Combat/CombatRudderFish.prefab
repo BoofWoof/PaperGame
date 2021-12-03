@@ -61,16 +61,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd67e239ac09cb46a0eaddcc4849d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Rudder Fish
+  ObjectInfo: {fileID: 5679321399848030220}
   pos: {x: 0, y: 0}
   prevPos: {x: 0, y: 0}
   extra_pos: []
   TileSize: {x: 1, y: 1}
   objectID: 0
-  Note: 
+  PushObjectTriggers: []
   move: {fileID: 0}
   Pushable: 0
   Passable: 0
+  Targetable: 1
   CanWalk: 1
   CanFly: 0
   CanSwim: 0
@@ -204,3 +205,15 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 7234886884379394895}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5679321399848030220 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -6145588357781630141, guid: a822577ce98c9ab41b274b19a5dc79fb,
+    type: 3}
+  m_PrefabInstance: {fileID: 7234886884379394895}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5467935060114296311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1cf38ad32a79943bd609884e32bad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

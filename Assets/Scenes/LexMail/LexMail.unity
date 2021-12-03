@@ -249,7 +249,7 @@ PrefabInstance:
         type: 3}
       propertyPath: combatEncounter
       value: 
-      objectReference: {fileID: 11400000, guid: fa657df7e9eb1774fbb1556cfded0c1c,
+      objectReference: {fileID: 11400000, guid: 3c87822298b028041bdc3525d63b7d12,
         type: 2}
     - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
         type: 3}
@@ -933,7 +933,7 @@ PrefabInstance:
     - target: {fileID: 6436934994925767781, guid: 8fdf00654c84c03499ad91621d401200,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6436934994925767781, guid: 8fdf00654c84c03499ad91621d401200,
         type: 3}
@@ -1622,7 +1622,7 @@ PrefabInstance:
         type: 3}
       propertyPath: combatEncounter
       value: 
-      objectReference: {fileID: 11400000, guid: 463695d1f059a57429aff331ed845d23,
+      objectReference: {fileID: 11400000, guid: bd997ba7ee3dd544a9bf1bc992e8d23a,
         type: 2}
     - target: {fileID: 6100486210798427351, guid: 702e6f1d58f83d1448ac76ea641623d9,
         type: 3}
@@ -2479,6 +2479,81 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1232173400
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 134079040270856812, guid: 8fdf00654c84c03499ad91621d401200,
+        type: 3}
+      propertyPath: m_Name
+      value: OverworldRudderFish (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100486210798427351, guid: 8fdf00654c84c03499ad91621d401200,
+        type: 3}
+      propertyPath: combatEncounter
+      value: 
+      objectReference: {fileID: 11400000, guid: e0de35bc84a21124191b9aff0926883f,
+        type: 2}
+    - target: {fileID: 6436934994925767781, guid: 8fdf00654c84c03499ad91621d401200,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 8fdf00654c84c03499ad91621d401200,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.964
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 8fdf00654c84c03499ad91621d401200,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.018
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 8fdf00654c84c03499ad91621d401200,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.687
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 8fdf00654c84c03499ad91621d401200,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 8fdf00654c84c03499ad91621d401200,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 8fdf00654c84c03499ad91621d401200,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 8fdf00654c84c03499ad91621d401200,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 8fdf00654c84c03499ad91621d401200,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 8fdf00654c84c03499ad91621d401200,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436934994925767781, guid: 8fdf00654c84c03499ad91621d401200,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8fdf00654c84c03499ad91621d401200, type: 3}
 --- !u!1 &1242049232
 GameObject:
   m_ObjectHideFlags: 0
@@ -4313,7 +4388,7 @@ PrefabInstance:
         type: 3}
       propertyPath: combatEncounter
       value: 
-      objectReference: {fileID: 11400000, guid: 45598e7971a8f98479fb6f6b4b45a4e6,
+      objectReference: {fileID: 11400000, guid: 8cfd2b20f8cc0cb44a4589f3a7267ea3,
         type: 2}
     - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
         type: 3}

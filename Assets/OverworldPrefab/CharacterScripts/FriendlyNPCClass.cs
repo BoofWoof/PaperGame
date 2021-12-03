@@ -13,32 +13,19 @@ public class FriendlyNPCClass : MonoBehaviour
 
     //Character Information
     [Header("Character Info")]
-    public string CharacterName = "NameMeYaDingus";
-    public bool OverrideTurning = false;
-    public bool OverrideTalkRange = false;
+    public ObjectInfoScript ObjectInfo;
     private float height;
 
     //Dialogue Info
     [Header("Dialogue Settings")]
     private GameObject Bubble;
-    public float heightOverSpeaker = 0.8f;
     public DialogueContainer dialogue;
-    public AudioClip[] letter_noises;
-    public int[] letters_per_noise_list;
-
-    public string InputString = "You didn't give me any text ya dingus.";
+    
     public GameObject dialogueBubble;
 
     //Cutscene Events Info
     public float distanceToPlayer;
     public bool readyForDialogue;
-
-    //Rotation Info
-    private float goal = 0;
-    private float rotated = 0;
-    private float rotateDisplay = 0;
-    private float rotSpeed;
-    public float rotSpeedMagnitude = 360;
 
     private Character thisNPCCharacter;
 
@@ -61,14 +48,13 @@ public class FriendlyNPCClass : MonoBehaviour
     {
         height = transform.GetComponent<BoxCollider>().size.y;
 
-        if (CharacterName == "NameMeYaDingus")
+        if (ObjectInfo.ObjectName == "NameMeYaDingus")
         {
             print($"Name me! My ID is {this.GetInstanceID()}");
         }
         thisNPCCharacter = new Character();
         thisNPCCharacter.CharacterObject = gameObject;
-        thisNPCCharacter.CharacterName = CharacterName;
-        thisNPCCharacter.dialogueHeight = height + heightOverSpeaker;
+        thisNPCCharacter.ObjectInfo = ObjectInfo;
         thisNPCCharacter.uniqueSceneID = GetInstanceID();
         GameDataTracker.CharacterList.Add(thisNPCCharacter);
 
@@ -86,68 +72,20 @@ public class FriendlyNPCClass : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!OverrideTalkRange)
+        if(dialogue != null)
         {
             GameObject Player = OverworldController.Player;
-            distanceToPlayer = Vector3.Distance(Player.transform.position, transform.position);
             DialogueCheck(distanceToPlayer, Player);
-            FacePlayer(distanceToPlayer, Player);
+            distanceToPlayer = Vector3.Distance(Player.transform.position, transform.position);
         } else
         {
-            distanceToPlayer = 1000;
-        }
-    }
-
-    private void FacePlayer(float distanceToPlayer, GameObject Player)
-    {
-        if (!OverrideTurning)
-        {
-            //Face Player If Near
-            if ((distanceToPlayer < 1) && ((GameDataTracker.cutsceneMode == GameDataTracker.cutsceneModeOptions.Mobile) || GameDataTracker.dialogueReady))
-            {
-                //SetRotationGoals=================================================================================
-                if ((Player.transform.position.x > this.transform.position.x + 0.2f))
-                {
-                    goal = 180;
-                }
-                if ((Player.transform.position.x < this.transform.position.x - 0.2f))
-                {
-                    goal = 0;
-                }
-            }
-
-            //SPRITE ROTATION START-------------------------------------------------------------------------
-            if ((goal > rotated))
-            {
-                rotSpeed = rotSpeedMagnitude * Time.deltaTime;
-                rotated = rotated + rotSpeed;
-            }
-            if ((goal < rotated))
-            {
-                rotSpeed = -rotSpeedMagnitude * Time.deltaTime;
-                rotated = rotated + rotSpeed;
-            }
-            rotateDisplay = rotated;
-            if ((rotated > 90))
-            {
-                rotateDisplay += 180;
-            }
-            transform.rotation = Quaternion.Euler(0, rotateDisplay, 0);
-            Vector3 currentScale = transform.localScale;
-            if (rotated < 90)
-            {
-                this.transform.localScale = new Vector3(Mathf.Abs(currentScale.x), currentScale.y, currentScale.z);
-            }
-            if (rotated > 90)
-            {
-                this.transform.localScale = new Vector3(-Mathf.Abs(currentScale.x), currentScale.y, currentScale.z);
-            }
+            distanceToPlayer = 1000f;
         }
     }
 
     private void DialogueCheck(float distanceToPlayer, GameObject Player)
     {
-        if (!OverrideTalkRange)
+        if (dialogue != null)
         {
             if (readyForDialogue && ((GameDataTracker.cutsceneMode == GameDataTracker.cutsceneModeOptions.Mobile) || GameDataTracker.dialogueReady))
             {
@@ -191,17 +129,7 @@ public class FriendlyNPCClass : MonoBehaviour
         if (dialogue != null)
         {
             CutsceneDeconstruct complexCutscene = ScriptableObject.CreateInstance<CutsceneDeconstruct>();
-            complexCutscene.Deconstruct(dialogue, CharacterName, gameObject);
-        }
-        else
-        {
-            SayDialogue dialogueCutscene = ScriptableObject.CreateInstance<SayDialogue>();
-            dialogueCutscene.heightOverSpeaker = heightOverSpeaker;
-            dialogueCutscene.speakerName = CharacterName;
-            dialogueCutscene.inputText = new TextAsset(InputString);
-            dialogueCutscene.letter_noises = letter_noises;
-            dialogueCutscene.letters_per_noise_list = letters_per_noise_list;
-            CutsceneController.addCutsceneEvent(dialogueCutscene, gameObject, true, GameDataTracker.cutsceneModeOptions.Cutscene);
+            complexCutscene.Deconstruct(dialogue, ObjectInfo.ObjectName, gameObject);
         }
     }
 }
