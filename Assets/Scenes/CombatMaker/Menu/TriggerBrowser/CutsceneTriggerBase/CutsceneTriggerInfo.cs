@@ -11,4 +11,5 @@ public class CutsceneTriggerInfo
     public int TriggerLimit = 1;
     public string GridLayer;
     public List<Vector2Int> TargetPositions = new List<Vector2Int>();
+    public List<PreTriggerInfo> PreTriggerConditions = new List<PreTriggerInfo>();
 }

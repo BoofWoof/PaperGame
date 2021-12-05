@@ -4388,7 +4388,7 @@ PrefabInstance:
         type: 3}
       propertyPath: combatEncounter
       value: 
-      objectReference: {fileID: 11400000, guid: 8cfd2b20f8cc0cb44a4589f3a7267ea3,
+      objectReference: {fileID: 11400000, guid: ea30077f02857b242ab35ab2f87934be,
         type: 2}
     - target: {fileID: 6436934994925767781, guid: 702e6f1d58f83d1448ac76ea641623d9,
         type: 3}

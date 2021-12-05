@@ -20,8 +20,19 @@ public class CutsceneTriggerManagerScript
 
     public bool TriggerATrigger(string label)
     {
-        (List<CutsceneTriggerInfo> triggerList, int triggerIdx, List<GridObject> targetCharacters) = CutsceneCollection[label];
+        (List<CutsceneTriggerInfo> triggerList, int triggerIdx, _) = CutsceneCollection[label];
         int triggerLimit = triggerList[triggerIdx].TriggerLimit;
+        foreach(PreTriggerInfo preTriggerInfo in triggerList[triggerIdx].PreTriggerConditions)
+        {
+            CutsceneTriggerInfo preTrigger = GetTrigger(preTriggerInfo.TriggerName);
+            if (preTriggerInfo.Triggered)
+            {
+                if (TriggerCount[preTrigger.Label] < preTriggerInfo.TriggersNeeded) return false;
+            } else
+            {
+                if (TriggerCount[preTrigger.Label] >= preTriggerInfo.TriggersNeeded) return false;
+            }
+        }
         if (triggerLimit == 0) return true;
         int triggerCount = TriggerCount[label];
         if (triggerCount < triggerLimit)

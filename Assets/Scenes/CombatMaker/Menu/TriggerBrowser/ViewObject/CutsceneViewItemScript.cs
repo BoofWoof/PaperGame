@@ -10,6 +10,7 @@ public class CutsceneViewItemScript : MonoBehaviour
     public Button EditTargetsButton;
 
     public ViewMenuBaseScript SourceMenu;
+    public GameObject PreTriggerMenu;
     public GameObject AddMoreTargetsMenu;
     public GameObject AddLowHealthTriggerMenu;
     public GameObject AddPushObjectTriggerMenu;
@@ -68,6 +69,15 @@ public class CutsceneViewItemScript : MonoBehaviour
             GridCrafter.CutsceneDataManager.GetTrigger(Label).TriggerLimit = Int32.Parse(TriggerCountInput.text);
             SourceMenu.UpdateCutsceneList();
         }
+    }
+
+    public void AddPreTrigger()
+    {
+        GameObject AddPreTriggerMenu = Instantiate(PreTriggerMenu);
+        AddPreTriggerMenu.GetComponent<PreTriggerMenuScript>().SourceMenu = SourceMenu.gameObject;
+        AddPreTriggerMenu.GetComponent<PreTriggerMenuScript>().Label = Label;
+
+        SourceMenu.gameObject.SetActive(false);
     }
 
     public void EditTrigger()
