@@ -59,6 +59,7 @@ public class CharacterMovementOverworld : MonoBehaviour
     void Awake()
     {
         controls = new GameControls();
+        OverworldController.Player = gameObject;
     }
 
     private void OnEnable()
@@ -76,7 +77,6 @@ public class CharacterMovementOverworld : MonoBehaviour
         lastNonZeroDirection = new Vector2(-1, 0);
         prevY = transform.position.y;
         spriteFlipper = GetComponent<SpriteFlipper>();
-        OverworldController.Player = gameObject;
         bc = GetComponent<BoxCollider>();
 
         width = bc.bounds.size.x;

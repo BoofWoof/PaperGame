@@ -107,6 +107,10 @@ public class CombatExecutor : GridManager
             startGameWait -= Time.deltaTime;
         } else
         {
+            if (CutsceneController.CutscenesPlaying != 0)
+            {
+                return;
+            }
             if (currentTurn == TurnManager.turnPhases.Cutscene)
             {
                 Cutscene();
@@ -203,10 +207,8 @@ public class CombatExecutor : GridManager
 
     void Cutscene()
     {
-        Debug.Log("A");
         if (!(cutsceneDeconstruct is null))
         {
-            Debug.Log("B");
             if (cutsceneDeconstruct.CheckIfDone())
             {
                 Destroy(cutsceneDeconstruct);
@@ -214,10 +216,8 @@ public class CombatExecutor : GridManager
             }
         } else
         {
-            Debug.Log("C");
             if (DialogueContainerList.Count > 0)
             {
-                Debug.Log("D");
                 (DialogueContainer dialogueContainer, string sourceName, GameObject sourceObject) = DialogueContainerList[0];
                 DialogueContainerList.RemoveAt(0);
                 GameDataTracker.combatExecutor.cutsceneDeconstruct = ScriptableObject.CreateInstance<CutsceneDeconstruct>();
@@ -225,7 +225,6 @@ public class CombatExecutor : GridManager
             }
             else
             {
-                Debug.Log("E");
                 currentTurn = turnManager.NextTurn();
             }
         }

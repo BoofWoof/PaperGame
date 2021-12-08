@@ -327,4 +327,11 @@ public class GridManager : MonoBehaviour
             + new Vector3(1f, 5.8f, -8);
         combatCamera.transform.eulerAngles = new Vector3(30f, 0, 0);
     }
+
+    public void FocusOnCharacter(GameObject character)
+    {
+        combatCamera.transform.position = character.transform.position
+            + new Vector3(0, 3.8f, -8);
+        combatCamera.transform.eulerAngles = new Vector3(20f, 0, 0);
+    }
 }

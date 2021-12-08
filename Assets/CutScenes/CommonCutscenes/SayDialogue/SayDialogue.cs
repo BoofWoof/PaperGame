@@ -63,6 +63,10 @@ public class SayDialogue : CutSceneClass
         GameObject textbox = Resources.Load<GameObject>("TextBox");
         
         Character findCharacter = GameDataTracker.findCharacterByName(speakerName, GameDataTracker.CharacterList);
+        if(GameDataTracker.combatExecutor != null)
+        {
+            GameDataTracker.combatExecutor.FocusOnCharacter(findCharacter.CharacterObject);
+        }
         FriendlyNPCClass friendlyNPC = findCharacter.CharacterObject.GetComponent<FriendlyNPCClass>();
         if (friendlyNPC != null) {
             letter_noises = friendlyNPC.ObjectInfo.LetterNoises;
