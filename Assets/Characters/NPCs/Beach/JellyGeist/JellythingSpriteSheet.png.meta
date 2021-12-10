@@ -1,0 +1,684 @@
+fileFormatVersion: 2
+guid: b4950fad86410ed449904ec9da91f353
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4356630865931689034
+    second: JellythingSpriteSheet_0
+  - first:
+      213: 1074811234061972942
+    second: JellythingSpriteSheet_1
+  - first:
+      213: 6097881063895509811
+    second: JellythingSpriteSheet_2
+  - first:
+      213: 2558489106384834729
+    second: JellythingSpriteSheet_3
+  - first:
+      213: -4319200733724021735
+    second: JellythingSpriteSheet_4
+  - first:
+      213: 5298260890971805131
+    second: JellythingSpriteSheet_5
+  - first:
+      213: 1039711854622254561
+    second: JellythingSpriteSheet_6
+  - first:
+      213: 9119449755584049437
+    second: JellythingSpriteSheet_7
+  - first:
+      213: -6986232470680136845
+    second: JellythingSpriteSheet_8
+  - first:
+      213: 3647276423199501309
+    second: JellythingSpriteSheet_9
+  - first:
+      213: 3242640143477124575
+    second: JellythingSpriteSheet_10
+  - first:
+      213: -2038488931869689727
+    second: JellythingSpriteSheet_11
+  - first:
+      213: 1946138921244233606
+    second: JellythingSpriteSheet_12
+  - first:
+      213: -1396441446617209644
+    second: JellythingSpriteSheet_13
+  - first:
+      213: -4097743512380238002
+    second: JellythingSpriteSheet_14
+  - first:
+      213: -3661494393134815841
+    second: JellythingSpriteSheet_15
+  - first:
+      213: -8308887796876036744
+    second: JellythingSpriteSheet_16
+  - first:
+      213: 7551781598410562364
+    second: JellythingSpriteSheet_17
+  - first:
+      213: -5091401219387283776
+    second: JellythingSpriteSheet_18
+  - first:
+      213: 236869352136877862
+    second: JellythingSpriteSheet_19
+  - first:
+      213: 6248198297596469903
+    second: JellythingSpriteSheet_20
+  - first:
+      213: -449284928925792912
+    second: JellythingSpriteSheet_21
+  - first:
+      213: -4585017525706001485
+    second: JellythingSpriteSheet_22
+  - first:
+      213: -3554910254632508367
+    second: JellythingSpriteSheet_23
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: JellythingSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 519
+        width: 22
+        height: 232
+      alignment: 9
+      pivot: {x: 0.4999993, y: 0.9517625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b3a3a25f432a83c0800000000000000
+      internalID: -4356630865931689034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellythingSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 720
+        width: 82
+        height: 43
+      alignment: 9
+      pivot: {x: 0.08839081, y: 0.19016142}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec5fcde6f1f7aee00800000000000000
+      internalID: 1074811234061972942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellythingSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 609
+        width: 138
+        height: 164
+      alignment: 9
+      pivot: {x: 0.0687676, y: 0.05589555}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33ba218058600a450800000000000000
+      internalID: 6097881063895509811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellythingSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 677
+        width: 37
+        height: 108
+      alignment: 9
+      pivot: {x: 0.37997353, y: 0.039448492}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a056cb6944918320800000000000000
+      internalID: 2558489106384834729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellythingSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 503
+        width: 109
+        height: 280
+      alignment: 9
+      pivot: {x: 0.1740521, y: 0.8203905}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91ce5c811dd1f04c0800000000000000
+      internalID: -4319200733724021735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellythingSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 443
+        width: 24
+        height: 244
+      alignment: 9
+      pivot: {x: 0.4259828, y: 0.95138574}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc518bd7534378940800000000000000
+      internalID: 5298260890971805131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellythingSpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 609
+        width: 90
+        height: 91
+      alignment: 9
+      pivot: {x: 0.89476013, y: 0.09005771}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e5a5835c6ccd6e00800000000000000
+      internalID: 1039711854622254561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellythingSpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 614
+        width: 64
+        height: 49
+      alignment: 9
+      pivot: {x: 0.94410515, y: 0.08308753}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d113c9c5c3bce8e70800000000000000
+      internalID: 9119449755584049437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellythingSpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 268
+        width: 331
+        height: 311
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3739fc2259aeb0f90800000000000000
+      internalID: -6986232470680136845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellythingSpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 437
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfba672359abd9230800000000000000
+      internalID: 3647276423199501309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellythingSpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 376
+        width: 43
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdd206eb70c200d20800000000000000
+      internalID: 3242640143477124575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellythingSpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 289
+        width: 68
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1887759ed15d5b3e0800000000000000
+      internalID: -2038488931869689727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellythingSpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8
+        width: 266
+        height: 239
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68f035ca903120b10800000000000000
+      internalID: 1946138921244233606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellythingSpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 6
+        width: 43
+        height: 248
+      alignment: 9
+      pivot: {x: 0.50000215, y: 0.9584313}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d4afb827e7de9ce0800000000000000
+      internalID: -1396441446617209644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellythingSpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 0
+        width: 27
+        height: 217
+      alignment: 9
+      pivot: {x: 0.50000226, y: 0.9584313}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e471aeb7cf3e127c0800000000000000
+      internalID: -4097743512380238002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellythingSpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 202
+        width: 78
+        height: 58
+      alignment: 9
+      pivot: {x: 0.8188461, y: 0.6684544}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f956d16bf32cf2dc0800000000000000
+      internalID: -3661494393134815841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellythingSpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 71
+        width: 22
+        height: 94
+      alignment: 9
+      pivot: {x: 0.5403734, y: 0.877962}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87530a43296e0bc80800000000000000
+      internalID: -8308887796876036744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellythingSpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 43
+        width: 27
+        height: 148
+      alignment: 9
+      pivot: {x: 0.53289795, y: 0.92610097}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3bd79a4a515dc860800000000000000
+      internalID: 7551781598410562364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellythingSpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 24
+        width: 43
+        height: 107
+      alignment: 9
+      pivot: {x: 0.5000007, y: 0.89844984}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c62e6df095b759b0800000000000000
+      internalID: -5091401219387283776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellythingSpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 34
+        width: 43
+        height: 125
+      alignment: 9
+      pivot: {x: 0.5413137, y: 0.8979182}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 627ab48bb67894300800000000000000
+      internalID: 236869352136877862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellythingSpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 34
+        width: 22
+        height: 136
+      alignment: 9
+      pivot: {x: 0.5000028, y: 0.9375744}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f82207e4f3f06b650800000000000000
+      internalID: 6248198297596469903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellythingSpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 53
+        width: 28
+        height: 121
+      alignment: 9
+      pivot: {x: 0.50000656, y: 0.91107327}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0750170dcb1d3c9f0800000000000000
+      internalID: -449284928925792912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellythingSpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 99
+        width: 94
+        height: 82
+      alignment: 9
+      pivot: {x: 0.47165373, y: 0.8032915}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b37a535adebe50c0800000000000000
+      internalID: -4585017525706001485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JellythingSpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 16
+        width: 82
+        height: 60
+      alignment: 9
+      pivot: {x: 0.1858781, y: 0.692446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1346c3845fb6aaec0800000000000000
+      internalID: -3554910254632508367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 8392fccc995b8244cb098d99998d32a7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
