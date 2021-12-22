@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputObjectMap:
   - {fileID: 386772379045415104, guid: 5271d26b3184c524a86c4cb7d0de3ba9, type: 3}
+  - {fileID: 8664981896690795737, guid: 5bfb45c9d3fab6947a2fc82c3a7c88f8, type: 3}
   inputCharacterMap:
   - {fileID: 6641931711775295757, guid: 5e29e3a33733c464985bf0c20ea96dbf, type: 3}
   - {fileID: 8536509292922604207, guid: ce23875c6ded9e34192f094161f164bb, type: 3}

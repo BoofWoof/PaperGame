@@ -17,4 +17,9 @@ public class ObjectTemplate : CombatObject
             }
         }
     }
+
+    public virtual void Collect(PlayerFighter collector)
+    {
+
+    }
 }

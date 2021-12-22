@@ -161,15 +161,15 @@ public class GridManager : MonoBehaviour
             {
                 if(blockGrid[x,y] != null)
                 {
-                    blockGrid[x, y].GetComponent<GridObject>().DestoryObject();
+                    blockGrid[x, y].GetComponent<GridObject>().RemoveObject();
                 }
                 if(characterGrid[x,y] != null)
                 {
-                    characterGrid[x, y].GetComponent<GridObject>().DestoryObject();
+                    characterGrid[x, y].GetComponent<GridObject>().RemoveObject();
                 }
                 if (objectGrid[x, y] != null)
                 {
-                    objectGrid[x, y].GetComponent<GridObject>().DestoryObject();
+                    objectGrid[x, y].GetComponent<GridObject>().RemoveObject();
                 }
             }
         }

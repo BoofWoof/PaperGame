@@ -117,15 +117,18 @@ public class LevelEditorScript : MonoBehaviour
     public void TurnTieToggle()
     {
         GridManager.turnTie = !GridManager.turnTie;
+        Debug.Log(GridManager.turnTie);
     }
 
     public void PuzzleModeToggle()
     {
         GridManager.puzzleMode = !GridManager.puzzleMode;
+        Debug.Log(GridManager.puzzleMode);
     }
 
     public void DoublePuzzleModeToggle()
     {
         GridManager.doublePuzzleMode = !GridManager.doublePuzzleMode;
+        Debug.Log(GridManager.doublePuzzleMode);
     }
 }

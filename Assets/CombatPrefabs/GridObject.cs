@@ -57,7 +57,7 @@ public class GridObject : MonoBehaviour
         }
     }
 
-    public void DestoryObject()
+    public void RemoveObject()
     {
         RemoveObjectFromGrid();
         Destroy(gameObject);

@@ -191,7 +191,7 @@ public class GridCrafter : GridManager
                     {
                         if (ReplaceExisting)
                         {
-                            Grid[grid_pos.x, grid_pos.y].GetComponent<GridObject>().DestoryObject();
+                            Grid[grid_pos.x, grid_pos.y].GetComponent<GridObject>().RemoveObject();
                             CreateObject(Grid, grid_pos, PlaceObject, objectID);
                         }
                     }
@@ -205,7 +205,7 @@ public class GridCrafter : GridManager
                     GameObject currentObject = Grid[grid_pos.x, grid_pos.y];
                     if (!(currentObject is null))
                     {
-                        Grid[grid_pos.x, grid_pos.y].GetComponent<GridObject>().DestoryObject();
+                        Grid[grid_pos.x, grid_pos.y].GetComponent<GridObject>().RemoveObject();
                         Grid[grid_pos.x, grid_pos.y] = null;
                         if (DeletionReplacement != null)
                         {
@@ -296,14 +296,14 @@ public class GridCrafter : GridManager
                     GameObject character = characterGrid[x, y];
                     if (!(character is null))
                     {
-                        characterGrid[x,y].GetComponent<GridObject>().DestoryObject();
+                        characterGrid[x,y].GetComponent<GridObject>().RemoveObject();
                     }
                     GameObject Pobject = objectGrid[x, y];
                     if (!(Pobject is null))
                     {
-                        objectGrid[x, y].GetComponent<GridObject>().DestoryObject();
+                        objectGrid[x, y].GetComponent<GridObject>().RemoveObject();
                     }
-                    blockGrid[x, y].GetComponent<GridObject>().DestoryObject();
+                    blockGrid[x, y].GetComponent<GridObject>().RemoveObject();
                 }
             }
         }

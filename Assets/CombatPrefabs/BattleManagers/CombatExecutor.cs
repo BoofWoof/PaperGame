@@ -31,8 +31,8 @@ public class CombatExecutor : GridManager
     public Material spriteMaterial;
 
     //TurnManager
-    private TurnManager turnManager;
-    private TurnManager.turnPhases currentTurn;
+    public TurnManager turnManager;
+    public TurnManager.turnPhases currentTurn;
     private float turnLength = 10.0f;
     private float turnTimeLeft;
     private float startGameWait = 3.5f;
@@ -77,7 +77,7 @@ public class CombatExecutor : GridManager
 
         //Set Turn
         turnManager = ScriptableObject.CreateInstance<TurnManager>();
-        if(puzzleMode || doublePuzzleMode)
+        if(puzzleMode || doublePuzzleMode || turnTie)
         {
             if (turnTie)
             {
@@ -419,9 +419,14 @@ public class CombatExecutor : GridManager
         }
     }
 
-    void PlayerTurnStart(GameObject Player)
+    void PlayerTurnStart(GameObject player)
     {
-        FighterClass playerInfo = Player.GetComponent<FighterClass>();
+        if (player == null)
+        {
+            currentTurn = turnManager.NextTurn();
+            return;
+        }
+        FighterClass playerInfo = player.GetComponent<FighterClass>();
         FocusOnCharacter(playerInfo.pos);
         playerInfo.GetComponent<FighterClass>().TurnStart();
         currentTurn = turnManager.NextTurn();
@@ -431,17 +436,22 @@ public class CombatExecutor : GridManager
         }
     }
 
-    void PlayerTurn(GameObject character)
+    void PlayerTurn(GameObject player)
     {
-        FighterClass stats = character.GetComponent<FighterClass>();
+        if (player == null)
+        {
+            currentTurn = turnManager.NextTurn();
+            return;
+        }
+        FighterClass stats = player.GetComponent<FighterClass>();
         FocusOnCharacter(stats.pos);
         //If no option menu create one.
         if (currentMenu.Count == 0)
         {
-            movesetContainer moves = character.GetComponent<movesetContainer>();
+            movesetContainer moves = player.GetComponent<movesetContainer>();
 
             BattleMenu menu = ScriptableObject.CreateInstance<BattleMenu>();
-            menu.characterTarget = character;
+            menu.characterTarget = player;
             menu.characterHeight = stats.CharacterHeight;
             menu.characterWidth = stats.CharacterWidth;
             menu.movesList = moves.moves;
@@ -481,9 +491,14 @@ public class CombatExecutor : GridManager
         }
     }
 
-    void PlayerTurnEnd(GameObject Player)
+    void PlayerTurnEnd(GameObject player)
     {
-        FighterClass playerInfo = Player.GetComponent<FighterClass>();
+        if (player == null)
+        {
+            currentTurn = turnManager.NextTurn();
+            return;
+        }
+        FighterClass playerInfo = player.GetComponent<FighterClass>();
         blockGrid[(int)playerInfo.pos.x, (int)playerInfo.pos.y].GetComponent<BlockTemplate>().EndTurnOn(playerInfo);
         currentTurn = turnManager.NextTurn();
     }
@@ -536,7 +551,10 @@ public class CombatExecutor : GridManager
         LetClipMove(allEnemyMoveDone);
         LetPartnerMove(allEnemyMoveDone);
 
-        if ((turnTimeLeft <= 0 && Partner.GetComponent<FighterClass>().move is null && 
+        bool partnerReady = false;
+        if (Partner == null) partnerReady = true;
+        else partnerReady = Partner.GetComponent<FighterClass>().move is null;
+        if ((turnTimeLeft <= 0 && partnerReady && 
             Clip.GetComponent<FighterClass>().move is null && allEnemyMoveDone) || 
             EnemyList.Count == 0)
         {

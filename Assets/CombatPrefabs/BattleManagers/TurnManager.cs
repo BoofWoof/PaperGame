@@ -46,6 +46,7 @@ public class TurnManager : ScriptableObject
         turnQueue.Add(turnPhases.TurnTiePlayerWait);
         turnQueue.Add(turnPhases.TurnTieEnemyStart);
         turnQueue.Add(turnPhases.TurnTieEnemyWait);
+        turnQueue.Add(turnPhases.RoundOver);
         if (allGoal) goalType = 1;
         else goalType = 2;
         return turnQueue[0];
@@ -65,6 +66,11 @@ public class TurnManager : ScriptableObject
         turnQueue.Add(turnPhases.RoundOver);
         goalType = 0;
         return turnQueue[0];
+    }
+
+    public void EmptyList()
+    {
+        turnQueue = new List<turnPhases>();
     }
 
     private bool requiredEnemiesDead()
@@ -118,6 +124,7 @@ public class TurnManager : ScriptableObject
         if (goalType == 2)
         {
             bool allActive = true;
+            if (CombatExecutor.goalBlockList.Count == 0) allActive = false;
             foreach (GoalBlock goalBlock in CombatExecutor.goalBlockList)
             {
                 if (goalBlock.active == false)
