@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 804751d7c03844a4d8e72e8bb960ccc0, type: 3}
+  m_Name: ImpressedJumping
+  m_EditorClassIdentifier: 
+  StartingGUID: 2f20e047-6c53-4b0d-8880-19c860f399a4
+  NodeLinks:
+  - BaseNodeGuid: 5aa91bb6-fe04-44e8-aed2-11395aa6850c
+    PortName: Nah
+    TargetNodeGuid: 5b319429-0ea5-4102-a157-e2990548a288
+  - BaseNodeGuid: 5aa91bb6-fe04-44e8-aed2-11395aa6850c
+    PortName: Sure
+    TargetNodeGuid: 8f3a814f-54d3-4374-9041-77b7d7e40d1b
+  - BaseNodeGuid: 2f20e047-6c53-4b0d-8880-19c860f399a4
+    PortName: Next
+    TargetNodeGuid: 5aa91bb6-fe04-44e8-aed2-11395aa6850c
+  DialogueNodeData:
+  - Guid: 5aa91bb6-fe04-44e8-aed2-11395aa6850c
+    DialogueText: Wow, you [rainbow]jump[/rainbow] so good!  Can you teach me!
+    TargetPlayer: 
+    Position: {x: 250.66667, y: 196.66667}
+  - Guid: 5b319429-0ea5-4102-a157-e2990548a288
+    DialogueText: Never meet your heros.
+    TargetPlayer: 
+    Position: {x: 903.3333, y: 349.3333}
+  - Guid: 8f3a814f-54d3-4374-9041-77b7d7e40d1b
+    DialogueText: Liar!  My legs are [shaky]too[/shaky] short to jump.
+    TargetPlayer: 
+    Position: {x: 884, y: 128.66667}
+  AnimationTriggerNodeData: []
+  GetFlagNodeData: []
+  SetFlagNodeData: []
+  BooleanGetFlagNodeData: []
+  BooleanSetFlagNodeData: []
+  MoveToPosNodeData: []
+  ExposedProperties: []
+  Note: 

@@ -52,7 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   gravity: -30
-  jumpForce: 9.7
+  jumpForce: 7.4
   maxJumpHeight: 1.4
   sprite: {fileID: 5256251937599212462}
   spriteAnimate: {fileID: 8153344902050083832}
@@ -113,10 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectInfo: {fileID: 7196453240780273410}
-  OverrideTurning: 1
-  OverrideTalkRange: 1
   dialogue: {fileID: 0}
-  InputString: You didn't give me any text ya dingus.
   dialogueBubble: {fileID: 0}
   distanceToPlayer: 0
   readyForDialogue: 0

@@ -154,7 +154,6 @@ public class TextBoxController : MonoBehaviour
         {
             activeChoice.x = 0;
         }
-        print(activeChoice);
         choiceBoxes[(int)activeChoice.x + (int)activeChoice.y * 2].GetComponent<ChoiceController>().Select();
     }
 
@@ -307,7 +306,6 @@ public class TextBoxController : MonoBehaviour
 
         int materialindex = textinfo.characterInfo[0].materialReferenceIndex;
         newVertexColors = textinfo.meshInfo[materialindex].colors32;
-        Vector3[] vertexList = textinfo.meshInfo[materialindex].vertices;
 
         //Modify Text---------------------------
         foreach (ModifiedText textmodifier in modifierList)
@@ -325,9 +323,10 @@ public class TextBoxController : MonoBehaviour
                         myText.text = displayedText;
                     }
                 }
+                myText.ForceMeshUpdate();
+                Vector3[] vertexList = textinfo.meshInfo[materialindex].vertices;
                 if (textmodifier.MODIFICATION == textModifiers.Rainbow)
                 {
-                    myText.ForceMeshUpdate();
                     newVertexColors = textinfo.meshInfo[materialindex].colors32;
                     for (int i = textmodifier.START; i < textmodifier.END; i++)
                     {
@@ -350,6 +349,8 @@ public class TextBoxController : MonoBehaviour
                     {
                         if (displayedTextFull[i] != ' ')
                         {
+                            Debug.Log(i);
+                            Debug.Log(myText.textInfo.characterInfo.Length);
                             vertexIndex = myText.textInfo.characterInfo[i].vertexIndex;
                             float shakeUpdate = (updateCount + i * 30) % 500;
                             vertexList[vertexIndex + 0] += new Vector3(0f, 0f, Mathf.Sin(shakeUpdate * 6.283f / 500) * 0.05f);

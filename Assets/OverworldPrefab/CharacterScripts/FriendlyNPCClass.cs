@@ -91,7 +91,7 @@ public class FriendlyNPCClass : MonoBehaviour
             {
                 if (Bubble == null)
                 {
-                    Bubble = Instantiate(dialogueBubble, transform.position + new Vector3(0, 0.5f + height / 2, 0), Quaternion.identity);
+                    Bubble = Instantiate(dialogueBubble, transform.position + new Vector3(0, thisNPCCharacter.ObjectInfo.TextHeightOverObject + thisNPCCharacter.ObjectInfo.ObjectHeight, 0), Quaternion.identity);
                     Bubble.transform.SetParent(transform);
                     Bubble.transform.rotation = Quaternion.identity;
                 }
