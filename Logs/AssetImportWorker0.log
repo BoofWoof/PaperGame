@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2020.3/staging' branch; Version is '2020.3.16f1 (049d6eca3c44) revision 302446'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Pro; OS build 19044.1586; Version 2009; 64bit' Language: 'es' Physical Memory: 16297 MB
+OS: 'Windows 10 Pro; OS build 19044.1645; Version 2009; 64bit' Language: 'es' Physical Memory: 16297 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
  COMMAND LINE ARGUMENTS:
@@ -15,11 +15,11 @@ C:/Users/Usuario/Documents/Clip'sAdventuresInFantasyIsland/PaperGame
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-54305
+54009
 Successfully changed project path to: C:/Users/Usuario/Documents/Clip'sAdventuresInFantasyIsland/PaperGame
 C:/Users/Usuario/Documents/Clip'sAdventuresInFantasyIsland/PaperGame
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 114.99 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 117.07 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.16f1 (049d6eca3c44)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.16f1/Editor/Data/Resources/UnitySubsystems
@@ -36,37 +36,37 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.16f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.16f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.16f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56144
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56344
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.16f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001570 seconds.
+Registered in 0.001715 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 108.40 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 107.72 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.907 seconds
+- Completed reload, in  0.935 seconds
 Domain Reload Profiling:
-	ReloadAssembly (907ms)
-		BeginReloadAssembly (40ms)
+	ReloadAssembly (936ms)
+		BeginReloadAssembly (41ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (387ms)
-			LoadAssemblies (38ms)
+		EndReloadAssembly (396ms)
+			LoadAssemblies (39ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (115ms)
+			SetupTypeCache (121ms)
 			ReleaseScriptCaches (0ms)
 			RebuildScriptCaches (23ms)
-			SetupLoadedEditorAssemblies (195ms)
+			SetupLoadedEditorAssemblies (196ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (3ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (108ms)
 				BeforeProcessingInitializeOnLoad (6ms)
-				ProcessInitializeOnLoadAttributes (58ms)
+				ProcessInitializeOnLoadAttributes (59ms)
 				ProcessInitializeOnLoadMethodAttributes (20ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
@@ -74,34 +74,34 @@ Domain Reload Profiling:
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.006225 seconds.
+Registered in 0.006486 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 117.51 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 116.22 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.459 seconds
+- Completed reload, in  1.447 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1460ms)
-		BeginReloadAssembly (113ms)
+	ReloadAssembly (1448ms)
+		BeginReloadAssembly (115ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (17ms)
-		EndReloadAssembly (1293ms)
-			LoadAssemblies (88ms)
+		EndReloadAssembly (1280ms)
+			LoadAssemblies (87ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (338ms)
+			SetupTypeCache (333ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (78ms)
-			SetupLoadedEditorAssemblies (685ms)
+			RebuildScriptCaches (76ms)
+			SetupLoadedEditorAssemblies (681ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (3ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (118ms)
-				BeforeProcessingInitializeOnLoad (108ms)
-				ProcessInitializeOnLoadAttributes (308ms)
+				RefreshPlugins (116ms)
+				BeforeProcessingInitializeOnLoad (109ms)
+				ProcessInitializeOnLoadAttributes (306ms)
 				ProcessInitializeOnLoadMethodAttributes (142ms)
 				AfterProcessingInitializeOnLoad (5ms)
 				EditorAssembliesLoaded (0ms)
@@ -111,15 +111,15 @@ Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 1.68 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 1.38 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 5845 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 349.7 MB.
+System memory in use before: 349.6 MB.
 System memory in use after: 349.7 MB.
 
 Unloading 67 unused Assets to reduce memory usage. Loaded Objects now: 6267.
-Total: 8.069200 ms (FindLiveObjects: 0.721500 ms CreateObjectMapping: 0.164400 ms MarkObjects: 6.943400 ms  DeleteObjects: 0.237400 ms)
+Total: 6.877800 ms (FindLiveObjects: 0.669600 ms CreateObjectMapping: 0.158200 ms MarkObjects: 5.862200 ms  DeleteObjects: 0.186900 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -133,138 +133,2128 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/Characters/Clip/SpritesAnimations/JumpRight.anim
-  artifactKey: Guid(de9d7d23f410dd94cb2bf4f153e59225) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/Clip/SpritesAnimations/JumpRight.anim using Guid(de9d7d23f410dd94cb2bf4f153e59225) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0cfd34ed30df40350bf22f95125251d0') in 0.039535 seconds 
-  Import took 0.049834 seconds .
+  path: Assets/GameUI
+  artifactKey: Guid(bcad4edd0dbcf6c43a3a7dd109122a6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI using Guid(bcad4edd0dbcf6c43a3a7dd109122a6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb7e470cc30f42d44d390937bf495903') in 0.016266 seconds 
+  Import took 0.026152 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 275.393214 seconds.
-  path: Assets/Characters/Clip/SpritesAnimations/MCIdle.controller
-  artifactKey: Guid(c9f43f44136a3e243ade573feed61690) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/Clip/SpritesAnimations/MCIdle.controller using Guid(c9f43f44136a3e243ade573feed61690) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1abaa8d501a2dff2d4baf5908bbfa142') in 0.015033 seconds 
-  Import took 0.023962 seconds .
+  Time since last request: 9.645103 seconds.
+  path: Assets/GameUI/MinigameTimerA
+  artifactKey: Guid(5c1a578f852266648a20a81026bc4ba9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA using Guid(5c1a578f852266648a20a81026bc4ba9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '002c134d1adad333be20cc62237271b4') in 0.004188 seconds 
+  Import took 0.013598 seconds .
 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.006961 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.74 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.343 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1343ms)
-		BeginReloadAssembly (136ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (5ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (47ms)
-		EndReloadAssembly (1150ms)
-			LoadAssemblies (89ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (361ms)
-			ReleaseScriptCaches (3ms)
-			RebuildScriptCaches (85ms)
-			SetupLoadedEditorAssemblies (474ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (117ms)
-				ProcessInitializeOnLoadAttributes (316ms)
-				ProcessInitializeOnLoadMethodAttributes (30ms)
-				AfterProcessingInitializeOnLoad (5ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (12ms)
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.43 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5447 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 322.9 MB.
-System memory in use after: 323.0 MB.
-
-Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 6269.
-Total: 6.458600 ms (FindLiveObjects: 0.525600 ms CreateObjectMapping: 0.146400 ms MarkObjects: 5.623400 ms  DeleteObjects: 0.162000 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 246.164981 seconds.
-  path: Assets/Characters/Clip/SpritesAnimations/ClipJumping.anim
-  artifactKey: Guid(ef4d5de8a7a91d04f951c9b244b284d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Characters/Clip/SpritesAnimations/ClipJumping.anim using Guid(ef4d5de8a7a91d04f951c9b244b284d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bbdd36a313e70d6f64aef18e4ba8ac18') in 0.034854 seconds 
-  Import took 0.043861 seconds .
+  Time since last request: 26.402802 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClock1.png
+  artifactKey: Guid(3e6ea9de3ede73f4989217c992ad9bd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClock1.png using Guid(3e6ea9de3ede73f4989217c992ad9bd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f4517ba40e34958f593d26f1e22c26d') in 0.072668 seconds 
+  Import took 0.081633 seconds .
 
 ========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.006609 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.41 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.227 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1227ms)
-		BeginReloadAssembly (123ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (42ms)
-		EndReloadAssembly (1048ms)
-			LoadAssemblies (85ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (315ms)
-			ReleaseScriptCaches (3ms)
-			RebuildScriptCaches (79ms)
-			SetupLoadedEditorAssemblies (434ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (107ms)
-				ProcessInitializeOnLoadAttributes (286ms)
-				ProcessInitializeOnLoadMethodAttributes (30ms)
-				AfterProcessingInitializeOnLoad (5ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (12ms)
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.44 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5447 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 323.0 MB.
-System memory in use after: 323.1 MB.
+Received Import Request.
+  Time since last request: 9.217352 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClock1.png
+  artifactKey: Guid(3e6ea9de3ede73f4989217c992ad9bd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClock1.png using Guid(3e6ea9de3ede73f4989217c992ad9bd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b652ae8b5645206c4b390a0d9c55ef45') in 0.014600 seconds 
+  Import took 0.024971 seconds .
 
-Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 6271.
-Total: 6.977100 ms (FindLiveObjects: 0.540300 ms CreateObjectMapping: 0.169600 ms MarkObjects: 6.078600 ms  DeleteObjects: 0.186900 ms)
+========================================================================
+Received Import Request.
+  Time since last request: 32.131679 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClock1.png
+  artifactKey: Guid(3e6ea9de3ede73f4989217c992ad9bd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClock1.png using Guid(3e6ea9de3ede73f4989217c992ad9bd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d28a7218530b0034a0fe5ddddb7f37c') in 0.059310 seconds 
+  Import took 0.069003 seconds .
 
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 10.631790 seconds.
+  path: Assets/GameUI/MinigameTimerA/GameObject.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/GameObject.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ca323337f95e974c7a8c87960fb907f') in 0.013697 seconds 
+  Import took 0.023947 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.540472 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7eab6fbb42c70622f0cdce3ec3357780') in 0.007402 seconds 
+  Import took 0.017107 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.689453 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+ -> (artifact id: 'c5e0ce7e88618275d2f980cdcfb80ce9') in 1.193014 seconds 
+  Import took 1.203785 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.995653 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77757a28bfb8298aed0f5e6905367ebc') in 0.029766 seconds 
+  Import took 0.040226 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.602093 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '88b7be6ed710caa5f19771ed0e0266d4') in 0.030354 seconds 
+  Import took 0.040438 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.006519 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '88b7be6ed710caa5f19771ed0e0266d4') in 0.030741 seconds 
+  Import took 0.039837 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.373038 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae16a0fb6e1dc54b8a58761207605ddc') in 0.028002 seconds 
+  Import took 0.038412 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.574419 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1b659a7d8b4d458d3416bf47f2f5724') in 0.028025 seconds 
+  Import took 0.038398 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.178788 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2497ff1756fb22bbcf9452eb3fbd8832') in 0.041722 seconds 
+  Import took 0.053469 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.569093 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0f5fc0994af2dcf6663db9e61e441f1') in 0.027541 seconds 
+  Import took 0.038055 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.612457 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f4ad2a57c7bcf10456b1ef82a115c70b') in 0.031706 seconds 
+  Import took 0.042418 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.596128 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5838bd90720353fcc694e4d1f12252e') in 0.028401 seconds 
+  Import took 0.037953 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.780935 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd8ea110e8c9ca8a47f0da3da6e57d0c5') in 0.028770 seconds 
+  Import took 0.038824 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.988279 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af2e485dc399cd89d4dfee80b5b84a19') in 0.029004 seconds 
+  Import took 0.038769 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.004772 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d154bc45a072308e6dd6971c17c06c6') in 0.028990 seconds 
+  Import took 0.038307 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.607432 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69c3d619f21b71d8b26cd13f6c514c5c') in 0.027710 seconds 
+  Import took 0.037709 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.794759 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '183db7ca0aaa812b8b96435fbfdd9332') in 0.031703 seconds 
+  Import took 0.041090 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.155215 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56ec8c4db8b8dfad351aa74458c576c0') in 0.027379 seconds 
+  Import took 0.036178 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.974712 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4021a79b6e2fdf1992f6ed6be94f654f') in 0.027983 seconds 
+  Import took 0.038241 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.983913 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be498a2ef107aea494424882315a5765') in 0.026687 seconds 
+  Import took 0.037419 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.600944 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4cfdcfd79df9a174fe9ebbf7deab5aea') in 0.034239 seconds 
+  Import took 0.045271 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.782940 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '476bcc9b9dcb470d4071a5daed45cfe0') in 0.027681 seconds 
+  Import took 0.037522 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.408140 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f21fda67dbb425183f0486bce2cd8570') in 0.025420 seconds 
+  Import took 0.035364 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.718128 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a18c335ab44a6f680eda468823211d08') in 0.026384 seconds 
+  Import took 0.036352 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.005519 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95c3798c01c42d9d16849863db77e439') in 0.026351 seconds 
+  Import took 0.036162 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.308695 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b0bfb65eaa2d22a5b9189742240c198') in 0.029484 seconds 
+  Import took 0.039550 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 27.857073 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '91837b22481e1d91e6c1059dcb821e16') in 0.032944 seconds 
+  Import took 0.042572 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 21.768302 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3293c3028bf305018fc2c15ec38d9f2d') in 0.026962 seconds 
+  Import took 0.037226 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 39.513978 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb1b56c78e4c329fc3b1dd2b0d776de8') in 0.026802 seconds 
+  Import took 0.035912 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.637877 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9347b342df66e33865c4eee3f9aacb9c') in 0.026032 seconds 
+  Import took 0.036078 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 84.455482 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe549170a37da76def310759f9a4dd2d') in 0.034875 seconds 
+  Import took 0.045470 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.352400 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98a138d8d709f09bda010a66d8e7960a') in 0.027554 seconds 
+  Import took 0.037841 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.675682 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd512b6ecd90b6c6d3ae8c3d6e1afbbbc') in 0.026156 seconds 
+  Import took 0.036126 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 82.485026 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd36482795a95701cd372d898814f4e1') in 0.035729 seconds 
+  Import took 0.045258 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 18.763307 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b64cd470d27bec80779fe8dbf284c067') in 0.027746 seconds 
+  Import took 0.036787 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 19.633680 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14041d42e2565f743570a59dd537bde7') in 0.031774 seconds 
+  Import took 0.041801 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.648250 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4cf2234b3e896f235d80845744644c90') in 0.030857 seconds 
+  Import took 0.040783 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.707313 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c808004b55ecdbe7bffc6906902808b') in 0.033155 seconds 
+  Import took 0.043530 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.579225 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '882ae50165d7d1294cbf50042aa4e913') in 0.027578 seconds 
+  Import took 0.037671 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.395577 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '61cf3448a6651a84f679a26404cb83e5') in 0.031587 seconds 
+  Import took 0.042151 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.860447 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e31c5941612a7ae5f1164559799a376') in 0.032741 seconds 
+  Import took 0.043289 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.055208 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5be39c7a88532d42da04caae30bffa8') in 0.029217 seconds 
+  Import took 0.038117 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.989717 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75ef2cde3966010af48a223bc689d9e9') in 0.029837 seconds 
+  Import took 0.039938 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 23.811596 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6091eb78323a0e1ac6a826455356c4c2') in 0.031195 seconds 
+  Import took 0.041143 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.041839 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6cc17069f1f87c9ae31873c6d85163a') in 0.033053 seconds 
+  Import took 0.043104 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.263819 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76d4890439acde177c61051fab8e5708') in 0.033680 seconds 
+  Import took 0.043526 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.455154 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12407a61b79d3d36e0dd27608712000e') in 0.030281 seconds 
+  Import took 0.039244 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.430905 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5a0f5c827623bd3a8bafc20ad7d2a4c') in 0.030857 seconds 
+  Import took 0.040944 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 123.999506 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '948fbe942b7f635aa3cd8c9f075d553c') in 0.027486 seconds 
+  Import took 0.037730 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.398372 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a81c2959b1914d96b0c8713a7f0b5b3b') in 0.024039 seconds 
+  Import took 0.033279 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.391089 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '795059d1a35336f6f91cb5439a4150e4') in 0.025413 seconds 
+  Import took 0.035729 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 59.366542 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44206cb036e064dae874f8589b6364cb') in 0.044365 seconds 
+  Import took 0.054834 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.779231 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ba943b2adf5f49a445187dfc7fa5cf4') in 0.024456 seconds 
+  Import took 0.035124 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.412192 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c4d838a90a1ea8eabd30877b10fa8d7') in 0.025945 seconds 
+  Import took 0.036330 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 24.836534 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '618b19f56c57fd94efec0015c92de3bf') in 0.026980 seconds 
+  Import took 0.037270 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.797405 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '055f3c55e563960f5706e47ed521c567') in 0.025210 seconds 
+  Import took 0.035403 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.771727 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c810de72a0e47792438860b80f402e12') in 0.026991 seconds 
+  Import took 0.037629 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 38.188559 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9091eee8521bf6178574bec37e45499a') in 0.031835 seconds 
+  Import took 0.042550 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.572117 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49de615274da785e520868148b61f90f') in 0.033108 seconds 
+  Import took 0.042947 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.286662 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5106f83b9bf9cf032d0c38022c03d3a5') in 0.026596 seconds 
+  Import took 0.036688 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.996820 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '41d34e0032b48972fde804b945a32327') in 0.024257 seconds 
+  Import took 0.034422 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.590613 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14f493dbd8dc2b96bd1ba24488f982e3') in 0.025986 seconds 
+  Import took 0.036482 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.255374 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad241c61468c8cd40b2e147f569d6fff') in 0.025723 seconds 
+  Import took 0.036183 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.732001 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '361f064cefa70af1936954df73ef0a4e') in 0.005163 seconds 
+  Import took 0.014191 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.016056 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c02302ed0e3d735ae8c0229f10cdd5d3') in 0.026323 seconds 
+  Import took 0.036440 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.179826 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd8faf1799c7f2cb1e2d279e77aa67c1') in 0.027959 seconds 
+  Import took 0.038305 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.570717 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad1e2196cf6b6d4296c44660b3912d10') in 0.027269 seconds 
+  Import took 0.036414 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.385937 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0cc5b44b4b5e84e530961735f083e06f') in 0.032412 seconds 
+  Import took 0.042609 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.187211 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4146ad6a0bf840398dc3b135c9e9eeb3') in 0.028013 seconds 
+  Import took 0.038074 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.978807 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '18030307a28449ffc8ede6efcb3d3573') in 0.041751 seconds 
+  Import took 0.051697 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.973803 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9ef743547d29fd7179eaa6b1771b6a0') in 0.025833 seconds 
+  Import took 0.035835 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.592050 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9c89e701492ad5e645d4b71b0feaa17') in 0.027549 seconds 
+  Import took 0.037388 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.389432 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c448caf9302145d8126d469afc03d74') in 0.027127 seconds 
+  Import took 0.037580 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.573408 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1efc75617204e7286b20ec9bcfaa7395') in 0.027686 seconds 
+  Import took 0.037692 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.366554 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a403e185f5264f03d5d35d1858f2d784') in 0.028126 seconds 
+  Import took 0.038334 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.801254 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2300170d3cace04d8673aa3aeeb0fa63') in 0.029528 seconds 
+  Import took 0.038493 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.775880 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6de05dbe63e17668f9195272914702f8') in 0.026331 seconds 
+  Import took 0.035566 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.792385 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53c159c4bbcdcc1888e7de633449a046') in 0.033182 seconds 
+  Import took 0.042569 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.623710 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5af72afb2bf4691732140cf4231ad6d5') in 0.034869 seconds 
+  Import took 0.045051 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.382855 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43eeae7c6ace485fd750e9037fe7232b') in 0.028073 seconds 
+  Import took 0.037224 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.198303 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f51a35052f3ec41b3dbc8d772c3e96a') in 0.027232 seconds 
+  Import took 0.037624 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.224804 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53096247cbeab730302f50d182f0516e') in 0.027820 seconds 
+  Import took 0.037968 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.229307 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb0e9595b838e3d1378677404cc3ac0d') in 0.028347 seconds 
+  Import took 0.039215 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.172701 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7cdc9df97164c25bdefd0324f3d147de') in 0.029210 seconds 
+  Import took 0.039326 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.189821 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9040d378b63ab89f0a4c8ba314407a5a') in 0.028197 seconds 
+  Import took 0.037833 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.382222 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df516c4b64de759fbe6fd9bf7e411d28') in 0.026552 seconds 
+  Import took 0.035525 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.974388 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f489685c6b7aac0fa5d069874c9f8f74') in 0.041485 seconds 
+  Import took 0.050709 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.229730 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9970d4d7a0d8817c9abd297f619231b4') in 0.026953 seconds 
+  Import took 0.036904 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.582893 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b2de7a3d768d10d1334586ddea30309') in 0.032204 seconds 
+  Import took 0.041752 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.174575 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bbe1cc6e44251f95fb2b8d1e684acb10') in 0.031975 seconds 
+  Import took 0.041345 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.560782 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83179b4e3552c4aed21a40b2e52fc116') in 0.027772 seconds 
+  Import took 0.037587 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 179.470483 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3570255e37035fcd019f97a3d2fee66') in 0.031066 seconds 
+  Import took 0.041639 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.999144 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4b46c3521d168d44df6c32896a01ccf') in 0.028836 seconds 
+  Import took 0.039708 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.608414 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '201edd0d2098e81547aff54f757a1aa2') in 0.026812 seconds 
+  Import took 0.037592 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.168677 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94ef26d920a5fe495907427f5dd4d341') in 0.026556 seconds 
+  Import took 0.035579 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.820658 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38191b2570572ec36c5480ed0a9f1c1a') in 0.027560 seconds 
+  Import took 0.038127 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003455 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38191b2570572ec36c5480ed0a9f1c1a') in 0.026892 seconds 
+  Import took 0.036220 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.992295 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e6bd924e4d255d6fe99b3cc3aebffac') in 0.026777 seconds 
+  Import took 0.037229 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.047299 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd48f193929c2699d1d90eaae9649859') in 0.030193 seconds 
+  Import took 0.040724 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.208105 seconds.
+  path: Assets/Other/Textures/TestTextures/text-box-dialog-box-clip-art-text-box.jpg
+  artifactKey: Guid(4db9baf82a70fa44086a09edd4715878) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Other/Textures/TestTextures/text-box-dialog-box-clip-art-text-box.jpg using Guid(4db9baf82a70fa44086a09edd4715878) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '432d78c47cba5d72b88a22f2984688ac') in 0.041902 seconds 
+  Import took 0.051955 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000239 seconds.
+  path: Assets/OldAssets/OldSprites/Werewolf/Big/WerewolfPartnerBigSpriteSheet.png
+  artifactKey: Guid(315646803fc107048a5de449700da57a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OldAssets/OldSprites/Werewolf/Big/WerewolfPartnerBigSpriteSheet.png using Guid(315646803fc107048a5de449700da57a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c526a41ffcc3b9adcc2cf086f859c826') in 0.096988 seconds 
+  Import took 0.106657 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000187 seconds.
+  path: Assets/Pickups/Badges/BadgeSprites/VitaCapsuleMedal.png
+  artifactKey: Guid(efa6403e9f0f3914aa82f64b03f4411c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Pickups/Badges/BadgeSprites/VitaCapsuleMedal.png using Guid(efa6403e9f0f3914aa82f64b03f4411c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6ff3dfc5e47a5eabc90e7de3402135e') in 0.027104 seconds 
+  Import took 0.036267 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000264 seconds.
+  path: Assets/Pickups/Items/ItemSprites/UfoBoba.png
+  artifactKey: Guid(495b9054387d79a4dbd489052ae470d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Pickups/Items/ItemSprites/UfoBoba.png using Guid(495b9054387d79a4dbd489052ae470d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1775ca772afd993250e7f55c5ca45d01') in 0.021657 seconds 
+  Import took 0.030369 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000192 seconds.
+  path: Assets/Other/Textures/TestTextures/text-box-dialog-box-clip-art-text-box.jpg
+  artifactKey: Guid(4db9baf82a70fa44086a09edd4715878) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Other/Textures/TestTextures/text-box-dialog-box-clip-art-text-box.jpg using Guid(4db9baf82a70fa44086a09edd4715878) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '432d78c47cba5d72b88a22f2984688ac') in 0.016549 seconds 
+  Import took 0.025845 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.825397 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3a75536511cf8b411f65f9f5923f49b') in 0.031377 seconds 
+  Import took 0.041421 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 21.814122 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9fb8b0e6ab1148330934b50b01f92fc') in 0.027893 seconds 
+  Import took 0.037096 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.912762 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29e6d28baea0cb34e4138b0210ced680') in 0.035490 seconds 
+  Import took 0.045937 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 55.920744 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69d450f2e18c1a553f5a5614b70c82b4') in 0.006011 seconds 
+  Import took 0.015276 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.803089 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1df94e19bf59f80f2183a56dc46984d1') in 0.005740 seconds 
+  Import took 0.015049 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.192574 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd80f1bd7bcb7d5b9498446bdafae5932') in 0.005585 seconds 
+  Import took 0.015131 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 31.654580 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7476398100cf4a53eb0203e0e2ab25c1') in 0.006509 seconds 
+  Import took 0.016213 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.901586 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '639631a0119b109258248c4125623e34') in 0.036617 seconds 
+  Import took 0.046827 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 23.004719 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a506ccb259bc54fc90f639dc99570750') in 0.006694 seconds 
+  Import took 0.015907 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.716613 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0ec9033d0bc2f26894d38179f9efc1a') in 0.006556 seconds 
+  Import took 0.016037 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.841969 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9adcd8f9b1e1ade464ccbc8848b32155') in 0.005919 seconds 
+  Import took 0.015458 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.728498 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00caa76c1adfa8be19ba4e3ba5754409') in 0.005736 seconds 
+  Import took 0.019408 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.160671 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a072b9aa7b7146c35aaf655a4272f374') in 0.006311 seconds 
+  Import took 0.018781 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.045598 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f52bc418448fde69cbd87da74daf2e7b') in 0.005423 seconds 
+  Import took 0.013871 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.987895 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de8cc2aaf3de93edc1b7a03d8ed2c86f') in 0.005482 seconds 
+  Import took 0.014941 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.911582 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '144422226a1b1d93c45ecfc576af17a9') in 0.006080 seconds 
+  Import took 0.015747 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.011898 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb2306c315e1e31e77123a8f91e09dba') in 0.006294 seconds 
+  Import took 0.015485 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.248885 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03941025c94fc5b3c0d10478f327b7c9') in 0.006090 seconds 
+  Import took 0.015374 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.235193 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '65777b98e27202451be49f1d0f6bbbba') in 0.005880 seconds 
+  Import took 0.017946 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.647236 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f96d7f4d21e4e099f85c95692965b05d') in 0.005298 seconds 
+  Import took 0.014529 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.394697 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03dce0f8723fc3d88420398de19f1bf2') in 0.005285 seconds 
+  Import took 0.014789 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.210669 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2088af00e067832cdeafb2c01dcc06ff') in 0.005867 seconds 
+  Import took 0.015214 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.265767 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c852c034452f94491cffac18ed1a597b') in 0.007058 seconds 
+  Import took 0.016453 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.995670 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fae48195ffc81836411cf42190a48591') in 0.005316 seconds 
+  Import took 0.014922 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.036752 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b3d6983091a027b3584cad0f61e46c04') in 0.005607 seconds 
+  Import took 0.016373 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.784912 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4e959e86759eadff75c696ecf1c883c') in 0.006223 seconds 
+  Import took 0.015487 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.991504 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cea36775e914d297240a5dd90a72ed48') in 0.005470 seconds 
+  Import took 0.015078 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.196907 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0566e81d41402dc291d0bef12081a516') in 0.005662 seconds 
+  Import took 0.014691 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.415140 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e46f4e671e04d86239197ab8a2328d9') in 0.006008 seconds 
+  Import took 0.015163 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.395047 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e3928f9879613e9fc3fd8b6a09afe98') in 0.005465 seconds 
+  Import took 0.015188 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.998693 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14673a10623bc3fb4e74fd57604c96bc') in 0.006119 seconds 
+  Import took 0.014968 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.201468 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9a85b7ff9158bace319be71585d8149') in 0.006198 seconds 
+  Import took 0.015166 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.715522 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b3b96e87357d4a9d0f149aa35386e0b4') in 0.005925 seconds 
+  Import took 0.014953 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.642098 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6bbc9028f414840bc66cc07b419e8047') in 0.032794 seconds 
+  Import took 0.043006 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.974489 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c969bf695d12f617d58c4d571b5f2650') in 0.029462 seconds 
+  Import took 0.039903 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.359847 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c17fe11d106439c783b370a697bb31bd') in 0.030314 seconds 
+  Import took 0.041118 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.387157 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e2c69e3c72e5e2f50fd50552e583832') in 0.054027 seconds 
+  Import took 0.064366 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.384521 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ae1d32e190bbf3ac2760aaf7c5c3cf2') in 0.043089 seconds 
+  Import took 0.053701 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.368599 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5baff6620d4b636ebff724c07cc607f3') in 0.027082 seconds 
+  Import took 0.036473 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.602203 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae93dd56a0f7c8ca0868a2e39576c74f') in 0.035191 seconds 
+  Import took 0.044953 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.916170 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e64b2bf7a136d0c32f3270c66469e2b') in 0.028499 seconds 
+  Import took 0.038986 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.368332 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5a96a7f251a72449199246f24a8642d') in 0.028066 seconds 
+  Import took 0.038669 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.414546 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01054b191775cfb7770bc953d7c6ff2f') in 0.041702 seconds 
+  Import took 0.051503 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.372433 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94b57df9699326de88c12416b7739c02') in 0.028500 seconds 
+  Import took 0.039246 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.772969 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2dbad1c7c3e7ac54749e923c608be70') in 0.027441 seconds 
+  Import took 0.037917 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.588283 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5cf4335d721a8f1e0f30ce59409db33') in 0.029536 seconds 
+  Import took 0.039079 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.004012 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2006d805ce5aa598443e5207bd4d60ba') in 0.030433 seconds 
+  Import took 0.039866 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.557159 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f967b473efe83637092a05476f2c934') in 0.025152 seconds 
+  Import took 0.034509 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.380937 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd3924a8b648737ac9b26fcb74d236812') in 0.027683 seconds 
+  Import took 0.038461 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.307742 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f88a55235b33a22c527e9e59ef0d9022') in 0.027312 seconds 
+  Import took 0.038727 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.589509 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6820491f6b53ee259d5b89163d0c9856') in 0.026392 seconds 
+  Import took 0.035587 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.644381 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '111bca15bb7951863d851a78881c25e1') in 0.027081 seconds 
+  Import took 0.037633 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.783506 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3264c3644f6b81cfd3f8e8c0b6aad2a0') in 0.027318 seconds 
+  Import took 0.037475 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.612779 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a23f88db93fac48d98142bd9115b0b0') in 0.028859 seconds 
+  Import took 0.038228 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 72.996649 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46264c6b1e1b56120e1db42f419ed566') in 0.027238 seconds 
+  Import took 0.036897 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.764600 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc0007a98a88d4f1667d34f9dc0f8aa4') in 0.026984 seconds 
+  Import took 0.037150 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 39.067765 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4890d2f157c3ac8ad7ef6d1affdf5024') in 0.028884 seconds 
+  Import took 0.038187 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.637748 seconds.
+  path: Assets/CombatPrefabs/Abilities/DebugAbilities/TileIndicator.mat
+  artifactKey: Guid(176f95ca553fd644ba02f20c019237d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CombatPrefabs/Abilities/DebugAbilities/TileIndicator.mat using Guid(176f95ca553fd644ba02f20c019237d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9739c05303ff761450f9d62d33766ff0') in 0.060461 seconds 
+  Import took 0.070789 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/OverworldPrefab/CommonObjects/Crates/TwoxTwoCrate/SecretMaterials/Wood2Appear.mat
+  artifactKey: Guid(2c52d241fd459074db14f55066d17924) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/CommonObjects/Crates/TwoxTwoCrate/SecretMaterials/Wood2Appear.mat using Guid(2c52d241fd459074db14f55066d17924) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'afaaed8f88a1bd8e1f692fc4a06b918a') in 0.037447 seconds 
+  Import took 0.047771 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/CombatPrefabs/CombatBlocks/Blocks/ZapWall/materials/ZapCrystalOn.mat
+  artifactKey: Guid(a34df38456e58a14ea6203263e57d07c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CombatPrefabs/CombatBlocks/Blocks/ZapWall/materials/ZapCrystalOn.mat using Guid(a34df38456e58a14ea6203263e57d07c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2894bacf3fbf1ae032dc03ebc7c53519') in 0.038903 seconds 
+  Import took 0.048974 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000149 seconds.
+  path: Assets/OverworldPrefab/CommonObjects/Barricade/Materials/Wood.mat
+  artifactKey: Guid(1f520c41bb1579149a0d32dc8762ed8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/CommonObjects/Barricade/Materials/Wood.mat using Guid(1f520c41bb1579149a0d32dc8762ed8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec0029ffa02812460a3eec5d87fb0bd6') in 0.038006 seconds 
+  Import took 0.047249 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000181 seconds.
+  path: Assets/CombatPrefabs/CombatBlocks/Blocks/ZapWall/materials/ZapCrystalOn.mat
+  artifactKey: Guid(a34df38456e58a14ea6203263e57d07c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CombatPrefabs/CombatBlocks/Blocks/ZapWall/materials/ZapCrystalOn.mat using Guid(a34df38456e58a14ea6203263e57d07c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2894bacf3fbf1ae032dc03ebc7c53519') in 0.026760 seconds 
+  Import took 0.036089 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000194 seconds.
+  path: Assets/OverworldPrefab/CommonObjects/Crates/TwoxTwoCrate/Materials/Wood0.mat
+  artifactKey: Guid(fd32904a3f224a946a0fe30e4bd54e66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/CommonObjects/Crates/TwoxTwoCrate/Materials/Wood0.mat using Guid(fd32904a3f224a946a0fe30e4bd54e66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d7f28ae78b5bf75c05f57297da03087') in 0.036990 seconds 
+  Import took 0.046291 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000227 seconds.
+  path: Assets/CombatPrefabs/CombatBlocks/Blocks/ZapWall/materials/ZapCrystalOff.mat
+  artifactKey: Guid(ed0dac4e21adff24d8cddca528f4dec4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CombatPrefabs/CombatBlocks/Blocks/ZapWall/materials/ZapCrystalOff.mat using Guid(ed0dac4e21adff24d8cddca528f4dec4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7876380645c38cc43654a6c28659d055') in 0.041310 seconds 
+  Import took 0.050805 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000195 seconds.
+  path: Assets/OverworldPrefab/CommonObjects/Crates/TwoxTwoCrate/Materials/Wood2.mat
+  artifactKey: Guid(87c83578d750d0049a2af14efda71fdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/CommonObjects/Crates/TwoxTwoCrate/Materials/Wood2.mat using Guid(87c83578d750d0049a2af14efda71fdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d9cbd9be61711ee021fafdd7d2db96c') in 0.030621 seconds 
+  Import took 0.039706 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000247 seconds.
+  path: Assets/OverworldPrefab/CommonObjects/Crates/TwoxTwoCrate/SecretMaterials/Wood1Appear.mat
+  artifactKey: Guid(1028daa49fcd2064fbf0b50ba988893b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/CommonObjects/Crates/TwoxTwoCrate/SecretMaterials/Wood1Appear.mat using Guid(1028daa49fcd2064fbf0b50ba988893b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '965efe5deba78afd310c2f4c456b0dc1') in 0.033558 seconds 
+  Import took 0.043543 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000162 seconds.
+  path: Assets/CombatPrefabs/CombatBlocks/Blocks/ZapWall/materials/ZapMetal.mat
+  artifactKey: Guid(f46b3ad35b3eb93458bab5f5e2991e67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CombatPrefabs/CombatBlocks/Blocks/ZapWall/materials/ZapMetal.mat using Guid(f46b3ad35b3eb93458bab5f5e2991e67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '761121eab42beb164b7004db376b8d98') in 0.044606 seconds 
+  Import took 0.053451 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000192 seconds.
+  path: Assets/OverworldPrefab/CommonObjects/Crates/TwoxTwoCrate/Materials/Wood1.mat
+  artifactKey: Guid(59c97f740fe185d4cbc6e399d63d9670) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/CommonObjects/Crates/TwoxTwoCrate/Materials/Wood1.mat using Guid(59c97f740fe185d4cbc6e399d63d9670) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '704cfff1dc09b4efde82ef9b59bb1d95') in 0.029932 seconds 
+  Import took 0.039584 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000150 seconds.
+  path: Assets/CombatPrefabs/Abilities/DebugAbilities/TileIndicatorError.mat
+  artifactKey: Guid(1f85844f34f3972428afcf8c43a3fb38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CombatPrefabs/Abilities/DebugAbilities/TileIndicatorError.mat using Guid(1f85844f34f3972428afcf8c43a3fb38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0406156f7b655c01a6c3d2bd4b805115') in 0.033132 seconds 
+  Import took 0.042986 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000205 seconds.
+  path: Assets/OverworldPrefab/CommonObjects/Crates/TwoxTwoCrate/SecretMaterials/Wood0Appear.mat
+  artifactKey: Guid(7e3f40512a5f1eb498496d632774186c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/CommonObjects/Crates/TwoxTwoCrate/SecretMaterials/Wood0Appear.mat using Guid(7e3f40512a5f1eb498496d632774186c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b21c9449709efda0bad3cec1aab7696') in 0.034937 seconds 
+  Import took 0.044706 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000185 seconds.
+  path: Assets/CombatPrefabs/Abilities/DebugAbilities/TileIndicatorError.mat
+  artifactKey: Guid(1f85844f34f3972428afcf8c43a3fb38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CombatPrefabs/Abilities/DebugAbilities/TileIndicatorError.mat using Guid(1f85844f34f3972428afcf8c43a3fb38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0406156f7b655c01a6c3d2bd4b805115') in 0.026926 seconds 
+  Import took 0.036276 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000187 seconds.
+  path: Assets/OverworldPrefab/CommonObjects/Crates/TwoxTwoCrate/SecretMaterials/Wood0Appear.mat
+  artifactKey: Guid(7e3f40512a5f1eb498496d632774186c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/CommonObjects/Crates/TwoxTwoCrate/SecretMaterials/Wood0Appear.mat using Guid(7e3f40512a5f1eb498496d632774186c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b21c9449709efda0bad3cec1aab7696') in 0.028244 seconds 
+  Import took 0.038020 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.255448 seconds.
+  path: Assets/Effects/WorldPainting/Shader/PaintableTexture.mat
+  artifactKey: Guid(5914911695a40d04798f6767d955cc3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/WorldPainting/Shader/PaintableTexture.mat using Guid(5914911695a40d04798f6767d955cc3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1eea1b5f2d188f3c8d2649f11f2a110') in 0.037127 seconds 
+  Import took 0.046405 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000169 seconds.
+  path: Assets/CombatPrefabs/CombatBlocks/Blocks/ZapWall/materials/RoughMattSides.mat
+  artifactKey: Guid(3e4f0450057ae3f4c9f796355b51aa32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CombatPrefabs/CombatBlocks/Blocks/ZapWall/materials/RoughMattSides.mat using Guid(3e4f0450057ae3f4c9f796355b51aa32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '552a36df3e3a0e6282640ae205d0dcfe') in 0.729472 seconds 
+  Import took 0.738261 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000158 seconds.
+  path: Assets/CombatPrefabs/CombatBlocks/Blocks/ZapWall/materials/Moulding.mat
+  artifactKey: Guid(7f1c6fc0dc511424b8e0cb0d5f355558) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CombatPrefabs/CombatBlocks/Blocks/ZapWall/materials/Moulding.mat using Guid(7f1c6fc0dc511424b8e0cb0d5f355558) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af59b4bdf1a6952ef7fcb5f58dbba40b') in 0.044703 seconds 
+  Import took 0.053499 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000153 seconds.
+  path: Assets/Characters/Partners/Morgan/Overworld/PulseMaterial.mat
+  artifactKey: Guid(0eab6b279ed877b43b90e71671dd3dc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Partners/Morgan/Overworld/PulseMaterial.mat using Guid(0eab6b279ed877b43b90e71671dd3dc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cfdffe79c33602578cc035d3ca975f0f') in 0.037790 seconds 
+  Import took 0.046812 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.734994 seconds.
+  path: Assets/CombatPrefabs/CombatBlocks/Blocks/Ice/Materials/Material.002.mat
+  artifactKey: Guid(0dfc35477deb6c74a8cabc71c75d7532) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CombatPrefabs/CombatBlocks/Blocks/Ice/Materials/Material.002.mat using Guid(0dfc35477deb6c74a8cabc71c75d7532) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a48722fac23efb82041b57f7391e0fa3') in 0.033854 seconds 
+  Import took 0.043280 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.209607 seconds.
+  path: Assets/CombatPrefabs/CombatBlocks/Blocks/Ice/Materials/Material.001.mat
+  artifactKey: Guid(8708ceaf9de33c447a94d44137ecfb9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CombatPrefabs/CombatBlocks/Blocks/Ice/Materials/Material.001.mat using Guid(8708ceaf9de33c447a94d44137ecfb9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9000192f4a2a165d94a1a2edf0fdf39a') in 3.890844 seconds 
+  Import took 3.900408 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000179 seconds.
+  path: Assets/Effects/Natural/Water/CartoonWaterMaterial.mat
+  artifactKey: Guid(df0e0978f2f26da439bd515b6ed28ab0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/Natural/Water/CartoonWaterMaterial.mat using Guid(df0e0978f2f26da439bd515b6ed28ab0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7afbd01b1c9b560b1c4373308251f7f') in 0.043703 seconds 
+  Import took 0.053403 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000176 seconds.
+  path: Assets/Characters/Partners/Morgan/Overworld/DisappearDistance.mat
+  artifactKey: Guid(6b75c909313e3ac44a05ccea3e65bf41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Partners/Morgan/Overworld/DisappearDistance.mat using Guid(6b75c909313e3ac44a05ccea3e65bf41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc79aa503abd0486a5500a8de53d6e41') in 0.035551 seconds 
+  Import took 0.045028 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000206 seconds.
+  path: Assets/Effects/WorldPainting/Scripts/Materials/1571016567.faas_goat_sona.mat
+  artifactKey: Guid(4ad5938551bd2144ea71dd75ee354934) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/WorldPainting/Scripts/Materials/1571016567.faas_goat_sona.mat using Guid(4ad5938551bd2144ea71dd75ee354934) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1fd964988602513d0f98a2acb68d74e4') in 0.040781 seconds 
+  Import took 0.050059 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000173 seconds.
+  path: Assets/Effects/WorldPainting/Scripts/Materials/1571016567.faas_goat_sona 1.mat
+  artifactKey: Guid(e9efe719ab5cdaf488139c363d146caf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/WorldPainting/Scripts/Materials/1571016567.faas_goat_sona 1.mat using Guid(e9efe719ab5cdaf488139c363d146caf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6da2ca3bba07bacb7db303dc7c021e86') in 0.042547 seconds 
+  Import took 0.052197 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000154 seconds.
+  path: Assets/Characters/NPCs/Beach/AngelGod/Materials/AngelCube.mat
+  artifactKey: Guid(c0a4e3f7085008f4fbc11cfc03ed0b84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/NPCs/Beach/AngelGod/Materials/AngelCube.mat using Guid(c0a4e3f7085008f4fbc11cfc03ed0b84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b79d7085a59f9f568140761ece04458') in 0.045246 seconds 
+  Import took 0.055291 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.041704 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c8c6c45a24e1656a8b5782ba4d78342') in 0.030550 seconds 
+  Import took 0.040277 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.773085 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87a929f42646ae22fc35383c45555819') in 0.035667 seconds 
+  Import took 0.045531 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.763243 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e52e290e6897c300f37ae4bb3d0bbaad') in 0.035057 seconds 
+  Import took 0.044325 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.963870 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ae94fd2fba14a169344c37c494db507') in 0.036253 seconds 
+  Import took 0.046058 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.164807 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5aa9a43f36a6f414b9224cf6338b745d') in 0.033739 seconds 
+  Import took 0.043258 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.165017 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7aeb284d21b152bc029aa9bcebbb686') in 0.026573 seconds 
+  Import took 0.036578 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.840947 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b99c7d9a845b671cda6b0062ab25a602') in 0.028764 seconds 
+  Import took 0.038466 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.765942 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4936decd119df75cf14c899fd5547355') in 0.034267 seconds 
+  Import took 0.043611 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.184261 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28c823f5c7020544bc526943c11374cf') in 0.028209 seconds 
+  Import took 0.037819 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.565232 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd875fc36c527a0222779a97316848de9') in 0.030381 seconds 
+  Import took 0.039866 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 19.399372 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e241541926f18ab82d5c9a8cee94496') in 0.005903 seconds 
+  Import took 0.015883 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.796912 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b52564d0f84861bdd4690307dafdd0e5') in 0.005805 seconds 
+  Import took 0.014921 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.695753 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10bc219d5029231731552c5bcb6c56e2') in 0.005599 seconds 
+  Import took 0.014657 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.056657 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '170a0a3d842d9c753eef46f3edd61d4b') in 0.005629 seconds 
+  Import took 0.014902 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.827236 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9926c3b68c436539caa3eaff8be5eff6') in 0.007195 seconds 
+  Import took 0.017860 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.457416 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '819b84a1e9d045244cac2f8b4d69c48e') in 0.006293 seconds 
+  Import took 0.015522 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.199744 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef8a5596b79388028ac3c145ca161748') in 0.005960 seconds 
+  Import took 0.015890 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.202650 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ac6aeb39e33a24805cb43d8db6977c2f') in 0.005566 seconds 
+  Import took 0.014907 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.822788 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '577153374ba8ea060bd5626e3d79b835') in 0.005575 seconds 
+  Import took 0.015097 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.865838 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d9043d1997138c4346d33559a6c9733') in 0.005937 seconds 
+  Import took 0.015256 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.698880 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '386a1deefaf7a64e5dde744cb3a8b6a1') in 0.005946 seconds 
+  Import took 0.015454 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.196863 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55041ac07bf0540abf3a29a526eefb51') in 0.005564 seconds 
+  Import took 0.014451 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.598036 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38f8e4ae9ad5449536d985e5135fdb4b') in 0.006899 seconds 
+  Import took 0.016252 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.892329 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3274a5c6e3f97747354e0b628cc1c555') in 0.005890 seconds 
+  Import took 0.014937 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.309595 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23cb16123035925b5e4827582e0842c7') in 0.005709 seconds 
+  Import took 0.015868 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.678948 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9d585275a19f97cc0d5febc44fdfbf3') in 0.006432 seconds 
+  Import took 0.015923 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.204608 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab5e490dd9da4e221273bca5d9638554') in 0.006108 seconds 
+  Import took 0.015640 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.793027 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '204e83d3ff851b14baadde638653bb13') in 0.006056 seconds 
+  Import took 0.014902 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.590508 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7f69347db5b12bd2ca2513c0c2ec0a9') in 0.006844 seconds 
+  Import took 0.016504 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.003044 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '356fce06ad440aef5d20bc5e31dcf087') in 0.006675 seconds 
+  Import took 0.015983 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.408558 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75d5e56e00b8281bc9975402f3132f76') in 0.005792 seconds 
+  Import took 0.014952 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.199729 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b10fe7150e034c3529444b7ef89b30c7') in 0.005853 seconds 
+  Import took 0.015232 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.013517 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e55e63eb3bd2af65b453f0dc5c43deba') in 0.005576 seconds 
+  Import took 0.014647 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.653024 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c9ca6c6e7a68e41950b7a4768bcf2d3') in 0.005982 seconds 
+  Import took 0.015024 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.374840 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2746f7b173b7aeaca70e996ffacb6dac') in 0.006460 seconds 
+  Import took 0.015976 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.225849 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53bd3dcb7298621ff65df2578f0392d9') in 0.005645 seconds 
+  Import took 0.014213 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.866140 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69359211b1934537e3ebf9894a923512') in 0.005437 seconds 
+  Import took 0.014065 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.896032 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a243047c0986f0ab458710098c321d87') in 0.005463 seconds 
+  Import took 0.014481 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.936145 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2f37d04618c7f1dcbfb9d73afb87ec5') in 0.006630 seconds 
+  Import took 0.015862 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.229444 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45dc61d88ba427b5190052c3c423a95b') in 0.005480 seconds 
+  Import took 0.014565 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.510845 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f4b2c4eb3bd096001add57a6674f2677') in 0.005646 seconds 
+  Import took 0.014722 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.672605 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9102332b6ce5ba409ea156d6558901ee') in 0.005988 seconds 
+  Import took 0.014897 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.292931 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f551b8ec6a28a1279f536b3b18dfd64') in 0.006010 seconds 
+  Import took 0.015638 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.215141 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c13a8d553b52551549172df8172d012b') in 0.006024 seconds 
+  Import took 0.015420 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.252411 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67f43169a9750cea33a32f22236dda33') in 0.006535 seconds 
+  Import took 0.015542 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.014046 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '13f57929df976d2c0a3604d6e263fb50') in 0.006310 seconds 
+  Import took 0.014920 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.999879 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb7b3709c863c3889c78a66a18e9f2ee') in 0.006128 seconds 
+  Import took 0.015177 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.206650 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7f43b3c225f04bea47dc7cbac7434e7') in 0.006162 seconds 
+  Import took 0.014787 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 18.327436 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74fe2b9263d3f597ff7949a295dbad4b') in 0.006085 seconds 
+  Import took 0.014892 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.404049 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c9e2a71d60007b68f1db4e374a75bbc') in 0.007211 seconds 
+  Import took 0.016734 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.419129 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '863066fabbc69f1f6abff17606461bdb') in 0.006300 seconds 
+  Import took 0.015569 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 20.950016 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5f08d4dc017f913491ad22ac02047d9') in 0.016888 seconds 
+  Import took 0.026025 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.242304 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d87d3722d3f9e9007b8f8b5b2f84a90') in 0.005760 seconds 
+  Import took 0.014984 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.044779 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ad3cfd3ca89e5c8deedf6523a99ccd6') in 0.006024 seconds 
+  Import took 0.015872 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.615239 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c8d2aae6a606d3a5ba02e86f0175291') in 0.006107 seconds 
+  Import took 0.016087 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.610241 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '169442829738ecd151c6c634a310e5e2') in 0.006124 seconds 
+  Import took 0.016153 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.436338 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4918e1760164a6bea44cd94efa9a3de1') in 0.006743 seconds 
+  Import took 0.015499 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.208226 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80c64c92b985711aa97663e948a8f128') in 0.006629 seconds 
+  Import took 0.015847 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.192448 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a82749c015f7ec2a5fd7ca9b947731ee') in 0.006850 seconds 
+  Import took 0.015639 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.629556 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1898c8302ea926044d2fcc497fb91951') in 0.005940 seconds 
+  Import took 0.014831 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.225666 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d33d70554267b18d737dc99917c012c') in 0.006261 seconds 
+  Import took 0.016779 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.387266 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73301f43892980c7dfed0b0e33e95936') in 0.005698 seconds 
+  Import took 0.015069 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.605876 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4979c64a51e986d9bb4d8e1f84fca2e4') in 0.006109 seconds 
+  Import took 0.015029 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.638234 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03f81b7689e8035fc98ebcb20f8d8717') in 0.005990 seconds 
+  Import took 0.015034 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.225654 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '307715a3a88a1025c9adc94c595e4a7e') in 0.005648 seconds 
+  Import took 0.015976 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.565439 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '015f84c7b63ae889a0b2dfa09110e981') in 0.006377 seconds 
+  Import took 0.015606 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.447011 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dea06ff313f21bd2e27f4b1821a3e596') in 0.006185 seconds 
+  Import took 0.015618 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 33.601948 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd65b9aa03f8e8f889142dbc0e5eefd1b') in 0.005415 seconds 
+  Import took 0.014857 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 154.837329 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b91256328b8b6b81de3d8fd969f282e2') in 0.006224 seconds 
+  Import took 0.015201 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.199480 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c8baf032c52711c714c9790a6e34fe5') in 0.005594 seconds 
+  Import took 0.014790 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.636922 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0af7fb924cb701f7fcdeb6824f3205b') in 0.005458 seconds 
+  Import took 0.015209 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001095 seconds.
+  path: Assets/GameUI/MinigameTimerA/MinigameClockA.prefab
+  artifactKey: Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GameUI/MinigameTimerA/MinigameClockA.prefab using Guid(36c3d4b6e990622438fbaa8ff21741c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0af7fb924cb701f7fcdeb6824f3205b') in 0.006298 seconds 
+  Import took 0.014429 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
