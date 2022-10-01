@@ -23,3 +23,9 @@ sysinfo.txt
 *.log
 
 Logs/
+
+Assets/GameUI/MinigameTimerA.meta
+
+Assets/GameUI/MinigameTimerA/MinigameClockA.prefab.meta
+
+Assets/Scenes/PathsToSkyscraper/PathToSkyscraperTest.unity

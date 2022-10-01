@@ -60,7 +60,7 @@ public class SpriteFlipper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = Quaternion.Euler(0, OverworldController.CameraHeading, 0);
+        transform.rotation = Quaternion.Euler(0, CameraManager.CameraHeading, 0);
         if (!useAnimatedTurn)
         {
             ForceUpdate();

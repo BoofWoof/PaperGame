@@ -18,15 +18,12 @@ public class OverworldController : MonoBehaviour
     public GameObject playerInput;  //Player Object
     public GameObject pauseMenu; //Pause Menu Object
     public GameObject spawnPoint;  //Where to spawn if not transitioning between areas.
-    public GameObject trackingCameraInput;  //What track camera to use.
-    public static GameObject trackingCamera;  //Publically accessible camera.
+    public GameObject sourceCamera;
     public GameObject[] SceneTransfers;  //Triggers that will cause a scene transfer.
     
     public static DialogueContainer AreaInfo;
     public DialogueContainer AreaInfoInput;
     public static List<MorganTorchScript> AllMorganTorches;
-
-    public static float CameraHeading = 0;
 
     private void OnEnable()
     {
@@ -97,10 +94,18 @@ public class OverworldController : MonoBehaviour
             Player = Instantiate(playerInput, GameDataTracker.combatStartPosition, Quaternion.identity);
             GameDataTracker.lastAreaWasCombat = false;
         }
-        trackingCamera = Instantiate<GameObject>(trackingCameraInput, Player.transform.position + new Vector3(0,1,-2), Quaternion.Euler(25f,0,0));
-        trackingCamera.GetComponent<CameraFollow>().ObjectToTrack = Player;
-        trackingCamera.GetComponent<CameraFollow>().combat = false;
-        updateTrackingCameraY(Player.transform.position.y);
+    }
+
+    public void Start()
+    {
+        CameraManager.CreateNewCamera(sourceCamera, Player, CameraManager.DefaultCameraOffset, new Vector3(0, 0, 0), true);
+
+        GameDataTracker.spawnLastTransitionObject();
+        //SpawnsPartner
+        if (GameDataTracker.playerData.CurrentCompanion > 0)
+        {
+            SpawnPartner(GameDataTracker.playerData.CurrentCompanion);
+        }
     }
 
     private void SpawnPartner(int PartnerID)
@@ -113,16 +118,6 @@ public class OverworldController : MonoBehaviour
         Vector3 partnerPosition = Partner.transform.position;
         Partner.GetComponent<FriendlyNPCClass>().DestroySelf();
         Partner = Instantiate(PartnerMapper.partnerMap[PartnerID], partnerPosition, Quaternion.identity);
-    }
-
-    public void Start()
-    {
-        GameDataTracker.spawnLastTransitionObject();
-        //SpawnsPartner
-        if (GameDataTracker.playerData.CurrentCompanion > 0)
-        {
-            SpawnPartner(GameDataTracker.playerData.CurrentCompanion);
-        }
     }
 
     public static void ChangePauseState()
@@ -142,6 +137,15 @@ public class OverworldController : MonoBehaviour
     //-------------------------------------------------------------------------------------------------------------------------------------------
     public void Update()
     {
+        if (controls.OverworldControls.CycleLeft.phase == UnityEngine.InputSystem.InputActionPhase.Started)
+        {
+            CameraManager.CameraHeading -= 80f * Time.deltaTime;
+        }
+        if (controls.OverworldControls.CycleRight.phase == UnityEngine.InputSystem.InputActionPhase.Started)
+        {
+            CameraManager.CameraHeading += 80f * Time.deltaTime;
+        }
+
         //Pause and unpause game. ================
         if (controls.OverworldControls.Inventory.triggered && (GameDataTracker.cutsceneMode == GameDataTracker.cutsceneModeOptions.Mobile))
         {
@@ -159,11 +163,6 @@ public class OverworldController : MonoBehaviour
         //Check if any dialogue is available.
         if (GameDataTracker.cutsceneMode == GameDataTracker.cutsceneModeOptions.Mobile)
         {
-            float horizontal = controls.OverworldControls.SecondaryMovement.ReadValue<Vector2>()[0];
-            CameraHeading += horizontal * Time.deltaTime * 90f;
-            if (CameraHeading < 0) CameraHeading += 360f;
-            if (CameraHeading > 360) CameraHeading -= 360f;
-
             float closestCharacterDistance = 100;
             GameObject closestCharacter = null;
             foreach (Character CharacterItem in GameDataTracker.CharacterList)
@@ -198,14 +197,6 @@ public class OverworldController : MonoBehaviour
         } else
         {
             GameDataTracker.dialogueReady = false;
-        }
-    }
-
-    public static void updateTrackingCameraY(float newY)
-    {
-        if (trackingCamera != null)
-        {
-            trackingCamera.GetComponent<CameraFollow>().trackingcameraY = newY;
         }
     }
 

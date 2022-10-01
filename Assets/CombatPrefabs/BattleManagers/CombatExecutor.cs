@@ -59,7 +59,7 @@ public class CombatExecutor : GridManager
     // Start is called before the first frame update
     void Start()
     {
-        OverworldController.CameraHeading = 0;
+        CameraManager.CameraHeading = 0;
         if (!(GameDataTracker.combatScene is null))
         {
             _containerCache = GameDataTracker.combatScene;

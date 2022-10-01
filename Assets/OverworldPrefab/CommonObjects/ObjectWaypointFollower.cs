@@ -11,6 +11,7 @@ public class ObjectWaypointFollower : MonoBehaviour
 
     public float Speed = 2;
     public float WaitSecEndpoint = 1;
+    public bool DeleteAtEnd = false;
 
     // Start is called before the first frame update
     void Start()
@@ -33,9 +34,16 @@ public class ObjectWaypointFollower : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, targetPos, Speed * Time.deltaTime);
             yield return 0;
         }
-        yield return new WaitForSeconds(WaitSecEndpoint);
-        ReadyToMove = true;
-        TargetIndex += 1;
-        TargetIndex %= WaypointOrder.Length;
+        if (TargetIndex == WaypointOrder.Length-1 && DeleteAtEnd)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            yield return new WaitForSeconds(WaitSecEndpoint);
+            ReadyToMove = true;
+            TargetIndex += 1;
+            TargetIndex %= WaypointOrder.Length;
+        }
     }
 }

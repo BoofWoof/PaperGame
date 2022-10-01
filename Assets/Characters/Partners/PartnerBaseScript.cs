@@ -61,7 +61,7 @@ public class PartnerBaseScript : MonoBehaviour
             if (method == OffMeshLinkMoveMethod.Parabola)
                 StartCoroutine(Parabola(agent, 3.0f, 1.5f));
         }
-        Vector3 pos_change = Quaternion.AngleAxis(-OverworldController.CameraHeading, Vector3.up) * (OverworldController.Player.transform.position - transform.position);
+        Vector3 pos_change = Quaternion.AngleAxis(-CameraManager.CameraHeading, Vector3.up) * (OverworldController.Player.transform.position - transform.position);
         if (exitSpin)
         {
             CleanupAbility();

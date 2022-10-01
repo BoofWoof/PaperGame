@@ -4,35 +4,32 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public GameObject ObjectToTrack;
-    public Vector3 offset = new Vector3(0, 0, 0);
-    public float dialogueOffsetMultiplier = 1.0f;
-    public float speed = 8f;
-    public float trackingcameraY;
-
-    public bool combat;
-
-    public bool OverworldCamera = true;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
+    public Vector3 offset = CameraManager.DefaultCameraOffset;
+    public Vector3 speed = CameraManager.DefaultSpeed;
+    public float heading = 0;
     void LateUpdate()
     {
-        Vector3 objectPosition = ObjectToTrack.transform.position;
+        Vector3 trackPosition = CameraManager.TrackTarget.transform.position;
         Vector3 cameraPosition = gameObject.transform.position;
-        Vector3 cameraGoal = gameObject.transform.position;
-        if (combat)
-        {
-            objectPosition.y = trackingcameraY;
-        }
+
         //CAMERA GOAL DIALOGUE START-----------------------------------------------
-        cameraGoal = objectPosition + Quaternion.AngleAxis(OverworldController.CameraHeading, Vector3.up) * new Vector3(dialogueOffsetMultiplier * offset.x,  + dialogueOffsetMultiplier * offset.y, dialogueOffsetMultiplier * offset.z);
-        
-        gameObject.transform.position = Vector3.MoveTowards(cameraPosition,cameraGoal, speed*Time.deltaTime);
-        gameObject.transform.rotation = Quaternion.Euler(25f, OverworldController.CameraHeading, gameObject.transform.rotation.z);
+        Quaternion rotation = Quaternion.AngleAxis(CameraManager.CameraHeading - heading, Vector3.up);
+        cameraPosition = (rotation * (cameraPosition - trackPosition)) + trackPosition;
+        heading = CameraManager.CameraHeading;
+
+        Quaternion goal_rotation = Quaternion.AngleAxis(CameraManager.CameraHeading, Vector3.up);
+        Vector3 cameraGoal = trackPosition + goal_rotation * new Vector3(offset.x, offset.y, offset.z);
+        Vector3 rotatedSpeed = new Vector3(
+                Mathf.Abs(8 * Mathf.Cos(heading)) + Mathf.Abs(1 * Mathf.Sin(heading)),
+                Mathf.Abs(1 * Mathf.Cos(heading)) + Mathf.Abs(8 * Mathf.Sin(heading)),
+                8
+            );
+
+        gameObject.transform.position = new Vector3(
+            Mathf.MoveTowards(cameraPosition.x, cameraGoal.x, Mathf.Abs(rotatedSpeed.x) * Time.deltaTime),
+            Mathf.MoveTowards(cameraPosition.y, cameraGoal.y, Mathf.Abs(rotatedSpeed.y) * Time.deltaTime),
+            Mathf.MoveTowards(cameraPosition.z, cameraGoal.z, Mathf.Abs(rotatedSpeed.z) * Time.deltaTime)
+        );
+        gameObject.transform.rotation = Quaternion.Euler(25f, heading, gameObject.transform.rotation.z);
     }
 }
