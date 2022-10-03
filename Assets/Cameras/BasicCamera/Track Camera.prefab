@@ -97,13 +97,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e0fb3c6430ffa41ba872fc7e3f6f85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectToTrack: {fileID: 0}
   offset: {x: 0, y: 2.5, z: -4}
-  dialogueOffsetMultiplier: 1
-  speed: 8
-  trackingcameraY: 0
-  combat: 0
-  OverworldCamera: 1
+  speed: {x: 8, y: 1, z: 8}
+  rotation_speed: {x: 90, y: 90}
+  old_heading: 0
+  heading: 0
+  old_tilt: 0
+  tilt: 0
+  linear_move: 0
+  target: {fileID: 0}
 --- !u!114 &8737917033513509957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +177,11 @@ MonoBehaviour:
   dithering: 0
   stopNaNs: 0
   taaSharpenStrength: 0.6
+  TAAQuality: 1
+  taaHistorySharpening: 0.35
+  taaAntiFlicker: 0.5
+  taaMotionVectorRejection: 0
+  taaAntiHistoryRinging: 0
   physicalParameters:
     m_Iso: 200
     m_ShutterSpeed: 0.005
@@ -184,6 +191,7 @@ MonoBehaviour:
     m_BarrelClipping: 0.25
     m_Anamorphism: 0
   flipYMode: 0
+  xrRendering: 1
   fullscreenPassthrough: 0
   allowDynamicResolution: 0
   customRenderingSettings: 0
@@ -192,6 +200,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   hasPersistentHistory: 0
+  exposureTarget: {fileID: 0}
   m_RenderingPathCustomFrameSettings:
     bitDatas:
       data1: 70297877217101
@@ -202,6 +211,9 @@ MonoBehaviour:
     maximumLODLevel: 0
     maximumLODLevelMode: 0
     maximumLODLevelQualityLevel: 0
+    sssQualityMode: 0
+    sssQualityLevel: 0
+    sssCustomSampleBudget: 20
     materialQuality: 0
   renderingPathCustomFrameSettingsOverrideMask:
     mask:

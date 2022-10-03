@@ -98,7 +98,7 @@ public class OverworldController : MonoBehaviour
 
     public void Start()
     {
-        CameraManager.CreateNewCamera(sourceCamera, Player, CameraManager.DefaultCameraOffset, new Vector3(0, 0, 0), true);
+        CameraManager.CreateNewCamera(sourceCamera, Player, CameraManager.DefaultCameraOffset, CameraManager.DefaultRotation, true);
 
         GameDataTracker.spawnLastTransitionObject();
         //SpawnsPartner
@@ -137,6 +137,7 @@ public class OverworldController : MonoBehaviour
     //-------------------------------------------------------------------------------------------------------------------------------------------
     public void Update()
     {
+        CameraManager.UpdateHeading();
         if (controls.OverworldControls.CycleLeft.phase == UnityEngine.InputSystem.InputActionPhase.Started)
         {
             CameraManager.CameraHeading -= 80f * Time.deltaTime;
