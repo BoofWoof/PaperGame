@@ -9,7 +9,7 @@ static public class CameraManager
 
     public static Vector3 DefaultCameraOffset = new Vector3(0, 2.5f, -4);
     public static Vector3 DefaultRotationSpeed = Vector3.one;
-    public static Vector3 DefaultSpeed = new Vector3(8f, 3f, 1f);
+    public static Vector3 DefaultSpeed = new Vector3(8f, 4f, 1f);
     public static Vector3 DefaultRotation = new Vector3(25f, 0, 0);
 
     public static float CameraHeading = 0f;

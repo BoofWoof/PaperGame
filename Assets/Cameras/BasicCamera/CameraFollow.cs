@@ -59,9 +59,9 @@ public class CameraFollow : MonoBehaviour
         } else
         {
             Vector3 rotatedSpeed = new Vector3(
-                    Mathf.Abs(8 * Mathf.Cos(heading)) + Mathf.Abs(1 * Mathf.Sin(heading)),
-                    Mathf.Abs(1 * Mathf.Cos(heading)) + Mathf.Abs(8 * Mathf.Sin(heading)),
-                    8
+                    Mathf.Abs(speed.x * Mathf.Cos(heading)) + Mathf.Abs(speed.z * Mathf.Sin(heading)),
+                    4,
+                    Mathf.Abs(speed.z * Mathf.Cos(heading)) + Mathf.Abs(speed.x * Mathf.Sin(heading))
                 );
 
             gameObject.transform.position = new Vector3(
