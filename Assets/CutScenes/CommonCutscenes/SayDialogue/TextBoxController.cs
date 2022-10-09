@@ -268,7 +268,9 @@ public class TextBoxController : MonoBehaviour
                     scriptSource.Update();
                 } else
                 {
-                    scriptSource.nextGUID = choices[(int)activeChoice.x + (int)activeChoice.y * 2].TargetNodeGuid;
+                    int choice_id = (int)activeChoice.x + (int)activeChoice.y * 2;
+                    scriptSource.latestChoice = choices[choice_id].PortName;
+                    scriptSource.nextGUID = choices[choice_id].TargetNodeGuid;
                     scriptSource.Update();
                 }
             } else

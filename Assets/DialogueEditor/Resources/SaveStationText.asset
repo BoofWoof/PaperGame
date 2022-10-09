@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 804751d7c03844a4d8e72e8bb960ccc0, type: 3}
+  m_Name: SaveStationText
+  m_EditorClassIdentifier: 
+  StartingGUID: b9a99eb0-7d44-47ff-92ae-ebbfa2a289a1
+  NodeLinks:
+  - BaseNodeGuid: b9a99eb0-7d44-47ff-92ae-ebbfa2a289a1
+    PortName: Next
+    TargetNodeGuid: beecad5e-b752-41c2-9a67-313c633233d2
+  - BaseNodeGuid: beecad5e-b752-41c2-9a67-313c633233d2
+    PortName: Choice 0
+    TargetNodeGuid: dc2d187d-c24d-4271-81d1-f80c725d26b5
+  - BaseNodeGuid: dc2d187d-c24d-4271-81d1-f80c725d26b5
+    PortName: Save
+    TargetNodeGuid: 7dcb2a01-3f1a-4507-b2bd-109bfb59c6ec
+  - BaseNodeGuid: dc2d187d-c24d-4271-81d1-f80c725d26b5
+    PortName: Load
+    TargetNodeGuid: 3ce242a4-4b7d-45ad-b0ec-d551d5b05527
+  - BaseNodeGuid: dc2d187d-c24d-4271-81d1-f80c725d26b5
+    PortName: Change Items
+    TargetNodeGuid: 60d2bb2f-8e51-46a3-9e45-fef89cb8e3f2
+  - BaseNodeGuid: dc2d187d-c24d-4271-81d1-f80c725d26b5
+    PortName: Talk
+    TargetNodeGuid: 8dd34c14-6f7c-442f-80c7-50e793d599bd
+  DialogueNodeData:
+  - Guid: beecad5e-b752-41c2-9a67-313c633233d2
+    DialogueText: Hey! Thanks for the bonk, I was on the fritz!
+    TargetPlayer: 
+    Position: {x: 263, y: 200}
+  - Guid: 7dcb2a01-3f1a-4507-b2bd-109bfb59c6ec
+    DialogueText: I'll get you saved up right away!
+    TargetPlayer: 
+    Position: {x: 1159, y: -82}
+  - Guid: 3ce242a4-4b7d-45ad-b0ec-d551d5b05527
+    DialogueText: I'll forget the last few minutes for ya. ;3
+    TargetPlayer: 
+    Position: {x: 1159, y: 75}
+  - Guid: 60d2bb2f-8e51-46a3-9e45-fef89cb8e3f2
+    DialogueText: I hope your new snacks will be tasty... not that I can taste.
+    TargetPlayer: 
+    Position: {x: 1159, y: 224}
+  - Guid: 8dd34c14-6f7c-442f-80c7-50e793d599bd
+    DialogueText: You want to talk to me? uwu
+    TargetPlayer: 
+    Position: {x: 1171, y: 379}
+  - Guid: dc2d187d-c24d-4271-81d1-f80c725d26b5
+    DialogueText: What did you want to do?
+    TargetPlayer: 
+    Position: {x: 746, y: 200}
+  AnimationTriggerNodeData: []
+  GetFlagNodeData: []
+  SetFlagNodeData: []
+  BooleanGetFlagNodeData: []
+  BooleanSetFlagNodeData: []
+  MoveToPosNodeData: []
+  ExposedProperties: []
+  Note: 

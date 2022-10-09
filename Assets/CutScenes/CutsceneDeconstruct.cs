@@ -8,6 +8,7 @@ public class CutsceneDeconstruct: ScriptableObject
     DialogueContainer DialogueInput;
     public string currentGUID;
     public string nextGUID = string.Empty;
+    public string latestChoice = string.Empty;
 
     GameObject cutsceneSource;
     //Needed For Dialogue
@@ -173,6 +174,11 @@ public class CutsceneDeconstruct: ScriptableObject
         if(!textboxWait && string.IsNullOrEmpty(currentGUID))
         {
             done = true;
+            ResponseCutscene rc = cutsceneSource.GetComponent<ResponseCutscene>();
+            if (rc != null)
+            {
+                rc.ResponseSocket(latestChoice);
+            }
             return true;
         }
         return false;

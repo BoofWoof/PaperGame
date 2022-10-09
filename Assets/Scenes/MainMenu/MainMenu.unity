@@ -1959,7 +1959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1ddb9c774bab741b1658178cd618c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSceneName: LexMail
+  startSceneName: PathToSkyscraperTest
   FirstMenu: {fileID: 1065763586}
   SaveFile1: {fileID: 1694850713}
   SaveFile2: {fileID: 980444547}
