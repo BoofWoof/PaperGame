@@ -85,7 +85,14 @@ public class OverworldController : MonoBehaviour
             else
             {
                 //SPAWNS PLAYERS AT A SPAWNPOINT
-                Player = Instantiate(playerInput, spawnPoint.transform.position, Quaternion.identity);
+                Vector3 savePosition = GameDataTracker.playerData.savePosition;
+                if (savePosition == Vector3.zero)
+                {
+                    Player = Instantiate(playerInput, spawnPoint.transform.position, Quaternion.identity);
+                } else
+                {
+                    Player = Instantiate(playerInput, savePosition, Quaternion.identity);
+                }
             }
         }
         else

@@ -43,8 +43,9 @@ public class GameDataTracker : MonoBehaviour
 
     //CharacterInfo
     public static List<Character> CharacterList = new List<Character>();
+    public static List<Character> SavePointList = new List<Character>();
     //public static List<Character> EnemyList;
-    
+
     void Awake()
     {
         //MAKES THIS OBJECT PERSIST IN EVERY SCENE
@@ -77,6 +78,7 @@ public class GameDataTracker : MonoBehaviour
     static public void clearCharacterList()
     {
         CharacterList = new List<Character>();
+        SavePointList = new List<Character>();
     }
 
     static public void GameOver()
@@ -114,6 +116,7 @@ public class GameDataTracker : MonoBehaviour
         string path = Application.persistentDataPath + "/" + saveFileName + ".bof";
         if (File.Exists(path))
         {
+            Debug.Log(Application.persistentDataPath);
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
 
@@ -196,6 +199,8 @@ public class PlayerData
 {
     //Metaknowledge
     public string fileName = "New Game";
+    public string sceneName = string.Empty;
+    public SerializableVector3 savePosition = Vector3.zero;
 
     //Statsaves
     public int maxHealth = 10;

@@ -67,8 +67,31 @@ public class CutsceneController
         CutsceneQueue.Insert(0, newEvent);
     }
 
+    private static void forceCutsceneEvent(CutSceneClass CutsceneEventInput, GameObject CutsceneTargetInput, bool WaitInput, GameDataTracker.cutsceneModeOptions CutsceneModeInput)
+    {
+        CutSceneEvent newEvent = new CutSceneEvent();
+        newEvent.CutsceneEvent = CutsceneEventInput;
+        newEvent.CutsceneTarget = CutsceneTargetInput;
+        newEvent.Wait = WaitInput;
+        newEvent.CutsceneMode = CutsceneModeInput;
+        newEvent.CameraFocus = null;
+        newEvent.CameraOffset = Vector3.zero;
+        CutsceneQueue.Add(newEvent);
+
+    }
+
     public static void Update()
     {
+        for (int i = CutsceneActive.Count; i > 0; i--)
+        {
+            CutSceneEvent cutscene = CutsceneActive[i - 1];
+            bool delete = cutscene.CutsceneEvent.Update();
+            if (delete)
+            {
+                CutsceneActive.Remove(cutscene);
+                CutscenesPlaying--;
+            }
+        }
         if (CutscenesPlaying == 0 && CutsceneQueue.Count > 0)
         {
             bool keepPlaying = true;
@@ -92,16 +115,6 @@ public class CutsceneController
         if (CutscenesPlaying == 0 && CutsceneQueue.Count == 0 && GameDataTracker.cutsceneMode != GameDataTracker.cutsceneModeOptions.Mobile && !GameDataTracker.transitioning)
         {
             GameDataTracker.cutsceneMode = GameDataTracker.cutsceneModeOptions.Mobile;
-        }
-        for (int i = CutsceneActive.Count; i > 0; i--)
-        {
-            CutSceneEvent cutscene = CutsceneActive[i - 1];
-            bool delete = cutscene.CutsceneEvent.Update();
-            if (delete)
-            {
-                CutsceneActive.Remove(cutscene);
-                CutscenesPlaying--;
-            }
         }
     }
 

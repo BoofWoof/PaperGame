@@ -7,6 +7,8 @@ public class SavePointScript : DestructionScript
     public DialogueContainer dialogue;
 
     public ObjectInfoScript ObjectInfo;
+    public GameObject SpawnPoint;
+
     public void Start()
     {
         Character thisNPCCharacter = new Character();
