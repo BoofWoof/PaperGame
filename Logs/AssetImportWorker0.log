@@ -15,11 +15,11 @@ C:/Users/Usuario/Documents/Clip'sAdventuresInFantasyIsland/PaperGame
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-59686
+59815
 Successfully changed project path to: C:/Users/Usuario/Documents/Clip'sAdventuresInFantasyIsland/PaperGame
 C:/Users/Usuario/Documents/Clip'sAdventuresInFantasyIsland/PaperGame
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 133.90 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 122.72 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.16f1 (049d6eca3c44)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Editor/Data/Resources/UnitySubsystems
@@ -36,90 +36,90 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56164
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56408
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001729 seconds.
+Registered in 0.001574 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 129.18 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 119.32 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.950 seconds
+- Completed reload, in  0.925 seconds
 Domain Reload Profiling:
-	ReloadAssembly (950ms)
-		BeginReloadAssembly (55ms)
+	ReloadAssembly (925ms)
+		BeginReloadAssembly (46ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (454ms)
-			LoadAssemblies (52ms)
+		EndReloadAssembly (460ms)
+			LoadAssemblies (44ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (129ms)
+			SetupTypeCache (146ms)
 			ReleaseScriptCaches (0ms)
 			RebuildScriptCaches (25ms)
-			SetupLoadedEditorAssemblies (237ms)
+			SetupLoadedEditorAssemblies (222ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (3ms)
+				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (129ms)
-				BeforeProcessingInitializeOnLoad (14ms)
-				ProcessInitializeOnLoadAttributes (65ms)
-				ProcessInitializeOnLoadMethodAttributes (24ms)
+				RefreshPlugins (119ms)
+				BeforeProcessingInitializeOnLoad (13ms)
+				ProcessInitializeOnLoadAttributes (63ms)
+				ProcessInitializeOnLoadMethodAttributes (23ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.007558 seconds.
+Registered in 0.006842 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 160.10 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 123.59 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.615 seconds
+- Completed reload, in  1.491 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1616ms)
-		BeginReloadAssembly (123ms)
+	ReloadAssembly (1492ms)
+		BeginReloadAssembly (114ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (18ms)
-		EndReloadAssembly (1435ms)
-			LoadAssemblies (90ms)
+			CreateAndSetChildDomain (16ms)
+		EndReloadAssembly (1325ms)
+			LoadAssemblies (89ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (344ms)
+			SetupTypeCache (335ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (78ms)
-			SetupLoadedEditorAssemblies (809ms)
+			RebuildScriptCaches (76ms)
+			SetupLoadedEditorAssemblies (721ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
+				InitializePlatformSupportModulesInManaged (3ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (160ms)
-				BeforeProcessingInitializeOnLoad (164ms)
-				ProcessInitializeOnLoadAttributes (325ms)
-				ProcessInitializeOnLoadMethodAttributes (150ms)
+				RefreshPlugins (124ms)
+				BeforeProcessingInitializeOnLoad (134ms)
+				ProcessInitializeOnLoadAttributes (313ms)
+				ProcessInitializeOnLoadMethodAttributes (142ms)
 				AfterProcessingInitializeOnLoad (5ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 2.01 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 1.65 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5851 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 275.7 MB.
-System memory in use after: 275.8 MB.
+Unloading 6097 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 283.2 MB.
+System memory in use after: 283.2 MB.
 
-Unloading 67 unused Assets to reduce memory usage. Loaded Objects now: 6269.
-Total: 8.847900 ms (FindLiveObjects: 0.852500 ms CreateObjectMapping: 0.242300 ms MarkObjects: 7.517500 ms  DeleteObjects: 0.233600 ms)
+Unloading 70 unused Assets to reduce memory usage. Loaded Objects now: 6513.
+Total: 8.304000 ms (FindLiveObjects: 0.627700 ms CreateObjectMapping: 0.171900 ms MarkObjects: 7.280800 ms  DeleteObjects: 0.222300 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -133,385 +133,312 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/Scenes/DockAreaRubus
-  artifactKey: Guid(367b91c9ac5dc3f49a8f610a4772515e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/DockAreaRubus using Guid(367b91c9ac5dc3f49a8f610a4772515e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0228b24b62959126c4de10c887f90c8c') in 0.015434 seconds 
-  Import took 0.026976 seconds .
+  path: Assets/OverworldPrefab/OverworldSetPieces/TowerAssets
+  artifactKey: Guid(1a7111651167e51449bf46b4697d12bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/OverworldSetPieces/TowerAssets using Guid(1a7111651167e51449bf46b4697d12bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3698d1dece746b3a06227716fce243fb') in 0.012311 seconds 
+  Import took 0.021072 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000316 seconds.
-  path: Assets/Scenes/DockAreaRubus/Test1AreaDialogue.asset
-  artifactKey: Guid(bbebeaf1d013b574998f277f56dbdab1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/DockAreaRubus/Test1AreaDialogue.asset using Guid(bbebeaf1d013b574998f277f56dbdab1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bfcba6c5d529afcd65f666b1eeaf9c6e') in 0.034800 seconds 
-  Import took 0.045734 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000346 seconds.
-  path: Assets/Scenes/DockAreaRubus/DockAreaRubus.unity
-  artifactKey: Guid(6031eba62ccd8e74fb7e4e136a54caac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/DockAreaRubus/DockAreaRubus.unity using Guid(6031eba62ccd8e74fb7e4e136a54caac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a75151e4709585d0ac2edf37fe3df6df') in 0.006638 seconds 
-  Import took 0.016272 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 17.170026 seconds.
-  path: Assets/Scenes/PathsToSkyscraper
-  artifactKey: Guid(2e82334de5b5cf047abd7ac7e9680195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/PathsToSkyscraper using Guid(2e82334de5b5cf047abd7ac7e9680195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a0bb711d4173d1f02c7336727b4c9cb6') in 0.005530 seconds 
-  Import took 0.014150 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.251127 seconds.
-  path: Assets/Scenes/PathsToSkyscraper/PathToSkyscraperTest.unity
-  artifactKey: Guid(d9a40f72d1ccc39498f2d28d5cefa270) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/PathsToSkyscraper/PathToSkyscraperTest.unity using Guid(d9a40f72d1ccc39498f2d28d5cefa270) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd2b2682efb69cce51db03f0df4bf5a8') in 0.005867 seconds 
-  Import took 0.014219 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 47.379427 seconds.
-  path: Assets/Effects/Natural
-  artifactKey: Guid(65ebc5e71ebe8674986dfbc1dc58811b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Effects/Natural using Guid(65ebc5e71ebe8674986dfbc1dc58811b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '97183efb3059d1b6ad06342adca9687f') in 0.005954 seconds 
-  Import took 0.014920 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.189338 seconds.
-  path: Assets/Effects/Natural/Water
-  artifactKey: Guid(dd1f5aac55571c64c83b4a83a0ce0428) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Effects/Natural/Water using Guid(dd1f5aac55571c64c83b4a83a0ce0428) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9b8e00316fb01e668435f61db5b89f7') in 0.005769 seconds 
-  Import took 0.014051 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.054999 seconds.
-  path: Assets/Effects/Natural/Water/CartoonWaterMaterial.mat
-  artifactKey: Guid(df0e0978f2f26da439bd515b6ed28ab0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Effects/Natural/Water/CartoonWaterMaterial.mat using Guid(df0e0978f2f26da439bd515b6ed28ab0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+  Time since last request: 8.612882 seconds.
+  path: Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/AlgaeBush.fbx
+  artifactKey: Guid(aa7bc237f20032e49b1485b8d01e68be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/AlgaeBush.fbx using Guid(aa7bc237f20032e49b1485b8d01e68be) Importer(815301076,1909f56bfc062723c751e8b465ee728b) Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
- -> (artifact id: 'e7afbd01b1c9b560b1c4373308251f7f') in 1.091701 seconds 
-  Import took 1.101778 seconds .
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+ -> (artifact id: '19d93be29df9bf8a0568dd26c19a3775') in 1.161513 seconds 
+  Import took 1.171441 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 103.394354 seconds.
-  path: Assets/Effects/Natural/Water/CartoonStylizedWater.shadergraph
-  artifactKey: Guid(bc855680855a6994c899dd5e1b0cb37e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Effects/Natural/Water/CartoonStylizedWater.shadergraph using Guid(bc855680855a6994c899dd5e1b0cb37e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a64f9b3b606272698314b4fe9c99eb00') in 0.008832 seconds 
-  Import took 0.017683 seconds .
+  Time since last request: 0.000199 seconds.
+  path: Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/TowerStoneCrumblingPuzzleRoom.fbx
+  artifactKey: Guid(e25f2df0d76bd1c42984c5c73ae0333d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/TowerStoneCrumblingPuzzleRoom.fbx using Guid(e25f2df0d76bd1c42984c5c73ae0333d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '193e6c872843f031c52253376410bc54') in 0.047936 seconds 
+  Import took 0.055954 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 3.412537 seconds.
-  path: Assets/Effects/Natural/Water/CartoonWaterShader.shadergraph
-  artifactKey: Guid(9b42d45ec777d8242a94933697cfc304) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Effects/Natural/Water/CartoonWaterShader.shadergraph using Guid(9b42d45ec777d8242a94933697cfc304) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5f9547e0eff210a78356ecf03ea7177') in 0.005679 seconds 
-  Import took 0.014330 seconds .
+  Time since last request: 0.000145 seconds.
+  path: Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/TowerStoneCrumblingBlock.fbx
+  artifactKey: Guid(f4feab3ec819dab4e989fe56a8b685b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/TowerStoneCrumblingBlock.fbx using Guid(f4feab3ec819dab4e989fe56a8b685b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7895c71f9e37ce2c534c58acb4c8020e') in 0.051009 seconds 
+  Import took 0.058730 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.173594 seconds.
-  path: Assets/Effects/Natural/Water/CartoonWaterShader.shadergraph
-  artifactKey: Guid(9b42d45ec777d8242a94933697cfc304) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Effects/Natural/Water/CartoonWaterShader.shadergraph using Guid(9b42d45ec777d8242a94933697cfc304) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5f9547e0eff210a78356ecf03ea7177') in 0.002605 seconds 
-  Import took 0.010662 seconds .
+  Time since last request: 0.000197 seconds.
+  path: Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/TowerStoneStaircase.fbx
+  artifactKey: Guid(a1a2af05a0cf0854ab952a204bed009c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/TowerStoneStaircase.fbx using Guid(a1a2af05a0cf0854ab952a204bed009c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a98e646f280694ee49651b7f546c18a') in 0.046843 seconds 
+  Import took 0.054736 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000173 seconds.
+  path: Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/TowerStoneDoor.fbx
+  artifactKey: Guid(6b887a70320388f48afb3b5afb0da6ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/TowerStoneDoor.fbx using Guid(6b887a70320388f48afb3b5afb0da6ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '758f36f1d612bdfd10782f32431041ad') in 0.056612 seconds 
+  Import took 0.064625 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.771981 seconds.
+  path: Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/CrumblingPuzzleWallsB.png
+  artifactKey: Guid(8580a3fe8981b344a90b90e3d23be946) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/CrumblingPuzzleWallsB.png using Guid(8580a3fe8981b344a90b90e3d23be946) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'faed5d75673a4f40e255e23fccb0d10f') in 0.024608 seconds 
+  Import took 0.034342 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000157 seconds.
+  path: Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/CrumblingTileB.png
+  artifactKey: Guid(257d460094b326f44a2fdc46d447bf89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/CrumblingTileB.png using Guid(257d460094b326f44a2fdc46d447bf89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78e0f20b709a6a04785aaf0a7af7ad51') in 0.018228 seconds 
+  Import took 0.025707 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000165 seconds.
+  path: Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/TowerStoneCrumblingPuzzleRoom.fbx
+  artifactKey: Guid(e25f2df0d76bd1c42984c5c73ae0333d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/TowerStoneCrumblingPuzzleRoom.fbx using Guid(e25f2df0d76bd1c42984c5c73ae0333d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85e0d8bc1da50e2ff1ed9c7fd9cf05f2') in 0.056648 seconds 
+  Import took 0.064661 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000185 seconds.
+  path: Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/TowerStoneCrumblingBlock.fbx
+  artifactKey: Guid(f4feab3ec819dab4e989fe56a8b685b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/TowerStoneCrumblingBlock.fbx using Guid(f4feab3ec819dab4e989fe56a8b685b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b77ed577fd70a4f8c2f029624047dca') in 0.047360 seconds 
+  Import took 0.055591 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/TowerStoneStaircase.fbx
+  artifactKey: Guid(a1a2af05a0cf0854ab952a204bed009c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/TowerStoneStaircase.fbx using Guid(a1a2af05a0cf0854ab952a204bed009c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a3b0f8ac3d715f8ed65ff397a8c391e') in 0.057276 seconds 
+  Import took 0.065044 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000168 seconds.
+  path: Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/TowerStoneDoor.fbx
+  artifactKey: Guid(6b887a70320388f48afb3b5afb0da6ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/TowerStoneDoor.fbx using Guid(6b887a70320388f48afb3b5afb0da6ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81c00b4560df9e254171ee67b7a97bc7') in 0.057251 seconds 
+  Import took 0.065011 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000190 seconds.
+  path: Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/CrumblingTileA.png
+  artifactKey: Guid(413b9fc9a7ce5f14eb6dde55afcbef23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/CrumblingTileA.png using Guid(413b9fc9a7ce5f14eb6dde55afcbef23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e5d72adeb5db2760b99d304499828ae') in 0.010292 seconds 
+  Import took 0.018058 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 66.023391 seconds.
+  path: Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/AlgaeBush.fbx
+  artifactKey: Guid(aa7bc237f20032e49b1485b8d01e68be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/AlgaeBush.fbx using Guid(aa7bc237f20032e49b1485b8d01e68be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a959f2d0b20e0b19cf297d6aa610f262') in 0.053354 seconds 
+  Import took 0.062441 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000172 seconds.
+  path: Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/SeaWeed.png
+  artifactKey: Guid(48ef15c35de6c8746928e03286122b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/SeaWeed.png using Guid(48ef15c35de6c8746928e03286122b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da1b730697acef098fd0c2bd3d0917bd') in 0.010148 seconds 
+  Import took 0.017420 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 32.500643 seconds.
+  path: Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/SeaWeed.png
+  artifactKey: Guid(48ef15c35de6c8746928e03286122b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/SeaWeed.png using Guid(48ef15c35de6c8746928e03286122b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '733844f14f59889de62ade9b8ca5b6a4') in 0.011641 seconds 
+  Import took 0.021616 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.300085 seconds.
+  path: Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/SeaWeed.png
+  artifactKey: Guid(48ef15c35de6c8746928e03286122b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/SeaWeed.png using Guid(48ef15c35de6c8746928e03286122b83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e148b44e55e676a22e956ec930ce7c1') in 0.015956 seconds 
+  Import took 0.025668 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.976047 seconds.
+  path: Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/CrumblingRoomMaterial.mat
+  artifactKey: Guid(57f0e76cc23757c44af5ad72720d981c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/CrumblingRoomMaterial.mat using Guid(57f0e76cc23757c44af5ad72720d981c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3547ba4dd73c292ad83cf0028b9221cc') in 0.038817 seconds 
+  Import took 0.048336 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 27.034190 seconds.
+  path: Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/CrumblingPlatformMaterial_v1.mat
+  artifactKey: Guid(e45ebce1d7b928149ab46e89f7a87a6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/CrumblingPlatformMaterial_v1.mat using Guid(e45ebce1d7b928149ab46e89f7a87a6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47a2a3f8a149a173af96acb742df91b2') in 0.039448 seconds 
+  Import took 0.049181 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000232 seconds.
+  path: Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/CrumblingRoomMaterial.mat
+  artifactKey: Guid(57f0e76cc23757c44af5ad72720d981c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/CrumblingRoomMaterial.mat using Guid(57f0e76cc23757c44af5ad72720d981c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a90818cdb93209b3f9b61dd08cc29f7') in 0.046982 seconds 
+  Import took 0.056061 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 19.655693 seconds.
+  path: Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/CrumblingPlatformMaterial_v2.mat
+  artifactKey: Guid(e45ebce1d7b928149ab46e89f7a87a6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/CrumblingPlatformMaterial_v2.mat using Guid(e45ebce1d7b928149ab46e89f7a87a6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '178aa1d535ab01f5ee356d13d256aba4') in 0.034340 seconds 
+  Import took 0.043972 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.994242 seconds.
+  path: Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/CrumblingPlatformMaterial_v1.mat
+  artifactKey: Guid(36a79e0695fc80443880320172961b3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/CrumblingPlatformMaterial_v1.mat using Guid(36a79e0695fc80443880320172961b3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06a6ef799e72eb24eab854c2cbd0982d') in 0.035925 seconds 
+  Import took 0.045281 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 26.807875 seconds.
+  path: Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/SeaweedMaterial.mat
+  artifactKey: Guid(329dd02a09b68e347b13291e4c1478f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/SeaweedMaterial.mat using Guid(329dd02a09b68e347b13291e4c1478f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e559fed26ee6c275978eb3375d302e8e') in 0.036771 seconds 
+  Import took 0.045831 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 44.100309 seconds.
+  path: Assets/Scenes
+  artifactKey: Guid(c7e13129670e72046b608c4de15e8c42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes using Guid(c7e13129670e72046b608c4de15e8c42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd774b18fe743dfd85fe6c7e9850825ca') in 0.004824 seconds 
+  Import took 0.013759 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.136819 seconds.
+  path: Assets/Scenes/TowerEntrance_Puzzle_1
+  artifactKey: Guid(884a78ad12f1f464aa8724c206efec34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/TowerEntrance_Puzzle_1 using Guid(884a78ad12f1f464aa8724c206efec34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '13d34bea00d31f40a050310a1611b2ff') in 0.004989 seconds 
+  Import took 0.013720 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.677592 seconds.
+  path: Assets/Scenes/Tower
+  artifactKey: Guid(9eadfc0ea78e70b4495566c4cf02f42d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Tower using Guid(9eadfc0ea78e70b4495566c4cf02f42d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '375828f6baa2e255673c453c47c06b7c') in 0.004884 seconds 
+  Import took 0.013632 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.033986 seconds.
+  path: Assets/Scenes/Tower/TowerEntrance_Puzzle_1/TowerEntrance_Puzzle_1.unity
+  artifactKey: Guid(5300c8b882beb634390a20e8f8918ccf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Tower/TowerEntrance_Puzzle_1/TowerEntrance_Puzzle_1.unity using Guid(5300c8b882beb634390a20e8f8918ccf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6bc7c732b1bb2c65e264514641ea5447') in 0.005349 seconds 
+  Import took 0.014501 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 671.137571 seconds.
+  path: Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/TowerStoneStaircase.fbx
+  artifactKey: Guid(a1a2af05a0cf0854ab952a204bed009c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/TowerStoneStaircase.fbx using Guid(a1a2af05a0cf0854ab952a204bed009c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bfc81621746c2b29f04a1ece73a1b3eb') in 0.054794 seconds 
+  Import took 0.064551 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 256.033119 seconds.
+  path: Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/TowerStoneStaircase.fbx
+  artifactKey: Guid(a1a2af05a0cf0854ab952a204bed009c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/TowerStoneStaircase.fbx using Guid(a1a2af05a0cf0854ab952a204bed009c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd938552ca168f41f12cde91da3055fa6') in 0.055171 seconds 
+  Import took 0.064168 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 917.290576 seconds.
+  path: Assets/Characters/Clip
+  artifactKey: Guid(0b4914800d3f138438f03231304c671a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Clip using Guid(0b4914800d3f138438f03231304c671a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7893f84ff557fb58cea8bf0aedd2b67') in 0.006294 seconds 
+  Import took 0.016206 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.205212 seconds.
+  path: Assets/Characters/Clip/ClipRoot.prefab
+  artifactKey: Guid(ec3477589ad645a488aa7bce2079eff7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Characters/Clip/ClipRoot.prefab using Guid(ec3477589ad645a488aa7bce2079eff7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd75f48326c39fba08ff789092e63926') in 0.060660 seconds 
+  Import took 0.070063 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.006757 seconds.
+Registered in 0.006971 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.46 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 1.44 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.422 seconds
+- Completed reload, in  1.377 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1423ms)
-		BeginReloadAssembly (190ms)
+	ReloadAssembly (1377ms)
+		BeginReloadAssembly (191ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (23ms)
+			DisableScriptedObjects (27ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (51ms)
-		EndReloadAssembly (1178ms)
-			LoadAssemblies (86ms)
+			CreateAndSetChildDomain (54ms)
+		EndReloadAssembly (1133ms)
+			LoadAssemblies (85ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (335ms)
+			SetupTypeCache (322ms)
 			ReleaseScriptCaches (3ms)
-			RebuildScriptCaches (79ms)
-			SetupLoadedEditorAssemblies (473ms)
+			RebuildScriptCaches (76ms)
+			SetupLoadedEditorAssemblies (451ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (131ms)
-				ProcessInitializeOnLoadAttributes (301ms)
-				ProcessInitializeOnLoadMethodAttributes (30ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (129ms)
+				ProcessInitializeOnLoadAttributes (284ms)
+				ProcessInitializeOnLoadMethodAttributes (28ms)
 				AfterProcessingInitializeOnLoad (5ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (8ms)
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.59 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5712 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 268.5 MB.
-System memory in use after: 268.6 MB.
-
-Unloading 60 unused Assets to reduce memory usage. Loaded Objects now: 6718.
-Total: 7.948600 ms (FindLiveObjects: 0.635100 ms CreateObjectMapping: 0.171600 ms MarkObjects: 6.970200 ms  DeleteObjects: 0.170000 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 2554.603414 seconds.
-  path: Assets/OverworldPrefab/CommonObjects
-  artifactKey: Guid(f084a4d176473224bbcfecbfd6d67966) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/OverworldPrefab/CommonObjects using Guid(f084a4d176473224bbcfecbfd6d67966) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87bb7a79712db41352038436e279bfc0') in 0.013516 seconds 
-  Import took 0.023410 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.610528 seconds.
-  path: Assets/OverworldPrefab/Managers
-  artifactKey: Guid(bde8ece1d958fbb43a65bfce1bb7ba79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/OverworldPrefab/Managers using Guid(bde8ece1d958fbb43a65bfce1bb7ba79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aea1166328e2f1418cb238c9a507f464') in 0.005906 seconds 
-  Import took 0.014728 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.473287 seconds.
-  path: Assets/OverworldPrefab/CharacterScripts
-  artifactKey: Guid(a020e0e402cb0fd48bed59cdcdafcf23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/OverworldPrefab/CharacterScripts using Guid(a020e0e402cb0fd48bed59cdcdafcf23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1678fdfddeab6a52932f07153404b605') in 0.004980 seconds 
-  Import took 0.014069 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.349079 seconds.
-  path: Assets/OverworldPrefab/CommonObjects/Barricade
-  artifactKey: Guid(994601a8145865e42a7b6c307281177e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/OverworldPrefab/CommonObjects/Barricade using Guid(994601a8145865e42a7b6c307281177e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8352ff20670e2dead6dd8fb282c5050d') in 0.006065 seconds 
-  Import took 0.015202 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.107916 seconds.
-  path: Assets/OverworldPrefab/CommonObjects/Barricade/BrokenBoards.prefab
-  artifactKey: Guid(670bd6ec35e612e489b4b16b309a81a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/OverworldPrefab/CommonObjects/Barricade/BrokenBoards.prefab using Guid(670bd6ec35e612e489b4b16b309a81a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9728ae5ce358ba45531633c1b896160d') in 0.530577 seconds 
-  Import took 0.540691 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000170 seconds.
-  path: Assets/OverworldPrefab/CommonObjects/Barricade/BrokenBoardsBroken.prefab
-  artifactKey: Guid(d152bdde2ef7a3d4494ab0219b612abf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/OverworldPrefab/CommonObjects/Barricade/BrokenBoardsBroken.prefab using Guid(d152bdde2ef7a3d4494ab0219b612abf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '952c95ec9c45df17a5c6d5e6d7b30ecb') in 0.038851 seconds 
-  Import took 0.048965 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000181 seconds.
-  path: Assets/OverworldPrefab/CommonObjects/Barricade/LooseBoardsSolid.fbx
-  artifactKey: Guid(27d8ad5867b0a9548a049f3550170330) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/OverworldPrefab/CommonObjects/Barricade/LooseBoardsSolid.fbx using Guid(27d8ad5867b0a9548a049f3550170330) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b3cc29b53fb34e4308807c5cb1b1d96e') in 0.081619 seconds 
-  Import took 0.089911 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000198 seconds.
-  path: Assets/OverworldPrefab/CommonObjects/Barricade/LooseBoards.fbx
-  artifactKey: Guid(4cd3f583158eaaa4c89a3951f7edbe90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/OverworldPrefab/CommonObjects/Barricade/LooseBoards.fbx using Guid(4cd3f583158eaaa4c89a3951f7edbe90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fff04ee26dc9ba313c8f89b4e68428bf') in 1.147322 seconds 
-  Import took 1.157940 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.959547 seconds.
-  path: Assets/OverworldPrefab
-  artifactKey: Guid(055f181439149d54ebdc397087bb31c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/OverworldPrefab using Guid(055f181439149d54ebdc397087bb31c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d28933fc8c4ef9e7b69fb46c5e2f43f') in 0.005310 seconds 
-  Import took 0.014436 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 8.009864 seconds.
-  path: Assets/OverworldPrefab/OverworldSetPieces
-  artifactKey: Guid(a17de7b4a683a8f429e9a10d09538f1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/OverworldPrefab/OverworldSetPieces using Guid(a17de7b4a683a8f429e9a10d09538f1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '269d430b0158f2eaa361cfaab5d35fad') in 0.005192 seconds 
-  Import took 0.014658 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000867 seconds.
-  path: Assets/OverworldPrefab/OverworldSetPieces
-  artifactKey: Guid(a17de7b4a683a8f429e9a10d09538f1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/OverworldPrefab/OverworldSetPieces using Guid(a17de7b4a683a8f429e9a10d09538f1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '269d430b0158f2eaa361cfaab5d35fad') in 0.002062 seconds 
-  Import took 0.011586 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 12.410576 seconds.
-  path: Assets/OverworldPrefab/OverworldSetPieces/IronFence.fbx
-  artifactKey: Guid(dc843f78099ac1d40a9c2a3903a77bca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/OverworldPrefab/OverworldSetPieces/IronFence.fbx using Guid(dc843f78099ac1d40a9c2a3903a77bca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '049a0ef68d42df39c87d463f0879d444') in 0.072166 seconds 
-  Import took 0.081895 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 67.931126 seconds.
-  path: Assets/OverworldPrefab/OverworldSetPieces/IronFence.fbx
-  artifactKey: Guid(dc843f78099ac1d40a9c2a3903a77bca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/OverworldPrefab/OverworldSetPieces/IronFence.fbx using Guid(dc843f78099ac1d40a9c2a3903a77bca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9559d96b43c3a5f09405f998c2d23e4f') in 0.065286 seconds 
-  Import took 0.074996 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000197 seconds.
-  path: Assets/OverworldPrefab/OverworldSetPieces/IronFenceTexture.png
-  artifactKey: Guid(28fb02f6debfede42b094f235e4931b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/OverworldPrefab/OverworldSetPieces/IronFenceTexture.png using Guid(28fb02f6debfede42b094f235e4931b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7ee17bdd3f23732beb93f990bac35a7') in 0.024486 seconds 
-  Import took 0.033111 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 12.391227 seconds.
-  path: Assets/OverworldPrefab/OverworldSetPieces/IronFenceMaterial.mat
-  artifactKey: Guid(eb189e45fc01828489d885ce122bf048) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/OverworldPrefab/OverworldSetPieces/IronFenceMaterial.mat using Guid(eb189e45fc01828489d885ce122bf048) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f04ddb72b38075d737c5f5346701ebed') in 0.030194 seconds 
-  Import took 0.041154 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 39.489613 seconds.
-  path: Assets/OverworldPrefab/OverworldSetPieces/New Material.mat
-  artifactKey: Guid(233dc35c0418291489aa197582a0efea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/OverworldPrefab/OverworldSetPieces/New Material.mat using Guid(233dc35c0418291489aa197582a0efea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0d20c66fab0b8071965131182d24dd9') in 0.032965 seconds 
-  Import took 0.042883 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 59.071275 seconds.
-  path: Assets/OverworldPrefab/OverworldSetPieces/IronFenceShader.shadergraph
-  artifactKey: Guid(b60d0e33d74edfb42916ba1f4cd80239) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/OverworldPrefab/OverworldSetPieces/IronFenceShader.shadergraph using Guid(b60d0e33d74edfb42916ba1f4cd80239) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93185b2df73e6db98fa808458454911c') in 0.008608 seconds 
-  Import took 0.017889 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 120.051213 seconds.
-  path: Assets/OverworldPrefab/OverworldSetPieces/IronFenceTexture.png
-  artifactKey: Guid(28fb02f6debfede42b094f235e4931b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/OverworldPrefab/OverworldSetPieces/IronFenceTexture.png using Guid(28fb02f6debfede42b094f235e4931b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a461928c914caf0114fee4a93dd3782') in 0.014878 seconds 
-  Import took 0.023995 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 8.994577 seconds.
-  path: Assets/OverworldPrefab/OverworldSetPieces/IronFenceMaterial.mat
-  artifactKey: Guid(eb189e45fc01828489d885ce122bf048) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/OverworldPrefab/OverworldSetPieces/IronFenceMaterial.mat using Guid(eb189e45fc01828489d885ce122bf048) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '669ee55784dfdba92525b07c79c8f231') in 0.030733 seconds 
-  Import took 0.040330 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 165.908085 seconds.
-  path: Assets/OverworldPrefab/OverworldSetPieces/IronFenceTextureNormal.png
-  artifactKey: Guid(4cdc036f24cb9b448858cfd9760ad2ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/OverworldPrefab/OverworldSetPieces/IronFenceTextureNormal.png using Guid(4cdc036f24cb9b448858cfd9760ad2ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47c8c641460840bd92b40c589333d514') in 0.012381 seconds 
-  Import took 0.022266 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.002146 seconds.
-  path: Assets/OverworldPrefab/OverworldSetPieces/IronFenceTextureNormal.png
-  artifactKey: Guid(4cdc036f24cb9b448858cfd9760ad2ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/OverworldPrefab/OverworldSetPieces/IronFenceTextureNormal.png using Guid(4cdc036f24cb9b448858cfd9760ad2ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47c8c641460840bd92b40c589333d514') in 0.018204 seconds 
-  Import took 0.026969 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 263.358113 seconds.
-  path: Assets/OverworldPrefab/OverworldSetPieces/IronFence 1.fbx
-  artifactKey: Guid(6edc9f0da4a22ad46839a18394a45fcd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/OverworldPrefab/OverworldSetPieces/IronFence 1.fbx using Guid(6edc9f0da4a22ad46839a18394a45fcd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c92973834aa10beb25557494beaa8d7') in 0.072256 seconds 
-  Import took 0.082377 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.007101 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.48 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.376 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1377ms)
-		BeginReloadAssembly (161ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (36ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (53ms)
-		EndReloadAssembly (1161ms)
-			LoadAssemblies (94ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (337ms)
-			ReleaseScriptCaches (4ms)
-			RebuildScriptCaches (81ms)
-			SetupLoadedEditorAssemblies (461ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (128ms)
-				ProcessInitializeOnLoadAttributes (294ms)
-				ProcessInitializeOnLoadMethodAttributes (29ms)
-				AfterProcessingInitializeOnLoad (5ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (15ms)
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Refreshing native plugins compatible for Editor in 1.49 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5699 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 269.9 MB.
-System memory in use after: 270.0 MB.
+Unloading 5712 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 269.4 MB.
+System memory in use after: 269.5 MB.
 
-Unloading 60 unused Assets to reduce memory usage. Loaded Objects now: 6861.
-Total: 8.096200 ms (FindLiveObjects: 0.705200 ms CreateObjectMapping: 0.166900 ms MarkObjects: 7.030300 ms  DeleteObjects: 0.192800 ms)
+Unloading 60 unused Assets to reduce memory usage. Loaded Objects now: 6725.
+Total: 7.984300 ms (FindLiveObjects: 0.636500 ms CreateObjectMapping: 0.163600 ms MarkObjects: 7.003700 ms  DeleteObjects: 0.179000 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -525,74 +452,58 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 196.271570 seconds.
-  path: Assets/OverworldPrefab/OverworldSetPieces/IronFence.prefab
-  artifactKey: Guid(bc156a4c5f89fb242badcaa5a27852d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/OverworldPrefab/OverworldSetPieces/IronFence.prefab using Guid(bc156a4c5f89fb242badcaa5a27852d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb4e1c02ab451838ff0ec690a894e75d') in 0.041382 seconds 
-  Import took 0.050821 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.751260 seconds.
-  path: Assets/OverworldPrefab/OverworldSetPieces/IronFencePrefab.prefab
-  artifactKey: Guid(bc156a4c5f89fb242badcaa5a27852d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/OverworldPrefab/OverworldSetPieces/IronFencePrefab.prefab using Guid(bc156a4c5f89fb242badcaa5a27852d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a55039f684bcfe06e88df3cd45fd6156') in 0.008718 seconds 
-  Import took 0.017333 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 10.377995 seconds.
-  path: Assets/OverworldPrefab/OverworldSetPieces/IronFence.fbx
-  artifactKey: Guid(6edc9f0da4a22ad46839a18394a45fcd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/OverworldPrefab/OverworldSetPieces/IronFence.fbx using Guid(6edc9f0da4a22ad46839a18394a45fcd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f2ef053f852cba103ea54f9cd7f7d22') in 0.533530 seconds 
-  Import took 0.543595 seconds .
+  Time since last request: 189.113180 seconds.
+  path: Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/SeaweedMaterial.mat
+  artifactKey: Guid(329dd02a09b68e347b13291e4c1478f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/OverworldPrefab/OverworldSetPieces/TowerAssets/SeaweedMaterial.mat using Guid(329dd02a09b68e347b13291e4c1478f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a92be5961ff1b3d8928399d9fd04703e') in 0.526508 seconds 
+  Import took 0.536658 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.007493 seconds.
+Registered in 0.007133 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.58 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 1.56 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.488 seconds
+- Completed reload, in  1.383 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1489ms)
-		BeginReloadAssembly (146ms)
+	ReloadAssembly (1383ms)
+		BeginReloadAssembly (157ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (27ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (50ms)
-		EndReloadAssembly (1287ms)
-			LoadAssemblies (95ms)
+			CreateAndSetChildDomain (55ms)
+		EndReloadAssembly (1168ms)
+			LoadAssemblies (98ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (374ms)
+			SetupTypeCache (337ms)
 			ReleaseScriptCaches (3ms)
-			RebuildScriptCaches (85ms)
-			SetupLoadedEditorAssemblies (527ms)
+			RebuildScriptCaches (76ms)
+			SetupLoadedEditorAssemblies (466ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
+				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (143ms)
-				ProcessInitializeOnLoadAttributes (339ms)
-				ProcessInitializeOnLoadMethodAttributes (33ms)
-				AfterProcessingInitializeOnLoad (6ms)
+				BeforeProcessingInitializeOnLoad (129ms)
+				ProcessInitializeOnLoadAttributes (297ms)
+				ProcessInitializeOnLoadMethodAttributes (29ms)
+				AfterProcessingInitializeOnLoad (5ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (20ms)
+			AwakeInstancesAfterBackupRestoration (16ms)
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.59 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 1.45 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 5699 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 269.9 MB.
-System memory in use after: 270.1 MB.
+System memory in use before: 269.3 MB.
+System memory in use after: 269.4 MB.
 
-Unloading 60 unused Assets to reduce memory usage. Loaded Objects now: 6998.
-Total: 8.779800 ms (FindLiveObjects: 0.722500 ms CreateObjectMapping: 0.162700 ms MarkObjects: 7.676600 ms  DeleteObjects: 0.216700 ms)
+Unloading 60 unused Assets to reduce memory usage. Loaded Objects now: 6862.
+Total: 7.872700 ms (FindLiveObjects: 0.611200 ms CreateObjectMapping: 0.155600 ms MarkObjects: 6.901400 ms  DeleteObjects: 0.203200 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -604,12 +515,4 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 150.943800 seconds.
-  path: Assets/OverworldPrefab/OverworldSetPieces/IronFenceMaterial.mat
-  artifactKey: Guid(eb189e45fc01828489d885ce122bf048) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/OverworldPrefab/OverworldSetPieces/IronFenceMaterial.mat using Guid(eb189e45fc01828489d885ce122bf048) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc44fc59c082533541ccfa80dfd010d6') in 0.645165 seconds 
-  Import took 0.655566 seconds .
-
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
