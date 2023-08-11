@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class movesetContainer : MonoBehaviour
 {
-    public GameObject[] moves;
-    public Sprite[] sprites;
+    public List<GameObject> moves = new List<GameObject>();
+    public List<Sprite> sprites = new List<Sprite>();
 
     private void Awake()
     {

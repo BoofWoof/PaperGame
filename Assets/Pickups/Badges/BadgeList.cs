@@ -27,6 +27,7 @@ public class BadgeList : MonoBehaviour
     private int xcord = 0;
     private int ycord = 0;
     private float movementDelay = 0;
+    private float movementDelayTrigger = 0.25f;
 
     //Description
     public GameObject itemDescriptions;
@@ -52,7 +53,7 @@ public class BadgeList : MonoBehaviour
         controls.OverworldControls.Enable();
         clearItems();
         generateItems();
-        generateItems();
+        movementDelay = movementDelayTrigger;
     }
 
     private void OnDisable()
@@ -87,7 +88,17 @@ public class BadgeList : MonoBehaviour
 
     public void generateItems()
     {
-        badgeList = equipmentProcessor(GameDataTracker.playerData.UnlockedEquipmentID);
+        GameDataTracker.playerData.UnlockedEquipmentID.Sort();
+        badgeList = GameDataTracker.playerData.UnlockedEquipmentID;
+
+        foreach (int debug_value in GameDataTracker.playerData.UnlockedEquipmentID)
+        {
+            Debug.Log(debug_value);
+        }
+        foreach (int debug_value in GameDataTracker.playerData.EquipedEquipmentID)
+        {
+            Debug.Log(debug_value);
+        }
 
         for (int i = 0; i < visibleRows; i++)
         {
@@ -106,8 +117,8 @@ public class BadgeList : MonoBehaviour
                 }
                 else
                 {
-                    NewImage.sprite = BadgeMapping.badgeMap[badgeList[itemIdx]].GetComponent<BadgeTemplate>().sprite;
-                    if (GameDataTracker.playerData.EquipedEquipmentID[badgeList[itemIdx]])
+                    NewImage.sprite = BadgeMapping.getBadge(badgeList[itemIdx]).GetComponent<BadgeTemplate>().sprite;
+                    if (GameDataTracker.playerData.EquipedEquipmentID.Contains(badgeList[itemIdx]))
                     {
                         NewImage.color = new Color32(255, 255, 255, 255);
                     } else
@@ -125,19 +136,6 @@ public class BadgeList : MonoBehaviour
             }
             gameObjectRow.Add(gameObjectCol);
         }
-    }
-
-    List<int> equipmentProcessor(bool[] UnlockedEquipmentID)
-    {
-        List<int> trueIndexes = new List<int>();
-        for (int i = 0; i < UnlockedEquipmentID.Length; i++)
-        {
-            if (UnlockedEquipmentID[i])
-            {
-                trueIndexes.Add(i);
-            }
-        }
-        return trueIndexes;
     }
 
     // Update is called once per frame
@@ -164,20 +162,20 @@ public class BadgeList : MonoBehaviour
         int itemIdx = ycord * visibleColumns + xcord;
         if(itemIdx < badgeList.Count)
         {
-            BadgeTemplate badge = BadgeMapping.badgeMap[badgeList[itemIdx]].GetComponent<BadgeTemplate>();
+            BadgeTemplate badge = BadgeMapping.getBadge(badgeList[itemIdx]).GetComponent<BadgeTemplate>();
             string itemName = badge.name;
             string itemDescription = badge.itemDescription;
 
             descriptionText.text = itemName + ": " + itemDescription;
             if (controls.OverworldControls.MainAction.triggered)
             {
-                if (movementDelay > 0.25)
+                if (movementDelay > movementDelayTrigger)
                 {
-                    if (!GameDataTracker.playerData.EquipedEquipmentID[badgeList[itemIdx]])
+                    if (!GameDataTracker.playerData.EquipedEquipmentID.Contains(badgeList[itemIdx]))
                     {
                         if (GameDataTracker.playerData.CurrentBadgePoints > badge.badgeCost)
                         {
-                            GameDataTracker.playerData.EquipedEquipmentID[badgeList[itemIdx]] = !GameDataTracker.playerData.EquipedEquipmentID[badgeList[itemIdx]];
+                            GameDataTracker.playerData.EquipedEquipmentID.Add(badgeList[itemIdx]);
                             gameObjectRow[ycord][xcord].GetComponent<Image>().color = new Color32(255, 255, 255, 255);
                             badge.OnEquip();
                             GameDataTracker.playerData.CurrentBadgePoints -= badge.badgeCost;
@@ -186,7 +184,7 @@ public class BadgeList : MonoBehaviour
 
                     } else
                     {
-                        GameDataTracker.playerData.EquipedEquipmentID[badgeList[itemIdx]] = !GameDataTracker.playerData.EquipedEquipmentID[badgeList[itemIdx]];
+                        GameDataTracker.playerData.EquipedEquipmentID.Remove(badgeList[itemIdx]);
                         gameObjectRow[ycord][xcord].GetComponent<Image>().color = new Color32(125, 125, 125, 125);
                         badge.OnUnequip();
                         GameDataTracker.playerData.CurrentBadgePoints += badge.badgeCost;

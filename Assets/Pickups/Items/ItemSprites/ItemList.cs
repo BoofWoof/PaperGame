@@ -89,7 +89,7 @@ public class ItemList : MonoBehaviour
                 }
                 else
                 {
-                    ItemTemplate item = ItemMapping.itemMap[itemList[itemIdx]].GetComponent<ItemTemplate>();
+                    ItemTemplate item = ItemMapping.getItem(itemList[itemIdx]).GetComponent<ItemTemplate>();
                     NewImage.sprite = item.itemImage;
                 }
                 NewObj.transform.SetParent(transform, false);
@@ -128,7 +128,7 @@ public class ItemList : MonoBehaviour
         int itemIdx = ycord * visibleColumns + xcord;
         if(itemIdx < itemList.Count)
         {
-            ItemTemplate item = ItemMapping.itemMap[itemList[itemIdx]].GetComponent<ItemTemplate>();
+            ItemTemplate item = ItemMapping.getItem(itemList[itemIdx]).GetComponent<ItemTemplate>();
             string itemName = item.name;
             string itemDescription = item.itemDescription;
 
@@ -137,7 +137,7 @@ public class ItemList : MonoBehaviour
             {
                 if (movementDelay > 0.25)
                 {
-                    ItemMapping.itemMap[itemList[itemIdx]].GetComponent<ItemTemplate>().OverWorldUse(itemIdx);
+                    ItemMapping.getItem(itemList[itemIdx]).GetComponent<ItemTemplate>().OverWorldUse(itemIdx);
                     clearItems();
                     generateItems();
                     movementDelay = 0;

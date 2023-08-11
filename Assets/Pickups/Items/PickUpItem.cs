@@ -30,7 +30,7 @@ public class PickUpItem : MonoBehaviour
             Destroy(gameObject);
         }
         SpriteRenderer SR = gameObject.GetComponent<SpriteRenderer>();
-        SR.sprite = ItemMapping.itemMap[ItemID].GetComponent<ItemTemplate>().itemImage;
+        SR.sprite = ItemMapping.getItem(ItemID).GetComponent<ItemTemplate>().itemImage;
     }
 
     private void OnTriggerEnter(Collider trig)

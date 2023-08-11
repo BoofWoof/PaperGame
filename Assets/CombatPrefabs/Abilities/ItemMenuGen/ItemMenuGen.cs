@@ -19,13 +19,13 @@ public class ItemMenuGen : moveTemplate
             inventory.Add(1);
         }
 
-        Sprite[] itemSprite = new Sprite[inventory.Count];
-        GameObject[] moveArray = new GameObject[inventory.Count];
+        List<Sprite> itemSprite = new List<Sprite>();
+        List<GameObject> moveList = new List<GameObject>();
         for (int inv_idx = 0; inv_idx < inventory.Count; inv_idx++)
         {
-            GameObject item = ItemMapping.itemMap[inventory[inv_idx]];
-            itemSprite[inv_idx] = item.GetComponent<ItemTemplate>().itemImage;
-            moveArray[inv_idx] = item;
+            GameObject item = ItemMapping.getItem(inventory[inv_idx]);
+            itemSprite.Add(item.GetComponent<ItemTemplate>().itemImage);
+            moveList.Add(item);
         }
 
         FighterClass stats = character.GetComponent<FighterClass>();
@@ -33,7 +33,7 @@ public class ItemMenuGen : moveTemplate
         menu.characterTarget = character;
         menu.characterHeight = stats.CharacterHeight;
         menu.characterWidth = stats.CharacterWidth;
-        menu.movesList = moveArray;
+        menu.movesList = moveList;
         menu.spriteList = itemSprite;
 
         GameDataTracker.combatExecutor.AddMenu(menu);

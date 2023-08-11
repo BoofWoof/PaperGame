@@ -72,6 +72,9 @@ public class CombatExecutor : GridManager
 
         Load(_containerCache);
 
+        //AddBadgeAbilities
+        AddBadgeAbilities();
+
         //Update Clip And Partner Stats
         UpdateHealth();
 
@@ -92,6 +95,19 @@ public class CombatExecutor : GridManager
         }
         //Set Camera Position
         SetCameraToWorld();
+    }
+    void AddBadgeAbilities()
+    {
+        foreach (int id in GameDataTracker.playerData.EquipedEquipmentID)
+        {
+            BadgeTemplate badge = BadgeMapping.getBadge(id).GetComponent<BadgeTemplate>();
+            if (badge.ability)
+            {
+                movesetContainer msc = Clip.GetComponent<movesetContainer>();
+                msc.moves.Add(badge.ability);
+                msc.sprites.Add(badge.sprite);
+            }
+        }
     }
 
     // Update is called once per frame

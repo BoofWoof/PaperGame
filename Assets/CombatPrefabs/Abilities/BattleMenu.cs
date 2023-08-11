@@ -13,8 +13,8 @@ public class BattleMenu : ScriptableObject
     public float characterWidth;
 
     //Move List
-    public GameObject[] movesList;
-    public Sprite[] spriteList;
+    public List<GameObject> movesList;
+    public List<Sprite> spriteList;
     private GameObject[] spriteObjects;
 
     //Frequently Used Info
@@ -50,7 +50,7 @@ public class BattleMenu : ScriptableObject
 
     public void Activate()
     {
-        moveCount = movesList.Length;
+        moveCount = movesList.Count;
         spriteObjects = new GameObject[moveCount];
         centerPoint = new Vector3(characterTarget.transform.position.x - characterWidth, characterTarget.transform.position.y + characterHeight + 0.3f, characterTarget.transform.position.z - 0.2f);
 

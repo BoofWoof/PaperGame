@@ -30,7 +30,7 @@ public class PickUpBadge : MonoBehaviour
             Destroy(gameObject);
         }
         SpriteRenderer SR = gameObject.GetComponent<SpriteRenderer>();
-        SR.sprite = BadgeMapping.badgeMap[BadgeID].GetComponent<BadgeTemplate>().sprite;
+        SR.sprite = BadgeMapping.getBadge(BadgeID).GetComponent<BadgeTemplate>().sprite;
     }
 
     private void OnTriggerEnter(Collider trig)

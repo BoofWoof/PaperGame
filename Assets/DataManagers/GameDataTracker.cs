@@ -149,7 +149,9 @@ public class GameDataTracker : MonoBehaviour
 
     public static void AddBadge(int id)
     {
-        playerData.UnlockedEquipmentID[id] = true;
+        if (!playerData.UnlockedEquipmentID.Contains(id)){
+            playerData.UnlockedEquipmentID.Add(id);
+        }
     }
 
     public static void ChangeHealth(int amount)
@@ -236,13 +238,13 @@ public class PlayerData
     public int MaxBadgePoints = 3;
     public int CurrentBadgePoints = 3;
 
-    public bool[] UnlockedEquipmentID = new bool[128];
-    public bool[] EquipedEquipmentID = new bool[128];
+    public List<int> UnlockedEquipmentID = new List<int>();
+    public List<int> EquipedEquipmentID = new List<int>();
 
     //Challenges -- Every challenge has a unique ID.
-    public bool[] UnlockedChallengeID = new bool[128];
-    public bool[] EquipedChallengeID = new bool[128];
-    public bool[] CompletedChallengeID = new bool[128];
+    public List<int> UnlockedChallengeID = new List<int>();
+    public List<int> EquipedChallengeID = new List<int>();
+    public List<int> CompletedChallengeID = new List<int>();
 
     //ItemsList -- Every Item has an ID.  A value can appear on the list multiple times.
     public List<int> Inventory = new List<int>();

@@ -178,7 +178,7 @@ public class FighterClass : CombatObject
     {
         if (attack is null)
         {
-            int moveIndex = Random.Range(0, moveContainer.moves.Length);
+            int moveIndex = Random.Range(0, moveContainer.moves.Count);
             attack = moveContainer.moves[moveIndex].GetComponent<moveTemplate>();
             return attack;
         } else
